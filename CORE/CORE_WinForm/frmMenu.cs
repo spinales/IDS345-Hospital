@@ -28,5 +28,12 @@ namespace CORE_WinForm
             frmPacientes.MdiParent = this;
             frmPacientes.Show();
         }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios_CREAR frmUsuarios = new frmUsuarios_CREAR();
+            frmUsuarios.MdiParent = this;
+            frmUsuarios.Show();
+        }
     }
 }

@@ -32,12 +32,13 @@
             // 
             // frmPacientes_CREAR
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 497);
+            this.ClientSize = new System.Drawing.Size(614, 404);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmPacientes_CREAR";
             this.ShowIcon = false;
-            this.Text = "frmPacientes_CREAR";
+            this.Text = "Crear Paciente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
