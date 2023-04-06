@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Modelos
 {
@@ -13,17 +14,21 @@ namespace Modelos
         
         public bool Estado { get; set; }
         public char Sexo { get; set; }
-        
-        [Column(TypeName = "VARCHAR(100)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)] 
         public string Nombre { get; set; }
-        
-        [Column(TypeName = "VARCHAR(100)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)] 
         public string Apellido { get; set; }
-        
-        [Column(TypeName = "VARCHAR(100)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)] 
         public string Documento { get; set; }
-        
-        [Column(TypeName = "VARCHAR(10)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)]
         public string Telefono { get; set; }
 
         [ForeignKey("Usuario")]
@@ -51,5 +56,11 @@ namespace Modelos
         public virtual Nacionalidad Nacionalidad { get; set; }
         public virtual RolPersona RolPersona { get; set; }
 
+        public virtual ICollection<Cuenta> Cuentas { get; set; }
+
+        public virtual ICollection<Ingreso> Ingresos { get; set; }
+
+        public virtual ICollection<Factura> Facturas { get; set; }
+        
     }
 }

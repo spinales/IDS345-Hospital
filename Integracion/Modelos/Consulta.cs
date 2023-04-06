@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace Modelos
 {
-    public class Entidad
+    public class Consulta
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int EntidadId { get; set; }
+        [ForeignKey("FacturaServicios")]
+        public int DetalleId { get; set; }
+
+        [ForeignKey("Doctor")]
+        public int DoctorId { get; set; }
 
         [Column(TypeName = "VARCHAR")]
-        [StringLength(200)] 
-        public string Descripcion { get; set; }
+        [StringLength(200)] public string Descripcion { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public DateTime? SendedAt { get; set; }
-        
-        public virtual ICollection<PerfilRole> PerfilesRoles { get; set; }
-
+        public virtual Persona Doctor { get; set; }
+        public virtual FacturaServicios FacturaServicios { get; set; }
     }
 }

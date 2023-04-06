@@ -1,27 +1,30 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
-    public class HistoricoAcciones
+    public class Servicios
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int HistoricoID { get; set; }
+        public int ServicioID { get; set; }
+        
+        [ForeignKey("TipoServicio")]
+        public int TipoServicioID { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Descripcion { get; set; }
-        
-        [ForeignKey("Usuario")]
-        public int UsuarioID { get; set; }
+        public decimal Precio { get; set; }
+        public decimal Impuesto { get; set; }
+        public bool Estado { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public DateTime? SendedAt { get; set; }
-        public virtual Usuario Usuario { get; set; }
+
+        public virtual TipoServicio TipoServicio { get; set; }
 
     }
 }

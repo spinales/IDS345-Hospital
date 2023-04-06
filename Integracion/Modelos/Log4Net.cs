@@ -11,20 +11,24 @@ namespace Modelos
         public int LogID { get; set; }
         
         public DateTime Date { get; set; }
-        
-        [Column(TypeName = "VARCHAR(255)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(255)]
         public string Thread { get; set; }
 
-        [Column(TypeName = "VARCHAR(50)")]
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(50)]
         public string Level { get; set; }
 
-        [Column(TypeName = "VARCHAR(255)")]
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(255)]
         public string Logger { get; set; }
 
-        [Column(TypeName = "VARCHAR(MAX)")]
+        [Column(TypeName = "VARCHAR")]
         public string Message { get; set; }
 
-        [Column(TypeName = "VARCHAR(2000)")]
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(2000)]
         public string Exception { get; set; }
         
     }

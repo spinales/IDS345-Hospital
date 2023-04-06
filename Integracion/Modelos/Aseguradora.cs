@@ -5,25 +5,27 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
-    public class Role
+    public class Aseguradora
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int RoleID { get; set; }
-
+        public int AseguradoraID { get; set; }
+        
         [Column(TypeName = "VARCHAR")]
-        [StringLength(100)]
+        [StringLength(200)]
         public string Nombre { get; set; }
-
         [Column(TypeName = "VARCHAR")]
-        [StringLength(100)]
-        public string Descripcion { get; set; }
-
+        [StringLength(200)]
+        public string Telefono { get; set; }
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(200)]
+        public string Direccion { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public DateTime? SendedAt { get; set; }
-        
-        public virtual ICollection<PerfilRole> PerfilesRoles { get; set; }
+
+        public virtual ICollection<Autorizaciones> Autorizaciones { get; set; }
     }
 }

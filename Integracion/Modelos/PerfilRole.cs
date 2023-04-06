@@ -7,14 +7,17 @@ namespace Modelos
     public class PerfilRole
     {
         [Key]
+        [Column(Order = 1)]
         [ForeignKey("Perfil")]
         public int PerfilID { get; set; }
         
         [Key]
+        [Column(Order = 2)]
         [ForeignKey("Entidad")]
         public int EntidadID { get; set; }
         
         [Key]
+        [Column(Order = 3)]
         [ForeignKey("Role")]
         public int RoleID { get; set; }
         

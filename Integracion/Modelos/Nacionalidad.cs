@@ -11,15 +11,14 @@ namespace Modelos
         [Key]
         public int NacionalidadID { get; set; }
 
-        [Column(TypeName = "VARCHAR(100)")]
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)]
         public string Nombre { get; set; }
-        
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public DateTime? SendedAt { get; set; }
 
-        public virtual ICollection<Persona> Persona { get; set; }
-
+        public virtual ICollection<Persona> Personas { get; set; }
     }
 }

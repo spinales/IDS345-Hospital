@@ -10,14 +10,17 @@ namespace Modelos
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int UsuarioID { get; set; }
-        
-        [Column(TypeName = "VARCHAR(100)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)]
         public string Username { get; set; }
-        
-        [Column(TypeName = "VARCHAR(100)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)]
         public string Password { get; set; }
-        
-        [Column(TypeName = "VARCHAR(100)")]
+
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)]
         public string Email { get; set; }
         
         public bool Estado { get; set; }
@@ -35,7 +38,8 @@ namespace Modelos
 
         public virtual Perfil Perfil { get; set; }
         public virtual Sucursal Sucursal { get; set; }
-
-        public virtual ICollection<Persona> Persona { get; set; }
+        
+        public virtual ICollection<Persona> Personas { get; set; }
+        public virtual ICollection<HistoricoAcciones> HistoricosAcciones { get; set; }
     }
 }

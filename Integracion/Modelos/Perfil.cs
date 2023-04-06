@@ -11,7 +11,8 @@ namespace Modelos
         [Key]
         public int PerfilID { get; set; }
 
-        [Column(TypeName = "VARCHAR(100)")]
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(100)]
         public string Nombre { get; set; }
         
         public DateTime CreatedAt { get; set; } = DateTime.Now;
@@ -19,8 +20,8 @@ namespace Modelos
         public DateTime? DeletedAt { get; set; }
         public DateTime? SendedAt { get; set; }
 
-        public virtual ICollection<PerfilRole> PerfilRole { get; set; }
-        public virtual ICollection<Usuario> Usuario { get; set; }
+        public virtual ICollection<PerfilRole> PerfilesRoles { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; }
 
     }
 }
