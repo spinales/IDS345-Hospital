@@ -4,7 +4,9 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using API.Migrations;
 using Modelos;
 
 namespace API.Services
@@ -14,7 +16,7 @@ namespace API.Services
     {
         public DataService(): base("name=ConnectionString")
         {
-
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataService, Configuration>());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -22,6 +24,17 @@ namespace API.Services
         }
         public async Task<T> GetByIdAsync<T>(params object[] keys) where T : class =>
             await Set<T>().FindAsync(keys);
+        
+        public async Task<List<T>> GetAll<T>(Expression<Func<T, bool>> expression = null,
+            params Expression<Func<T, object>>[] includes) where T : class {
+            var query = Set<T>().Where(expression ?? (_ => true)).AsQueryable();
+            query = includes.Any()
+                ? includes.Aggregate(query, (current, include) => current.Include(include))
+                : query;
+
+            var response = await query.ToListAsync();
+            return response;
+        }
 
         public new async Task<T> Add<T>(T data) where T : class
         {

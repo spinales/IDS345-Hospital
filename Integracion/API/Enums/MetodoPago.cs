@@ -1,0 +1,9 @@
+﻿namespace API.Enums
+{
+    public enum MetodoPago
+    {
+        Cuenta = 1,
+        Tarjeta = 2,
+        Efectivo = 3
+    }
+}

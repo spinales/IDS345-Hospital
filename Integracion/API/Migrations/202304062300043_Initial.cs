@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -36,7 +36,7 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.AutorizacionID)
-                .ForeignKey("dbo.Aseguradora", t => t.AseguradoraID, cascadeDelete: true)
+                .ForeignKey("dbo.Aseguradora", t => t.AseguradoraID, cascadeDelete: false)
                 .Index(t => t.AseguradoraID);
             
             CreateTable(
@@ -62,9 +62,9 @@
                         FacturaID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.DetalleID)
-                .ForeignKey("dbo.Autorizaciones", t => t.AutorizacionID, cascadeDelete: true)
-                .ForeignKey("dbo.Factura", t => t.FacturaID, cascadeDelete: true)
-                .ForeignKey("dbo.Servicios", t => t.ServicioID, cascadeDelete: true)
+                .ForeignKey("dbo.Autorizaciones", t => t.AutorizacionID, cascadeDelete: false)
+                .ForeignKey("dbo.Factura", t => t.FacturaID, cascadeDelete: false)
+                .ForeignKey("dbo.Servicios", t => t.ServicioID, cascadeDelete: false)
                 .Index(t => t.AutorizacionID)
                 .Index(t => t.ServicioID)
                 .Index(t => t.FacturaID);
@@ -91,9 +91,9 @@
                     })
                 .PrimaryKey(t => t.FacturaID)
                 .ForeignKey("dbo.Persona", t => t.Persona_PersonaID)
-                .ForeignKey("dbo.Cuenta", t => t.CuentaID, cascadeDelete: true)
-                .ForeignKey("dbo.Persona", t => t.EmpleadoID, cascadeDelete: true)
-                .ForeignKey("dbo.MetodoPago", t => t.MetodoPagoID, cascadeDelete: true)
+                .ForeignKey("dbo.Cuenta", t => t.CuentaID, cascadeDelete: false)
+                .ForeignKey("dbo.Persona", t => t.EmpleadoID, cascadeDelete: false)
+                .ForeignKey("dbo.MetodoPago", t => t.MetodoPagoID, cascadeDelete: false)
                 .ForeignKey("dbo.Persona", t => t.PacienteID, cascadeDelete: false)
                 .Index(t => t.CuentaID)
                 .Index(t => t.PacienteID)
@@ -139,11 +139,11 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.PersonaID)
-                .ForeignKey("dbo.Nacionalidad", t => t.NacionalidadID, cascadeDelete: true)
-                .ForeignKey("dbo.RolPersona", t => t.RolPersonaID, cascadeDelete: true)
-                .ForeignKey("dbo.TipoDocumento", t => t.TipoDocumentoID, cascadeDelete: true)
-                .ForeignKey("dbo.TipoSangre", t => t.TipoSangreID, cascadeDelete: true)
-                .ForeignKey("dbo.Usuario", t => t.UsuarioID, cascadeDelete: true)
+                .ForeignKey("dbo.Nacionalidad", t => t.NacionalidadID, cascadeDelete: false)
+                .ForeignKey("dbo.RolPersona", t => t.RolPersonaID, cascadeDelete: false)
+                .ForeignKey("dbo.TipoDocumento", t => t.TipoDocumentoID, cascadeDelete: false)
+                .ForeignKey("dbo.TipoSangre", t => t.TipoSangreID, cascadeDelete: false)
+                .ForeignKey("dbo.Usuario", t => t.UsuarioID, cascadeDelete: false)
                 .Index(t => t.UsuarioID)
                 .Index(t => t.TipoSangreID)
                 .Index(t => t.TipoDocumentoID)
@@ -169,9 +169,9 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.IngresoID)
-                .ForeignKey("dbo.Cuenta", t => t.CuentaID, cascadeDelete: true)
-                .ForeignKey("dbo.Habitacion", t => t.HabitacionID, cascadeDelete: true)
-                .ForeignKey("dbo.Persona", t => t.PacienteID, cascadeDelete: true)
+                .ForeignKey("dbo.Cuenta", t => t.CuentaID, cascadeDelete: false)
+                .ForeignKey("dbo.Habitacion", t => t.HabitacionID, cascadeDelete: false)
+                .ForeignKey("dbo.Persona", t => t.PacienteID, cascadeDelete: false)
                 .Index(t => t.CuentaID)
                 .Index(t => t.PacienteID)
                 .Index(t => t.HabitacionID);
@@ -260,8 +260,8 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.UsuarioID)
-                .ForeignKey("dbo.Perfil", t => t.PerfilID, cascadeDelete: true)
-                .ForeignKey("dbo.Sucursal", t => t.SucursalID, cascadeDelete: true)
+                .ForeignKey("dbo.Perfil", t => t.PerfilID, cascadeDelete: false)
+                .ForeignKey("dbo.Sucursal", t => t.SucursalID, cascadeDelete: false)
                 .Index(t => t.SucursalID)
                 .Index(t => t.PerfilID);
             
@@ -278,7 +278,7 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.HistoricoID)
-                .ForeignKey("dbo.Usuario", t => t.UsuarioID, cascadeDelete: true)
+                .ForeignKey("dbo.Usuario", t => t.UsuarioID, cascadeDelete: false)
                 .Index(t => t.UsuarioID);
             
             CreateTable(
@@ -307,9 +307,9 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => new { t.PerfilID, t.EntidadID, t.RoleID })
-                .ForeignKey("dbo.Entidad", t => t.EntidadID, cascadeDelete: true)
-                .ForeignKey("dbo.Perfil", t => t.PerfilID, cascadeDelete: true)
-                .ForeignKey("dbo.Role", t => t.RoleID, cascadeDelete: true)
+                .ForeignKey("dbo.Entidad", t => t.EntidadID, cascadeDelete: false)
+                .ForeignKey("dbo.Perfil", t => t.PerfilID, cascadeDelete: false)
+                .ForeignKey("dbo.Role", t => t.RoleID, cascadeDelete: false)
                 .Index(t => t.PerfilID)
                 .Index(t => t.EntidadID)
                 .Index(t => t.RoleID);
@@ -384,7 +384,7 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.ServicioID)
-                .ForeignKey("dbo.TipoServicio", t => t.TipoServicioID, cascadeDelete: true)
+                .ForeignKey("dbo.TipoServicio", t => t.TipoServicioID, cascadeDelete: false)
                 .Index(t => t.TipoServicioID);
             
             CreateTable(
@@ -414,7 +414,7 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.DetalleId)
-                .ForeignKey("dbo.Persona", t => t.DoctorId, cascadeDelete: true)
+                .ForeignKey("dbo.Persona", t => t.DoctorId, cascadeDelete: false)
                 .ForeignKey("dbo.FacturaServicios", t => t.DetalleId)
                 .Index(t => t.DetalleId)
                 .Index(t => t.DoctorId);
@@ -450,8 +450,8 @@
                         SendedAt = c.DateTime(),
                     })
                 .PrimaryKey(t => t.TransaccionID)
-                .ForeignKey("dbo.Cuenta", t => t.CuentaID, cascadeDelete: true)
-                .ForeignKey("dbo.MetodoPago", t => t.MetodoPagoID, cascadeDelete: true)
+                .ForeignKey("dbo.Cuenta", t => t.CuentaID, cascadeDelete: false)
+                .ForeignKey("dbo.MetodoPago", t => t.MetodoPagoID, cascadeDelete: false)
                 .Index(t => t.MetodoPagoID)
                 .Index(t => t.CuentaID);
             

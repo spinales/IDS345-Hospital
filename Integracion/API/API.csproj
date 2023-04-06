@@ -93,16 +93,18 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\WEBController.cs" />
+    <Compile Include="Enums\Entidad.cs" />
+    <Compile Include="Enums\MetodoPago.cs" />
+    <Compile Include="Enums\Role.cs" />
+    <Compile Include="Enums\RolPersona.cs" />
+    <Compile Include="Enums\TipoDocumento.cs" />
+    <Compile Include="Enums\TipoServicio.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304060111442_InitialCreate.cs" />
-    <Compile Include="Migrations\202304060111442_InitialCreate.designer.cs">
-      <DependentUpon>202304060111442_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304060428257_ConvencionNombresArreglado.cs" />
-    <Compile Include="Migrations\202304060428257_ConvencionNombresArreglado.designer.cs">
-      <DependentUpon>202304060428257_ConvencionNombresArreglado.cs</DependentUpon>
+    <Compile Include="Migrations\202304062300043_Initial.cs" />
+    <Compile Include="Migrations\202304062300043_Initial.Designer.cs">
+      <DependentUpon>202304062300043_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,11 +129,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202304060111442_InitialCreate.resx">
-      <DependentUpon>202304060111442_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304060428257_ConvencionNombresArreglado.resx">
-      <DependentUpon>202304060428257_ConvencionNombresArreglado.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304062300043_Initial.resx">
+      <DependentUpon>202304062300043_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

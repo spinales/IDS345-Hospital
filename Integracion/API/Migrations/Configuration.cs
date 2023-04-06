@@ -19,6 +19,7 @@
         {
             IList<Aseguradora> defaultAseguradora = new List<Aseguradora>() {
                 new Aseguradora {
+                    AseguradoraID = 1,
                     Nombre = "ARS Humano",
                     Telefono = "829-452-5452",
                     Direccion = "Avenida 27 de Febrero #234",
@@ -28,6 +29,7 @@
                     SendedAt = null
                 },
                 new Aseguradora {
+                    AseguradoraID = 2,
                     Nombre = "ARS Palic",
                     Telefono = "809-514-5415",
                     Direccion = "Avenida John F. Kennedy #123",
@@ -37,6 +39,7 @@
                     SendedAt = null
                 },
                 new Aseguradora {
+                    AseguradoraID = 3,
                     Nombre = "ARS Banreservas",
                     Telefono = "849-541-7851",
                     Direccion = "Avenida Lope de Vega #24",
@@ -47,13 +50,13 @@
                 }
             };
 
-            service.Aseguradora.AddRange(defaultAseguradora);
-
-
+            service.Aseguradora.AddOrUpdate(x => x.AseguradoraID, defaultAseguradora.ToArray());
+            
             IList<Entidad> defaultEntidad = new List<Entidad>()
             {
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Usuario,
                     Descripcion = "Usuarios",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -62,6 +65,7 @@
                 },
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Perfiles,
                     Descripcion = "Perfiles",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -70,6 +74,7 @@
                 },
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Pacientes,
                     Descripcion = "Pacientes",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -78,6 +83,7 @@
                 },
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Autorizaciones,
                     Descripcion = "Autorizaciones",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -86,6 +92,7 @@
                 },
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Consultas,
                     Descripcion = "Consultas",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -94,6 +101,7 @@
                 },
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Procedimientos,
                     Descripcion = "Procedimientos",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -102,6 +110,7 @@
                 },
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Analisis,
                     Descripcion = "Analisis",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -110,6 +119,7 @@
                 },
                 new Entidad()
                 {
+                    EntidadId = (int)Enums.Entidad.Ingresos,
                     Descripcion = "Ingresos",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -117,12 +127,13 @@
                     SendedAt = null
                 }
             };
-            service.Entidad.AddRange(defaultEntidad);
+            service.Entidad.AddOrUpdate(x => x.EntidadId, defaultEntidad.ToArray());
 
             IList<Role> defaultRole = new List<Role>()
             {
                 new Role()
                 {
+                    RoleID = (int)Enums.Role.Visualizar,
                     Nombre = "Visualizar",
                     Descripcion = "Tiene permiso de visualizar los datos de la entidad",
                     CreatedAt = DateTime.Now,
@@ -132,6 +143,7 @@
                 },
                 new Role()
                 {
+                    RoleID = (int)Enums.Role.Modificar,
                     Nombre = "Modificar",
                     Descripcion = "Tiene permiso de modificar los datos de la entidad",
                     CreatedAt = DateTime.Now,
@@ -141,6 +153,7 @@
                 },
                 new Role()
                 {
+                    RoleID = (int)Enums.Role.Activar,
                     Nombre = "Activar/Desactivar",
                     Descripcion = "Tiene permiso de activar o desactivar una entidad",
                     CreatedAt = DateTime.Now,
@@ -150,6 +163,7 @@
                 },
                 new Role()
                 {
+                    RoleID = (int)Enums.Role.Crear,
                     Nombre = "Crear",
                     Descripcion = "Tiene permiso de crear un registro de una entidad",
                     CreatedAt = DateTime.Now,
@@ -158,12 +172,13 @@
                     SendedAt = null
                 }
             };
-            service.Role.AddRange(defaultRole);
+            service.Role.AddOrUpdate(x => x.RoleID, defaultRole.ToArray());
 
             IList<Perfil> defaultPerfil = new List<Perfil>()
             {
                 new Perfil()
                 {
+                    PerfilID = 1,
                     Nombre = "Administrador",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -172,12 +187,13 @@
                 }
             };
             
-            service.Perfil.AddRange(defaultPerfil);
+            service.Perfil.AddOrUpdate(x => x.PerfilID, defaultPerfil.ToArray());
 
             IList<Nacionalidad> defaultNacionalidad = new List<Nacionalidad>()
             {
                 new Nacionalidad()
                 {
+                    NacionalidadID = 1,
                     Nombre = "Dominicano",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -186,6 +202,7 @@
                 },
                 new Nacionalidad()
                 {
+                    NacionalidadID = 2,
                     Nombre = "Estadounidense",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -194,6 +211,7 @@
                 },
                 new Nacionalidad()
                 {
+                    NacionalidadID = 3,
                     Nombre = "Venezolano",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -202,6 +220,7 @@
                 },
                 new Nacionalidad()
                 {
+                    NacionalidadID = 4,
                     Nombre = "Colombiano",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -210,6 +229,7 @@
                 },
                 new Nacionalidad()
                 {
+                    NacionalidadID = 5,
                     Nombre = "Mexicano",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -218,6 +238,7 @@
                 },
                 new Nacionalidad()
                 {
+                    NacionalidadID = 6,
                     Nombre = "Haitiano",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -226,12 +247,13 @@
                 }
             };
 
-            service.Nacionalidad.AddRange(defaultNacionalidad);
+            service.Nacionalidad.AddOrUpdate(x => x.NacionalidadID, defaultNacionalidad.ToArray());
 
             IList<TipoDocumento> defaultTipoDocumento = new List<TipoDocumento>()
             {
                 new TipoDocumento()
                 {
+                    TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
                     Nombre = "Cédula",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -240,6 +262,7 @@
                 },
                 new TipoDocumento()
                 {
+                    TipoDocumentoID = (int)Enums.TipoDocumento.Pasaporte,
                     Nombre = "Pasaporte",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -248,6 +271,7 @@
                 },
                 new TipoDocumento()
                 {
+                    TipoDocumentoID = (int)Enums.TipoDocumento.LicenciaConducir,
                     Nombre = "Licencia de conducir",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -256,12 +280,12 @@
                 }
             };
 
-            service.TipoDocumento.AddRange(defaultTipoDocumento);
-
+            service.TipoDocumento.AddOrUpdate(x=> x.TipoDocumentoID, defaultTipoDocumento.ToArray());
             IList<TipoSangre> defaultTipoSangre = new List<TipoSangre>()
             {
                 new TipoSangre()
                 {
+                    TipoSangreID = 1,
                     Nombre = "O+",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -270,6 +294,7 @@
                 },
                 new TipoSangre()
                 {
+                    TipoSangreID = 2,
                     Nombre = "O-",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -278,6 +303,7 @@
                 },
                 new TipoSangre()
                 {
+                    TipoSangreID = 3,
                     Nombre = "A+",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -286,6 +312,7 @@
                 },
                 new TipoSangre()
                 {
+                    TipoSangreID = 4,
                     Nombre = "A-",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -294,6 +321,7 @@
                 },
                 new TipoSangre()
                 {
+                    TipoSangreID = 5,
                     Nombre = "AB+",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -302,6 +330,7 @@
                 },
                 new TipoSangre()
                 {
+                    TipoSangreID = 6,
                     Nombre = "AB-",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -310,6 +339,7 @@
                 },
                 new TipoSangre()
                 {
+                    TipoSangreID = 7,
                     Nombre = "B+",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -318,6 +348,7 @@
                 },
                 new TipoSangre()
                 {
+                    TipoSangreID = 8,
                     Nombre = "B-",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -325,13 +356,14 @@
                     SendedAt = null
                 }
             };
-
-            service.TipoSangre.AddRange(defaultTipoSangre);
+            
+            service.TipoSangre.AddOrUpdate(x => x.TipoSangreID, defaultTipoSangre.ToArray());
 
             IList<TipoServicio> defaultTipoServicio = new List<TipoServicio>()
             {
                 new TipoServicio()
                 {
+                    TipoServicioID = (int)Enums.TipoServicio.Consultas,
                     Nombre = "Consulta",
                     Descripcion = "Este es el tipo de servicio para atenderse en consulta con un doctor",
                     CreatedAt = DateTime.Now,
@@ -341,6 +373,7 @@
                 },
                 new TipoServicio()
                 {
+                    TipoServicioID = (int)Enums.TipoServicio.Analisis,
                     Nombre = "Analisis",
                     Descripcion = "Este es el tipo de servicio para realizarse un análisis o estudio clinico",
                     CreatedAt = DateTime.Now,
@@ -350,6 +383,7 @@
                 },
                 new TipoServicio()
                 {
+                    TipoServicioID = (int)Enums.TipoServicio.Procedimientos,
                     Nombre = "Procedimiento",
                     Descripcion = "Este es el tipo de servicio para realizarse un procedimiento",
                     CreatedAt = DateTime.Now,
@@ -359,12 +393,13 @@
                 }
             };
 
-            service.TipoServicio.AddRange(defaultTipoServicio);
+            service.TipoServicio.AddOrUpdate(x=>x.TipoServicioID, defaultTipoServicio.ToArray());
 
             IList<RolPersona> defaultRolPersona = new List<RolPersona>()
             {
                 new RolPersona()
                 {
+                    RolPersonaID = (int)Enums.RolPersona.Cajero,
                     Nombre = "Cajero",
                     Descripcion = "Este es el rol para los empleados que tienen acceso a la aplicacion de caja",
                     CreatedAt = DateTime.Now,
@@ -374,6 +409,7 @@
                 },
                 new RolPersona()
                 {
+                    RolPersonaID = (int)Enums.RolPersona.Cliente,
                     Nombre = "Cliente",
                     Descripcion = "Este es el rol para los pacientes del hospital, que tienen acceso a la aplicacion web",
                     CreatedAt = DateTime.Now,
@@ -383,6 +419,7 @@
                 },
                 new RolPersona()
                 {
+                    RolPersonaID = (int)Enums.RolPersona.Administrador,
                     Nombre = "Personal administrativo",
                     Descripcion = "Este es el rol para el personal administrativo, que tiene acceso al CORE",
                     CreatedAt = DateTime.Now,
@@ -392,12 +429,13 @@
                 }
             };
 
-            service.RolPersona.AddRange(defaultRolPersona);
+            service.RolPersona.AddOrUpdate(x => x.RolPersonaID, defaultRolPersona.ToArray());
 
             IList<Habitacion> defaultHabiTacion = new List<Habitacion>()
             {
                 new Habitacion()
                 {
+                    HabitacionID = 1,
                     Codigo = "AH1015",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -406,6 +444,7 @@
                 },
                 new Habitacion()
                 {
+                    HabitacionID = 2,
                     Codigo = "GC1015",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -414,6 +453,7 @@
                 },
                 new Habitacion()
                 {
+                    HabitacionID = 3,
                     Codigo = "AJ2644",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -422,12 +462,13 @@
                 }
             };
 
-            service.Habitacion.AddRange(defaultHabiTacion);
+            service.Habitacion.AddOrUpdate(x=>x.HabitacionID, defaultHabiTacion.ToArray());
 
             IList<MetodoPago> defaultMetodoPago = new List<MetodoPago>()
             {
                 new MetodoPago()
                 {
+                    MetodoPagoID = (int)Enums.MetodoPago.Cuenta,
                     Nombre = "Cuenta",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -436,6 +477,7 @@
                 },
                 new MetodoPago()
                 {
+                    MetodoPagoID = (int)Enums.MetodoPago.Tarjeta,
                     Nombre = "Tarjeta de credito/debito",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -444,6 +486,7 @@
                 },
                 new MetodoPago()
                 {
+                    MetodoPagoID = (int)Enums.MetodoPago.Efectivo,
                     Nombre = "Efectivo",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
@@ -452,8 +495,334 @@
                 }
             };
 
-            service.MetodoPago.AddRange(defaultMetodoPago);
-                       
+            service.MetodoPago.AddOrUpdate(x=>x.MetodoPagoID, defaultMetodoPago.ToArray());
+            
+            IList<PerfilRole> defaultPerfilRole = new List<PerfilRole>()
+            {
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 1,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 1,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 1,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 1,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 2,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 2,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 2,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 2,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 3,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 3,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 3,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 3,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 4,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 4,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 4,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 4,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 5,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 5,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 5,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 5,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 6,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 6,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 6,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 6,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 7,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 7,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 7,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 7,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 1,
+                    EntidadID = 8,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 2,
+                    EntidadID = 8,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 3,
+                    EntidadID = 8,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new PerfilRole()
+                {
+                    PerfilID = 1,
+                    RoleID = 4,
+                    EntidadID = 8,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                }
+            };
+            
+            service.PerfilRole.AddOrUpdate(x=> new { x.PerfilID, x.RoleID, x.EntidadID }, defaultPerfilRole.ToArray());
+            
             base.Seed(service);
         }
     }
