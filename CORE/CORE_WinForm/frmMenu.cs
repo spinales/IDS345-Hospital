@@ -35,5 +35,10 @@ namespace CORE_WinForm
             frmUsuarios.MdiParent = this;
             frmUsuarios.Show();
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

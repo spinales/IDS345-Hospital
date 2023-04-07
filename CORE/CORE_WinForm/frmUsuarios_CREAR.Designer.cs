@@ -45,7 +45,8 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(42, 302);
+            this.btnGuardar.AutoSize = true;
+            this.btnGuardar.Location = new System.Drawing.Point(121, 303);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(140, 24);
             this.btnGuardar.TabIndex = 0;
@@ -56,7 +57,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(39, 92);
+            this.lblUsername.Location = new System.Drawing.Point(149, 94);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(102, 13);
             this.lblUsername.TabIndex = 1;
@@ -65,7 +66,7 @@
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(39, 133);
+            this.lblContraseña.Location = new System.Drawing.Point(149, 135);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(61, 13);
             this.lblContraseña.TabIndex = 2;
@@ -74,7 +75,7 @@
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(39, 172);
+            this.lblCorreo.Location = new System.Drawing.Point(149, 174);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(94, 13);
             this.lblCorreo.TabIndex = 3;
@@ -83,7 +84,7 @@
             // lblSucursal
             // 
             this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Location = new System.Drawing.Point(39, 213);
+            this.lblSucursal.Location = new System.Drawing.Point(149, 215);
             this.lblSucursal.Name = "lblSucursal";
             this.lblSucursal.Size = new System.Drawing.Size(48, 13);
             this.lblSucursal.TabIndex = 4;
@@ -92,7 +93,7 @@
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Location = new System.Drawing.Point(39, 252);
+            this.lblPerfil.Location = new System.Drawing.Point(149, 254);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(30, 13);
             this.lblPerfil.TabIndex = 5;
@@ -101,7 +102,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(159, 249);
+            this.comboBox1.Location = new System.Drawing.Point(269, 251);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 6;
@@ -109,35 +110,36 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(159, 210);
+            this.comboBox2.Location = new System.Drawing.Point(269, 212);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 7;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 169);
+            this.textBox1.Location = new System.Drawing.Point(269, 171);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 8;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 130);
+            this.textBox2.Location = new System.Drawing.Point(269, 132);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 9;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(159, 92);
+            this.textBox3.Location = new System.Drawing.Point(269, 94);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 20);
             this.textBox3.TabIndex = 10;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(210, 303);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(304, 304);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(140, 23);
             this.btnCancelar.TabIndex = 11;
@@ -148,7 +150,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(35, 23);
+            this.lblTitulo.Location = new System.Drawing.Point(165, 25);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(214, 38);
             this.lblTitulo.TabIndex = 12;
@@ -156,9 +158,12 @@
             // 
             // frmUsuarios_CREAR
             // 
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 352);
+            this.AutoSize = true;
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(823, 462);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.textBox3);
@@ -172,6 +177,7 @@
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnGuardar);
+            this.KeyPreview = true;
             this.Name = "frmUsuarios_CREAR";
             this.ShowIcon = false;
             this.Text = "Crear Usuario";
