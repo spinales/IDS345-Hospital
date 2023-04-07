@@ -22,14 +22,13 @@ namespace Modelos
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Email { get; set; }
-        
         public bool Estado { get; set; }
         
         [ForeignKey("Sucursal")]
-        public int SucursalID { get; set; }
+        public int? SucursalID { get; set; }
         
         [ForeignKey("Perfil")]
-        public int PerfilID { get; set; }
+        public int? PerfilID { get; set; }
         
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }

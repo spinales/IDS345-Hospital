@@ -823,6 +823,38 @@
             
             service.PerfilRole.AddOrUpdate(x=> new { x.PerfilID, x.RoleID, x.EntidadID }, defaultPerfilRole.ToArray());
             
+            service.Sucursal.AddOrUpdate(x=>x.SucursalID, new Sucursal()
+            {
+                SucursalID = 1,
+                Nombre = "Sucursal Principal",
+                Direccion = "Avenida 27 de Febrero"
+            });
+            
+            service.Usuario.AddOrUpdate(x => x.UsuarioID, new Usuario()
+            {
+                UsuarioID = 1,
+                Estado = true,
+                Username = "Administrador1",
+                Password = "u1ie43ofhciecn3rk",
+                PerfilID = 1,
+                SucursalID = 1
+            });
+            
+            service.Persona.AddOrUpdate(x=>x.PersonaID, new Persona()
+            {
+                PersonaID = 1,
+                Estado = true,
+                Sexo = 'M',
+                Nombre = "Pablo",
+                Apellido = "Mota",
+                Telefono = "0000000000",
+                NacionalidadID = 1,
+                RolPersonaID = (int)Enums.RolPersona.Administrador,
+                TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
+                Documento = "0000000000",
+                UsuarioID = 1,
+                TipoSangreID = 1
+            });
             base.Seed(service);
         }
     }

@@ -27,7 +27,7 @@ namespace Modelos
         public DateTime? SendedAt { get; set; }
 
         [ForeignKey("Autorizacion")]
-        public int AutorizacionID { get; set; }
+        public int? AutorizacionID { get; set; }
 
         [ForeignKey("Servicio")]
         public int ServicioID { get; set; }

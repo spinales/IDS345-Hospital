@@ -11,7 +11,6 @@ using Modelos;
 
 namespace API.Services
 {
-
     public class DataService : DbContext
     {
         public DataService(): base("name=ConnectionString")
@@ -21,6 +20,7 @@ namespace API.Services
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            
         }
         public async Task<T> GetByIdAsync<T>(params object[] keys) where T : class =>
             await Set<T>().FindAsync(keys);
@@ -42,7 +42,6 @@ namespace API.Services
             await SaveChangesAsync();
             return entity;
         }
-
         public new async Task AddRange<T> (IEnumerable<T> data) where T : class
         {
             var enumerable = data as T[] ?? data.ToArray();

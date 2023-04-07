@@ -63,7 +63,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route("WEB/obtenerCuentasPaciente")]
+        [Route("WEB/Cuentas/Paciente")]
         public IHttpActionResult ObtenerCuentasPaciente(int PacienteID)
         {
             //TODO - Conectarse al CORE y obtener las cuentas asociadas a un paciente
@@ -74,7 +74,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route("WEB/obtenerTiposServicios")]
+        [Route("WEB/TiposServicios")]
         public async Task<IHttpActionResult> ObtenerTiposServicios()
         {
             

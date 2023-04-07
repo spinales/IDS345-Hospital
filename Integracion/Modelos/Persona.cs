@@ -32,7 +32,7 @@ namespace Modelos
         public string Telefono { get; set; }
 
         [ForeignKey("Usuario")]
-        public int UsuarioID { get; set; }
+        public int? UsuarioID { get; set; }
 
         [ForeignKey("TipoSangre")]
         public int TipoSangreID { get; set; }
