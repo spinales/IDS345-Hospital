@@ -46,10 +46,94 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmUsuarios_CREAR.cs">
+    <Compile Include="Forms\Cuentas\frmCuentas_BORRAR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsuarios_CREAR.Designer.cs">
+    <Compile Include="Forms\Cuentas\frmCuentas_BORRAR.Designer.cs">
+      <DependentUpon>frmCuentas_BORRAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cuentas\frmCuentas_BUSCAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuentas\frmCuentas_BUSCAR.Designer.cs">
+      <DependentUpon>frmCuentas_BUSCAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cuentas\frmCuentas_CREAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuentas\frmCuentas_CREAR.Designer.cs">
+      <DependentUpon>frmCuentas_CREAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cuentas\frmCuentas_MOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuentas\frmCuentas_MOD.Designer.cs">
+      <DependentUpon>frmCuentas_MOD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_BORRAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_BORRAR.Designer.cs">
+      <DependentUpon>frmIngresos_BORRAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_BUSCAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_BUSCAR.Designer.cs">
+      <DependentUpon>frmIngresos_BUSCAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_CREAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_CREAR.Designer.cs">
+      <DependentUpon>frmIngresos_CREAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_MOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ingresos\frmIngresos_MOD.Designer.cs">
+      <DependentUpon>frmIngresos_MOD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_BORRAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_BORRAR.Designer.cs">
+      <DependentUpon>frmPerfiles_BORRAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_BUSCAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_BUSCAR.Designer.cs">
+      <DependentUpon>frmPerfiles_BUSCAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_CREAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_CREAR.Designer.cs">
+      <DependentUpon>frmPerfiles_CREAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_MOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Perfiles\frmPerfiles_MOD.Designer.cs">
+      <DependentUpon>frmPerfiles_MOD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_BORRAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_BORRAR.Designer.cs">
+      <DependentUpon>frmUsuarios_BORRAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_BUSCAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_BUSCAR.Designer.cs">
+      <DependentUpon>frmUsuarios_BUSCAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_CREAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_CREAR.Designer.cs">
       <DependentUpon>frmUsuarios_CREAR.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenu.cs">
@@ -64,9 +148,18 @@
     <Compile Include="frmPacientes_CREAR.Designer.cs">
       <DependentUpon>frmPacientes_CREAR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_MOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuario\frmUsuarios_MOD.Designer.cs">
+      <DependentUpon>frmUsuarios_MOD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmUsuarios_CREAR.resx">
+    <EmbeddedResource Include="Forms\Ingresos\frmIngresos_CREAR.resx">
+      <DependentUpon>frmIngresos_CREAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuario\frmUsuarios_CREAR.resx">
       <DependentUpon>frmUsuarios_CREAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
