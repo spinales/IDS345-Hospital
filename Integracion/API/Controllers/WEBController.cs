@@ -20,12 +20,15 @@ namespace API.Controllers
         [Route("WEB/login")]
         public IHttpActionResult ValidarPaciente(string username, string password)
         {
-            // TODO - Conectarse al CORE y validar el Paciente
+            // TO DO - Conectarse al CORE y validar el Paciente
+            
+            
             // Si el CORE no responde, se debe ejecutar el siguiente codigo para hacer la validacion desde la integracion
+            
             var ds = new DataService();
             var persona = ds.Persona.FirstOrDefault(x =>
                 x.Usuario.Username == username && x.Usuario.Password == password && x.Estado == true &&
-                x.RolPersonaID == (int)RolPersona.Cliente);
+                x.RolPersonaID == (int)RolPersona.Pacientes);
             return Ok(persona);
         }
         
@@ -34,9 +37,9 @@ namespace API.Controllers
         public IHttpActionResult RegistrarTransaccionCuenta(Transaccion transaccion)
         {
             var ds = new DataService();
-            //TODO - Registrar la transaccion de la cuenta en la base de datos de la integracion
-
-            //TODO - Conectarse al CORE y consumir el servicio para registrar la transaccion de la cuenta alla
+            // TO DO - Registrar la transaccion de la cuenta en la base de datos de la integracion
+            
+            // TO DO - Conectarse al CORE y consumir el servicio para registrar la transaccion de la cuenta alla
             return Ok();
         }
 
@@ -45,9 +48,9 @@ namespace API.Controllers
         public IHttpActionResult RegistrarFactura(Factura factura)
         {
             var ds = new DataService();
-            //TODO - Registrar la factura en la base de datos de la integracion
+            // TO DO - Registrar la factura en la base de datos de la integracion
 
-            //TODO - Conectarse al CORE y consumir el servicio para registrar la factura alla
+            // TO DO - Conectarse al CORE y consumir el servicio para registrar la factura alla
             return Ok();
         }
 
@@ -55,7 +58,7 @@ namespace API.Controllers
         [Route("WEB/servicios")]
         public IHttpActionResult ObtenerServicios()
         {
-            //TODO - Conectarse al CORE y obtener los servicios
+            // TO DO - Conectarse al CORE y obtener los servicios
             // Si el CORE no responde, se debe ejecutar el siguiente codigo
             var ds = new DataService();
             var servicios = ds.Servicios.ToArray();
@@ -66,25 +69,42 @@ namespace API.Controllers
         [Route("WEB/Cuentas/Paciente")]
         public IHttpActionResult ObtenerCuentasPaciente(int PacienteID)
         {
-            //TODO - Conectarse al CORE y obtener las cuentas asociadas a un paciente
-            // Si el CORE no responde, se debe ejecutar el siguiente codigo
-            var ds = new DataService();
-            var cuentas = ds.Cuenta.Where(x => x.PacienteID == PacienteID && x.Estado == true).ToArray();
-            return Ok(cuentas);
+            try
+            {
+                // TO DO - Conectarse al CORE y obtener las cuentas asociadas a un paciente
+                
+                
+                // Si el CORE no responde, se debe ejecutar el siguiente codigo
+                using (var ds = new DataService())
+                {
+                    return Ok();
+                }
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpGet]
         [Route("WEB/TiposServicios")]
         public async Task<IHttpActionResult> ObtenerTiposServicios()
         {
+            try
+            {
+                //TO DO - Conectarse al CORE y obtener los tipos de servicios
+                
+                
+                // Si el CORE no responde, se debe ejecutar el siguiente codigo
+                using (var ds = new DataService())
+                {
+                    return Ok();
+                }
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
             
-            //TODO - Conectarse al CORE y obtener los tipos de servicios
-            // Si el CORE no responde, se debe ejecutar el siguiente codigo
-            
-            var ds = new DataService();
-            
-            var tipoServicios = await ds.GetAll<TipoServicio>(null, x=>x.Servicios);
-            return Ok(tipoServicios);
         }
     }
 }

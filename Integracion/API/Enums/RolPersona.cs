@@ -3,7 +3,8 @@
     public enum RolPersona
     {
         Cajero = 1,
-        Cliente = 2,
-        Administrador = 3
+        Pacientes = 2,
+        Administrador = 3,
+        Doctor = 4
     }
 }

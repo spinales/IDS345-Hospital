@@ -12,7 +12,7 @@ namespace Modelos
         [Key]
         public int CuentaID { get; set; }
         public decimal Balance { get; set; }
-        public bool Estado { get; set; }
+        public bool Estado { get; set; } = true;
         
         [ForeignKey("Persona")]
         public int PacienteID { get; set; }

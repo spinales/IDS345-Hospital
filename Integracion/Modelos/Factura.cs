@@ -10,18 +10,18 @@ namespace Modelos
         public int FacturaID { get; set; }
         public bool Estado { get; set; }
         public decimal TotalFinal { get; set; }
-        public decimal TotalAutorizado { get; set; }
-        public decimal Descuento { get; set; }
+        public decimal TotalAutorizado { get; set; } = 0;
+        public decimal Descuento { get; set; } = 0;
         public decimal TotalBruto { get; set; }
 
         [ForeignKey("Cuenta")]
-        public int CuentaID { get; set; }
+        public int? CuentaID { get; set; }
         
         [ForeignKey("Paciente")]
         public int PacienteID { get; set; }
 
         [ForeignKey("Empleado")]
-        public int EmpleadoID { get; set; }
+        public int? EmpleadoID { get; set; }
 
         [ForeignKey("MetodoPago")]
         public int MetodoPagoID { get; set; }

@@ -10,7 +10,7 @@ namespace Modelos
         [Key]
         public int TransaccionID { get; set; }
         public decimal Monto { get; set; }
-        public bool Estado { get; set; }
+        public bool Estado { get; set; } = true;
         public string Descripcion { get; set; }
         public string TipoTransaccion { get; set; }
 
