@@ -92,6 +92,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\IntegracionController.cs" />
+    <Compile Include="Enums\Entidad.cs" />
+    <Compile Include="Enums\MetodoPago.cs" />
+    <Compile Include="Enums\Role.cs" />
+    <Compile Include="Enums\RolPersona.cs" />
+    <Compile Include="Enums\TipoDocumento.cs" />
+    <Compile Include="Enums\TipoServicio.cs" />
+    <Compile Include="Migrations\202304070144556_CoreInitial.cs" />
+    <Compile Include="Migrations\202304070144556_CoreInitial.designer.cs">
+      <DependentUpon>202304070144556_CoreInitial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
@@ -110,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +128,11 @@
       <Project>{2c4b77b4-fd2d-49e2-b647-6a46116d9475}</Project>
       <Name>Modelos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202304070144556_CoreInitial.resx">
+      <DependentUpon>202304070144556_CoreInitial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

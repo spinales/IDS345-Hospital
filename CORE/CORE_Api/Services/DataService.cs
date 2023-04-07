@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -56,6 +57,19 @@ namespace CORE_Api
             Set<T>().Remove(data);
             await SaveChangesAsync();
         }
+
+        public async Task<List<T>> GetAll<T>(Expression<Func<T, bool>> expression = null,
+            params Expression<Func<T, object>>[] includes) where T : class
+        {
+            var query = Set<T>().Where(expression ?? (_ => true)).AsQueryable();
+            query = includes.Any()
+                ? includes.Aggregate(query, (current, include) => current.Include(include))
+                : query;
+
+            var response = await query.ToListAsync();
+            return response;
+        }
+
 
         public DbSet<Aseguradora> Aseguradora { get; set; }
         public DbSet<Autorizaciones> Autorizaciones { get; set; }
