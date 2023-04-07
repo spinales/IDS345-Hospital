@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CoreController.cs" />
     <Compile Include="Controllers\IntegracionController.cs" />
     <Compile Include="Enums\Entidad.cs" />
     <Compile Include="Enums\MetodoPago.cs" />
@@ -102,6 +103,10 @@
     <Compile Include="Migrations\202304070144556_CoreInitial.cs" />
     <Compile Include="Migrations\202304070144556_CoreInitial.designer.cs">
       <DependentUpon>202304070144556_CoreInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304071907414_Procedures_Usuarios.cs" />
+    <Compile Include="Migrations\202304071907414_Procedures_Usuarios.designer.cs">
+      <DependentUpon>202304071907414_Procedures_Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
@@ -132,6 +137,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304070144556_CoreInitial.resx">
       <DependentUpon>202304070144556_CoreInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304071907414_Procedures_Usuarios.resx">
+      <DependentUpon>202304071907414_Procedures_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

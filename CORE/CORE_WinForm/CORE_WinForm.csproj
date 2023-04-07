@@ -118,12 +118,6 @@
     <Compile Include="Forms\Perfiles\frmPerfiles_MOD.Designer.cs">
       <DependentUpon>frmPerfiles_MOD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Usuario\frmUsuarios_BORRAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Usuario\frmUsuarios_BORRAR.Designer.cs">
-      <DependentUpon>frmUsuarios_BORRAR.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Usuario\frmUsuarios_BUSCAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,8 +153,14 @@
     <EmbeddedResource Include="Forms\Ingresos\frmIngresos_CREAR.resx">
       <DependentUpon>frmIngresos_CREAR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuario\frmUsuarios_BUSCAR.resx">
+      <DependentUpon>frmUsuarios_BUSCAR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\frmUsuarios_CREAR.resx">
       <DependentUpon>frmUsuarios_CREAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuario\frmUsuarios_MOD.resx">
+      <DependentUpon>frmUsuarios_MOD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

@@ -34,11 +34,11 @@
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblSucursal = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbPerfil = new System.Windows.Forms.ComboBox();
+            this.cbSucursal = new System.Windows.Forms.ComboBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -55,6 +55,7 @@
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblUsername
             // 
@@ -106,42 +107,42 @@
             this.lblPerfil.TabIndex = 5;
             this.lblPerfil.Text = "Perfil";
             // 
-            // comboBox1
+            // cbPerfil
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(208, 342);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 6;
+            this.cbPerfil.FormattingEnabled = true;
+            this.cbPerfil.Location = new System.Drawing.Point(208, 342);
+            this.cbPerfil.Name = "cbPerfil";
+            this.cbPerfil.Size = new System.Drawing.Size(140, 21);
+            this.cbPerfil.TabIndex = 6;
             // 
-            // comboBox2
+            // cbSucursal
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(208, 282);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 21);
-            this.comboBox2.TabIndex = 7;
+            this.cbSucursal.FormattingEnabled = true;
+            this.cbSucursal.Location = new System.Drawing.Point(208, 282);
+            this.cbSucursal.Name = "cbSucursal";
+            this.cbSucursal.Size = new System.Drawing.Size(140, 21);
+            this.cbSucursal.TabIndex = 7;
             // 
-            // textBox1
+            // txtCorreo
             // 
-            this.textBox1.Location = new System.Drawing.Point(208, 226);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtCorreo.Location = new System.Drawing.Point(208, 226);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(140, 20);
+            this.txtCorreo.TabIndex = 8;
             // 
-            // textBox2
+            // txtContraseña
             // 
-            this.textBox2.Location = new System.Drawing.Point(208, 170);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtContraseña.Location = new System.Drawing.Point(208, 170);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(140, 20);
+            this.txtContraseña.TabIndex = 9;
             // 
-            // textBox3
+            // txtUsuario
             // 
-            this.textBox3.Location = new System.Drawing.Point(208, 118);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 20);
-            this.textBox3.TabIndex = 10;
+            this.txtUsuario.Location = new System.Drawing.Point(208, 118);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(140, 20);
+            this.txtUsuario.TabIndex = 10;
             // 
             // btnCancelar
             // 
@@ -154,6 +155,7 @@
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblTitulo
             // 
@@ -191,11 +193,11 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.txtCorreo);
+            this.Controls.Add(this.cbSucursal);
+            this.Controls.Add(this.cbPerfil);
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblSucursal);
             this.Controls.Add(this.lblCorreo);
@@ -223,11 +225,11 @@
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label lblSucursal;
         private System.Windows.Forms.Label lblPerfil;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cbPerfil;
+        private System.Windows.Forms.ComboBox cbSucursal;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnSalir;

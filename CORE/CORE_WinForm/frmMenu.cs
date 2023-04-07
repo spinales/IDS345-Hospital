@@ -32,22 +32,7 @@ namespace CORE_WinForm
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsuarios_CREAR frmUsuariosC = FindCreateUserForm();
-
-            if (frmUsuariosC != null)
-            {
-                frmUsuariosC.Activate();
-                frmUsuariosC.BringToFront();
-            }
-            else
-            {
-                frmUsuariosC = new frmUsuarios_CREAR();
-                frmUsuariosC.MdiParent = this;
-                frmUsuariosC.Dock = DockStyle.Fill;
-                int anchoRestante = this.ClientSize.Width - menuStrip1.Width;
-                frmUsuariosC.Width = anchoRestante;
-                frmUsuariosC.Show();
-            } 
+            frmUsuarios_CREAR frmUsuariosC = AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,16 +40,37 @@ namespace CORE_WinForm
 
         }
 
-        private frmUsuarios_CREAR FindCreateUserForm()
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (frmUsuarios_CREAR frmHijo in this.MdiChildren)
+
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios_BUSCAR frmUsuariosB = AbrirFormulario<frmUsuarios_BUSCAR>(typeof(frmUsuarios_BUSCAR));
+
+        }
+
+        public T AbrirFormulario<T>(Type buscarTipo) where T : Form, new()
+        {
+            var formBuscar = Application.OpenForms.OfType<T>().FirstOrDefault();
+
+            if (formBuscar != null)
             {
-                if (frmHijo.GetType() == typeof(frmUsuarios_CREAR))
-                {
-                    return frmHijo;
-                }
+                formBuscar.Activate();
+                formBuscar.BringToFront();
+                return formBuscar;
             }
-            return null;
+            else
+            {
+                var formAbrir = new T();
+                formAbrir.MdiParent = this;
+                formAbrir.Dock = DockStyle.Fill;
+                int anchoRestante = this.ClientSize.Width - menuStrip1.Width;
+                formAbrir.Width = anchoRestante;
+                formAbrir.Show();
+                return formAbrir;
+            }
         }
     }
 }
