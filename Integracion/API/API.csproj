@@ -118,6 +118,14 @@
     <Compile Include="Migrations\202304070142222_ModeloFacturaServiciosActualizado.Designer.cs">
       <DependentUpon>202304070142222_ModeloFacturaServiciosActualizado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304072113516_CampoEstadoAgregadoPerfil.cs" />
+    <Compile Include="Migrations\202304072113516_CampoEstadoAgregadoPerfil.Designer.cs">
+      <DependentUpon>202304072113516_CampoEstadoAgregadoPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304072143538_ActualizacionFacturas.cs" />
+    <Compile Include="Migrations\202304072143538_ActualizacionFacturas.Designer.cs">
+      <DependentUpon>202304072143538_ActualizacionFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataService.cs" />
@@ -152,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304070142222_ModeloFacturaServiciosActualizado.resx">
       <DependentUpon>202304070142222_ModeloFacturaServiciosActualizado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304072113516_CampoEstadoAgregadoPerfil.resx">
+      <DependentUpon>202304072113516_CampoEstadoAgregadoPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304072143538_ActualizacionFacturas.resx">
+      <DependentUpon>202304072143538_ActualizacionFacturas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,7 +11,7 @@ namespace Modelos
         [Key]
         public int AutorizacionID { get; set; }
         public decimal MontoAutorizado { get; set; }
-        public bool Estado { get; set; }
+        public bool Estado { get; set; } = true;
         
         [ForeignKey("Aseguradora")]
         public int AseguradoraID { get; set; }
