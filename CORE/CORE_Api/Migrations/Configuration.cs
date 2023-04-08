@@ -74,8 +74,8 @@
                 },
                 new Entidad()
                 {
-                    EntidadId = (int)Enums.Entidad.Pacientes,
-                    Descripcion = "Pacientes",
+                    EntidadId = (int)Enums.Entidad.Personas,
+                    Descripcion = "Personas",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
                     DeletedAt = null,
@@ -92,26 +92,8 @@
                 },
                 new Entidad()
                 {
-                    EntidadId = (int)Enums.Entidad.Consultas,
-                    Descripcion = "Consultas",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new Entidad()
-                {
-                    EntidadId = (int)Enums.Entidad.Procedimientos,
-                    Descripcion = "Procedimientos",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new Entidad()
-                {
-                    EntidadId = (int)Enums.Entidad.Analisis,
-                    Descripcion = "Analisis",
+                    EntidadId = (int)Enums.Entidad.Servicios,
+                    Descripcion = "Servicios",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
                     DeletedAt = null,
@@ -409,7 +391,7 @@
                 },
                 new RolPersona()
                 {
-                    RolPersonaID = (int)Enums.RolPersona.Cliente,
+                    RolPersonaID = (int)Enums.RolPersona.Pacientes,
                     Nombre = "Cliente",
                     Descripcion = "Este es el rol para los pacientes del hospital, que tienen acceso a la aplicacion web",
                     CreatedAt = DateTime.Now,
@@ -422,6 +404,16 @@
                     RolPersonaID = (int)Enums.RolPersona.Administrador,
                     Nombre = "Personal administrativo",
                     Descripcion = "Este es el rol para el personal administrativo, que tiene acceso al CORE",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
+                new RolPersona()
+                {
+                    RolPersonaID = (int)Enums.RolPersona.Doctor,
+                    Nombre = "Doctor",
+                    Descripcion = "Este es el rol para los doctores del hospital, no tienen acceso a ninguna de las aplicaciones pero permiten registrar sus consultas",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
                     DeletedAt = null,
@@ -734,86 +726,6 @@
                     PerfilID = 1,
                     RoleID = 4,
                     EntidadID = 6,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 1,
-                    EntidadID = 7,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 2,
-                    EntidadID = 7,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 3,
-                    EntidadID = 7,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 4,
-                    EntidadID = 7,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 1,
-                    EntidadID = 8,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 2,
-                    EntidadID = 8,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 3,
-                    EntidadID = 8,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = null,
-                    DeletedAt = null,
-                    SendedAt = null
-                },
-                new PerfilRole()
-                {
-                    PerfilID = 1,
-                    RoleID = 4,
-                    EntidadID = 8,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
                     DeletedAt = null,

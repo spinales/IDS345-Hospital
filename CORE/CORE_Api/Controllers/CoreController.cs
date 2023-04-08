@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,17 +13,17 @@ namespace CORE_Api.Controllers
     {
         [HttpPost]
         [Route("CORE/InsertarUsuario")]
-        public IHttpActionResult InsertarUsuario(string Username, string Password, string Email, int SucursalID, int PerfilID)
+        public IHttpActionResult InsertarUsuario([FromBody] Usuario usuario)
         {
             var ds = new DataService();
             ds.Database.ExecuteSqlCommand("sp_insert_usuario @Username, @Password, @Email, @SucursalID, @PerfilID",
-                                            new SqlParameter("@Username", Username),
-                                            new SqlParameter("@Password", Password),
-                                            new SqlParameter("@Email", Email),
-                                            new SqlParameter("@SucursalID", SucursalID),
-                                            new SqlParameter("@PerfilID", PerfilID)
+                                            new SqlParameter("@Username", usuario.Username),
+                                            new SqlParameter("@Password", usuario.Password),
+                                            new SqlParameter("@Email", usuario.Email),
+                                            new SqlParameter("@SucursalID", usuario.SucursalID),
+                                            new SqlParameter("@PerfilID", usuario.PerfilID)
                                             );
-            return Ok();
+            return Ok("Registro Exitoso");
         }
     }
 }

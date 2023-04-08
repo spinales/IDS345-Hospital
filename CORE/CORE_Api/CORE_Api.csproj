@@ -108,6 +108,14 @@
     <Compile Include="Migrations\202304071907414_Procedures_Usuarios.designer.cs">
       <DependentUpon>202304071907414_Procedures_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304072144092_AtribEstadoEnUsuario.cs" />
+    <Compile Include="Migrations\202304072144092_AtribEstadoEnUsuario.designer.cs">
+      <DependentUpon>202304072144092_AtribEstadoEnUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304080007176_CambiosIntegracion.cs" />
+    <Compile Include="Migrations\202304080007176_CambiosIntegracion.designer.cs">
+      <DependentUpon>202304080007176_CambiosIntegracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
@@ -140,6 +148,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304071907414_Procedures_Usuarios.resx">
       <DependentUpon>202304071907414_Procedures_Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304072144092_AtribEstadoEnUsuario.resx">
+      <DependentUpon>202304072144092_AtribEstadoEnUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304080007176_CambiosIntegracion.resx">
+      <DependentUpon>202304080007176_CambiosIntegracion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

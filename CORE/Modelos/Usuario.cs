@@ -22,7 +22,7 @@ namespace Modelos
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Email { get; set; }
-        public bool Estado { get; set; }
+        public bool Estado { get; set; } = true;
         
         [ForeignKey("Sucursal")]
         public int? SucursalID { get; set; }

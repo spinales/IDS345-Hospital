@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,30 +33,21 @@ namespace CORE_WinForm
 
         private  async void LlamarApi()
         {
-            using (var client = new HttpClient())
+            using (var httpClient = new HttpClient())
             {
-                var values = new Dictionary<string, string>
-                {
-                    { "Username", txtUsuario.Text },
-                    { "Password", txtContraseña.Text },
-                    { "Email", txtCorreo.Text },
-                    { "SucursalID", "1" },
-                    { "PerfilID", "1" }
-                };
+                var apiUrl = "https://localhost:44329/CORE/InsertarUsuario"; // replace with your API endpoint
+                var requestBody = new { Username = txtUsuario.Text, Password = txtContraseña.Text,
+                                        Email = txtCorreo.Text, SucursalID= int.Parse(cbSucursal.Text),
+                                        PerfilID = int.Parse(cbPerfil.Text)}; // replace with your request parameters
 
-                var content = new FormUrlEncodedContent(values);
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
 
-                var response = await client.PostAsync("https://localhost:44329/CORE/InsertarUsuario", content);
-                
+                var response = await httpClient.PostAsync(apiUrl, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
 
-                if (response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show("EXITOO");
-                }
-                else
-                {
-                    MessageBox.Show("bobo");
-                }
+                // handle response content here
+                MessageBox.Show(responseContent);
             }
 
         }
