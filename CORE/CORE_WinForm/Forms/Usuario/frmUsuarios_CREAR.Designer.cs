@@ -48,10 +48,11 @@
             // 
             this.btnGuardar.AutoSize = true;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(91, 403);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(121, 496);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(114, 27);
+            this.btnGuardar.Size = new System.Drawing.Size(152, 33);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -60,98 +61,109 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(88, 118);
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(117, 145);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(111, 14);
+            this.lblUsername.Size = new System.Drawing.Size(135, 18);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Nombre de usuario";
             // 
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(88, 173);
+            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseña.Location = new System.Drawing.Point(117, 213);
+            this.lblContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(70, 14);
+            this.lblContraseña.Size = new System.Drawing.Size(85, 18);
             this.lblContraseña.TabIndex = 2;
             this.lblContraseña.Text = "Contraseña";
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(88, 229);
+            this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Location = new System.Drawing.Point(117, 282);
+            this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(106, 14);
+            this.lblCorreo.Size = new System.Drawing.Size(134, 18);
             this.lblCorreo.TabIndex = 3;
             this.lblCorreo.Text = "Correo Electrónico";
             // 
             // lblSucursal
             // 
             this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSucursal.Location = new System.Drawing.Point(88, 285);
+            this.lblSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSucursal.Location = new System.Drawing.Point(117, 351);
+            this.lblSucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(54, 14);
+            this.lblSucursal.Size = new System.Drawing.Size(66, 18);
             this.lblSucursal.TabIndex = 4;
             this.lblSucursal.Text = "Sucursal";
             // 
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(88, 345);
+            this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerfil.Location = new System.Drawing.Point(117, 425);
+            this.lblPerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(35, 14);
+            this.lblPerfil.Size = new System.Drawing.Size(41, 18);
             this.lblPerfil.TabIndex = 5;
             this.lblPerfil.Text = "Perfil";
             // 
             // cbPerfil
             // 
             this.cbPerfil.FormattingEnabled = true;
-            this.cbPerfil.Location = new System.Drawing.Point(208, 342);
+            this.cbPerfil.Location = new System.Drawing.Point(277, 421);
+            this.cbPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbPerfil.Name = "cbPerfil";
-            this.cbPerfil.Size = new System.Drawing.Size(140, 21);
+            this.cbPerfil.Size = new System.Drawing.Size(185, 24);
             this.cbPerfil.TabIndex = 6;
             // 
             // cbSucursal
             // 
             this.cbSucursal.FormattingEnabled = true;
-            this.cbSucursal.Location = new System.Drawing.Point(208, 282);
+            this.cbSucursal.Location = new System.Drawing.Point(277, 347);
+            this.cbSucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbSucursal.Name = "cbSucursal";
-            this.cbSucursal.Size = new System.Drawing.Size(140, 21);
+            this.cbSucursal.Size = new System.Drawing.Size(185, 24);
             this.cbSucursal.TabIndex = 7;
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(208, 226);
+            this.txtCorreo.Location = new System.Drawing.Point(277, 278);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(140, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(185, 22);
             this.txtCorreo.TabIndex = 8;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(208, 170);
+            this.txtContraseña.Location = new System.Drawing.Point(277, 209);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(140, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(185, 22);
             this.txtContraseña.TabIndex = 9;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(208, 118);
+            this.txtUsuario.Location = new System.Drawing.Point(277, 145);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(140, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(185, 22);
             this.txtUsuario.TabIndex = 10;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(234, 403);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(312, 496);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(114, 27);
+            this.btnCancelar.Size = new System.Drawing.Size(152, 33);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -160,10 +172,11 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(84, 45);
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(112, 55);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(214, 38);
+            this.lblTitulo.Size = new System.Drawing.Size(281, 46);
             this.lblTitulo.TabIndex = 12;
             this.lblTitulo.Text = "Crear Usuario";
             // 
@@ -174,8 +187,9 @@
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(22, 23);
+            this.btnSalir.Size = new System.Drawing.Size(29, 28);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "X";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -183,12 +197,12 @@
             // frmUsuarios_CREAR
             // 
             this.AcceptButton = this.btnGuardar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(820, 464);
+            this.ClientSize = new System.Drawing.Size(1093, 571);
             this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblTitulo);
@@ -206,12 +220,14 @@
             this.Controls.Add(this.btnGuardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUsuarios_CREAR";
             this.ShowIcon = false;
             this.Text = "Crear Usuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmUsuarios_CREAR_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

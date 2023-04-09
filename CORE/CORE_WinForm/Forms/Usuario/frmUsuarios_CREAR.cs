@@ -51,5 +51,10 @@ namespace CORE_WinForm
             }
 
         }
+
+        private void frmUsuarios_CREAR_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

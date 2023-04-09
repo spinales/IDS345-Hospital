@@ -77,5 +77,9 @@ namespace CORE_WinForm
         {
 
         }
+        private void crearToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
