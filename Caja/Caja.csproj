@@ -58,24 +58,6 @@
     <Compile Include="fInicio.Designer.cs">
       <DependentUpon>fInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFacturacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFacturacion.Designer.cs">
-      <DependentUpon>frmFacturacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmOrdenActual.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmOrdenActual.Designer.cs">
-      <DependentUpon>frmOrdenActual.cs</DependentUpon>
-    </Compile>
     <Compile Include="frPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +70,12 @@
     <Compile Include="frPagos.Designer.cs">
       <DependentUpon>frPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="appCaja.resx">
@@ -96,35 +84,29 @@
     <EmbeddedResource Include="fInicio.resx">
       <DependentUpon>fInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFacturacion.resx">
-      <DependentUpon>frmFacturacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmOrdenActual.resx">
-      <DependentUpon>frmOrdenActual.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frPacientes.resx">
       <DependentUpon>frPacientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frPagos.resx">
       <DependentUpon>frPagos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -134,9 +116,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\image 2.png" />
+    <None Include="Resources\1160865.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1000915.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
