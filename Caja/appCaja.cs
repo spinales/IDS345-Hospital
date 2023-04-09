@@ -16,12 +16,6 @@ namespace Caja
         public appCaja()
         {
             InitializeComponent();        
-
-            this.pfLoader.Controls.Clear();
-            fInicio fInicio = new fInicio() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-           // fInicio.FormBorderStyle = FormBorderStyle.None;
-            this.pfLoader.Controls.Add(fInicio);
-            fInicio.Show();
         
         }
         
@@ -37,11 +31,7 @@ namespace Caja
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            this.pfLoader.Controls.Clear();
-            fInicio fInicio = new fInicio() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-           // fInicio.FormBorderStyle = FormBorderStyle.None;
-            this.pfLoader.Controls.Add(fInicio);
-            fInicio.Show();
+
         }
 
         private void btnPerfil_Leave(object sender, EventArgs e)
@@ -79,7 +69,6 @@ namespace Caja
         {
             this.pfLoader.Controls.Clear();
             frmFacturacion facturacion = new frmFacturacion() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-           // facturacion.FormBorderStyle = FormBorderStyle.None;
             this.pfLoader.Controls.Add(facturacion);
             facturacion.Show();
         }

@@ -52,12 +52,6 @@
     <Compile Include="appCaja.Designer.cs">
       <DependentUpon>appCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="fInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fInicio.Designer.cs">
-      <DependentUpon>fInicio.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,18 +70,6 @@
     <Compile Include="frmOrdenActual.Designer.cs">
       <DependentUpon>frmOrdenActual.cs</DependentUpon>
     </Compile>
-    <Compile Include="frPacientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frPacientes.Designer.cs">
-      <DependentUpon>frPacientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frPagos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frPagos.Designer.cs">
-      <DependentUpon>frPagos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,9 +81,6 @@
     <EmbeddedResource Include="appCaja.resx">
       <DependentUpon>appCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fInicio.resx">
-      <DependentUpon>fInicio.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,23 +90,23 @@
     <EmbeddedResource Include="frmOrdenActual.resx">
       <DependentUpon>frmOrdenActual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frPacientes.resx">
-      <DependentUpon>frPacientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frPagos.resx">
-      <DependentUpon>frPagos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
