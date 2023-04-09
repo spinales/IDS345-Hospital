@@ -72,5 +72,10 @@ namespace CORE_WinForm
                 return formAbrir;
             }
         }
+
+        private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

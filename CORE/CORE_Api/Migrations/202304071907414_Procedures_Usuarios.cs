@@ -78,7 +78,7 @@
                         DeletedAt = CASE WHEN Estado = 1 THEN GETDATE() ELSE NULL END
                     WHERE UsuarioID = @UsuarioID;
                 END;
-                                ");
+                ");
         }
         
         public override void Down()

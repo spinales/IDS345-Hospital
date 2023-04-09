@@ -25,5 +25,7 @@ namespace CORE_Api.Controllers
                                             );
             return Ok("Registro Exitoso");
         }
+
+        
     }
 }
