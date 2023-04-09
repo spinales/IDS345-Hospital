@@ -160,7 +160,7 @@
             // 
             // btnOrdenActualImprimirFactura
             // 
-            this.btnOrdenActualImprimirFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            this.btnOrdenActualImprimirFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
             this.btnOrdenActualImprimirFactura.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrdenActualImprimirFactura.ForeColor = System.Drawing.Color.White;
             this.btnOrdenActualImprimirFactura.Location = new System.Drawing.Point(60, 723);
