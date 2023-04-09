@@ -15,88 +15,43 @@ namespace Caja
     {
         public appCaja()
         {
-            InitializeComponent();
-            panel3.Height = btInicio.Height;
-            panel3.Top = btInicio.Top;
-            panel3.Left = btInicio.Left;
-            btInicio.BackColor = Color.FromArgb(46, 51, 73);
+            InitializeComponent();        
 
-            lbheader.Text = "Inicio";
             this.pfLoader.Controls.Clear();
             fInicio fInicio = new fInicio() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            fInicio.FormBorderStyle = FormBorderStyle.None;
+           // fInicio.FormBorderStyle = FormBorderStyle.None;
             this.pfLoader.Controls.Add(fInicio);
             fInicio.Show();
+        
         }
-
+        
         private void appCaja_Load(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void btInicio_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            panel3.Height = btInicio.Height;
-            panel3.Top = btInicio.Top;
-            panel3.Left = btInicio.Left;
-            btInicio.BackColor = Color.FromArgb(46, 51, 73);
+            Application.Exit();
+        }
 
-            lbheader.Text = "Inicio";
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
             this.pfLoader.Controls.Clear();
-            fInicio fInicio = new fInicio() { Dock=DockStyle.Fill,TopLevel=false,TopMost=true};
-            fInicio.FormBorderStyle=FormBorderStyle.None;
+            fInicio fInicio = new fInicio() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+           // fInicio.FormBorderStyle = FormBorderStyle.None;
             this.pfLoader.Controls.Add(fInicio);
             fInicio.Show();
         }
 
-        private void btnPacientes_Click(object sender, EventArgs e)
+        private void btnPerfil_Leave(object sender, EventArgs e)
         {
-            panel3.Height = btnPacientes.Height;
-            panel3.Top = btnPacientes.Top;
-            btnPacientes.BackColor = Color.FromArgb(46, 51, 73);
-
-            lbheader.Text = "Pacientes";
-            this.pfLoader.Controls.Clear();
-            frPacientes fPacientes = new frPacientes() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            fPacientes.FormBorderStyle = FormBorderStyle.None;
-            this.pfLoader.Controls.Add(fPacientes);
-            fPacientes.Show();
-        }
-
-        private void btnPagos_Click(object sender, EventArgs e)
-        {
-            panel3.Height = btnPagos.Height;
-            panel3.Top = btnPagos.Top;
-            btnPagos.BackColor = Color.FromArgb(46, 51, 73);
-
-            lbheader.Text = "Pagos";
-            this.pfLoader.Controls.Clear();
-            frPagos fPagos = new frPagos() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            fPagos.FormBorderStyle = FormBorderStyle.None;
-            this.pfLoader.Controls.Add(fPagos);
-            fPagos.Show();
+            btnPerfil.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnCuadre_Click(object sender, EventArgs e)
         {
-            panel3.Height = btnCuadre.Height;
-            panel3.Top = btnCuadre.Top;
-            btnCuadre.BackColor = Color.FromArgb(46, 51, 73);
-        }
 
-        private void btInicio_Leave(object sender, EventArgs e)
-        {
-            btInicio.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnPacientes_Leave(object sender, EventArgs e)
-        {
-            btnPacientes.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnPagos_Leave(object sender, EventArgs e)
-        {
-            btnPagos.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnCuadre_Leave(object sender, EventArgs e)
@@ -104,14 +59,29 @@ namespace Caja
             btnCuadre.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void btnCuenta_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCuenta_Leave(object sender, EventArgs e)
         {
-            Application.Exit();
+            btnCuenta.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+
+        private void btnFacturacion_Leave(object sender, EventArgs e)
+        {
+            btnFacturacion.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            this.pfLoader.Controls.Clear();
+            frmFacturacion facturacion = new frmFacturacion() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+           // facturacion.FormBorderStyle = FormBorderStyle.None;
+            this.pfLoader.Controls.Add(facturacion);
+            facturacion.Show();
         }
     }
 }

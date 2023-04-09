@@ -63,19 +63,9 @@ namespace Caja.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1000915 {
+        internal static System.Drawing.Bitmap image_2 {
             get {
-                object obj = ResourceManager.GetObject("1000915", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1160865 {
-            get {
-                object obj = ResourceManager.GetObject("1160865", resourceCulture);
+                object obj = ResourceManager.GetObject("image 2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

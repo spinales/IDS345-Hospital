@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Caja
 {
-    public partial class Login : Form
+    public partial class frmFacturacion : Form
     {
-        public Login()
+        public frmFacturacion()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void frmFacturacion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
