@@ -15,6 +15,9 @@ namespace CORE_Api.Controllers
         [Route("CORE/InsertarUsuario")]
         public IHttpActionResult InsertarUsuario([FromBody] Usuario usuario)
         {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH).
+            // Guardar logs en la base de datos (Log4NetLog).
             var ds = new DataService();
             ds.Database.ExecuteSqlCommand("sp_insert_usuario @Username, @Password, @Email, @SucursalID, @PerfilID",
                                             new SqlParameter("@Username", usuario.Username),
