@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using RolPersona = API.Enums.RolPersona;
+using TipoServicio = API.Enums.TipoServicio;
 
 
 namespace API.Controllers
@@ -18,28 +19,68 @@ namespace API.Controllers
     {
         [HttpPost]
         [Route("WEB/login")]
-        public IHttpActionResult ValidarPaciente(string username, string password)
+        public async Task<IHttpActionResult> HacerLoginPaciente(string username, string password)
         {
-            // TO DO - Conectarse al CORE y validar el Paciente
-            
-            
-            // Si el CORE no responde, se debe ejecutar el siguiente codigo para hacer la validacion desde la integracion
-            
-            var ds = new DataService();
-            var persona = ds.Persona.FirstOrDefault(x =>
-                x.Usuario.Username == username && x.Usuario.Password == password && x.Estado == true &&
-                x.RolPersonaID == (int)RolPersona.Pacientes);
-            return Ok(persona);
+            // Conectarse al CORE y validar el Paciente
+                // En funcion de la respuesta del CORE, actualizar la base de datos de integración si es necesario
+                // Retornar una respuesta a la capa WEB
+            bool coreRespondio = false;
+            if (coreRespondio)
+            {
+                return Ok();
+            }
+            else
+            { 
+                var ds = new DataService();
+                try
+                {
+                    var personas = await ds.GetAll<Persona>(
+                        x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == username &&
+                              x.Usuario.Password == password && x.Estado == true), 
+                              x=> x.TipoSangre);
+                    var persona = personas.Select(x => new Persona()
+                    {
+                        PersonaID = x.PersonaID,
+                        Nombre = x.Nombre,
+                        Apellido = x.Apellido,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        Documento = x.Documento,
+                        Estado = x.Estado,
+                        RolPersona = new Modelos.RolPersona()
+                        {
+                            RolPersonaID = x.RolPersona.RolPersonaID,
+                            Descripcion = x.RolPersona.Descripcion
+                        },
+                        TipoDocumento = new TipoDocumento()
+                        {
+                            Nombre = x.TipoDocumento.Nombre,
+                            TipoDocumentoID = x.TipoDocumento.TipoDocumentoID
+                        },
+                        TipoSangre = new TipoSangre()
+                        {
+                            Nombre = x.TipoSangre.Nombre,
+                            TipoSangreID = x.TipoSangre.TipoSangreID
+                        }
+                    }).FirstOrDefault();
+                    return Ok(persona);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            }
         }
         
         [HttpPost]
         [Route("WEB/transacciones")]
         public IHttpActionResult RegistrarTransaccionCuenta(Transaccion transaccion)
         {
-            var ds = new DataService();
-            // TO DO - Registrar la transaccion de la cuenta en la base de datos de la integracion
+            // Registrar la transaccion en la base de datos de la integracion
+                // Implementar un try catch para capturar cualquier error y notificarlo a la capa WEB
             
-            // TO DO - Conectarse al CORE y consumir el servicio para registrar la transaccion de la cuenta alla
+            // Conectarse al Core y consumir el servicio para registrar la transaccion alla
             return Ok();
         }
 
@@ -47,64 +88,258 @@ namespace API.Controllers
         [Route("WEB/facturas")]
         public IHttpActionResult RegistrarFactura(Factura factura)
         {
-            var ds = new DataService();
-            // TO DO - Registrar la factura en la base de datos de la integracion
-
-            // TO DO - Conectarse al CORE y consumir el servicio para registrar la factura alla
+            // Registrar la factura en la base de datos de la integracion
+                // Implementar un try catch para capturar cualquier error y notificarlo a la capa WEB
+            
+            // Conectarse al Core y consumir el servicio para registrar la transaccion alla
+            return Ok();
+        }
+        
+        [HttpPost]
+        [Route("WEB/facturas/consultas")]
+        public IHttpActionResult RegistrarConsulta(int DetalleID, int DoctorID)
+        {
+            // Registrar la transaccion en la base de datos de la integracion
+            // Implementar un try catch para capturar cualquier error y notificarlo a la capa WEB
+            
+            // Conectarse al Core y consumir el servicio para registrar la transaccion alla
             return Ok();
         }
 
         [HttpGet]
-        [Route("WEB/servicios")]
-        public IHttpActionResult ObtenerServicios()
+        [Route("WEB/servicios/consultas")]
+        public async Task<IHttpActionResult> ObtenerServiciosConsulta()
         {
-            // TO DO - Conectarse al CORE y obtener los servicios
-            // Si el CORE no responde, se debe ejecutar el siguiente codigo
-            var ds = new DataService();
-            var servicios = ds.Servicios.ToArray();
-            return Ok(servicios);
+            // Conectarse al CORE y obtener los servicios de tipo consulta
+                // En funcion de la respuesta del CORE, actualizar la base de datos de integración si es necesario
+            // Retornar una respuesta a la capa WEB
+            
+            bool coreRespondio = false;
+            if (coreRespondio)
+            {
+                return Ok();
+            }
+            else
+            { 
+                var ds = new DataService();
+                try
+                {
+                    var consultas = await ds.GetAll<Servicios>(
+                        x => (x.TipoServicio.TipoServicioID == (int)Enums.TipoServicio.Consultas && x.Estado == true), 
+                        null);
+                    consultas = consultas.Select(x => new Servicios()
+                    {
+                        ServicioID = x.ServicioID,
+                        Precio = x.Precio,
+                        Descripcion = x.Descripcion,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        Estado = x.Estado,
+                        TipoServicio = new Modelos.TipoServicio()
+                        {
+                            TipoServicioID = x.TipoServicio.TipoServicioID,
+                            Descripcion = x.TipoServicio.Descripcion
+                        }
+                    }).ToList();
+                    return Ok(consultas);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            }
+        }
+        
+        [HttpGet]
+        [Route("WEB/servicios/analisis")]
+        public async Task<IHttpActionResult> ObtenerServiciosAnalisis()
+        {
+            // Conectarse al CORE y obtener los servicios de tipo analisis
+                // En funcion de la respuesta del CORE, actualizar la base de datos de integración si es necesario
+            // Retornar una respuesta a la capa WEB
+            bool coreRespondio = false;
+            if (coreRespondio)
+            {
+                return Ok();
+            }
+            else
+            { 
+                var ds = new DataService();
+                try
+                {
+                    var analisis = await ds.GetAll<Servicios>(
+                        x => (x.TipoServicio.TipoServicioID == (int)Enums.TipoServicio.Analisis && x.Estado == true), 
+                        null);
+                    analisis = analisis.Select(x => new Servicios()
+                    {
+                        ServicioID = x.ServicioID,
+                        Precio = x.Precio,
+                        Descripcion = x.Descripcion,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        Estado = x.Estado,
+                        TipoServicio = new Modelos.TipoServicio()
+                        {
+                            TipoServicioID = x.TipoServicio.TipoServicioID,
+                            Descripcion = x.TipoServicio.Descripcion
+                        }
+                    }).ToList();
+                    return Ok(analisis);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            }
+        }
+        
+        [HttpGet]
+        [Route("WEB/servicios/procedimientos")]
+        public async Task<IHttpActionResult> ObtenerServiciosProcedimientos()
+        {
+            // Conectarse al CORE y obtener los servicios de tipo procedimientos
+                // En funcion de la respuesta del CORE, actualizar la base de datos de integración si es necesario
+            // Retornar una respuesta a la capa WEB
+            
+            bool coreRespondio = false;
+            if (coreRespondio)
+            {
+                return Ok();
+            }
+            else
+            { 
+                var ds = new DataService();
+                try
+                {
+                    var procedimientos = await ds.GetAll<Servicios>(
+                        x => (x.TipoServicio.TipoServicioID == (int)Enums.TipoServicio.Procedimientos && x.Estado == true), 
+                        null);
+                    procedimientos = procedimientos.Select(x => new Servicios()
+                    {
+                        ServicioID = x.ServicioID,
+                        Precio = x.Precio,
+                        Descripcion = x.Descripcion,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        Estado = x.Estado,
+                        TipoServicio = new Modelos.TipoServicio()
+                        {
+                            TipoServicioID = x.TipoServicio.TipoServicioID,
+                            Descripcion = x.TipoServicio.Descripcion
+                        }
+                    }).ToList();
+                    return Ok(procedimientos);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            }
         }
 
         [HttpGet]
-        [Route("WEB/Cuentas/Paciente")]
-        public IHttpActionResult ObtenerCuentasPaciente(int PacienteID)
+        [Route("WEB/cuentas/paciente")]
+        public async Task<IHttpActionResult> ObtenerCuentasPaciente(string DocumentoPaciente)
         {
-            try
-            {
-                // TO DO - Conectarse al CORE y obtener las cuentas asociadas a un paciente
-                
-                
-                // Si el CORE no responde, se debe ejecutar el siguiente codigo
-                using (var ds = new DataService())
-                {
-                    return Ok();
-                }
-            }catch(Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            // Conectarse al CORE y obtener las cuentas del paciente
+                // En funcion de la respuesta del CORE, actualizar la base de datos de integración si es necesario
+            // Retornar una respuesta a la capa WEB
             
+            bool coreRespondio = false;
+            if (coreRespondio)
+            {
+                return Ok();
+            }
+            else
+            { 
+                var ds = new DataService();
+                try
+                {
+                    var cuentas = await ds.GetAll<Cuenta>(
+                        x => (x.Persona.Documento == DocumentoPaciente && x.Estado == true && x.Balance > 0), 
+                              x=> x.Persona);
+                    cuentas = cuentas.Select(x => new Cuenta()
+                    {
+                        CuentaID = x.CuentaID,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        Estado = x.Estado,
+                        Balance = x.Balance,
+                        Persona = new Persona()
+                        {
+                            PersonaID = x.Persona.PersonaID,
+                            Nombre = x.Persona.Nombre,
+                            Apellido = x.Persona.Apellido,
+                            Documento = x.Persona.Documento
+                        }
+                    }).ToList();
+                    return Ok(cuentas);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            }
         }
-
+        
         [HttpGet]
-        [Route("WEB/TiposServicios")]
-        public async Task<IHttpActionResult> ObtenerTiposServicios()
+        [Route("WEB/personas/doctores")]
+        public async Task<IHttpActionResult> ObtenerDoctores()
         {
-            try
+            // Conectarse al CORE y obtener las cuentas del paciente
+            // En funcion de la respuesta del CORE, actualizar la base de datos de integración si es necesario
+            // Retornar una respuesta a la capa WEB
+
+            bool coreRespondio = false;
+            if (coreRespondio)
             {
-                //TO DO - Conectarse al CORE y obtener los tipos de servicios
-                
-                
-                // Si el CORE no responde, se debe ejecutar el siguiente codigo
-                using (var ds = new DataService())
-                {
-                    return Ok();
-                }
-            }catch(Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return Ok();
             }
-            
+            else
+            { 
+                var ds = new DataService();
+                try
+                {
+                    var doctores = await ds.GetAll<Persona>(
+                        x => (x.RolPersonaID == (int)Enums.RolPersona.Doctor && x.Estado == true), 
+                        x=> x.TipoSangre);
+                    doctores = doctores.Select(x => new Persona()
+                    {
+                        PersonaID = x.PersonaID,
+                        Nombre = x.Nombre,
+                        Apellido = x.Apellido,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        Documento = x.Documento,
+                        Estado = x.Estado,
+                        RolPersona = new Modelos.RolPersona()
+                        {
+                            RolPersonaID = x.RolPersona.RolPersonaID,
+                            Descripcion = x.RolPersona.Descripcion
+                        },
+                        TipoDocumento = new TipoDocumento()
+                        {
+                            Nombre = x.TipoDocumento.Nombre,
+                            TipoDocumentoID = x.TipoDocumento.TipoDocumentoID
+                        },
+                        TipoSangre = new TipoSangre()
+                        {
+                            Nombre = x.TipoSangre.Nombre,
+                            TipoSangreID = x.TipoSangre.TipoSangreID
+                        }
+                    }).ToList();
+                    return Ok(doctores);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            }
         }
     }
 }
