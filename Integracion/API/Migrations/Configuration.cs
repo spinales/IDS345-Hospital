@@ -734,39 +734,102 @@
             };
             
             service.PerfilRole.AddOrUpdate(x=> new { x.PerfilID, x.RoleID, x.EntidadID }, defaultPerfilRole.ToArray());
-            
-            service.Sucursal.AddOrUpdate(x=>x.SucursalID, new Sucursal()
+
+            IList<Sucursal> defaultSucursales = new List<Sucursal>()
             {
-                SucursalID = 1,
-                Nombre = "Sucursal Principal",
-                Direccion = "Avenida 27 de Febrero"
-            });
+                new Sucursal()
+                {
+                    SucursalID = 1,
+                    Nombre = "Sucursal Principal",
+                    Direccion = "Avenida 27 de Febrero"
+                }
+            };
             
-            service.Usuario.AddOrUpdate(x => x.UsuarioID, new Usuario()
+            service.Sucursal.AddOrUpdate(x=>x.SucursalID, defaultSucursales.ToArray());
+
+            IList<Usuario> defaultUsuarios = new List<Usuario>()
             {
-                UsuarioID = 1,
-                Estado = true,
-                Username = "Administrador1",
-                Password = "u1ie43ofhciecn3rk",
-                PerfilID = 1,
-                SucursalID = 1
-            });
+                new Usuario()
+                {
+                    UsuarioID = 1,
+                    Estado = true,
+                    Username = "Administrador1",
+                    Password = "u1ie43ofhciecn3rk",
+                    PerfilID = 1,
+                    SucursalID = 1
+                },
+                new Usuario()
+                {
+                    UsuarioID = 2,
+                    Estado = true,
+                    Username = "Paciente1",
+                    Password = "paciente1",
+                    PerfilID = null,
+                    SucursalID = null
+                },
+                new Usuario()
+                {
+                    UsuarioID = 3,
+                    Estado = true,
+                    Username = "Cajero1",
+                    Password = "Cajero1",
+                    PerfilID = null,
+                    SucursalID = 1
+                }
+            };
             
-            service.Persona.AddOrUpdate(x=>x.PersonaID, new Persona()
+            service.Usuario.AddOrUpdate(x => x.UsuarioID, defaultUsuarios.ToArray());
+
+            IList<Persona> defaultPersonas = new List<Persona>()
             {
-                PersonaID = 1,
-                Estado = true,
-                Sexo = 'M',
-                Nombre = "Pablo",
-                Apellido = "Mota",
-                Telefono = "0000000000",
-                NacionalidadID = 1,
-                RolPersonaID = (int)Enums.RolPersona.Administrador,
-                TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
-                Documento = "0000000000",
-                UsuarioID = 1,
-                TipoSangreID = 1
-            });
+                new Persona()
+                {
+                    PersonaID = 1,
+                    Estado = true,
+                    Sexo = 'M',
+                    Nombre = "Pablo",
+                    Apellido = "Mota",
+                    Telefono = "0000000000",
+                    NacionalidadID = 1,
+                    RolPersonaID = (int)Enums.RolPersona.Administrador,
+                    TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
+                    Documento = "0000000000",
+                    UsuarioID = 1,
+                    TipoSangreID = 1
+                },
+                new Persona()
+                {
+                    PersonaID = 2,
+                    Estado = true,
+                    Sexo = 'M',
+                    Nombre = "Raul",
+                    Apellido = "Castro",
+                    Telefono = "0000000000",
+                    NacionalidadID = 1,
+                    RolPersonaID = (int)Enums.RolPersona.Pacientes,
+                    TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
+                    Documento = "0000000000",
+                    UsuarioID = 2,
+                    TipoSangreID = 1
+                },
+                new Persona()
+                {
+                    PersonaID = 3,
+                    Estado = true,
+                    Sexo = 'M',
+                    Nombre = "Paulo",
+                    Apellido = "Marquez",
+                    Telefono = "0000000000",
+                    NacionalidadID = 1,
+                    RolPersonaID = (int)Enums.RolPersona.Cajero,
+                    TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
+                    Documento = "0000000000",
+                    UsuarioID = 3,
+                    TipoSangreID = 1
+                }
+            };
+            
+            service.Persona.AddOrUpdate(x=>x.PersonaID, defaultPersonas.ToArray());
             base.Seed(service);
         }
     }
