@@ -58,6 +58,24 @@
     <Compile Include="fInicio.Designer.cs">
       <DependentUpon>fInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frCuadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frCuadre.Designer.cs">
+      <DependentUpon>frCuadre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frCuenta.Designer.cs">
+      <DependentUpon>frCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frCuentaAbono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frCuentaAbono.Designer.cs">
+      <DependentUpon>frCuentaAbono.cs</DependentUpon>
+    </Compile>
     <Compile Include="frPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +101,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fInicio.resx">
       <DependentUpon>fInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frCuadre.resx">
+      <DependentUpon>frCuadre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frCuenta.resx">
+      <DependentUpon>frCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frCuentaAbono.resx">
+      <DependentUpon>frCuentaAbono.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frPacientes.resx">
       <DependentUpon>frPacientes.cs</DependentUpon>
