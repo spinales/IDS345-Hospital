@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Caja
 {
-    public partial class frPagos : Form
+    public partial class frmOrdenActual : Form
     {
-        public frPagos()
+        public frmOrdenActual()
         {
             InitializeComponent();
         }
