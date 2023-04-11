@@ -52,6 +52,24 @@
     <Compile Include="appCaja.Designer.cs">
       <DependentUpon>appCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="frCuadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frCuadre.Designer.cs">
+      <DependentUpon>frCuadre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frCuenta.Designer.cs">
+      <DependentUpon>frCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frCuentaAbono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frCuentaAbono.Designer.cs">
+      <DependentUpon>frCuentaAbono.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,16 +88,19 @@
     <Compile Include="frmOrdenActual.Designer.cs">
       <DependentUpon>frmOrdenActual.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="appCaja.resx">
       <DependentUpon>appCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frCuadre.resx">
+      <DependentUpon>frCuadre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frCuenta.resx">
+      <DependentUpon>frCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frCuentaAbono.resx">
+      <DependentUpon>frCuentaAbono.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
@@ -89,9 +110,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrdenActual.resx">
       <DependentUpon>frmOrdenActual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

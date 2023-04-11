@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbImagenLogin = new System.Windows.Forms.PictureBox();
             this.lbWelcome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.btnInicioSesion = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.pbImagenLogin = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenLogin)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(356, 512);
             this.panel1.TabIndex = 0;
+            // 
+            // pbImagenLogin
+            // 
+            this.pbImagenLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbImagenLogin.Image = ((System.Drawing.Image)(resources.GetObject("pbImagenLogin.Image")));
+            this.pbImagenLogin.Location = new System.Drawing.Point(0, 0);
+            this.pbImagenLogin.Name = "pbImagenLogin";
+            this.pbImagenLogin.Size = new System.Drawing.Size(356, 512);
+            this.pbImagenLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagenLogin.TabIndex = 0;
+            this.pbImagenLogin.TabStop = false;
             // 
             // lbWelcome
             // 
@@ -71,7 +82,7 @@
             this.label1.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(408, 168);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 15);
+            this.label1.Size = new System.Drawing.Size(213, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Inicia sesión para acceder a la aplicación";
             // 
@@ -82,7 +93,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.label2.Location = new System.Drawing.Point(383, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Usuario";
             // 
@@ -92,7 +103,7 @@
             this.txtUsuarioLogin.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuarioLogin.Location = new System.Drawing.Point(386, 240);
             this.txtUsuarioLogin.Name = "txtUsuarioLogin";
-            this.txtUsuarioLogin.Size = new System.Drawing.Size(314, 28);
+            this.txtUsuarioLogin.Size = new System.Drawing.Size(314, 24);
             this.txtUsuarioLogin.TabIndex = 4;
             // 
             // txtContraseñaLogin
@@ -114,7 +125,7 @@
             this.lbContraseñaLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.lbContraseñaLogin.Location = new System.Drawing.Point(383, 300);
             this.lbContraseñaLogin.Name = "lbContraseñaLogin";
-            this.lbContraseñaLogin.Size = new System.Drawing.Size(74, 15);
+            this.lbContraseñaLogin.Size = new System.Drawing.Size(64, 13);
             this.lbContraseñaLogin.TabIndex = 5;
             this.lbContraseñaLogin.Text = "Contraseña";
             // 
@@ -125,7 +136,7 @@
             this.cbRecuerdame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.cbRecuerdame.Location = new System.Drawing.Point(386, 368);
             this.cbRecuerdame.Name = "cbRecuerdame";
-            this.cbRecuerdame.Size = new System.Drawing.Size(101, 19);
+            this.cbRecuerdame.Size = new System.Drawing.Size(89, 17);
             this.cbRecuerdame.TabIndex = 7;
             this.cbRecuerdame.Text = "Recuerdame";
             this.cbRecuerdame.UseVisualStyleBackColor = true;
@@ -138,7 +149,7 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.linkLabel1.Location = new System.Drawing.Point(522, 369);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(173, 18);
+            this.linkLabel1.Size = new System.Drawing.Size(138, 14);
             this.linkLabel1.TabIndex = 8;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Olvidaste tu contraseña?";
@@ -154,6 +165,7 @@
             this.btnInicioSesion.TabIndex = 9;
             this.btnInicioSesion.Text = "Iniciar Sesion";
             this.btnInicioSesion.UseVisualStyleBackColor = false;
+            this.btnInicioSesion.Click += new System.EventHandler(this.btnInicioSesion_Click);
             // 
             // label3
             // 
@@ -162,7 +174,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.label3.Location = new System.Drawing.Point(423, 468);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 15);
+            this.label3.Size = new System.Drawing.Size(111, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "No estas registrado?";
             // 
@@ -173,21 +185,10 @@
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
             this.linkLabel2.Location = new System.Drawing.Point(561, 466);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(78, 18);
+            this.linkLabel2.Size = new System.Drawing.Size(61, 14);
             this.linkLabel2.TabIndex = 11;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Registrate";
-            // 
-            // pbImagenLogin
-            // 
-            this.pbImagenLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbImagenLogin.Image = ((System.Drawing.Image)(resources.GetObject("pbImagenLogin.Image")));
-            this.pbImagenLogin.Location = new System.Drawing.Point(0, 0);
-            this.pbImagenLogin.Name = "pbImagenLogin";
-            this.pbImagenLogin.Size = new System.Drawing.Size(356, 512);
-            this.pbImagenLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImagenLogin.TabIndex = 0;
-            this.pbImagenLogin.TabStop = false;
             // 
             // frmLogin
             // 

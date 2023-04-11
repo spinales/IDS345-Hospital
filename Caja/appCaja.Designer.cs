@@ -202,16 +202,16 @@
             this.pfLoader.BackColor = System.Drawing.SystemColors.Control;
             this.pfLoader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfLoader.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pfLoader.Location = new System.Drawing.Point(264, 0);
+            this.pfLoader.Location = new System.Drawing.Point(210, 0);
             this.pfLoader.Name = "pfLoader";
-            this.pfLoader.Size = new System.Drawing.Size(1176, 1024);
+            this.pfLoader.Size = new System.Drawing.Size(1176, 788);
             this.pfLoader.TabIndex = 7;
             // 
             // appCaja
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1440, 1024);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.pfLoader);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
