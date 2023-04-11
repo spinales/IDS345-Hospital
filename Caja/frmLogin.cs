@@ -16,5 +16,12 @@ namespace Caja
         {
             InitializeComponent();
         }
+
+        private void btnInicioSesion_Click(object sender, EventArgs e)
+        {
+            frCuadre FrCuadre = new frCuadre();
+            FrCuadre.Show();
+
+        }
     }
 }
