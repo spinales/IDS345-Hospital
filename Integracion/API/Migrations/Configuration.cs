@@ -413,7 +413,7 @@
                 {
                     RolPersonaID = (int)Enums.RolPersona.Doctor,
                     Nombre = "Doctor",
-                    Descripcion = "Este es el rol para los doctores del hospital, no tienen acceso a ninguna de las aplicaciones pero permiten registrar sus consultas",
+                    Descripcion = "Este es el rol para los doctores del hospital, no tienen acceso a ninguna de las aplicaciones",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
                     DeletedAt = null,
@@ -763,7 +763,7 @@
                     UsuarioID = 2,
                     Estado = true,
                     Username = "Paciente1",
-                    Password = "paciente1",
+                    Password = "u1ie43ofhciecn3rk",
                     PerfilID = null,
                     SucursalID = null
                 },
@@ -772,7 +772,7 @@
                     UsuarioID = 3,
                     Estado = true,
                     Username = "Cajero1",
-                    Password = "Cajero1",
+                    Password = "u1ie43ofhciecn3rk",
                     PerfilID = null,
                     SucursalID = 1
                 }
@@ -804,11 +804,11 @@
                     Sexo = 'M',
                     Nombre = "Raul",
                     Apellido = "Castro",
-                    Telefono = "0000000000",
+                    Telefono = "829-546-5454",
                     NacionalidadID = 1,
                     RolPersonaID = (int)Enums.RolPersona.Pacientes,
                     TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
-                    Documento = "0000000000",
+                    Documento = "0000000002",
                     UsuarioID = 2,
                     TipoSangreID = 1
                 },
@@ -819,11 +819,11 @@
                     Sexo = 'M',
                     Nombre = "Paulo",
                     Apellido = "Marquez",
-                    Telefono = "0000000000",
+                    Telefono = "829-546-4154",
                     NacionalidadID = 1,
                     RolPersonaID = (int)Enums.RolPersona.Cajero,
                     TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
-                    Documento = "0000000000",
+                    Documento = "0000000003",
                     UsuarioID = 3,
                     TipoSangreID = 1
                 }
