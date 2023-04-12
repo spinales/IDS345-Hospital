@@ -51,7 +51,9 @@ namespace API.Controllers
                         RolPersona = new Modelos.RolPersona()
                         {
                             RolPersonaID = x.RolPersona.RolPersonaID,
-                            Descripcion = x.RolPersona.Descripcion
+                            Descripcion = x.RolPersona.Descripcion,
+                            Nombre = x.RolPersona.Nombre,
+                            UpdatedAt = x.RolPersona.UpdatedAt
                         },
                         TipoDocumento = new TipoDocumento()
                         {
@@ -62,6 +64,18 @@ namespace API.Controllers
                         {
                             Nombre = x.TipoSangre.Nombre,
                             TipoSangreID = x.TipoSangre.TipoSangreID
+                        },
+                        UsuarioID = x.UsuarioID,
+                        Usuario = new Usuario()
+                        {
+                            Username = x.Usuario.Username,
+                            Password = x.Usuario.Password,
+                            UsuarioID = x.Usuario.UsuarioID,
+                            CreatedAt = x.Usuario.CreatedAt,
+                            UpdatedAt = x.Usuario.UpdatedAt,
+                            DeletedAt = x.Usuario.DeletedAt,
+                            Estado = x.Usuario.Estado,
+                            Email = x.Usuario.Email
                         }
                     }).FirstOrDefault();
                     return Ok(persona);
