@@ -19,8 +19,8 @@ namespace Caja
 
         private void btnInicioSesion_Click(object sender, EventArgs e)
         {
-            frCuadre FrCuadre = new frCuadre();
-            FrCuadre.Show();
+            frMenu FrMenu = new frMenu();
+            FrMenu.Show();
 
         }
     }

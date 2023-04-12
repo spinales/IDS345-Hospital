@@ -17,6 +17,8 @@ namespace Modelos
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public decimal Impuesto { get; set; }
+        public decimal Descuento { get; set; } = 0;
+
         public bool Estado { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }

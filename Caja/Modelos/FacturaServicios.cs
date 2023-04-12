@@ -13,9 +13,14 @@ namespace Modelos
         public decimal Impuesto { get; set; }
         public decimal Descuento { get; set; } = 0;
         public decimal TotalImpuesto { get; set; }
+        public decimal TotalDescuento { get; set; } = 0;
+
         public decimal TotalBruto { get; set; }
         public decimal TotalAutorizado { get; set; } = 0;
         public decimal TotalFinal { get; set; }
+
+        public string CodigoFactura { get; set; }
+
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(200)]

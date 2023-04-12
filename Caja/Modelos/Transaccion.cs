@@ -14,6 +14,10 @@ namespace Modelos
         public string Descripcion { get; set; }
         public string TipoTransaccion { get; set; }
 
+        public string CodigoTransaccion { get; set; } = new Guid().ToString();
+
+
+
         [ForeignKey("MetodoPago")]
         public int MetodoPagoID { get; set; }
         

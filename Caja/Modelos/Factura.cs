@@ -13,6 +13,8 @@ namespace Modelos
         public decimal TotalAutorizado { get; set; } = 0;
         public decimal Descuento { get; set; } = 0;
         public decimal TotalBruto { get; set; }
+        public string CodigoFactura { get; set; } = new Guid().ToString();
+
 
         [ForeignKey("Cuenta")]
         public int? CuentaID { get; set; }
