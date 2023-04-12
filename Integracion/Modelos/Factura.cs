@@ -35,5 +35,10 @@ namespace Modelos
         public virtual Persona Paciente { get; set; }
         public virtual Persona Empleado { get; set; }
         public virtual MetodoPago MetodoPago { get; set; }
+        
+        public string CodigoFactura { get; set; } // Se inicializa con un GUID // Recordar a Angel para agregar
+        
+        public string CanalGenerado { get; set; } // Recordar a Angel para agregar
+
     }
 }

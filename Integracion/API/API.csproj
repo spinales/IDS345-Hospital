@@ -130,6 +130,10 @@
     <Compile Include="Migrations\202304090204201_ModelosActualizados.Designer.cs">
       <DependentUpon>202304090204201_ModelosActualizados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304111817442_ModelosActualizados1.cs" />
+    <Compile Include="Migrations\202304111817442_ModelosActualizados1.Designer.cs">
+      <DependentUpon>202304111817442_ModelosActualizados1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataService.cs" />
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304090204201_ModelosActualizados.resx">
       <DependentUpon>202304090204201_ModelosActualizados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304111817442_ModelosActualizados1.resx">
+      <DependentUpon>202304111817442_ModelosActualizados1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

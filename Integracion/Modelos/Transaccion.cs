@@ -9,9 +9,13 @@ namespace Modelos
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int TransaccionID { get; set; }
+        
         public decimal Monto { get; set; }
+        
         public bool Estado { get; set; } = true;
+        
         public string Descripcion { get; set; }
+        
         public string TipoTransaccion { get; set; }
 
         [ForeignKey("MetodoPago")]
@@ -19,14 +23,28 @@ namespace Modelos
         
         [ForeignKey("Cuenta")]
         public int CuentaID { get; set; }
+        
+        [ForeignKey("Empleado")]
+        public int EmpleadoID { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        
         public DateTime? UpdatedAt { get; set; }
+        
         public DateTime? DeletedAt { get; set; }
+        
         public DateTime? SendedAt { get; set; }
 
         public virtual MetodoPago MetodoPago { get; set; }
+        
         public virtual Cuenta Cuenta { get; set; }
+        
+        public virtual Persona Empleado { get; set; }
+        
+        public string CodigoTransaccion { get; set; } // Se inicializa con un GUID // Recordar a Angel para agregar
+        
+        public string Canal { get; set; } // Recordar a Angel para agregar
+
     }
     
 }
