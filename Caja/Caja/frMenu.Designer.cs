@@ -29,222 +29,146 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frMenu));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pbFacturacion = new System.Windows.Forms.PictureBox();
-            this.pbCuenta = new System.Windows.Forms.PictureBox();
-            this.pbCuadre = new System.Windows.Forms.PictureBox();
-            this.pbPerfil = new System.Windows.Forms.PictureBox();
-            this.btnFacturacion = new System.Windows.Forms.Button();
-            this.btnCuenta = new System.Windows.Forms.Button();
-            this.btnCuadre = new System.Windows.Forms.Button();
-            this.btnPerfil = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pfLoader = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFacturacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCuenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCuadre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).BeginInit();
+            this.PanelSideMenu = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.Button();
+            this.Facturabtn = new System.Windows.Forms.Button();
+            this.Cuadrebtn = new System.Windows.Forms.Button();
+            this.PanelLogo = new System.Windows.Forms.Panel();
+            this.panelFormHijo = new System.Windows.Forms.Panel();
+            this.Cuentabtn = new System.Windows.Forms.Button();
+            this.PanelSideMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // PanelSideMenu
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pbFacturacion);
-            this.panel1.Controls.Add(this.pbCuenta);
-            this.panel1.Controls.Add(this.pbCuadre);
-            this.panel1.Controls.Add(this.pbPerfil);
-            this.panel1.Controls.Add(this.btnFacturacion);
-            this.panel1.Controls.Add(this.btnCuenta);
-            this.panel1.Controls.Add(this.btnCuadre);
-            this.panel1.Controls.Add(this.btnPerfil);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(265, 1024);
-            this.panel1.TabIndex = 0;
+            this.PanelSideMenu.BackColor = System.Drawing.Color.White;
+            this.PanelSideMenu.Controls.Add(this.Cuentabtn);
+            this.PanelSideMenu.Controls.Add(this.logout);
+            this.PanelSideMenu.Controls.Add(this.Facturabtn);
+            this.PanelSideMenu.Controls.Add(this.Cuadrebtn);
+            this.PanelSideMenu.Controls.Add(this.PanelLogo);
+            this.PanelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.PanelSideMenu.Name = "PanelSideMenu";
+            this.PanelSideMenu.Size = new System.Drawing.Size(210, 749);
+            this.PanelSideMenu.TabIndex = 0;
             // 
-            // pbFacturacion
+            // logout
             // 
-            this.pbFacturacion.BackColor = System.Drawing.Color.White;
-            this.pbFacturacion.Image = ((System.Drawing.Image)(resources.GetObject("pbFacturacion.Image")));
-            this.pbFacturacion.Location = new System.Drawing.Point(71, 285);
-            this.pbFacturacion.Name = "pbFacturacion";
-            this.pbFacturacion.Size = new System.Drawing.Size(22, 22);
-            this.pbFacturacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFacturacion.TabIndex = 5;
-            this.pbFacturacion.TabStop = false;
+            this.logout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.logout.FlatAppearance.BorderSize = 0;
+            this.logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logout.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.logout.Image = ((System.Drawing.Image)(resources.GetObject("logout.Image")));
+            this.logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logout.Location = new System.Drawing.Point(0, 687);
+            this.logout.Name = "logout";
+            this.logout.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.logout.Size = new System.Drawing.Size(210, 62);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Salir";
+            this.logout.UseVisualStyleBackColor = true;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
-            // pbCuenta
+            // Facturabtn
             // 
-            this.pbCuenta.Image = ((System.Drawing.Image)(resources.GetObject("pbCuenta.Image")));
-            this.pbCuenta.Location = new System.Drawing.Point(71, 244);
-            this.pbCuenta.Name = "pbCuenta";
-            this.pbCuenta.Size = new System.Drawing.Size(22, 22);
-            this.pbCuenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCuenta.TabIndex = 4;
-            this.pbCuenta.TabStop = false;
+            this.Facturabtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Facturabtn.FlatAppearance.BorderSize = 0;
+            this.Facturabtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.Facturabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Facturabtn.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.Facturabtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.Facturabtn.Image = ((System.Drawing.Image)(resources.GetObject("Facturabtn.Image")));
+            this.Facturabtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Facturabtn.Location = new System.Drawing.Point(0, 216);
+            this.Facturabtn.Name = "Facturabtn";
+            this.Facturabtn.Padding = new System.Windows.Forms.Padding(40, 0, 10, 0);
+            this.Facturabtn.Size = new System.Drawing.Size(210, 43);
+            this.Facturabtn.TabIndex = 2;
+            this.Facturabtn.Text = "Factura";
+            this.Facturabtn.UseVisualStyleBackColor = true;
+            this.Facturabtn.Click += new System.EventHandler(this.Facturabtn_Click);
             // 
-            // pbCuadre
+            // Cuadrebtn
             // 
-            this.pbCuadre.Image = ((System.Drawing.Image)(resources.GetObject("pbCuadre.Image")));
-            this.pbCuadre.Location = new System.Drawing.Point(71, 202);
-            this.pbCuadre.Name = "pbCuadre";
-            this.pbCuadre.Size = new System.Drawing.Size(22, 22);
-            this.pbCuadre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCuadre.TabIndex = 3;
-            this.pbCuadre.TabStop = false;
-            this.pbCuadre.Click += new System.EventHandler(this.pbCuadre_Click);
+            this.Cuadrebtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Cuadrebtn.FlatAppearance.BorderSize = 0;
+            this.Cuadrebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.Cuadrebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cuadrebtn.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.Cuadrebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.Cuadrebtn.Image = ((System.Drawing.Image)(resources.GetObject("Cuadrebtn.Image")));
+            this.Cuadrebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Cuadrebtn.Location = new System.Drawing.Point(0, 173);
+            this.Cuadrebtn.Name = "Cuadrebtn";
+            this.Cuadrebtn.Padding = new System.Windows.Forms.Padding(40, 0, 10, 0);
+            this.Cuadrebtn.Size = new System.Drawing.Size(210, 43);
+            this.Cuadrebtn.TabIndex = 1;
+            this.Cuadrebtn.Text = "Cuadre";
+            this.Cuadrebtn.UseVisualStyleBackColor = true;
+            this.Cuadrebtn.Click += new System.EventHandler(this.Cuadrebtn_Click);
             // 
-            // pbPerfil
+            // PanelLogo
             // 
-            this.pbPerfil.Image = ((System.Drawing.Image)(resources.GetObject("pbPerfil.Image")));
-            this.pbPerfil.Location = new System.Drawing.Point(71, 163);
-            this.pbPerfil.Name = "pbPerfil";
-            this.pbPerfil.Size = new System.Drawing.Size(22, 22);
-            this.pbPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPerfil.TabIndex = 2;
-            this.pbPerfil.TabStop = false;
+            this.PanelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelLogo.Location = new System.Drawing.Point(0, 0);
+            this.PanelLogo.Name = "PanelLogo";
+            this.PanelLogo.Size = new System.Drawing.Size(210, 173);
+            this.PanelLogo.TabIndex = 0;
             // 
-            // btnFacturacion
+            // panelFormHijo
             // 
-            this.btnFacturacion.AutoSize = true;
-            this.btnFacturacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFacturacion.FlatAppearance.BorderSize = 0;
-            this.btnFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFacturacion.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFacturacion.ForeColor = System.Drawing.Color.Gray;
-            this.btnFacturacion.Location = new System.Drawing.Point(0, 275);
-            this.btnFacturacion.Name = "btnFacturacion";
-            this.btnFacturacion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnFacturacion.Size = new System.Drawing.Size(265, 42);
-            this.btnFacturacion.TabIndex = 1;
-            this.btnFacturacion.Text = "Facturación";
-            this.btnFacturacion.UseVisualStyleBackColor = true;
-            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
-            this.btnFacturacion.Leave += new System.EventHandler(this.btnFacturacion_Leave);
+            this.panelFormHijo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormHijo.Location = new System.Drawing.Point(210, 0);
+            this.panelFormHijo.MinimumSize = new System.Drawing.Size(1040, 671);
+            this.panelFormHijo.Name = "panelFormHijo";
+            this.panelFormHijo.Size = new System.Drawing.Size(1160, 749);
+            this.panelFormHijo.TabIndex = 1;
             // 
-            // btnCuenta
+            // Cuentabtn
             // 
-            this.btnCuenta.AutoSize = true;
-            this.btnCuenta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCuenta.FlatAppearance.BorderSize = 0;
-            this.btnCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCuenta.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCuenta.ForeColor = System.Drawing.Color.Gray;
-            this.btnCuenta.Location = new System.Drawing.Point(0, 233);
-            this.btnCuenta.Name = "btnCuenta";
-            this.btnCuenta.Size = new System.Drawing.Size(265, 42);
-            this.btnCuenta.TabIndex = 1;
-            this.btnCuenta.Text = "Cuenta";
-            this.btnCuenta.UseVisualStyleBackColor = true;
-            this.btnCuenta.Click += new System.EventHandler(this.btnCuenta_Click);
-            this.btnCuenta.Leave += new System.EventHandler(this.btnCuenta_Leave);
+            this.Cuentabtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Cuentabtn.FlatAppearance.BorderSize = 0;
+            this.Cuentabtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.Cuentabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cuentabtn.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.Cuentabtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.Cuentabtn.Image = ((System.Drawing.Image)(resources.GetObject("Cuentabtn.Image")));
+            this.Cuentabtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Cuentabtn.Location = new System.Drawing.Point(0, 259);
+            this.Cuentabtn.Name = "Cuentabtn";
+            this.Cuentabtn.Padding = new System.Windows.Forms.Padding(40, 0, 10, 0);
+            this.Cuentabtn.Size = new System.Drawing.Size(210, 43);
+            this.Cuentabtn.TabIndex = 4;
+            this.Cuentabtn.Text = "Cuentas";
+            this.Cuentabtn.UseVisualStyleBackColor = true;
+            this.Cuentabtn.Click += new System.EventHandler(this.Cuentabtn_Click);
             // 
-            // btnCuadre
+            // frMenu
             // 
-            this.btnCuadre.AutoSize = true;
-            this.btnCuadre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCuadre.FlatAppearance.BorderSize = 0;
-            this.btnCuadre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCuadre.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCuadre.ForeColor = System.Drawing.Color.Gray;
-            this.btnCuadre.Location = new System.Drawing.Point(0, 191);
-            this.btnCuadre.Name = "btnCuadre";
-            this.btnCuadre.Size = new System.Drawing.Size(265, 42);
-            this.btnCuadre.TabIndex = 1;
-            this.btnCuadre.Text = "Cuadre";
-            this.btnCuadre.UseVisualStyleBackColor = true;
-            this.btnCuadre.Click += new System.EventHandler(this.btnCuadre_Click);
-            this.btnCuadre.Leave += new System.EventHandler(this.btnCuadre_Leave);
-            // 
-            // btnPerfil
-            // 
-            this.btnPerfil.AutoSize = true;
-            this.btnPerfil.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPerfil.ForeColor = System.Drawing.Color.Gray;
-            this.btnPerfil.Location = new System.Drawing.Point(0, 149);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnPerfil.Size = new System.Drawing.Size(265, 42);
-            this.btnPerfil.TabIndex = 1;
-            this.btnPerfil.Text = "Perfil";
-            this.btnPerfil.UseVisualStyleBackColor = true;
-            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
-            this.btnPerfil.Leave += new System.EventHandler(this.btnPerfil_Leave);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(265, 149);
-            this.panel2.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(829, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(23, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // pfLoader
-            // 
-            this.pfLoader.BackColor = System.Drawing.SystemColors.Control;
-            this.pfLoader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pfLoader.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pfLoader.Location = new System.Drawing.Point(210, 0);
-            this.pfLoader.Name = "pfLoader";
-            this.pfLoader.Size = new System.Drawing.Size(1176, 788);
-            this.pfLoader.TabIndex = 7;
-            // 
-            // appCaja
-            // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
-            this.Controls.Add(this.pfLoader);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "appCaja";
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.panelFormHijo);
+            this.Controls.Add(this.PanelSideMenu);
+            this.Name = "frMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "appCaja";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.appCaja_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFacturacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCuenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCuadre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).EndInit();
+            this.Text = "frMenu";
+            this.PanelSideMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnFacturacion;
-        private System.Windows.Forms.Button btnCuenta;
-        private System.Windows.Forms.Button btnCuadre;
-        private System.Windows.Forms.Button btnPerfil;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel pfLoader;
-        private System.Windows.Forms.PictureBox pbPerfil;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pbFacturacion;
-        private System.Windows.Forms.PictureBox pbCuenta;
-        private System.Windows.Forms.PictureBox pbCuadre;
+        private System.Windows.Forms.Panel PanelSideMenu;
+        private System.Windows.Forms.Button Facturabtn;
+        private System.Windows.Forms.Button Cuadrebtn;
+        private System.Windows.Forms.Panel PanelLogo;
+        private System.Windows.Forms.Button logout;
+        private System.Windows.Forms.Panel panelFormHijo;
+        private System.Windows.Forms.Button Cuentabtn;
     }
 }

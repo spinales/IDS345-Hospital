@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frCuadre));
-            this.Closebtn = new System.Windows.Forms.Button();
             this.SucursalTextolbl = new System.Windows.Forms.Label();
             this.Sucursallbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,25 +72,13 @@
             this.totalcuadrelbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Closebtn
-            // 
-            this.Closebtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Closebtn.Location = new System.Drawing.Point(1094, 21);
-            this.Closebtn.Name = "Closebtn";
-            this.Closebtn.Size = new System.Drawing.Size(32, 23);
-            this.Closebtn.TabIndex = 1;
-            this.Closebtn.Text = "X";
-            this.Closebtn.UseVisualStyleBackColor = true;
-            this.Closebtn.UseWaitCursor = true;
-            // 
             // SucursalTextolbl
             // 
             this.SucursalTextolbl.AutoSize = true;
-            this.SucursalTextolbl.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SucursalTextolbl.Location = new System.Drawing.Point(954, 90);
+            this.SucursalTextolbl.Font = new System.Drawing.Font("Roboto", 12F);
+            this.SucursalTextolbl.Location = new System.Drawing.Point(936, 74);
             this.SucursalTextolbl.Name = "SucursalTextolbl";
-            this.SucursalTextolbl.Size = new System.Drawing.Size(172, 22);
+            this.SucursalTextolbl.Size = new System.Drawing.Size(154, 19);
             this.SucursalTextolbl.TabIndex = 35;
             this.SucursalTextolbl.Text = "Clinica 27 de febrero";
             this.SucursalTextolbl.UseWaitCursor = true;
@@ -99,10 +86,10 @@
             // Sucursallbl
             // 
             this.Sucursallbl.AutoSize = true;
-            this.Sucursallbl.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sucursallbl.Location = new System.Drawing.Point(867, 90);
+            this.Sucursallbl.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sucursallbl.Location = new System.Drawing.Point(849, 74);
             this.Sucursallbl.Name = "Sucursallbl";
-            this.Sucursallbl.Size = new System.Drawing.Size(84, 22);
+            this.Sucursallbl.Size = new System.Drawing.Size(77, 19);
             this.Sucursallbl.TabIndex = 34;
             this.Sucursallbl.Text = "Sucursal:";
             this.Sucursallbl.UseWaitCursor = true;
@@ -111,7 +98,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
-            this.label4.Location = new System.Drawing.Point(50, 269);
+            this.label4.Location = new System.Drawing.Point(32, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(1075, 13);
             this.label4.TabIndex = 31;
@@ -129,20 +116,21 @@
             this.Seleccionarbtn.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Seleccionarbtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Seleccionarbtn.Image = ((System.Drawing.Image)(resources.GetObject("Seleccionarbtn.Image")));
-            this.Seleccionarbtn.Location = new System.Drawing.Point(1048, 206);
+            this.Seleccionarbtn.Location = new System.Drawing.Point(1030, 177);
             this.Seleccionarbtn.Name = "Seleccionarbtn";
             this.Seleccionarbtn.Size = new System.Drawing.Size(58, 36);
             this.Seleccionarbtn.TabIndex = 29;
             this.Seleccionarbtn.UseVisualStyleBackColor = false;
             this.Seleccionarbtn.UseWaitCursor = true;
+            this.Seleccionarbtn.Click += new System.EventHandler(this.Seleccionarbtn_Click);
             // 
             // lblfechainicio
             // 
             this.lblfechainicio.AutoSize = true;
-            this.lblfechainicio.Font = new System.Drawing.Font("Montserrat", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfechainicio.Location = new System.Drawing.Point(640, 214);
+            this.lblfechainicio.Font = new System.Drawing.Font("Roboto", 15F, System.Drawing.FontStyle.Bold);
+            this.lblfechainicio.Location = new System.Drawing.Point(622, 185);
             this.lblfechainicio.Name = "lblfechainicio";
-            this.lblfechainicio.Size = new System.Drawing.Size(177, 27);
+            this.lblfechainicio.Size = new System.Drawing.Size(149, 24);
             this.lblfechainicio.TabIndex = 28;
             this.lblfechainicio.Text = "Fecha de inicio:";
             this.lblfechainicio.UseWaitCursor = true;
@@ -152,9 +140,9 @@
             this.Buscarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
             this.Buscarbtn.FlatAppearance.BorderSize = 0;
             this.Buscarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Buscarbtn.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Buscarbtn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.Buscarbtn.ForeColor = System.Drawing.Color.White;
-            this.Buscarbtn.Location = new System.Drawing.Point(462, 205);
+            this.Buscarbtn.Location = new System.Drawing.Point(444, 176);
             this.Buscarbtn.Name = "Buscarbtn";
             this.Buscarbtn.Size = new System.Drawing.Size(138, 36);
             this.Buscarbtn.TabIndex = 27;
@@ -165,7 +153,7 @@
             // DocClientetxt
             // 
             this.DocClientetxt.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocClientetxt.Location = new System.Drawing.Point(234, 205);
+            this.DocClientetxt.Location = new System.Drawing.Point(216, 176);
             this.DocClientetxt.Multiline = true;
             this.DocClientetxt.Name = "DocClientetxt";
             this.DocClientetxt.Size = new System.Drawing.Size(210, 36);
@@ -176,10 +164,10 @@
             // iniciodialbl
             // 
             this.iniciodialbl.AutoSize = true;
-            this.iniciodialbl.Font = new System.Drawing.Font("Montserrat", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iniciodialbl.Location = new System.Drawing.Point(72, 214);
+            this.iniciodialbl.Font = new System.Drawing.Font("Roboto", 15F, System.Drawing.FontStyle.Bold);
+            this.iniciodialbl.Location = new System.Drawing.Point(54, 185);
             this.iniciodialbl.Name = "iniciodialbl";
-            this.iniciodialbl.Size = new System.Drawing.Size(151, 27);
+            this.iniciodialbl.Size = new System.Drawing.Size(127, 24);
             this.iniciodialbl.TabIndex = 25;
             this.iniciodialbl.Text = "inicio del dia:";
             this.iniciodialbl.UseWaitCursor = true;
@@ -188,7 +176,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
-            this.label2.Location = new System.Drawing.Point(51, 156);
+            this.label2.Location = new System.Drawing.Point(33, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1075, 13);
             this.label2.TabIndex = 24;
@@ -200,7 +188,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 129);
+            this.label1.Location = new System.Drawing.Point(49, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 23;
@@ -209,11 +197,11 @@
             // Cuadrelbl
             // 
             this.Cuadrelbl.AutoSize = true;
-            this.Cuadrelbl.Font = new System.Drawing.Font("Montserrat", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cuadrelbl.Font = new System.Drawing.Font("Roboto", 27F, System.Drawing.FontStyle.Bold);
             this.Cuadrelbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.Cuadrelbl.Location = new System.Drawing.Point(61, 68);
+            this.Cuadrelbl.Location = new System.Drawing.Point(80, 49);
             this.Cuadrelbl.Name = "Cuadrelbl";
-            this.Cuadrelbl.Size = new System.Drawing.Size(259, 50);
+            this.Cuadrelbl.Size = new System.Drawing.Size(219, 43);
             this.Cuadrelbl.TabIndex = 22;
             this.Cuadrelbl.Text = "Bienvenid@,";
             this.Cuadrelbl.UseWaitCursor = true;
@@ -221,11 +209,11 @@
             // nombrecajerolbl
             // 
             this.nombrecajerolbl.AutoSize = true;
-            this.nombrecajerolbl.Font = new System.Drawing.Font("Montserrat", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecajerolbl.Font = new System.Drawing.Font("Roboto", 27F, System.Drawing.FontStyle.Bold);
             this.nombrecajerolbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.nombrecajerolbl.Location = new System.Drawing.Point(307, 68);
+            this.nombrecajerolbl.Location = new System.Drawing.Point(288, 48);
             this.nombrecajerolbl.Name = "nombrecajerolbl";
-            this.nombrecajerolbl.Size = new System.Drawing.Size(143, 50);
+            this.nombrecajerolbl.Size = new System.Drawing.Size(122, 43);
             this.nombrecajerolbl.TabIndex = 38;
             this.nombrecajerolbl.Text = "Cajero";
             this.nombrecajerolbl.UseWaitCursor = true;
@@ -233,7 +221,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(823, 206);
+            this.textBox1.Location = new System.Drawing.Point(805, 177);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(210, 36);
@@ -244,10 +232,10 @@
             // efectivolbl
             // 
             this.efectivolbl.AutoSize = true;
-            this.efectivolbl.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.efectivolbl.Location = new System.Drawing.Point(73, 372);
+            this.efectivolbl.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.efectivolbl.Location = new System.Drawing.Point(84, 347);
             this.efectivolbl.Name = "efectivolbl";
-            this.efectivolbl.Size = new System.Drawing.Size(80, 22);
+            this.efectivolbl.Size = new System.Drawing.Size(72, 19);
             this.efectivolbl.TabIndex = 40;
             this.efectivolbl.Text = "Efectivo:";
             this.efectivolbl.UseWaitCursor = true;
@@ -255,10 +243,10 @@
             // tarjetalbl
             // 
             this.tarjetalbl.AutoSize = true;
-            this.tarjetalbl.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tarjetalbl.Location = new System.Drawing.Point(73, 417);
+            this.tarjetalbl.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tarjetalbl.Location = new System.Drawing.Point(84, 392);
             this.tarjetalbl.Name = "tarjetalbl";
-            this.tarjetalbl.Size = new System.Drawing.Size(72, 22);
+            this.tarjetalbl.Size = new System.Drawing.Size(65, 19);
             this.tarjetalbl.TabIndex = 41;
             this.tarjetalbl.Text = "Tarjeta:";
             this.tarjetalbl.UseWaitCursor = true;
@@ -266,10 +254,10 @@
             // Cuentalbl
             // 
             this.Cuentalbl.AutoSize = true;
-            this.Cuentalbl.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cuentalbl.Location = new System.Drawing.Point(73, 465);
+            this.Cuentalbl.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cuentalbl.Location = new System.Drawing.Point(84, 440);
             this.Cuentalbl.Name = "Cuentalbl";
-            this.Cuentalbl.Size = new System.Drawing.Size(75, 22);
+            this.Cuentalbl.Size = new System.Drawing.Size(65, 19);
             this.Cuentalbl.TabIndex = 42;
             this.Cuentalbl.Text = "Cuenta:";
             this.Cuentalbl.UseWaitCursor = true;
@@ -277,7 +265,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(224, 358);
+            this.textBox2.Location = new System.Drawing.Point(206, 332);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(210, 36);
@@ -288,7 +276,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(224, 414);
+            this.textBox3.Location = new System.Drawing.Point(206, 388);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(210, 36);
@@ -299,7 +287,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(224, 465);
+            this.textBox4.Location = new System.Drawing.Point(206, 439);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(210, 36);
@@ -310,7 +298,7 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(456, 465);
+            this.textBox5.Location = new System.Drawing.Point(438, 439);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(210, 36);
@@ -321,7 +309,7 @@
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(456, 414);
+            this.textBox6.Location = new System.Drawing.Point(438, 388);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(210, 36);
@@ -332,7 +320,7 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(456, 358);
+            this.textBox7.Location = new System.Drawing.Point(438, 332);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(210, 36);
@@ -343,7 +331,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(690, 465);
+            this.textBox8.Location = new System.Drawing.Point(672, 439);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(210, 36);
@@ -354,7 +342,7 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(690, 414);
+            this.textBox9.Location = new System.Drawing.Point(672, 388);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(210, 36);
@@ -365,7 +353,7 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(690, 358);
+            this.textBox10.Location = new System.Drawing.Point(672, 332);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(210, 36);
@@ -376,7 +364,7 @@
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(916, 358);
+            this.textBox11.Location = new System.Drawing.Point(898, 332);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(210, 36);
@@ -389,9 +377,9 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(916, 414);
+            this.button1.Location = new System.Drawing.Point(898, 388);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(209, 36);
             this.button1.TabIndex = 53;
@@ -403,7 +391,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
-            this.label3.Location = new System.Drawing.Point(51, 554);
+            this.label3.Location = new System.Drawing.Point(33, 528);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1075, 13);
             this.label3.TabIndex = 54;
@@ -416,7 +404,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
-            this.label5.Location = new System.Drawing.Point(50, 603);
+            this.label5.Location = new System.Drawing.Point(32, 577);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(1075, 13);
             this.label5.TabIndex = 55;
@@ -428,7 +416,7 @@
             // textBox12
             // 
             this.textBox12.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(690, 643);
+            this.textBox12.Location = new System.Drawing.Point(672, 617);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(210, 36);
@@ -439,7 +427,7 @@
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(456, 643);
+            this.textBox13.Location = new System.Drawing.Point(438, 617);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(210, 36);
@@ -450,7 +438,7 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(224, 643);
+            this.textBox14.Location = new System.Drawing.Point(206, 617);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(210, 36);
@@ -461,7 +449,7 @@
             // textBox15
             // 
             this.textBox15.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(915, 643);
+            this.textBox15.Location = new System.Drawing.Point(897, 617);
             this.textBox15.Multiline = true;
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(210, 36);
@@ -472,10 +460,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(236, 319);
+            this.label6.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(218, 293);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(172, 21);
+            this.label6.Size = new System.Drawing.Size(148, 18);
             this.label6.TabIndex = 60;
             this.label6.Text = "Resultado de cuadre:";
             this.label6.UseWaitCursor = true;
@@ -483,10 +471,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(458, 319);
+            this.label7.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(440, 293);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 21);
+            this.label7.Size = new System.Drawing.Size(161, 18);
             this.label7.TabIndex = 61;
             this.label7.Text = "Resultado del sistema:";
             this.label7.UseWaitCursor = true;
@@ -494,10 +482,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(686, 319);
+            this.label8.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(668, 293);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(195, 21);
+            this.label8.Size = new System.Drawing.Size(169, 18);
             this.label8.TabIndex = 62;
             this.label8.Text = "Resultado de diferencia:";
             this.label8.UseWaitCursor = true;
@@ -505,10 +493,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(922, 319);
+            this.label9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(904, 293);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(201, 21);
+            this.label9.Size = new System.Drawing.Size(177, 18);
             this.label9.TabIndex = 63;
             this.label9.Text = "NUEVO SALDO EN CAJA:";
             this.label9.UseWaitCursor = true;
@@ -516,10 +504,10 @@
             // faltantesobrantelbl
             // 
             this.faltantesobrantelbl.AutoSize = true;
-            this.faltantesobrantelbl.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.faltantesobrantelbl.Location = new System.Drawing.Point(919, 581);
+            this.faltantesobrantelbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
+            this.faltantesobrantelbl.Location = new System.Drawing.Point(901, 555);
             this.faltantesobrantelbl.Name = "faltantesobrantelbl";
-            this.faltantesobrantelbl.Size = new System.Drawing.Size(166, 22);
+            this.faltantesobrantelbl.Size = new System.Drawing.Size(163, 22);
             this.faltantesobrantelbl.TabIndex = 67;
             this.faltantesobrantelbl.Text = "Faltante/Sobrante:";
             this.faltantesobrantelbl.UseWaitCursor = true;
@@ -527,10 +515,10 @@
             // totaldiflbl
             // 
             this.totaldiflbl.AutoSize = true;
-            this.totaldiflbl.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totaldiflbl.Location = new System.Drawing.Point(694, 581);
+            this.totaldiflbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
+            this.totaldiflbl.Location = new System.Drawing.Point(676, 555);
             this.totaldiflbl.Name = "totaldiflbl";
-            this.totaldiflbl.Size = new System.Drawing.Size(146, 22);
+            this.totaldiflbl.Size = new System.Drawing.Size(143, 22);
             this.totaldiflbl.TabIndex = 66;
             this.totaldiflbl.Text = "Total Diferencia:";
             this.totaldiflbl.UseWaitCursor = true;
@@ -538,10 +526,10 @@
             // totalsistemalbl
             // 
             this.totalsistemalbl.AutoSize = true;
-            this.totalsistemalbl.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalsistemalbl.Location = new System.Drawing.Point(461, 581);
+            this.totalsistemalbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
+            this.totalsistemalbl.Location = new System.Drawing.Point(443, 555);
             this.totalsistemalbl.Name = "totalsistemalbl";
-            this.totalsistemalbl.Size = new System.Drawing.Size(156, 22);
+            this.totalsistemalbl.Size = new System.Drawing.Size(153, 22);
             this.totalsistemalbl.TabIndex = 65;
             this.totalsistemalbl.Text = "Total del sistema:";
             this.totalsistemalbl.UseWaitCursor = true;
@@ -549,10 +537,10 @@
             // totalcuadrelbl
             // 
             this.totalcuadrelbl.AutoSize = true;
-            this.totalcuadrelbl.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalcuadrelbl.Location = new System.Drawing.Point(227, 581);
+            this.totalcuadrelbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
+            this.totalcuadrelbl.Location = new System.Drawing.Point(209, 555);
             this.totalcuadrelbl.Name = "totalcuadrelbl";
-            this.totalcuadrelbl.Size = new System.Drawing.Size(144, 22);
+            this.totalcuadrelbl.Size = new System.Drawing.Size(139, 22);
             this.totalcuadrelbl.TabIndex = 64;
             this.totalcuadrelbl.Text = "Total de cuadre:";
             this.totalcuadrelbl.UseWaitCursor = true;
@@ -562,7 +550,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1176, 788);
+            this.ClientSize = new System.Drawing.Size(1160, 749);
             this.Controls.Add(this.faltantesobrantelbl);
             this.Controls.Add(this.totaldiflbl);
             this.Controls.Add(this.totalsistemalbl);
@@ -604,7 +592,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cuadrelbl);
-            this.Controls.Add(this.Closebtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frCuadre";
             this.Text = "frCuadre";
@@ -614,8 +601,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button Closebtn;
         private System.Windows.Forms.Label SucursalTextolbl;
         private System.Windows.Forms.Label Sucursallbl;
         private System.Windows.Forms.Label label4;

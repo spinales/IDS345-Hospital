@@ -26,5 +26,11 @@ namespace Caja
         {
             this.Close();
         }
+
+        private void closebtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

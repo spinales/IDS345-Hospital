@@ -17,11 +17,6 @@ namespace Caja
             InitializeComponent();
         }
 
-        private void Closebtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void abonarcuentabtn_Click(object sender, EventArgs e)
         {
             frCuentaAbono frCuentaAbono = new frCuentaAbono();

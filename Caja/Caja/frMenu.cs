@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace Caja
 {
@@ -15,66 +14,46 @@ namespace Caja
     {
         public frMenu()
         {
-            InitializeComponent();        
-        
-        }
-        
-        private void appCaja_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnPerfil_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPerfil_Leave(object sender, EventArgs e)
-        {
-            btnPerfil.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnCuadre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCuadre_Leave(object sender, EventArgs e)
-        {
-            btnCuadre.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnCuenta_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCuenta_Leave(object sender, EventArgs e)
-        {
-            btnCuenta.BackColor = Color.FromArgb(24, 30, 54);
+            InitializeComponent();
         }
 
 
-        private void btnFacturacion_Leave(object sender, EventArgs e)
+        private Form formActivo = null; //variable para activar y desactivar los formularios, se le da un valor inicial nulo
+        public void abrirSubFormulario(Form formHijo) // metodo para abrir y cerrar los formularios hijos dentro del principal
         {
-            btnFacturacion.BackColor = Color.FromArgb(24, 30, 54);
+            if (formActivo != null) // si hay un formulario abierto, sea cual sea, que se cierre
+                formActivo.Close();
+            formActivo = formHijo; // el form que este activo sera igual al form hijo
+            formHijo.TopLevel = false; // el forms no se abrira encima del tope del principal
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            formHijo.Dock = DockStyle.Fill; // el forms rellenara todo el espacio del panel
+            panelFormHijo.Controls.Add(formHijo); // el form hijo se abrira especificamente en este panel
+            panelFormHijo.Tag = formHijo;
+            formHijo.Show();
         }
 
-        private void btnFacturacion_Click(object sender, EventArgs e)
+
+        private void logout_Click(object sender, EventArgs e)
         {
-            this.pfLoader.Controls.Clear();
-            frFacturacion facturacion = new frFacturacion() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            this.pfLoader.Controls.Add(facturacion);
-            facturacion.Show();
+            this.Close();
         }
 
-        private void pbCuadre_Click(object sender, EventArgs e)
+        private void Cuadrebtn_Click(object sender, EventArgs e)
         {
+            abrirSubFormulario(new frCuadre());
+
+        }
+
+        private void Facturabtn_Click(object sender, EventArgs e)
+        {
+            abrirSubFormulario(new frFacturacion());
+
+
+        }
+
+        private void Cuentabtn_Click(object sender, EventArgs e)
+        {
+            abrirSubFormulario(new frCuenta());
 
         }
     }

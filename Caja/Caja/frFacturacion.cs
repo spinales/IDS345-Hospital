@@ -17,14 +17,10 @@ namespace Caja
             InitializeComponent();
         }
 
-        private void frmFacturacion_Load(object sender, EventArgs e)
+        private void frFacturacion_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

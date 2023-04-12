@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace Caja
 {
-    public partial class frCuadre : Form
+    public partial class frMovimientos : Form
     {
-        public frCuadre()
+        public frMovimientos()
         {
             InitializeComponent();
         }
 
-        private void Seleccionarbtn_Click(object sender, EventArgs e)
+        private void closebtn_Click(object sender, EventArgs e)
         {
-            frMovimientos frMovimientos = new frMovimientos();
-            frMovimientos.Show();
+            this.Close();
         }
     }
 }

@@ -23,5 +23,10 @@ namespace Caja
             FrMenu.Show();
 
         }
+
+        private void closebtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
