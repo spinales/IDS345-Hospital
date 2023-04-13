@@ -19,9 +19,17 @@ namespace Caja
 
         private void btnInicioSesion_Click(object sender, EventArgs e)
         {
-            frMenu FrMenu = new frMenu();
-            FrMenu.Show();
-
+            if (txtUsuarioLogin.Text == "cajero")//Cambiar la condicion por un procedure que traiga el usuario y la contraseña    
+            {
+                frMenu FrMenu = new frMenu();
+                FrMenu.Show();
+            }
+            else
+            {
+                txtUsuarioLogin.Clear();
+                txtContraseñaLogin.Clear();
+                MessageBox.Show("El usuario ó la contraseña ingresados no son correctos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void closebtn_Click(object sender, EventArgs e)
