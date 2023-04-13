@@ -19,12 +19,13 @@ namespace API.Controllers
     {
         [HttpPost]
         [Route("WEB/login")]
-        public async Task<IHttpActionResult> HacerLoginPaciente(string username, string password)
+        public async Task<IHttpActionResult> LoginPaciente(string username, string password)
         {
             // Conectarse al CORE y validar el Paciente
                 // En funcion de la respuesta del CORE, actualizar la base de datos de integración si es necesario
                 // Retornar una respuesta a la capa WEB
             bool coreRespondio = false;
+            
             if (coreRespondio)
             {
                 return Ok();
@@ -37,7 +38,8 @@ namespace API.Controllers
                     var personas = await ds.GetAll<Persona>(
                         x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == username &&
                               x.Usuario.Password == password && x.Estado == true), 
-                              x=> x.TipoSangre);
+                              x=> x.Usuario);
+                    
                     var persona = personas.Select(x => new Persona()
                     {
                         PersonaID = x.PersonaID,
@@ -48,24 +50,9 @@ namespace API.Controllers
                         DeletedAt = x.DeletedAt,
                         Documento = x.Documento,
                         Estado = x.Estado,
-                        RolPersona = new Modelos.RolPersona()
-                        {
-                            RolPersonaID = x.RolPersona.RolPersonaID,
-                            Descripcion = x.RolPersona.Descripcion,
-                            Nombre = x.RolPersona.Nombre,
-                            UpdatedAt = x.RolPersona.UpdatedAt
-                        },
-                        TipoDocumento = new TipoDocumento()
-                        {
-                            Nombre = x.TipoDocumento.Nombre,
-                            TipoDocumentoID = x.TipoDocumento.TipoDocumentoID
-                        },
-                        TipoSangre = new TipoSangre()
-                        {
-                            Nombre = x.TipoSangre.Nombre,
-                            TipoSangreID = x.TipoSangre.TipoSangreID
-                        },
-                        UsuarioID = x.UsuarioID,
+                        RolPersonaID = x.RolPersonaID,
+                        TipoDocumentoID = x.TipoDocumentoID,
+                        TipoSangreID = x.TipoSangreID,
                         Usuario = new Usuario()
                         {
                             Username = x.Usuario.Username,
@@ -74,6 +61,7 @@ namespace API.Controllers
                             CreatedAt = x.Usuario.CreatedAt,
                             UpdatedAt = x.Usuario.UpdatedAt,
                             DeletedAt = x.Usuario.DeletedAt,
+                            SucursalID = x.Usuario.SucursalID,
                             Estado = x.Usuario.Estado,
                             Email = x.Usuario.Email
                         }
@@ -82,7 +70,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
-                    return BadRequest(e.Message);
+                    return BadRequest("");
                 }
             }
         }

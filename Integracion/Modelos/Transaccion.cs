@@ -41,9 +41,9 @@ namespace Modelos
         
         public virtual Persona Empleado { get; set; }
         
-        public string CodigoTransaccion { get; set; } // Se inicializa con un GUID // Recordar a Angel para agregar
+        public string CodigoTransaccion { get; set; }
         
-        public string Canal { get; set; } // Recordar a Angel para agregar
+        public string Canal { get; set; }
 
     }
     

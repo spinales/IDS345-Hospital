@@ -17,7 +17,7 @@ namespace Modelos
         
         public decimal Descuento { get; set; } = 0;
         
-        public decimal TotalImpuesto { get; set; }
+        public decimal TotalImpuesto { get; set; } 
 
         public decimal TotalDescuento { get; set; } = 0;
         
@@ -48,7 +48,7 @@ namespace Modelos
         [ForeignKey("Factura")]
         public int FacturaID { get; set; }
         
-        public string CodigoFactura { get; set; } // Recordar a Angel para agregar
+        public string CodigoFactura { get; set; }
 
         public virtual Autorizaciones Autorizacion { get; set; }
         

@@ -20,7 +20,7 @@ namespace Modelos
         
         public decimal Impuesto { get; set; }
 
-        public decimal Descuento { get; set; } = 0; //Recordar a Angel para agregar
+        public decimal Descuento { get; set; } = 0;
         public bool Estado { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
