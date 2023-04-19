@@ -1,3 +1,4 @@
+using log4net.Config;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace CORE_Api
         {
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            XmlConfigurator.Configure();
         }
     }
 }

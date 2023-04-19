@@ -1,4 +1,5 @@
-﻿using Modelos;
+﻿using log4net;
+using Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,6 +12,7 @@ namespace CORE_Api.Controllers
 {
     public class CoreController : ApiController
     {
+        private readonly ILog log = LogManager.GetLogger("API Logger");
         [HttpPost]
         [Route("CORE/InsertarUsuario")]
         public IHttpActionResult InsertarUsuario([FromBody] Usuario usuario)
@@ -26,6 +28,7 @@ namespace CORE_Api.Controllers
                                             new SqlParameter("@SucursalID", usuario.SucursalID),
                                             new SqlParameter("@PerfilID", usuario.PerfilID)
                                             );
+            log.Info("log - Usuario Insertado en Core");
             return Ok("Registro Exitoso");
         }
 
