@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CoreController.cs" />
+    <Compile Include="Controllers\CoreController1.cs" />
     <Compile Include="Controllers\IntegracionController.cs" />
     <Compile Include="Enums\Entidad.cs" />
     <Compile Include="Enums\MetodoPago.cs" />
