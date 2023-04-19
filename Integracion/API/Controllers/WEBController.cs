@@ -127,7 +127,6 @@ namespace API.Controllers
                 try
                 {
                     var consultas = await ds.GetAll<Servicios>(
-                        x => (x.TipoServicio.TipoServicioID == (int)Enums.TipoServicio.Consultas && x.Estado == true), 
                         null);
                     consultas = consultas.Select(x => new Servicios()
                     {
@@ -307,8 +306,7 @@ namespace API.Controllers
                 try
                 {
                     var doctores = await ds.GetAll<Persona>(
-                        x => (x.RolPersonaID == (int)Enums.RolPersona.Doctor && x.Estado == true), 
-                        x=> x.TipoSangre);
+                        x => (x.Estado == true));
                     doctores = doctores.Select(x => new Persona()
                     {
                         PersonaID = x.PersonaID,
