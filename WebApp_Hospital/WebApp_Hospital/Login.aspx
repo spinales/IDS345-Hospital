@@ -1,18 +1,15 @@
 ﻿
+<asp:Content ID="Content2" runat="server" contentplaceholderid="HideNavBar">
+    <!-- Esconder la barra de navegacion en login -->
+</asp:Content>
+
+
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApp_Hospital.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <asp:Content ID="Content2" ContentPlaceHolderID="HeadCustomContent" runat="server">
-    <style type="text/css">
-        .navbar {
-            display: none;
-        }
-    </style>
-</asp:Content>
  
     <!-- Imagen de Login -->
 
-    <img id="LoginImg" alt="Imagen de Login" src="\Images\LoginImg.png" />
+    <img id="LoginImg" alt="Imagen de Login" src="Design Resources\Images\Login_Img.png"/>
 
     <h1>Bienvenido de Nuevo</h1>
     <p>Inicia Sesión para acceder a la aplicación</p>
@@ -36,5 +33,9 @@
 
 
 </asp:Content>
+
+
+
+
 
 
