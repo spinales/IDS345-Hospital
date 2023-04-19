@@ -15,7 +15,12 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="Styles.css" />
 
 </head>
 <body>
@@ -44,9 +49,48 @@
         <!-- Hide Navbar -->
         <asp:ContentPlaceHolder ID="HideNavBar" runat="server">
 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3">
+                        <!-- Aquí va el contenido del sidebar -->
 
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+                        <!-- Vertical Navbar -->
+
+                        <div class="wrapper">
+                            <div class="sidebar">
+                                <h2>Sidebar</h2>
+                                <ul>
+                                    <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+                                    <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+                                    <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
+                                    <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+                                    <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+                                    <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+                                    <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
+                                </ul>
+                                <div class="social_media">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vertical Navbar -->
+                    </div>
+                    <div class="col-9">
+                        <!-- Aquí va el contenido principal -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- Navbar -->
+        <%--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" runat="server" href="~/">Application name</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
@@ -61,14 +105,14 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>--%>
         
         </asp:ContentPlaceHolder>
         <!-- Navbar -->
-
+        
 
         <!-- Content Placeholder BODY -->
-        <div class="container body-content m-0">
+        <div class="container-fluid p-0 m-0 overflow-hidden">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
