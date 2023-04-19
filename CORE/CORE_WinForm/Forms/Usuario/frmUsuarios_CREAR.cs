@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Modelos;
+using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,14 +33,35 @@ namespace CORE_WinForm
             //borrar campos de todos los text box
         }
 
-        private  async void LlamarApi()
+        private async void LlamarApi()
         {
+
+            //string url = "https://localhost:44329/CORE/InsertarUsuario";
+            //var client = new RestClient(url);
+            //var request = new RestRequest();
+            //var body = new Usuario
+            //{
+            //    Username = txtUsuario.Text,
+            //    Password = txtContraseña.Text,
+            //    Email = txtCorreo.Text,
+            //    SucursalID= int.Parse(cbSucursal.Text),
+            //    PerfilID = int.Parse(cbPerfil.Text)
+            //};
+            //request.AddJsonBody(body);
+            //var response = client.Post(request);
+            //MessageBox.Show(response.Content);
+
             using (var httpClient = new HttpClient())
             {
                 var apiUrl = "https://localhost:44329/CORE/InsertarUsuario"; // replace with your API endpoint
-                var requestBody = new { Username = txtUsuario.Text, Password = txtContraseña.Text,
-                                        Email = txtCorreo.Text, SucursalID= int.Parse(cbSucursal.Text),
-                                        PerfilID = int.Parse(cbPerfil.Text)}; // replace with your request parameters
+                var requestBody = new
+                {
+                    Username = txtUsuario.Text,
+                    Password = txtContraseña.Text,
+                    Email = txtCorreo.Text,
+                    SucursalID = int.Parse(cbSucursal.Text),
+                    PerfilID = int.Parse(cbPerfil.Text)
+                }; // replace with your request parameters
 
                 var json = JsonConvert.SerializeObject(requestBody);
                 var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");

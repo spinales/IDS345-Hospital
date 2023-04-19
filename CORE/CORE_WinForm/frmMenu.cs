@@ -23,33 +23,14 @@ namespace CORE_WinForm
 
         }
 
-        private void crearToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            frmPacientes_CREAR frmPacientes = new frmPacientes_CREAR();
-            frmPacientes.MdiParent = this;
-            frmPacientes.Show();
-        }
-
-        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmUsuarios_CREAR frmUsuariosC = AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
-        }
-
+       
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             frmUsuarios_BUSCAR frmUsuariosB = AbrirFormulario<frmUsuarios_BUSCAR>(typeof(frmUsuarios_BUSCAR));
-
         }
+
+      
+    
 
         public T AbrirFormulario<T>(Type buscarTipo) where T : Form, new()
         {
@@ -71,15 +52,6 @@ namespace CORE_WinForm
                 formAbrir.Show();
                 return formAbrir;
             }
-        }
-
-        private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void crearToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
