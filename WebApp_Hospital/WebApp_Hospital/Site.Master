@@ -45,41 +45,42 @@
             </Scripts>
         </asp:ScriptManager>
 
-
-        <!-- Hide Navbar -->
-        <asp:ContentPlaceHolder ID="HideNavBar" runat="server">
-
-            <div class="container-fluid">
+            <div class="container-fluid m-0 p-0">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-md-2">
                         <!-- Aquí va el contenido del sidebar -->
 
                         <!-- Vertical Navbar -->
 
                         <div class="wrapper">
                             <div class="sidebar">
-                                <h2>Sidebar</h2>
+                                <h2>Logo</h2>
                                 <ul>
-                                    <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-                                    <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
-                                    <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
-                                    <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
-                                    <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
-                                    <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
-                                    <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
-                                </ul>
-                                <div class="social_media">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
+                                    <li><a href="#" runat="server"><i class="fas fa-home"></i>Dashboard</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-user"></i>Cuentas</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-address-card"></i>Servicios</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-project-diagram"></i>Pagos</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-address-book"></i>Consultas</a></li>
+      
+                                </ul>                            
                             </div>
                         </div>
 
                         <!-- Vertical Navbar -->
                     </div>
-                    <div class="col-9">
+
+                    <div class="col-md-10 container-fluid">
                         <!-- Aquí va el contenido principal -->
+
+                        <!-- Content Placeholder BODY -->
+                        <div class="container-fluid p-0 m-0 overflow-hidden">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                
+                            </asp:ContentPlaceHolder>
+                        </div>
+
+                        <!-- Content Placeholder BODY -->
+
                     </div>
                 </div>
             </div>
@@ -107,17 +108,18 @@
             </div>
         </nav>--%>
         
-        </asp:ContentPlaceHolder>
         <!-- Navbar -->
         
 
-        <!-- Content Placeholder BODY -->
-        <div class="container-fluid p-0 m-0 overflow-hidden">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
 
-        <!-- Content Placeholder BODY -->
+
+
+
+
+
+
+
+        
 
     </form>
     <asp:PlaceHolder runat="server">

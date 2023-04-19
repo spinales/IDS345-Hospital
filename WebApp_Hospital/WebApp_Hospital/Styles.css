@@ -1,6 +1,20 @@
 ﻿/*Estilos Generales*/
+body {
+    background-color: var(--color-gris-fondo)
+}
+
+:root {
+    --color-gris-fondo: #F6F7FB;
+    --color-iconos: #535970;
+    --color-oscuro: #1F2026;
+    --color-azul-claro: #77D6DC;
+    --color-morado: #294BB5;
+    --color-gris-oscuro: #898B96;
+    --color-gris-clato: F6F7FB;
+}
 
 
+/*Estilos Generales*/
 
 /*Estilos del Login*/
 .login-body {
@@ -39,7 +53,7 @@
 }
 
 .btnIniciarSesion {
-    background-color: #294BB5;
+    background-color: var(--color-morado);
     width:100% !important;
     height: 50px !important;
   
@@ -55,7 +69,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -68,13 +82,13 @@
     .wrapper .sidebar {
         width: 200px;
         height: 100%;
-        background: #4b4276;
+        background: white;
         padding: 30px 0px;
         position: fixed;
     }
 
         .wrapper .sidebar h2 {
-            color: #fff;
+            color: #515151;
             text-transform: uppercase;
             text-align: center;
             margin-bottom: 30px;
@@ -82,14 +96,15 @@
 
         .wrapper .sidebar ul li {
             padding: 15px;
-            border-bottom: 1px solid #bdb8d7;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border: none;
         }
 
             .wrapper .sidebar ul li a {
-                color: #bdb8d7;
+                color: var(--color-gris-oscuro);
                 display: block;
+                font-family: 'Roboto';
+                font-weight: 500;
+                text-decoration: none;
             }
 
                 .wrapper .sidebar ul li a .fas {
@@ -104,51 +119,5 @@
                     color: #fff;
                 }
 
-        .wrapper .sidebar .social_media {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-        }
 
-            .wrapper .sidebar .social_media a {
-                display: block;
-                width: 40px;
-                background: #594f8d;
-                height: 40px;
-                line-height: 45px;
-                text-align: center;
-                margin: 0 5px;
-                color: #bdb8d7;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-            }
-
-    .wrapper .main_content {
-        width: 100%;
-        margin-left: 200px;
-    }
-
-        .wrapper .main_content .header {
-            padding: 20px;
-            background: #fff;
-            color: #717171;
-            border-bottom: 1px solid #e0e4e8;
-        }
-
-        .wrapper .main_content .info {
-            margin: 20px;
-            color: #717171;
-            line-height: 25px;
-        }
-
-            .wrapper .main_content .info div {
-                margin-bottom: 20px;
-            }
-
-@media (max-height: 500px) {
-    .social_media {
-        display: none !important;
-    }
-}
+  
