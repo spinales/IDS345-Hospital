@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -101,7 +102,7 @@ namespace CORE_WinForm
                 {
                     UsuarioID = this.usuario.UsuarioID,
                     Username = txtUsuario.Text,
-                    Password = this.contraseña,
+                    Password = HashPassword(this.contraseña),
                     Email = txtCorreo.Text,
                     SucursalID =cbSucursal.SelectedValue,
                     PerfilID = cbPerfil.SelectedValue
@@ -117,6 +118,15 @@ namespace CORE_WinForm
                 MessageBox.Show(responseContent);
             }
 
+        }
+
+        public static string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(hashedBytes);
+            }
         }
     }
 }

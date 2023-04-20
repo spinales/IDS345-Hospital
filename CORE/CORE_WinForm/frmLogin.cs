@@ -16,5 +16,10 @@ namespace CORE_WinForm
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

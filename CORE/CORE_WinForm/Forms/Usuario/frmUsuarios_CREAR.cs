@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.Remoting;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,7 +45,7 @@ namespace CORE_WinForm
                 var requestBody = new
                 {
                     Username = txtUsuario.Text,
-                    Password = txtContraseña.Text,
+                    Password = HashPassword(txtContraseña.Text),
                     Email = txtCorreo.Text,
                     SucursalID = cbSucursal.SelectedValue,
                     PerfilID = cbPerfil.SelectedValue
@@ -98,6 +99,22 @@ namespace CORE_WinForm
                 cbSucursal.DisplayMember = "Nombre";
                 cbSucursal.ValueMember = "SucursalID";
             }
+        }
+
+        public static string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
+
+        public static bool IsPasswordStrong(string password)
+        {
+            var passwordStrength = new PasswordStrengthChecker();
+            var result = passwordStrength.Check(password);
+            return result == PasswordCheckResult.Success;
         }
     }
 }

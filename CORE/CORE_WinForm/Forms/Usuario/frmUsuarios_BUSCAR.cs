@@ -156,7 +156,7 @@ namespace CORE_WinForm
 
                 table.Rows.Add(usuarios.UsuarioID, usuarios.Username, usuarios.Email, usuarios.Estado,
                         usuarios.SucursalID, usuarios.PerfilID, usuarios.CreatedAt, usuarios.UpdatedAt, usuarios.DeletedAt,
-                        usuarios.SendedAt);
+                        usuarios.SendedAt, usuarios.Password);
 
                 // bind the DataTable to the DataGridView
                 dgvUsuarios.DataSource = table;
