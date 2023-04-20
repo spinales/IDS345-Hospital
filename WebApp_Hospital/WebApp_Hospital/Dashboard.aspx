@@ -12,7 +12,8 @@
     <p class="bienvenido">Bienvenido</p>
     <h3 id="nombre-usuario">Nombre de Usuario</h3>
 
-    <div class="col-md-7">
+    <div class ="row">
+         <div class="col-md-7">
         <div class="cuentas-container">
 
             <div class="cuentas-container-title">
@@ -20,50 +21,102 @@
                 <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="cuentas-recientes">
+
                 <div class="cuenta">
+
+                    <div class="cuenta-info">
+                        <h5>Nombre Cuenta</h5>
+                        <p>Nombre Persona</p>
+                        <p>Estado</p>
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="transacciones-recientes">
+            <!-- Pagos recientes -->
+            <div class="pagos-recientes">
+                <div class="pagos-recientes-title">
+                    <h4>Pagos Recientes</h4>
+                    <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="cuenta">
                 </div>
-                <div class="cuenta">
+                
+            </div>
+
+            <!-- Cargos recientes -->
+            <div class="pagos-recientes">
+                <div class="pagos-recientes-title">
+                    <h4>Cargos Recientes</h4>
+                    <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="cuenta">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+        <div class="col-md-5">
+            <div class="ingresos-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Ingresos y Altas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ultima-consulta-container">
+                <h4>Ultima Consulta</h4>
+                <div class="cuenta">
+
+                    <div class="doctor d-flex align-content-center mb-4 mt-2">
+                         <div class="profile-pic"></div>
+                        <div class="doc-info">
+                            <h4>Nombre Doctor</h4>
+                            <p>Especialidad</p>
+                        </div>
+                    </div>
+                  
+                    <div class="d-grid gap-2 col-11 mx-auto">
+                        <button type="button" class="btn btn-primary">Agendar Consulta</button>
+                    </div>
+                    
                 </div>
             </div>
 
         </div>
 
-        <div class="cuentas-container-title">
-            
-            <h4>Pagos Recientes</h4>
-            <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
-            
-
-            <h4 class="pl-5">Cargos Recientes</h4>
-            <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
-        </div>
-
     </div>
 
 
 
 
 
-    <div class="col-md-3">
-        <div class="ingresos-container">
-            
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-        </div>
-    </div>
-    
 
-    <div class="ultimaconsulta-container">
-
-        <img src="#" class="img-doctor" alt="Alternate Text" />
-        <div class="fecha-hora-container">
-            <asp:Button ID="Button1" runat="server" Text="Button" />
-            
-        </div>
-     </div>   
-    
 
 </asp:Content>

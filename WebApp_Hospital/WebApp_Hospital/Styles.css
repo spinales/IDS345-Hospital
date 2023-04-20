@@ -162,7 +162,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2% 5% 1% 3%;
+    padding: 1% 5% 1% 3%;
 
     
     
@@ -218,11 +218,21 @@ h4 {
     font-size: 1rem;
 }
 
-.cuentas-container-title {
+.transacciones-recientes {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    font-weight: 500;
+    
+}
+
+/*Pagos revientes*/
+.pagos-recientes{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.pagos-recientes h4{
+   margin-right: 150px;
 }
 
 .cuentas-container {
@@ -230,7 +240,7 @@ h4 {
     background-color: white;
     border-radius: 11px;
     padding: 3% 3% 5% 3%;
-    margin-top: 3%;
+    margin-top: 2%;
     margin-bottom: 4%;
 }
 
@@ -245,6 +255,11 @@ h4 {
 }
 .cuentas-title {
     margin-right: auto;
+    
+}
+
+.cuentas-container-title {
+    display: flex;
 }
 
 .cuenta {
@@ -264,8 +279,62 @@ h4 {
    
 }
 
-.cargos-recientes-title {
-    margin-left: 10px !important;
+.pagos-recientes-title{
+    display: flex;
+    
 }
+
+.pagos-recientes .cuenta {
+    justify-self: flex-start;
+    background-color: white;
+    width: 100%;
+    height: 70px !important;
+
+}
+
+
+.ingresos-container {
+    background-color: white;
+    height: 250px;
+    width: 100%;
+    padding: 3% 3% 5% 3%;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-bottom: 5.5%;
+}
+
+.ultima-consulta-container .cuenta {
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    margin-top: 15px;
+    padding-top: 20px;
+}
+
+.btn .btn-primary {
+    background-color: var(--color-azul-claro);
+    outline: none;
+    font-weight: 700;
+    font-family: 'Roboto';
+    
+    
+}
+
+.cuenta .profile-pic {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-right: 20px;
+}
+
+.doc-info {
+    margin-top: 8px;
+    margin-left: 0 !important;
+    order: 2;
+}
+
+
+
+
 /*Dasboard*/
 
