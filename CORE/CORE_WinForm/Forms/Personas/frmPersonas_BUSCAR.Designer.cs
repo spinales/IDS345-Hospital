@@ -72,6 +72,7 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(139, 24);
             this.cbFiltro.TabIndex = 29;
+            this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
             // 
             // lblPersonaID
             // 
@@ -102,6 +103,7 @@
             this.btnBuscar.TabIndex = 32;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgvPersonas
             // 
@@ -122,6 +124,7 @@
             this.btnCrear.TabIndex = 34;
             this.btnCrear.Text = "Nuevo";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnMod
             // 
