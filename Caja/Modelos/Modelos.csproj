@@ -46,6 +46,7 @@
     <Compile Include="Cuadre.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="DetalleCuadre.cs" />
+    <Compile Include="DetalleEfectivo.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="FacturaServicios.cs" />
     <Compile Include="Habitacion.cs" />

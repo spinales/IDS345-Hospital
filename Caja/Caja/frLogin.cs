@@ -36,5 +36,10 @@ namespace Caja
         {
             this.Close();
         }
+
+        private void txtUsuarioLogin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

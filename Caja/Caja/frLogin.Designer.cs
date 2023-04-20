@@ -104,6 +104,7 @@
             this.txtUsuarioLogin.Name = "txtUsuarioLogin";
             this.txtUsuarioLogin.Size = new System.Drawing.Size(314, 32);
             this.txtUsuarioLogin.TabIndex = 4;
+            this.txtUsuarioLogin.TextChanged += new System.EventHandler(this.txtUsuarioLogin_TextChanged);
             // 
             // txtContraseñaLogin
             // 

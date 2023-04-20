@@ -88,11 +88,13 @@ namespace Caja.Services
         public DbSet<TipoServicio> TipoServicio { get; set; }
         public DbSet<Transaccion> Transaccion { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<frMovimientos> Movimientos { get; set; }
+        public DbSet<Movimientos> Movimientos { get; set; }
 
         public DbSet<Cuadre> Cuadre { get; set; }
         public DbSet<DetalleCuadre> DetalleCuadre { get; set; }
         public DbSet<InicioDia> InicioDia { get; set; }
+        public DbSet<DetalleEfectivo> DetalleEfectivo { get; set; }
+
 
     }
 }
