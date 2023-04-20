@@ -14,6 +14,5 @@ namespace WebApp_Hospital
 
         }
 
-      
     }
 }

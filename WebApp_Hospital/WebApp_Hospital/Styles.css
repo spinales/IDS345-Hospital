@@ -1,6 +1,6 @@
 ﻿/*Estilos Generales*/
 body {
-    background-color: var(--color-gris-fondo)
+    background-color: var(--color-gris-claro)
 }
 
 :root {
@@ -10,7 +10,7 @@ body {
     --color-azul-claro: #77D6DC;
     --color-morado: #294BB5;
     --color-gris-oscuro: #898B96;
-    --color-gris-clato: F6F7FB;
+    --color-gris-claro: #F0F3FF;
 }
 
 /*Icons*/
@@ -172,6 +172,8 @@ body {
     font-size:1.5rem;
     align-self: end;
 }
+/*Top navbar*/
+
 
 /*Main Content*/
 
@@ -179,7 +181,7 @@ body {
     width:100%;
     height:100%;
     padding: 0 5% 0 3%;
-    margin-top: 1.5%;
+    margin-top: 1.3%;
 }
 
 .col-md-10 {
@@ -191,5 +193,79 @@ body {
     margin: 0 !important;
     height: 100vh; /* Add this line to set the column height to 100% of the viewport height */
 }
+/*Main Content*/
 
-  
+
+/*Dasboard*/
+p {
+    margin: 0 !important;
+    padding:0;
+
+}
+
+.bienvenido {
+    font-size: 1rem;
+}
+
+h3 {
+    margin-top: 0 !important;
+    padding:0;
+    font-size: 1.3rem;
+    
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+.cuentas-container-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-weight: 500;
+}
+
+.cuentas-container {
+    height: 250px;
+    background-color: white;
+    border-radius: 11px;
+    padding: 3% 3% 5% 3%;
+    margin-top: 3%;
+    margin-bottom: 4%;
+}
+
+.ver-todas {
+    
+    margin-left: auto;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: var(--color-morado);
+    font-weight 500;
+    font-family: 'Roboto';
+}
+.cuentas-title {
+    margin-right: auto;
+}
+
+.cuenta {
+    width: 48%;
+    height: 80px;
+    background-color: var(--color-gris-claro);
+    border-radius: 10px;
+    margin-top: 10px;
+    
+}
+
+.cuentas-recientes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+   
+}
+
+.cargos-recientes-title {
+    margin-left: 10px !important;
+}
+/*Dasboard*/
+
