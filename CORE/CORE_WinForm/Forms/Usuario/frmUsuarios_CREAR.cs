@@ -110,11 +110,11 @@ namespace CORE_WinForm
             }
         }
 
-        public static bool IsPasswordStrong(string password)
-        {
-            var passwordStrength = new PasswordStrengthChecker();
-            var result = passwordStrength.Check(password);
-            return result == PasswordCheckResult.Success;
-        }
+        //public static bool IsPasswordStrong(string password)
+        //{
+        //    var passwordStrength = new PasswordStrengthChecker();
+        //    var result = passwordStrength.Check(password);
+        //    return result == PasswordCheckResult.Success;
+        //}
     }
 }
