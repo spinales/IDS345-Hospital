@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -17,6 +18,7 @@ namespace CORE_WinForm
 {
     public partial class frmUsuarios_BUSCAR : Form
     {
+        Usuario usuarioSeleccionado = new Usuario();
         public frmUsuarios_BUSCAR()
         {
             InitializeComponent();
@@ -49,9 +51,6 @@ namespace CORE_WinForm
             else if (cbFiltro.SelectedIndex == 1)
             {
                 LlamarApiGetById(int.Parse(txtID.Text));
-                btnMod.Enabled = true;
-                btnBorrar.Enabled = true;
-
             }
             
         }
@@ -164,7 +163,63 @@ namespace CORE_WinForm
 
         private void btnMod_Click(object sender, EventArgs e)
         {
-            frmUsuarios_MOD frmUsuariosM = AbrirFormulario<frmUsuarios_MOD>(typeof(frmUsuarios_MOD));
+            frmUsuarios_MOD frmUsuariosM = new frmUsuarios_MOD(usuarioSeleccionado);
+            frmUsuariosM.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            frmUsuariosM.KeyPreview = true;
+            frmUsuariosM.Location = new System.Drawing.Point(300, 50);
+            frmUsuariosM.MaximizeBox = false;
+            frmUsuariosM.MinimizeBox = false;
+            frmUsuariosM.MinimumSize = new System.Drawing.Size(500, 500);
+            frmUsuariosM.ShowIcon = false;
+            frmUsuariosM.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            frmUsuariosM.ShowDialog();
+
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvUsuarios_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            usuarioSeleccionado.UsuarioID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
+            usuarioSeleccionado.Username = dgvUsuarios.Rows[e.RowIndex].Cells[1].Value.ToString();
+            usuarioSeleccionado.Email = dgvUsuarios.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //if (dgvUsuarios.Rows[e.RowIndex].Cells[3].Value.ToString() == "1")
+            //{
+            //    usuarioSeleccionado.Estado = true;
+            //}
+            //else
+            //{
+            //    usuarioSeleccionado.Estado = false;
+            //}
+            usuarioSeleccionado.SucursalID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[4].Value.ToString());
+            usuarioSeleccionado.PerfilID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[5].Value.ToString());
+            //DateTime createdAt, deletedAt, updatedAt, sendedAt;
+            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[6].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out createdAt);
+            //usuarioSeleccionado.CreatedAt = createdAt;
+            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[7].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out deletedAt);
+            //usuarioSeleccionado.DeletedAt = deletedAt;
+            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[8].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out updatedAt);
+            //usuarioSeleccionado.UpdatedAt = updatedAt;
+            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[9].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out sendedAt);
+            //usuarioSeleccionado.SendedAt = sendedAt;
+        }
+
+
+        private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.SelectedRows.Count == 1)
+            {
+                btnMod.Enabled = true;
+                btnBorrar.Enabled = true;
+            }
+            else
+            {
+                btnMod.Enabled = false;
+                btnBorrar.Enabled = false;
+            }
         }
     }
 }

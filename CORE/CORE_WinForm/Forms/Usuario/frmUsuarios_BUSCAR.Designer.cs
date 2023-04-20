@@ -95,6 +95,9 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.Size = new System.Drawing.Size(871, 567);
             this.dgvUsuarios.TabIndex = 28;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
+            this.dgvUsuarios.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsuarios_RowHeaderMouseClick);
+            this.dgvUsuarios.SelectionChanged += new System.EventHandler(this.dgvUsuarios_SelectionChanged);
             // 
             // btnBuscar
             // 

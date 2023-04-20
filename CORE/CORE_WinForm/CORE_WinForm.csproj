@@ -238,6 +238,12 @@
     <Compile Include="Forms\Usuario\frmUsuarios_CREAR.Designer.cs">
       <DependentUpon>frmUsuarios_CREAR.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\frmUsuarios_MOD.resx">
       <DependentUpon>frmUsuarios_MOD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

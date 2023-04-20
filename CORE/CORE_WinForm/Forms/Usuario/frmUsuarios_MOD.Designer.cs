@@ -41,6 +41,7 @@
             this.lblContraseña = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -164,11 +165,22 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
+            // checkBoxPassword
+            // 
+            this.checkBoxPassword.AutoSize = true;
+            this.checkBoxPassword.Location = new System.Drawing.Point(344, 159);
+            this.checkBoxPassword.Name = "checkBoxPassword";
+            this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxPassword.TabIndex = 42;
+            this.checkBoxPassword.UseVisualStyleBackColor = true;
+            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
+            // 
             // frmUsuarios_MOD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 450);
+            this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtContraseña);
@@ -204,5 +216,6 @@
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.CheckBox checkBoxPassword;
     }
 }
