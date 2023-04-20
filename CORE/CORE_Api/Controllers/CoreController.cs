@@ -189,9 +189,15 @@ namespace CORE_Api.Controllers
                 try
                 {
                     var perfiles= await ds.GetAll<Perfil>(null);
+                    var perfil = perfiles.Select(x => new Perfil()
+                    {
+                        PerfilID = x.PerfilID,
+                        Nombre = x.Nombre
+                    }
+                ).ToList();
 
                     log.Info("Consulta de todos los perfiles exitosa");
-                    return Ok(perfiles);
+                    return Ok(perfil);
 
                 }
                 catch (Exception e)

@@ -52,13 +52,10 @@ namespace CORE_WinForm
                 var responseContent = await response.Content.ReadAsStringAsync();
 
                 // parse the JSON response into a collection of Usuario objects
-                var perfiles = JsonConvert.DeserializeObject<Perfil>(responseContent);
-                BindingList<Perfil> lista = new BindingList<Perfil>(new List<Perfil> { perfiles });
-                MessageBox.Show(perfiles.ToString());
-                cbPerfil.DataSource = lista;
+                var perfiles = JsonConvert.DeserializeObject<List<Perfil>>(responseContent);
+                cbPerfil.DataSource = perfiles;
                 cbPerfil.DisplayMember = "Nombre";
                 cbPerfil.ValueMember = "PerfilID";
-
             }
         }
         
