@@ -17,6 +17,7 @@ namespace CORE_WinForm
     public partial class frmUsuarios_MOD : Form
     {
         public Usuario usuario { get; set; }
+        public string contraseña { get; set; }
         public frmUsuarios_MOD(Usuario usuario)
         {
             InitializeComponent();
@@ -28,7 +29,6 @@ namespace CORE_WinForm
             cbSucursal.SelectedValue= this.usuario.SucursalID;
             cbPerfil.SelectedItem = this.usuario.Perfil;
             txtContraseña.Enabled = false;
-
         }
 
         private void checkBoxPassword_CheckedChanged(object sender, EventArgs e)
@@ -79,6 +79,15 @@ namespace CORE_WinForm
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(this.usuario.Password);
+            if (checkBoxPassword.Checked == true)
+            {
+                this.contraseña = txtContraseña.Text;
+            }
+            else
+            {
+                this.contraseña = this.usuario.Password.ToString();
+            }
             LlamarApi();
             this.Close();
         }
@@ -92,7 +101,7 @@ namespace CORE_WinForm
                 {
                     UsuarioID = this.usuario.UsuarioID,
                     Username = txtUsuario.Text,
-                    Password = txtContraseña.Text,
+                    Password = this.contraseña,
                     Email = txtCorreo.Text,
                     SucursalID =cbSucursal.SelectedValue,
                     PerfilID = cbPerfil.SelectedValue
