@@ -35,8 +35,8 @@
             this.lblUsuarioID = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMod = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(371, 90);
+            this.txtID.Location = new System.Drawing.Point(429, 91);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(98, 20);
             this.txtID.TabIndex = 24;
@@ -82,7 +82,7 @@
             // 
             this.lblUsuarioID.AutoSize = true;
             this.lblUsuarioID.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioID.Location = new System.Drawing.Point(283, 93);
+            this.lblUsuarioID.Location = new System.Drawing.Point(341, 93);
             this.lblUsuarioID.Name = "lblUsuarioID";
             this.lblUsuarioID.Size = new System.Drawing.Size(82, 14);
             this.lblUsuarioID.TabIndex = 15;
@@ -93,13 +93,13 @@
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Location = new System.Drawing.Point(90, 132);
             this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.Size = new System.Drawing.Size(549, 254);
+            this.dgvUsuarios.Size = new System.Drawing.Size(871, 567);
             this.dgvUsuarios.TabIndex = 28;
             // 
             // btnBuscar
             // 
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.btnBuscar.Location = new System.Drawing.Point(496, 90);
+            this.btnBuscar.Location = new System.Drawing.Point(818, 91);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(143, 23);
             this.btnBuscar.TabIndex = 29;
@@ -107,29 +107,29 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // button1
+            // btnMod
             // 
-            this.button1.Location = new System.Drawing.Point(700, 242);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMod.Location = new System.Drawing.Point(1008, 314);
+            this.btnMod.Name = "btnMod";
+            this.btnMod.Size = new System.Drawing.Size(75, 57);
+            this.btnMod.TabIndex = 30;
+            this.btnMod.Text = "Modificar";
+            this.btnMod.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnBorrar
             // 
-            this.button2.Location = new System.Drawing.Point(700, 283);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBorrar.Location = new System.Drawing.Point(1008, 392);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 57);
+            this.btnBorrar.TabIndex = 31;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(700, 196);
+            this.btnCrear.Location = new System.Drawing.Point(1008, 232);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(75, 23);
+            this.btnCrear.Size = new System.Drawing.Size(75, 57);
             this.btnCrear.TabIndex = 32;
             this.btnCrear.Text = "Nuevo";
             this.btnCrear.UseVisualStyleBackColor = true;
@@ -139,11 +139,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1119, 732);
             this.ControlBox = false;
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnMod);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.lblTitulo);
@@ -169,8 +169,8 @@
         private System.Windows.Forms.Label lblUsuarioID;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMod;
+        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnCrear;
     }
 }

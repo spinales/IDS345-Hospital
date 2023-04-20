@@ -27,6 +27,9 @@ namespace Modelos
 
         public virtual MetodoPago MetodoPago { get; set; }
         public virtual Cuenta Cuenta { get; set; }
+
+        public string CodigoTransaccion { get; set; }
+        public string Canal { get; set; }
     }
     
 }

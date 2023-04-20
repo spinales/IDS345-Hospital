@@ -25,6 +25,6 @@ namespace Modelos
         public DateTime? SendedAt { get; set; }
 
         public virtual TipoServicio TipoServicio { get; set; }
-
+        public decimal Descuento { get; set; } = 0;
     }
 }

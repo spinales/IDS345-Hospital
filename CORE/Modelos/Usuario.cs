@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Modelos
 {
@@ -39,6 +40,8 @@ namespace Modelos
         public virtual Sucursal Sucursal { get; set; }
         
         public virtual ICollection<Persona> Personas { get; set; }
+        
+        [JsonIgnore]
         public virtual ICollection<HistoricoAcciones> HistoricosAcciones { get; set; }
     }
 }

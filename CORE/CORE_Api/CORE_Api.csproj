@@ -120,6 +120,14 @@
     <Compile Include="Migrations\202304080007176_CambiosIntegracion.designer.cs">
       <DependentUpon>202304080007176_CambiosIntegracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304200246570_camposTotalesCodigos.cs" />
+    <Compile Include="Migrations\202304200246570_camposTotalesCodigos.designer.cs">
+      <DependentUpon>202304200246570_camposTotalesCodigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304200703408_JsonIgnoreUsuarioHistoricoAcciones.cs" />
+    <Compile Include="Migrations\202304200703408_JsonIgnoreUsuarioHistoricoAcciones.designer.cs">
+      <DependentUpon>202304200703408_JsonIgnoreUsuarioHistoricoAcciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
@@ -158,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304080007176_CambiosIntegracion.resx">
       <DependentUpon>202304080007176_CambiosIntegracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304200246570_camposTotalesCodigos.resx">
+      <DependentUpon>202304200246570_camposTotalesCodigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304200703408_JsonIgnoreUsuarioHistoricoAcciones.resx">
+      <DependentUpon>202304200703408_JsonIgnoreUsuarioHistoricoAcciones.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

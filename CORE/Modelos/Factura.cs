@@ -11,7 +11,7 @@ namespace Modelos
         public bool Estado { get; set; }
         public decimal TotalFinal { get; set; }
         public decimal TotalAutorizado { get; set; } = 0;
-        public decimal Descuento { get; set; } = 0;
+        public decimal TotalDescuento { get; set; } = 0;
         public decimal TotalBruto { get; set; }
 
         [ForeignKey("Cuenta")]
@@ -35,5 +35,8 @@ namespace Modelos
         public virtual Persona Paciente { get; set; }
         public virtual Persona Empleado { get; set; }
         public virtual MetodoPago MetodoPago { get; set; }
+
+        public string CodigoFactura { get; set; }
+        public string CanalGenerado { get; set; }
     }
 }

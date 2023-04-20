@@ -53,7 +53,7 @@ namespace CORE_WinForm
 
             using (var httpClient = new HttpClient())
             {
-                var apiUrl = "https://localhost:44329/CORE/InsertarUsuario"; // replace with your API endpoint
+                var apiUrl = "https://localhost:44329/CORE/usuario/registrar"; // replace with your API endpoint
                 var requestBody = new
                 {
                     Username = txtUsuario.Text,
