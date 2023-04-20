@@ -53,7 +53,7 @@
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(318, 250);
+            this.btnCancelar.Location = new System.Drawing.Point(318, 260);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(152, 33);
@@ -66,7 +66,7 @@
             this.btnGuardar.AutoSize = true;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(127, 250);
+            this.btnGuardar.Location = new System.Drawing.Point(127, 260);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(152, 33);
@@ -77,7 +77,7 @@
             // cbAseguradora
             // 
             this.cbAseguradora.FormattingEnabled = true;
-            this.cbAseguradora.Location = new System.Drawing.Point(294, 185);
+            this.cbAseguradora.Location = new System.Drawing.Point(294, 190);
             this.cbAseguradora.Margin = new System.Windows.Forms.Padding(4);
             this.cbAseguradora.Name = "cbAseguradora";
             this.cbAseguradora.Size = new System.Drawing.Size(185, 24);
@@ -87,7 +87,7 @@
             // 
             this.lblAseguradora.AutoSize = true;
             this.lblAseguradora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAseguradora.Location = new System.Drawing.Point(134, 185);
+            this.lblAseguradora.Location = new System.Drawing.Point(134, 190);
             this.lblAseguradora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAseguradora.Name = "lblAseguradora";
             this.lblAseguradora.Size = new System.Drawing.Size(92, 18);
@@ -96,7 +96,7 @@
             // 
             // txtMontoAutorizado
             // 
-            this.txtMontoAutorizado.Location = new System.Drawing.Point(294, 125);
+            this.txtMontoAutorizado.Location = new System.Drawing.Point(294, 130);
             this.txtMontoAutorizado.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontoAutorizado.Name = "txtMontoAutorizado";
             this.txtMontoAutorizado.Size = new System.Drawing.Size(185, 22);
@@ -106,7 +106,7 @@
             // 
             this.lblMontoAutorizado.AutoSize = true;
             this.lblMontoAutorizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoAutorizado.Location = new System.Drawing.Point(134, 125);
+            this.lblMontoAutorizado.Location = new System.Drawing.Point(134, 130);
             this.lblMontoAutorizado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMontoAutorizado.Name = "lblMontoAutorizado";
             this.lblMontoAutorizado.Size = new System.Drawing.Size(126, 18);
