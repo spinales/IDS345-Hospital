@@ -119,5 +119,41 @@ body {
                     color: #fff;
                 }
 
+ /*Top navbar*/
+
+.profile-pic {
+    border-radius: 100%;
+    background-color: #C3ECF1;
+    height: 50px;
+    width: 50px;
+    order: 2;
+    margin-left: 50px;
+    
+}
+
+.shopping-bag {
+    height: 30px;
+    width: 30px;
+    justify-self: flex-end;
+    margin-left: auto;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.header-nav {
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5%;
+    
+}
+
+/*Main Content*/
+
+.main-container {
+    padding-right: 5%;
+}
 
   
