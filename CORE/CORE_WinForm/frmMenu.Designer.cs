@@ -57,8 +57,8 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 5);
-            this.menuStrip1.Size = new System.Drawing.Size(105, 571);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 6);
+            this.menuStrip1.Size = new System.Drawing.Size(140, 703);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,50 +76,51 @@
             // perfilesToolStripMenuItem
             // 
             this.perfilesToolStripMenuItem.Name = "perfilesToolStripMenuItem";
-            this.perfilesToolStripMenuItem.Size = new System.Drawing.Size(60, 19);
+            this.perfilesToolStripMenuItem.Size = new System.Drawing.Size(71, 22);
             this.perfilesToolStripMenuItem.Text = "Perfiles";
             // 
             // pacientesToolStripMenuItem
             // 
             this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
-            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(65, 19);
+            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(78, 22);
             this.pacientesToolStripMenuItem.Text = "Persona";
+            this.pacientesToolStripMenuItem.Click += new System.EventHandler(this.pacientesToolStripMenuItem_Click);
             // 
             // cuentasToolStripMenuItem
             // 
             this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
-            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(64, 19);
+            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(77, 22);
             this.cuentasToolStripMenuItem.Text = "Cuentas";
             // 
             // ingresosToolStripMenuItem
             // 
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
-            this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(66, 19);
+            this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(79, 22);
             this.ingresosToolStripMenuItem.Text = "Ingresos";
             // 
             // autorizaciónToolStripMenuItem
             // 
             this.autorizaciónToolStripMenuItem.Name = "autorizaciónToolStripMenuItem";
-            this.autorizaciónToolStripMenuItem.Size = new System.Drawing.Size(86, 19);
+            this.autorizaciónToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.autorizaciónToolStripMenuItem.Text = "Autorización";
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(68, 19);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(83, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(737, 571);
+            this.ClientSize = new System.Drawing.Size(983, 703);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(753, 597);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(998, 724);
             this.Name = "frmMenu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Menu";

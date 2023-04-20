@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CORE_WinForm.Forms.Personas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,15 +23,11 @@ namespace CORE_WinForm
         {
 
         }
-
        
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUsuarios_BUSCAR frmUsuariosB = AbrirFormulario<frmUsuarios_BUSCAR>(typeof(frmUsuarios_BUSCAR));
         }
-
-      
-    
 
         public T AbrirFormulario<T>(Type buscarTipo) where T : Form, new()
         {
@@ -46,12 +43,17 @@ namespace CORE_WinForm
             {
                 var formAbrir = new T();
                 formAbrir.MdiParent = this;
-                formAbrir.Dock = DockStyle.Fill;
+                formAbrir.Dock = DockStyle.Fill; 
                 int anchoRestante = this.ClientSize.Width - menuStrip1.Width;
                 formAbrir.Width = anchoRestante;
                 formAbrir.Show();
                 return formAbrir;
             }
+        }
+
+        private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPersonas_BUSCAR frmPersonB = AbrirFormulario<frmPersonas_BUSCAR>(typeof(frmPersonas_BUSCAR));
         }
     }
 }
