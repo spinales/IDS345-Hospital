@@ -73,8 +73,6 @@
                                                 <p class="fs-sm">
                                                     989 5th Avenue, New York, 55832
                     <br>
-                                                    <a href="#!" class="text-purple">john@email.com
-                                                    </a>
                                                 </p>
                                             </div>
                                             <div class="col-md-6 text-md-end">
@@ -84,8 +82,6 @@
                                                 <p class="fs-sm">
                                                     9th Avenue, San Francisco 99383
                     <br>
-                                                    <a href="#!" class="text-purple">themes@email.com
-                                                    </a>
                                                 </p>
                                             </div>
                                         </div>
@@ -118,17 +114,23 @@
             <!-- detalle movimiento -->
 
             <!-- Pagar Cuenta -->
-            <div class="pagar-cuenta">
+            <div class="pagar-cuenta bg-white mx-3">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 d-flex align-items-center justify-content-center">
+                        <div class="cuenta-title d-flex align-items-center flex-column">
+                            <h2 class="card-text mb-3"><strong>CU-001</strong></h2>
+                            <p class="estado-pago mb-3">Activa</p>
+
+                            <asp:Button CssClass="btn btn-primary flex-grow-1" ID="btnPagar" runat="server" Text="Pagar Cuenta" />
+                        </div>
+
+
+
                     </div>
                     <div class="col-md-7">
                         <div class="card-body small">
                             <div class="row">
-                                <div class="cuenta-title d-flex align-items-center">
-                                    <h2 class="card-text mr-3"><strong>CU-001</strong></h2>
-                                    <p class="estado-pago">Activa</p>
-                                </div>
+
                                 <div class="col-md-7 lh-lg">
 
                                     <p class="card-text"><strong>Balance:</strong></p>
