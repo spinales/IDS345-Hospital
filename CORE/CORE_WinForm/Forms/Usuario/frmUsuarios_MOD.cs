@@ -21,6 +21,7 @@ namespace CORE_WinForm
         {
             InitializeComponent();
             LlamarApiGetPerfiles();
+            LlamarApiGetSucursales();
             this.usuario = usuario;
             txtUsuario.Text = this.usuario.Username;
             txtCorreo.Text = this.usuario.Email;
@@ -58,6 +59,55 @@ namespace CORE_WinForm
                 cbPerfil.ValueMember = "PerfilID";
             }
         }
-        
+
+        private async void LlamarApiGetSucursales()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = string.Format("https://localhost:44329/CORE/sucursales/get"); // replace with your API endpoint
+
+                var response = await httpClient.GetAsync(apiUrl);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                // parse the JSON response into a collection of Usuario objects
+                var sucursales= JsonConvert.DeserializeObject<List<Sucursal>>(responseContent);
+                cbSucursal.DataSource = sucursales;
+                cbSucursal.DisplayMember = "Nombre";
+                cbSucursal.ValueMember = "SucursalID";
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            LlamarApi();
+            this.Close();
+        }
+
+        private async void LlamarApi()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = "https://localhost:44329/CORE/usuario/modificar"; // replace with your API endpoint
+                var requestBody = new
+                {
+                    UsuarioID = this.usuario.UsuarioID,
+                    Username = txtUsuario.Text,
+                    Password = txtContraseña.Text,
+                    Email = txtCorreo.Text,
+                    SucursalID =cbSucursal.SelectedValue,
+                    PerfilID = cbPerfil.SelectedValue
+                }; // replace with your request parameters
+
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(apiUrl, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                // handle response content here
+                MessageBox.Show(responseContent);
+            }
+
+        }
     }
 }

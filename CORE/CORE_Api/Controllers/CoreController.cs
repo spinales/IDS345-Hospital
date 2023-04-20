@@ -66,8 +66,8 @@ namespace CORE_Api.Controllers
                 {
                     try
                     {
-                        ds.Database.ExecuteSqlCommand("sp_update_usuario @UsuarioID INT,@Username VARCHAR(100) ,@Password VARCHAR(100) ,@Email VARCHAR(100) ," +
-                            "@Estado BIT = NULL, @SucursalID INT, @PerfilID INT ",
+                        ds.Database.ExecuteSqlCommand("sp_update_usuario @UsuarioID, @Username ,@Password ,@Email ,@Estado, @SucursalID, @PerfilID",
+                                            new SqlParameter("@UsuarioID", usuario.UsuarioID),
                                            new SqlParameter("@Username", usuario.Username),
                                            new SqlParameter("@Password", usuario.Password),
                                            new SqlParameter("@Email", usuario.Email),
@@ -221,15 +221,54 @@ namespace CORE_Api.Controllers
                 try
                 {
                     var sucursales = await ds.GetAll<Sucursal>(null);
-
+                    var sucursal = sucursales.Select(x => new Sucursal()
+                    {
+                        SucursalID = x.SucursalID,
+                        Nombre = x.Nombre,
+                        Direccion = x.Direccion
+                    }
+                ).ToList();
                     log.Info("Consulta de todas las sucursales exitosa");
-                    return Ok(sucursales);
+                    return Ok(sucursal);
 
                 }
                 catch (Exception e)
                 {
                     log.Error("Consulta de todas las sucursales fallida " + e.Message);
                     return Ok("Consulta de todas las sucursales fallida " + e.Message);
+                }
+            }
+        }
+
+
+
+        [HttpPost]
+        [Route("CORE/usuario/borrar")]
+        public IHttpActionResult BorrarUsuario([FromBody] Usuario usuario)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_switch_usuario @UsuarioID",
+                                            new SqlParameter("@UsuarioID", usuario.UsuarioID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Eliminacion de usuario exitosa");
+                        return Ok("Eliminacion de usuario exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Eliminacion de usuario fallida " + e.Message);
+                        return Ok("Eliminacion de usuario fallida " + e.Message);
+                    }
                 }
             }
         }

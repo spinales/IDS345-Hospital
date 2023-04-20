@@ -47,9 +47,9 @@
             this.lblTitulo.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(83, 38);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(251, 38);
+            this.lblTitulo.Size = new System.Drawing.Size(143, 38);
             this.lblTitulo.TabIndex = 26;
-            this.lblTitulo.Text = "Buscar Usuarios";
+            this.lblTitulo.Text = "Usuarios";
             // 
             // txtID
             // 

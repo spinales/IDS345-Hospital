@@ -21,11 +21,14 @@ namespace CORE_WinForm
         public frmUsuarios_CREAR()
         {
             InitializeComponent();
+            LlamarApiGetPerfiles();
+            LlamarApiGetSucursales();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             LlamarApi();
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -35,22 +38,6 @@ namespace CORE_WinForm
 
         private async void LlamarApi()
         {
-
-            //string url = "https://localhost:44329/CORE/InsertarUsuario";
-            //var client = new RestClient(url);
-            //var request = new RestRequest();
-            //var body = new Usuario
-            //{
-            //    Username = txtUsuario.Text,
-            //    Password = txtContraseña.Text,
-            //    Email = txtCorreo.Text,
-            //    SucursalID= int.Parse(cbSucursal.Text),
-            //    PerfilID = int.Parse(cbPerfil.Text)
-            //};
-            //request.AddJsonBody(body);
-            //var response = client.Post(request);
-            //MessageBox.Show(response.Content);
-
             using (var httpClient = new HttpClient())
             {
                 var apiUrl = "https://localhost:44329/CORE/usuario/registrar"; // replace with your API endpoint
@@ -59,8 +46,8 @@ namespace CORE_WinForm
                     Username = txtUsuario.Text,
                     Password = txtContraseña.Text,
                     Email = txtCorreo.Text,
-                    SucursalID = int.Parse(cbSucursal.Text),
-                    PerfilID = int.Parse(cbPerfil.Text)
+                    SucursalID = cbSucursal.SelectedValue,
+                    PerfilID = cbPerfil.SelectedValue
                 }; // replace with your request parameters
 
                 var json = JsonConvert.SerializeObject(requestBody);
@@ -78,6 +65,39 @@ namespace CORE_WinForm
         private void frmUsuarios_CREAR_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private async void LlamarApiGetPerfiles()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = string.Format("https://localhost:44329/CORE/perfiles/get"); // replace with your API endpoint
+
+                var response = await httpClient.GetAsync(apiUrl);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                // parse the JSON response into a collection of Usuario objects
+                var perfiles = JsonConvert.DeserializeObject<List<Perfil>>(responseContent);
+                cbPerfil.DataSource = perfiles;
+                cbPerfil.DisplayMember = "Nombre";
+                cbPerfil.ValueMember = "PerfilID";
+            }
+        }
+        private async void LlamarApiGetSucursales()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = string.Format("https://localhost:44329/CORE/sucursales/get"); // replace with your API endpoint
+
+                var response = await httpClient.GetAsync(apiUrl);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                // parse the JSON response into a collection of Usuario objects
+                var sucursales = JsonConvert.DeserializeObject<List<Sucursal>>(responseContent);
+                cbSucursal.DataSource = sucursales;
+                cbSucursal.DisplayMember = "Nombre";
+                cbSucursal.ValueMember = "SucursalID";
+            }
         }
     }
 }

@@ -110,13 +110,14 @@ namespace CORE_WinForm
                 table.Columns.Add("UpdatedAt", typeof(DateTime));
                 table.Columns.Add("DeletedAt", typeof(DateTime));
                 table.Columns.Add("SendedAt", typeof(DateTime));
+                table.Columns.Add("Contraseña", typeof(string));
 
                 // populate the DataTable with the data from the collection
                 foreach (var usuario in usuarios)
                 {
                     table.Rows.Add(usuario.UsuarioID, usuario.Username, usuario.Email, usuario.Estado,
                         usuario.SucursalID, usuario.PerfilID, usuario.CreatedAt, usuario.UpdatedAt, usuario.DeletedAt,
-                        usuario.SendedAt);
+                        usuario.SendedAt, usuario.Password);
                 }
 
                 // bind the DataTable to the DataGridView
@@ -149,9 +150,10 @@ namespace CORE_WinForm
                 table.Columns.Add("UpdatedAt", typeof(DateTime));
                 table.Columns.Add("DeletedAt", typeof(DateTime));
                 table.Columns.Add("SendedAt", typeof(DateTime));
+                table.Columns.Add("Contraseña", typeof(string));
 
                 // populate the DataTable with the data from the collection
-               
+
                 table.Rows.Add(usuarios.UsuarioID, usuarios.Username, usuarios.Email, usuarios.Estado,
                         usuarios.SucursalID, usuarios.PerfilID, usuarios.CreatedAt, usuarios.UpdatedAt, usuarios.DeletedAt,
                         usuarios.SendedAt);
@@ -188,7 +190,6 @@ namespace CORE_WinForm
             usuarioSeleccionado.Email = dgvUsuarios.Rows[e.RowIndex].Cells[2].Value.ToString();
             usuarioSeleccionado.SucursalID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[4].Value.ToString());
             usuarioSeleccionado.PerfilID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[5].Value.ToString());
-        
         }
 
 
