@@ -279,6 +279,34 @@ h4 {
    
 }
 
+.cuenta .cuenta-info {
+   padding-top:4px;
+    
+}
+
+    .cuenta .cuenta-info h6 {
+        font-size: 0.8rem;
+        font-weight: 300;
+        margin-bottom: 0 !important;
+    }
+
+    .cuenta .cuenta-info h5 {
+        font-size: 1rem;
+        margin-top: 3px;
+        
+    }
+
+
+    .cuenta .cuenta-info p {
+        font-size: 0.76rem;
+        padding: 1.5px;
+        background-color: #D5EDE2;
+        color: #009651;
+        display: inline;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
 .pagos-recientes-title{
     display: flex;
     
@@ -333,8 +361,42 @@ h4 {
     order: 2;
 }
 
+.estado-pago {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    background-color: #D5EDE2;
+    color: #009651;
+    display: inline;
+    font-weight: 500;
+    border-radius: 5px;
+}
 
+.estado-cargo {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    background-color: #FFCEC9;
+    color: #E3584A;
+    display: inline;
+    font-weight: 500;
+    border-radius: 5px;
+}
 
+.desc-transaccion {
+    font-size: 0.9rem !important;
+    font-weight: 500;
+}
+.monto {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--color-gris-oscuro);
+}
 
+.cuenta-transaccion-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    
+}
 /*Dasboard*/
 

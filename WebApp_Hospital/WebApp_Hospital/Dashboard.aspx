@@ -25,8 +25,9 @@
                 <div class="cuenta">
 
                     <div class="cuenta-info">
+                        <div class="profile-pic"></div>
                         <h5>Nombre Cuenta</h5>
-                        <p>Nombre Persona</p>
+                        <h6>Nombre Persona</h6>
                         <p>Estado</p>
                     </div>
 
@@ -48,6 +49,11 @@
                     <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="cuenta">
+                    <div class="cuenta-transaccion-container">
+                        <p class="desc-transaccion">Descripción Transacción</p>
+                        <p class="monto">Monto</p>
+                        <p class="estado-pago">Pago</p>
+                    </div> 
                 </div>
                 
             </div>
@@ -59,6 +65,11 @@
                     <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="cuenta">
+                     <div class="cuenta-transaccion-container">
+                        <p class="desc-transaccion">Descripción Transacción</p>
+                        <p class="monto">Monto</p>
+                        <p class="estado-cargo">Cargo</p>
+                    </div>
                 </div>
                 
             </div>
