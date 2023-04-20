@@ -264,6 +264,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Autorizaciones\frmAutorizaciones_CREAR.resx">
+      <DependentUpon>frmAutorizaciones_CREAR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cuentas\frmCuentas_CREAR.resx">
       <DependentUpon>frmCuentas_CREAR.cs</DependentUpon>
     </EmbeddedResource>
