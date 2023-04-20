@@ -52,6 +52,42 @@ namespace CORE_Api.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("CORE/usuario/modificar")]
+        public IHttpActionResult ModificarUsuario([FromBody] Usuario usuario)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_update_usuario @UsuarioID INT,@Username VARCHAR(100) ,@Password VARCHAR(100) ,@Email VARCHAR(100) ," +
+                            "@Estado BIT = NULL, @SucursalID INT, @PerfilID INT ",
+                                           new SqlParameter("@Username", usuario.Username),
+                                           new SqlParameter("@Password", usuario.Password),
+                                           new SqlParameter("@Email", usuario.Email),
+                                           new SqlParameter("@Estado", usuario.Estado),
+                                           new SqlParameter("@SucursalID", usuario.SucursalID),
+                                           new SqlParameter("@PerfilID", usuario.PerfilID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Modificacion de usuario exitosa");
+                        return Ok("Modificacion de usuario exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Modificacion de usuario fallida" + e.Message );
+                        return Ok("Modificacion de usuario fallida" + e.Message);
+                    }
+                }
+            }
+        }
 
         [HttpGet]
         [Route("CORE/usuario/get")]
