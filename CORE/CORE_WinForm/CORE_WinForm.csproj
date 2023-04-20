@@ -82,6 +82,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BORRAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BORRAR.Designer.cs">
+      <DependentUpon>frmAutorizaciones_BORRAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BUSCAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BUSCAR.Designer.cs">
+      <DependentUpon>frmAutorizaciones_BUSCAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_CREAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_CREAR.Designer.cs">
+      <DependentUpon>frmAutorizaciones_CREAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_MOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_MOD.Designer.cs">
+      <DependentUpon>frmAutorizaciones_MOD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Cuentas\frmCuentas_BORRAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +178,54 @@
     <Compile Include="Forms\Perfiles\frmPerfiles_MOD.Designer.cs">
       <DependentUpon>frmPerfiles_MOD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_BORRAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_BORRAR.Designer.cs">
+      <DependentUpon>frmPersonas_BORRAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_BUSCAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_BUSCAR.Designer.cs">
+      <DependentUpon>frmPersonas_BUSCAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_CREAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_CREAR.Designer.cs">
+      <DependentUpon>frmPersonas_CREAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_MOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Personas\frmPersonas_MOD.Designer.cs">
+      <DependentUpon>frmPersonas_MOD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_BORRAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_BORRAR.Designer.cs">
+      <DependentUpon>frmServicios_BORRAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_BUSCAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_BUSCAR.Designer.cs">
+      <DependentUpon>frmServicios_BUSCAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_CREAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_CREAR.Designer.cs">
+      <DependentUpon>frmServicios_CREAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_MOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servicios\frmServicios_MOD.Designer.cs">
+      <DependentUpon>frmServicios_MOD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Usuario\frmUsuarios_BUSCAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Perfiles\frmPerfiles_CREAR.resx">
       <DependentUpon>frmPerfiles_CREAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Personas\frmPersonas_CREAR.resx">
+      <DependentUpon>frmPersonas_CREAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\frmUsuarios_BUSCAR.resx">
       <DependentUpon>frmUsuarios_BUSCAR.cs</DependentUpon>
