@@ -12,8 +12,10 @@ using System.Net.Http;
 using System.Runtime.Remoting;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace CORE_WinForm
 {
@@ -28,8 +30,17 @@ namespace CORE_WinForm
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            LlamarApi();
-            this.Close();
+            if (Validacion.IsPasswordStrong(txtContraseña.Text))
+            {
+                LlamarApi();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Tu contraseña no es segura.\n" +
+                    "Debe tener por lo menos 8 dígitos, letras, números y mayúsculas");
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -45,7 +56,7 @@ namespace CORE_WinForm
                 var requestBody = new
                 {
                     Username = txtUsuario.Text,
-                    Password = HashPassword(txtContraseña.Text),
+                    Password = Validacion.HashPassword(txtContraseña.Text),
                     Email = txtCorreo.Text,
                     SucursalID = cbSucursal.SelectedValue,
                     PerfilID = cbPerfil.SelectedValue
@@ -101,20 +112,6 @@ namespace CORE_WinForm
             }
         }
 
-        public static string HashPassword(string password)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hashedBytes);
-            }
-        }
-
-        //public static bool IsPasswordStrong(string password)
-        //{
-        //    var passwordStrength = new PasswordStrengthChecker();
-        //    var result = passwordStrength.Check(password);
-        //    return result == PasswordCheckResult.Success;
-        //}
+        
     }
 }

@@ -80,17 +80,28 @@ namespace CORE_WinForm
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.usuario.Password);
+
             if (checkBoxPassword.Checked == true)
             {
-                this.contraseña = txtContraseña.Text;
+                if (Validacion.IsPasswordStrong(txtContraseña.Text))
+                {
+                    this.contraseña = txtContraseña.Text;
+                    LlamarApiModificar();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Tu contraseña no es segura.\n" +
+                   "Debe tener por lo menos 8 dígitos, letras, números y mayúsculas");
+                }
             }
             else
             {
                 this.contraseña = this.usuario.Password.ToString();
+                LlamarApiModificar();
+                this.Close();
             }
-            LlamarApiModificar();
-            this.Close();
+            
         }
 
         private async void LlamarApiModificar()
@@ -102,7 +113,7 @@ namespace CORE_WinForm
                 {
                     UsuarioID = this.usuario.UsuarioID,
                     Username = txtUsuario.Text,
-                    Password = HashPassword(this.contraseña),
+                    Password = Validacion.HashPassword(this.contraseña),
                     Email = txtCorreo.Text,
                     SucursalID =cbSucursal.SelectedValue,
                     PerfilID = cbPerfil.SelectedValue
@@ -120,13 +131,6 @@ namespace CORE_WinForm
 
         }
 
-        public static string HashPassword(string password)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hashedBytes);
-            }
-        }
+       
     }
 }
