@@ -42,11 +42,11 @@ namespace CORE_Api.Controllers
                         log.Info("Registro De Usuario Exitoso");
                         return Ok("Registro De Usuario Exitoso");
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
                         transaction.Rollback();
-                        log.Error("Registro De Usuario Fallido");
-                        return Ok("Registro De Usuario Fallido");
+                        log.Error("Registro De Usuario Fallido " + e.Message);
+                        return Ok("Registro De Usuario Fallido " + e.Message);
                     }
                 }
             }
@@ -82,8 +82,8 @@ namespace CORE_Api.Controllers
                     catch (Exception e)
                     {
                         transaction.Rollback();
-                        log.Error("Modificacion de usuario fallida" + e.Message );
-                        return Ok("Modificacion de usuario fallida" + e.Message);
+                        log.Error("Modificacion de usuario fallida " + e.Message );
+                        return Ok("Modificacion de usuario fallida " + e.Message);
                     }
                 }
             }
@@ -123,8 +123,8 @@ namespace CORE_Api.Controllers
                     }
                     catch (Exception e)
                     { 
-                        log.Error(e.Message);
-                        return Ok(e.Message);
+                        log.Error("Consulta de todos los usuarios fallida " + e.Message);
+                        return Ok("Consulta de todos los usuarios fallida " + e.Message);
                     }
             }
         }
@@ -171,6 +171,59 @@ namespace CORE_Api.Controllers
                 {
                     log.Error(e.Message);
                     return Ok(e.Message);
+                }
+            }
+        }
+
+
+        [HttpGet]
+        [Route("CORE/perfiles/get")]
+        public async Task<IHttpActionResult> BuscarPerfiles()
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var perfiles= await ds.GetAll<Perfil>(null);
+
+                    log.Info("Consulta de todos los perfiles exitosa");
+                    return Ok(perfiles);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todos los perfiles fallida " + e.Message);
+                    return Ok("Consulta de todos los perfiles fallida " + e.Message);
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("CORE/sucursales/get")]
+        public async Task<IHttpActionResult> BuscarSucursales()
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var sucursales = await ds.GetAll<Sucursal>(null);
+
+                    log.Info("Consulta de todas las sucursales exitosa");
+                    return Ok(sucursales);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todas las sucursales fallida " + e.Message);
+                    return Ok("Consulta de todas las sucursales fallida " + e.Message);
                 }
             }
         }

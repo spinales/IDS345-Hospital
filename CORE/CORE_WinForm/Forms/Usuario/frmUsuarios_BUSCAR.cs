@@ -186,25 +186,9 @@ namespace CORE_WinForm
             usuarioSeleccionado.UsuarioID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
             usuarioSeleccionado.Username = dgvUsuarios.Rows[e.RowIndex].Cells[1].Value.ToString();
             usuarioSeleccionado.Email = dgvUsuarios.Rows[e.RowIndex].Cells[2].Value.ToString();
-            //if (dgvUsuarios.Rows[e.RowIndex].Cells[3].Value.ToString() == "1")
-            //{
-            //    usuarioSeleccionado.Estado = true;
-            //}
-            //else
-            //{
-            //    usuarioSeleccionado.Estado = false;
-            //}
             usuarioSeleccionado.SucursalID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[4].Value.ToString());
             usuarioSeleccionado.PerfilID = Convert.ToInt32(dgvUsuarios.Rows[e.RowIndex].Cells[5].Value.ToString());
-            //DateTime createdAt, deletedAt, updatedAt, sendedAt;
-            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[6].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out createdAt);
-            //usuarioSeleccionado.CreatedAt = createdAt;
-            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[7].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out deletedAt);
-            //usuarioSeleccionado.DeletedAt = deletedAt;
-            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[8].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out updatedAt);
-            //usuarioSeleccionado.UpdatedAt = updatedAt;
-            //DateTime.TryParseExact(dgvUsuarios.Rows[e.RowIndex].Cells[9].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out sendedAt);
-            //usuarioSeleccionado.SendedAt = sendedAt;
+        
         }
 
 
