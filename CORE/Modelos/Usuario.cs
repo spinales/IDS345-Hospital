@@ -41,7 +41,6 @@ namespace Modelos
         
         public virtual ICollection<Persona> Personas { get; set; }
         
-        [JsonIgnore]
         public virtual ICollection<HistoricoAcciones> HistoricosAcciones { get; set; }
     }
 }

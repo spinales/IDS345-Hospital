@@ -23,6 +23,9 @@ namespace CORE_WinForm
             cbFiltro.Items.Add("Todos");
             cbFiltro.Items.Add("ID");
             cbFiltro.SelectedIndex = 0;
+            btnMod.Enabled = false;
+            btnBorrar.Enabled = false;
+            LlamarApiGet();
         }
 
         private void cbFiltro_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,6 +49,9 @@ namespace CORE_WinForm
             else if (cbFiltro.SelectedIndex == 1)
             {
                 LlamarApiGetById(int.Parse(txtID.Text));
+                btnMod.Enabled = true;
+                btnBorrar.Enabled = true;
+
             }
             
         }
@@ -68,6 +74,14 @@ namespace CORE_WinForm
             else
             {
                 var formAbrir = new T();
+                formAbrir.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+                formAbrir.KeyPreview = true;
+                formAbrir.Location = new System.Drawing.Point(300, 50);
+                formAbrir.MaximizeBox = false;
+                formAbrir.MinimizeBox = false;
+                formAbrir.MinimumSize = new System.Drawing.Size(500, 500);
+                formAbrir.ShowIcon = false;
+                formAbrir.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                 formAbrir.ShowDialog();
                 return formAbrir;
             }
@@ -120,7 +134,6 @@ namespace CORE_WinForm
 
                 var response = await httpClient.GetAsync(apiUrl);
                 var responseContent = await response.Content.ReadAsStringAsync();
-                MessageBox.Show(responseContent);
 
                 // parse the JSON response into a collection of Usuario objects
                 var usuarios = JsonConvert.DeserializeObject<Usuario>(responseContent);
@@ -147,6 +160,11 @@ namespace CORE_WinForm
                 // bind the DataTable to the DataGridView
                 dgvUsuarios.DataSource = table;
             }
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            frmUsuarios_MOD frmUsuariosM = AbrirFormulario<frmUsuarios_MOD>(typeof(frmUsuarios_MOD));
         }
     }
 }

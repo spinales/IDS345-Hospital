@@ -105,7 +105,6 @@ namespace CORE_Api.Controllers
             {
                 try
                 {
-                    //var usuarios = await ds.GetByIdAsync<Usuario>(id);
                     var usuario = await ds.Usuario
                     .Where(u => u.UsuarioID == id)
                     .Select(u => new
