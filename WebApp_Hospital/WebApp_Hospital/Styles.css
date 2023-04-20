@@ -25,6 +25,7 @@ body {
 /*Estilos del Login*/
 .login-body {
     overflow: hidden;
+    background-color: white;
 }
 
 .login-img {
@@ -400,3 +401,18 @@ h4 {
 }
 /*Dasboard*/
 
+
+/* Cuentas*/
+
+.detalle-cuentas-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cuenta-name {
+    margin-right: 10px;
+}
+
+.estado-pago-cuenta {
+    justify-self: end;
+}
