@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp_Hospital.SiteMaster" %>
+﻿
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp_Hospital.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -19,11 +20,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="stylesheet" href="Styles.css" />
 
+   
+
 </head>
-<body>
+<body class="m-0">
     <form runat="server">
 
         <asp:ScriptManager runat="server">
@@ -45,7 +49,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-            <div class="container-fluid m-0 p-0">
+            <div class="container-fluid overflow-hidden m-0 p-0">
                 <div class="row">
                     <div class="col-md-2">
                         <!-- Aquí va el contenido del sidebar -->
@@ -56,11 +60,11 @@
                             <div class="sidebar">
                                 <h2>Logo</h2>
                                 <ul>
-                                    <li><a href="#" runat="server"><i class="fas fa-home"></i>Dashboard</a></li>
-                                    <li><a href="#" runat="server"><i class="fas fa-user"></i>Cuentas</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-chart-simple"></i>Dashboard</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-address-book icon"></i>Cuentas</a></li>
                                     <li><a href="#" runat="server"><i class="fas fa-address-card"></i>Servicios</a></li>
-                                    <li><a href="#" runat="server"><i class="fas fa-project-diagram"></i>Pagos</a></li>
-                                    <li><a href="#" runat="server"><i class="fas fa-address-book"></i>Consultas</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-bag-shopping"></i>Pagos</a></li>
+                                    <li><a href="#" runat="server"><i class="fas fa-user-doctor"></i>Consultas</a></li>
       
                                 </ul>                            
                             </div>
@@ -69,15 +73,33 @@
                         <!-- Vertical Navbar -->
                     </div>
 
-                    <div class="col-md-10 container-fluid">
+                    <div class="col-md-10">
+
+                        <div class="header-nav">
+                            <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+                                <h1 class="page-title">Main</h1>
+                            </asp:ContentPlaceHolder>
+                            
+
+
+                            <div class="profile-pic">
+                            </div>
+                            <button class="shopping-bag">
+                                <img src="Design Resources\Icons\Shopping-bag.svg" style="height: 25px; width: 25px;" alt="shopping bag" /></button>
+
+                        </div>
                         <!-- Aquí va el contenido principal -->
 
                         <!-- Content Placeholder BODY -->
-                        <div class="container-fluid p-0 m-0 overflow-hidden">
+
+                        <div class="main-container">
+
                             <asp:ContentPlaceHolder ID="MainContent" runat="server">
                                 
                             </asp:ContentPlaceHolder>
+
                         </div>
+                        
 
                         <!-- Content Placeholder BODY -->
 
@@ -90,33 +112,7 @@
 
 
 
-            <!-- Navbar -->
-        <%--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>--%>
         
-        <!-- Navbar -->
-        
-
-
-
-
-
-
-
 
 
         
@@ -127,3 +123,6 @@
     </asp:PlaceHolder>
 </body>
 </html>
+
+
+
