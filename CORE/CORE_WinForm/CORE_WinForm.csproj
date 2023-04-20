@@ -192,6 +192,9 @@
     <EmbeddedResource Include="Forms\Ingresos\frmIngresos_CREAR.resx">
       <DependentUpon>frmIngresos_CREAR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Perfiles\frmPerfiles_CREAR.resx">
+      <DependentUpon>frmPerfiles_CREAR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\frmUsuarios_BUSCAR.resx">
       <DependentUpon>frmUsuarios_BUSCAR.cs</DependentUpon>
     </EmbeddedResource>
