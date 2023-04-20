@@ -128,6 +128,10 @@
     <Compile Include="Migrations\202304200703408_JsonIgnoreUsuarioHistoricoAcciones.designer.cs">
       <DependentUpon>202304200703408_JsonIgnoreUsuarioHistoricoAcciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304202123168_ActualizarSwitchUsuario.cs" />
+    <Compile Include="Migrations\202304202123168_ActualizarSwitchUsuario.designer.cs">
+      <DependentUpon>202304202123168_ActualizarSwitchUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304200703408_JsonIgnoreUsuarioHistoricoAcciones.resx">
       <DependentUpon>202304200703408_JsonIgnoreUsuarioHistoricoAcciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304202123168_ActualizarSwitchUsuario.resx">
+      <DependentUpon>202304202123168_ActualizarSwitchUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

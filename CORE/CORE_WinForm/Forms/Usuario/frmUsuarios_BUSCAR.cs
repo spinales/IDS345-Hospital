@@ -207,5 +207,32 @@ namespace CORE_WinForm
                 btnBorrar.Enabled = false;
             }
         }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            LlamarApiBorrar();
+        }
+
+        private async void LlamarApiBorrar()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = "https://localhost:44329/CORE/usuario/borrar"; // replace with your API endpoint
+                var requestBody = new
+                {
+                    UsuarioID = usuarioSeleccionado.UsuarioID,
+                }; // replace with your request parameters
+
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(apiUrl, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                // handle response content here
+                MessageBox.Show(responseContent);
+            }
+
+        }
     }
 }

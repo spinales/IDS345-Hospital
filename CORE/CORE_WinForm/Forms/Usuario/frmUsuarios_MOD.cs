@@ -88,11 +88,11 @@ namespace CORE_WinForm
             {
                 this.contraseña = this.usuario.Password.ToString();
             }
-            LlamarApi();
+            LlamarApiModificar();
             this.Close();
         }
 
-        private async void LlamarApi()
+        private async void LlamarApiModificar()
         {
             using (var httpClient = new HttpClient())
             {
