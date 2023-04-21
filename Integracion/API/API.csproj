@@ -92,7 +92,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\WEBController.cs" />
+    <Compile Include="DTOs\Inputs\ConsultaInput.cs" />
+    <Compile Include="DTOs\Inputs\FacturaInput.cs" />
+    <Compile Include="DTOs\Inputs\FacturaServiciosInput.cs" />
+    <Compile Include="DTOs\Inputs\TransaccionInput.cs" />
+    <Compile Include="DTOs\Views\ConsultaView.cs" />
+    <Compile Include="DTOs\Views\CuentaView.cs" />
+    <Compile Include="DTOs\Views\DoctorView.cs" />
+    <Compile Include="DTOs\Views\IngresoView.cs" />
+    <Compile Include="DTOs\Views\PacienteView.cs" />
+    <Compile Include="DTOs\Views\PersonaView.cs" />
+    <Compile Include="DTOs\Views\ServiciosView.cs" />
+    <Compile Include="DTOs\Views\TipoServicioView.cs" />
+    <Compile Include="DTOs\Views\TransaccionView.cs" />
+    <Compile Include="DTOs\Views\UsuarioView.cs" />
     <Compile Include="Enums\Entidad.cs" />
     <Compile Include="Enums\MetodoPago.cs" />
     <Compile Include="Enums\Role.cs" />
@@ -137,6 +152,14 @@
     <Compile Include="Migrations\202304191955547_ActualizacionModelos.cs" />
     <Compile Include="Migrations\202304191955547_ActualizacionModelos.Designer.cs">
       <DependentUpon>202304191955547_ActualizacionModelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304201225319_Procedimientos.cs" />
+    <Compile Include="Migrations\202304201225319_Procedimientos.Designer.cs">
+      <DependentUpon>202304201225319_Procedimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304201840426_ActualizacionBD.cs" />
+    <Compile Include="Migrations\202304201840426_ActualizacionBD.Designer.cs">
+      <DependentUpon>202304201840426_ActualizacionBD.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304191955547_ActualizacionModelos.resx">
       <DependentUpon>202304191955547_ActualizacionModelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304201225319_Procedimientos.resx">
+      <DependentUpon>202304201225319_Procedimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304201840426_ActualizacionBD.resx">
+      <DependentUpon>202304201840426_ActualizacionBD.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

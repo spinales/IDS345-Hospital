@@ -25,7 +25,7 @@ namespace Modelos
         public int CuentaID { get; set; }
         
         [ForeignKey("Empleado")]
-        public int EmpleadoID { get; set; }
+        public int? EmpleadoID { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         
