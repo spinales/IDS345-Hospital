@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -29,6 +30,8 @@ namespace Modelos
         public DateTime? SendedAt { get; set; }
         
         public virtual TipoServicio TipoServicio { get; set; }
+        
+        public virtual ICollection<FacturaServicios> FacturaServicios { get; set; }
 
     }
 }
