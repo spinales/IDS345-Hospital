@@ -555,9 +555,159 @@ namespace CORE_Api.Controllers
         }
 
 
+        [HttpGet]
+        [Route("CORE/persona/get")]
+        public async Task<IHttpActionResult> BuscarPersonas()
+        {
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var personas = await ds.GetAll<Persona>(null);
+                    var persona = personas.Select(x => new Persona()
+                    {
+                        Estado = x.Estado,
+                        Sexo = x.Sexo,
+                        Nombre = x.Nombre,
+                        Apellido = x.Apellido,
+                        Documento = x.Documento,
+                        Telefono = x.Telefono,
+                        UsuarioID = x.UsuarioID,
+                        TipoSangreID = x.TipoSangreID,
+                        TipoDocumentoID = x.TipoDocumentoID,
+                        NacionalidadID = x.NacionalidadID,
+                        RolPersonaID = x.RolPersonaID,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        SendedAt = x.SendedAt
+                    }
+                    ).ToList();
+                    log.Info("Consulta de todas las personas exitosa");
+                    return Ok(persona);
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todas las personas fallida " + e.Message);
+                    return Ok("Consulta de todas las personas fallida " + e.Message);
+                }
+            }
+        }
 
-       
 
+        [HttpGet]
+        [Route("CORE/persona/getID")]
+        public async Task<IHttpActionResult> BuscarPersona(int id)
+        {
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var persona = await ds.Persona.Where(p => p.PersonaID == id).Select(p => new
+                    {
+                        p.PersonaID,
+                        p.Estado,
+                        p.Sexo,
+                        p.Nombre,
+                        p.Apellido,
+                        p.Documento,
+                        p.Telefono,
+                        p.UsuarioID,
+                        p.TipoSangre,
+                        p.TipoDocumentoID,
+                        p.Nacionalidad,
+                        p.RolPersonaID,
+                        p.CreatedAt,
+                        p.UpdatedAt,
+                        p.DeletedAt,
+                        p.SendedAt
+                    }).FirstOrDefaultAsync();
+                    if (persona == null)
+                    {
+                        return NotFound();
+                    }
+                    log.Info("Consulta de usuario exitosa");
+                    return Ok(persona);
+                }
+                catch (Exception e)
+                {
+                    log.Error(e.Message);
+                    return Ok(e.Message);
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("CORE/persona/modificar")]
+        public IHttpActionResult ModificarPersona([FromBody] Persona persona)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_update_persona @PersonaID, @Sexo ,@Nombre,@Apellido, @Documento, @Telefono, @UsuarioID , @TipoSangreID, @TipoDocumentoID, @NacionalidadID, @RolPersonaID",
+                                            new SqlParameter("@PersonaID", persona.PersonaID),
+                                            new SqlParameter("@Sexo", persona.Sexo),
+                                            new SqlParameter("@Nombre", persona.Nombre),
+                                            new SqlParameter("@Apellido",persona.Apellido),
+                                            new SqlParameter("@Documento", persona.Documento),
+                                            new SqlParameter("@Telefono", persona.Telefono),
+                                            new SqlParameter("@UsuarioID", persona.UsuarioID),
+                                            new SqlParameter("@TipoSangreID", persona.TipoSangreID),
+                                            new SqlParameter("@TipoDocumentoID", persona.TipoDocumentoID),
+                                            new SqlParameter("@NacionalidadID", persona.NacionalidadID),
+                                            new SqlParameter("@RolPersonaID", persona.RolPersonaID)
+                                           ) ;
+                        transaction.Commit();
+                        log.Info("Modificacion de persona exitosa");
+                        return Ok("Modificacion de persona exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Modificacion de persona fallida " + e.Message);
+                        return Ok("Modificacion de persona fallida " + e.Message);
+                    }
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("CORE/persona/borrar")]
+        public IHttpActionResult BorrarPersona([FromBody] Persona persona)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_switch_persona @PersonaID",
+                                            new SqlParameter("@PersonaID", persona.PersonaID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Eliminacion de persona exitosa");
+                        return Ok("Eliminacion de persona exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Eliminacion de persona fallida " + e.Message);
+                        return Ok("Eliminacion de persona fallida " + e.Message);
+                    }
+                }
+            }
+        }
     }
     }
 

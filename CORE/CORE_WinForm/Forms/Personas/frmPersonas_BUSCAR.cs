@@ -55,18 +55,9 @@ namespace CORE_WinForm.Forms.Personas
 
         private async void btnCrear_Click(object sender, EventArgs e)
         {
-            Validacion validacion = new Validacion();
-            int perfilID = this.usuario.PerfilID ?? 0;
-            await validacion.ConfirmarPermisos(perfilID, 3, 4);
-            if (validacion.permiso == true)
-            {
                 var abrirForms = new AbrirForms();
                 frmPersonas_CREAR frmPersonasC = abrirForms.AbrirFormulario<frmPersonas_CREAR>(typeof(frmPersonas_CREAR));
-            }
-            else
-            {
-                MessageBox.Show("No tienes permiso para abrir este formulario");
-            }
+
         }
         
 
@@ -186,7 +177,7 @@ namespace CORE_WinForm.Forms.Personas
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-
+            LlamarApiBorrar();
         }
 
         private async void frmPersonas_BUSCAR_Load(object sender, EventArgs e)
@@ -205,8 +196,27 @@ namespace CORE_WinForm.Forms.Personas
             if (validacionVisualizar.permiso == false) btnBuscar.Visible = false;
             if (validacionModificar.permiso == false) btnMod.Visible = false;
             if (validacionBorrar.permiso == false) btnBorrar.Visible = false;
+        }
 
+        private async void LlamarApiBorrar()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = "https://localhost:44329/CORE/persona/borrar"; // replace with your API endpoint
+                var requestBody = new
+                {
+                   PersonaID = personaSeleccionada.PersonaID,
+                }; // replace with your request parameters
 
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(apiUrl, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                // handle response content here
+                MessageBox.Show(responseContent);
+            }
 
         }
     }
