@@ -14,6 +14,9 @@ namespace Modelos
         public string Descripcion { get; set; }
         public string TipoTransaccion { get; set; }
 
+        [ForeignKey("Empleado")]
+        public int? EmpleadoID { get; set; }
+
         [ForeignKey("MetodoPago")]
         public int MetodoPagoID { get; set; }
         
@@ -27,7 +30,6 @@ namespace Modelos
 
         public virtual MetodoPago MetodoPago { get; set; }
         public virtual Cuenta Cuenta { get; set; }
-
         public string CodigoTransaccion { get; set; }
         public string Canal { get; set; }
     }

@@ -272,6 +272,53 @@ namespace CORE_Api.Controllers
                 }
             }
         }
+
+
+        [HttpGet]
+        [Route("CORE/usuario/login")]
+        public async Task<IHttpActionResult> BuscarUsuarioLogin(string username, string password)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var usuario = await ds.Usuario
+                    .Where(u => u.Username == username && u.Password == password)
+                    .Select(u => new
+                    {
+                        u.UsuarioID,
+                        u.Username,
+                        u.Password,
+                        u.Email,
+                        u.Estado,
+                        u.PerfilID,
+                        u.SucursalID,
+                        u.CreatedAt,
+                        u.UpdatedAt,
+                        u.DeletedAt,
+                        u.SendedAt
+                    })
+                    .FirstOrDefaultAsync();
+
+                    if (usuario == null)
+                    {
+                        return NotFound();
+                    }
+                    log.Info("Login exitoso");
+                    return Ok(usuario);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Login fallido "+e.Message);
+                    return Ok("Login fallido "+ e.Message);
+                }
+            }
+        }
     }
     }
 

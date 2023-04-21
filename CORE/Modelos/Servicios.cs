@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -26,5 +28,7 @@ namespace Modelos
 
         public virtual TipoServicio TipoServicio { get; set; }
         public decimal Descuento { get; set; } = 0;
+
+        public virtual ICollection<FacturaServicios> FacturaServicios { get; set; }
     }
 }
