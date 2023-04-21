@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Caja.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,30 +26,30 @@ namespace Caja
 
         private void Calcularbtn_Click(object sender, EventArgs e)
         {
-            int billeteDosMil = Convert.ToInt32(txtBilleteDosMil.Text);
-            int billeteMil = Convert.ToInt32(txtBilleteMil.Text);
-            int billeteQuinientos = Convert.ToInt32(txtBilleteQuinientos.Text);
-            int billeteDoscientos = Convert.ToInt32(txtBilleteDoscientos.Text);
-            int billeteCien = Convert.ToInt32(txtBilleteCien.Text);
-            int BilleteCincuenta = Convert.ToInt32(txtBilleteCincuenta.Text);
-            int monedaVeinticinco = Convert.ToInt32(txtMonedaVeinticinco.Text);
-            int monedaDiez = Convert.ToInt32(txtMonedaDiez.Text);
-            int monedaCinco = Convert.ToInt32(txtMonedaCinco.Text);
-            int monedaUno = Convert.ToInt32(txtMonedaUno.Text);
+            frCuadre.billeteDosMil = Convert.ToInt32(txtBilleteDosMil.Text);
+            frCuadre.billeteMil = Convert.ToInt32(txtBilleteMil.Text);
+            frCuadre.billeteQuinientos = Convert.ToInt32(txtBilleteQuinientos.Text);
+            frCuadre.billeteDoscientos = Convert.ToInt32(txtBilleteDoscientos.Text);
+            frCuadre.billeteCien = Convert.ToInt32(txtBilleteCien.Text);
+            frCuadre.BilleteCincuenta = Convert.ToInt32(txtBilleteCincuenta.Text);
+            frCuadre.monedaVeinticinco = Convert.ToInt32(txtMonedaVeinticinco.Text);
+            frCuadre.monedaDiez = Convert.ToInt32(txtMonedaDiez.Text);
+            frCuadre.monedaCinco = Convert.ToInt32(txtMonedaCinco.Text);
+            frCuadre.monedaUno = Convert.ToInt32(txtMonedaUno.Text);
             // Llamar a la función registrarMontoEfectivo para calcular el total de efectivo
-            int totalEfectivo = registrarMontoEfectivo(billeteDosMil, billeteMil, billeteQuinientos, billeteDoscientos, billeteCien, BilleteCincuenta, monedaVeinticinco, monedaDiez, monedaCinco, monedaUno);
-            txtTotalEfectivo.Text = totalEfectivo.ToString();
+            frCuadre.totalEfectivo = registrarMontoEfectivo(frCuadre.billeteDosMil, frCuadre.billeteMil, frCuadre.billeteQuinientos, frCuadre.billeteDoscientos, frCuadre.billeteCien, frCuadre.BilleteCincuenta, frCuadre.monedaVeinticinco, frCuadre.monedaDiez, frCuadre.monedaCinco, frCuadre.monedaUno);
+            txtTotalEfectivo.Text = frCuadre.totalEfectivo.ToString();
 
             if (cuadre)
             {
-                //pon k se ecriba en cuadre
-                frCuadre.TotalEfectivoCuadretxt.Text = totalEfectivo.ToString();
+                //se ecribe en cuadre
+                frCuadre.TotalEfectivoCuadretxt.Text = frCuadre.totalEfectivo.ToString();
 
             }
             else
             {
-                //ekribe en inicio
-                frCuadre.TotalInicioDiatxt.Text = totalEfectivo.ToString();
+                //escribe en inicio
+                frCuadre.TotalInicioDiatxt.Text = frCuadre.totalEfectivo.ToString();
 
             }
 
@@ -70,6 +72,53 @@ namespace Caja
 
             return totalefectivo;
 
+        }
+
+        private void guardarbtn_Click(object sender, EventArgs e)
+        {
+            DataService ds = new DataService();
+            var transaccion = ds.Database.BeginTransaction();
+            try
+            {
+                var ID = new SqlParameter("@IdIngreso", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                ds.Database.ExecuteSqlCommand(
+                    "EXEC sp_insert_InicioDia @Balance, @CajeroID, @IdIngreso out",
+                    new SqlParameter("@Balance", frCuadre.totalEfectivo),
+                    new SqlParameter("@CajeroID", frCuadre.PersonaID), ID
+                    );
+                ds.Database.ExecuteSqlCommand(
+                    "EXEC sp_Detalle_Efectivo @DosmilPesos, @MilPesos, @QuinientosPesos, @DocientosPesos, @cienPesos, @CincuentaPesos, @VeinticincoPesos, @DiezPesos, @CincoPesos, @UnPeso, @TotalEfectivo, @InicioDiaID, @CuadreID",
+                    new SqlParameter("@DosmilPesos", frCuadre.billeteDosMil),
+                    new SqlParameter("@MilPesos", frCuadre.billeteMil),
+                    new SqlParameter("@QuinientosPesos", frCuadre.billeteQuinientos),
+                    new SqlParameter("@DocientosPesos", frCuadre.billeteDoscientos),
+                    new SqlParameter("@cienPesos", frCuadre.billeteCien),
+                    new SqlParameter("@CincuentaPesos", frCuadre.BilleteCincuenta),
+                    new SqlParameter("@VeinticincoPesos", frCuadre.monedaVeinticinco),
+                    new SqlParameter("@DiezPesos", frCuadre.monedaDiez),
+                    new SqlParameter("@CincoPesos", frCuadre.billeteMil),
+                    new SqlParameter("@UnPeso", frCuadre.monedaUno),
+                    new SqlParameter("@TotalEfectivo", frCuadre.totalEfectivo),
+                    new SqlParameter("@InicioDiaID", (int)ID.Value),
+                    new SqlParameter("@CuadreID", DBNull.Value)
+
+
+
+
+                    ) ;
+                transaccion.Commit();
+
+
+            }
+            catch(Exception a)
+            {
+                MessageBox.Show(a.Message);
+                transaccion.Rollback();
+            }
         }
     }
 }

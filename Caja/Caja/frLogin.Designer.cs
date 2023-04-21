@@ -110,10 +110,9 @@
             this.txtContraseñaLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.txtContraseñaLogin.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseñaLogin.Location = new System.Drawing.Point(386, 330);
-            this.txtContraseñaLogin.Multiline = true;
             this.txtContraseñaLogin.Name = "txtContraseñaLogin";
             this.txtContraseñaLogin.PasswordChar = '*';
-            this.txtContraseñaLogin.Size = new System.Drawing.Size(314, 32);
+            this.txtContraseñaLogin.Size = new System.Drawing.Size(314, 24);
             this.txtContraseñaLogin.TabIndex = 6;
             this.txtContraseñaLogin.UseSystemPasswordChar = true;
             // 

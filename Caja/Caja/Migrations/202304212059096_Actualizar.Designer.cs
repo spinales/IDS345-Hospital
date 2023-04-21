@@ -7,13 +7,13 @@ namespace Caja.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Procedimientos_David : IMigrationMetadata
+    public sealed partial class Actualizar : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Procedimientos_David));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Actualizar));
         
         string IMigrationMetadata.Id
         {
-            get { return "202304201508564_Procedimientos_David"; }
+            get { return "202304212059096_Actualizar"; }
         }
         
         string IMigrationMetadata.Source

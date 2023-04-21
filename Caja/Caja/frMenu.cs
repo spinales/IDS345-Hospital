@@ -1,4 +1,5 @@
-﻿using Modelos;
+﻿using Caja.Services;
+using Modelos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +45,8 @@ namespace Caja
 
         private void Cuadrebtn_Click(object sender, EventArgs e)
         {
-            abrirSubFormulario(new frCuadre());
+            abrirSubFormulario(new frCuadre(persona.PersonaID));
+            
 
         }
 
@@ -57,8 +59,29 @@ namespace Caja
 
         private void Cuentabtn_Click(object sender, EventArgs e)
         {
-            abrirSubFormulario(new frCuenta());
+            abrirSubFormulario(new frCuenta(persona.PersonaID));
 
+        }
+
+        private void frMenu_Load(object sender, EventArgs e)
+        {
+            DataService ds = new DataService(); // si integracion no responde se obtiene la informacion de los servicios locales de caja
+            var iniciodia = ds.InicioDia.OrderByDescending(x => x.CreatedAt).Take(1).FirstOrDefault();
+            var FechaInicioDia = iniciodia == null ? "" : iniciodia.CreatedAt.ToShortDateString();
+            if (FechaInicioDia != DateTime.Today.ToShortDateString())
+            {
+
+                Facturabtn.Enabled = false;
+                Cuentabtn.Enabled = false;
+
+            }
+            else
+            {
+                Facturabtn.Enabled = true;
+                Cuentabtn.Enabled = true;
+
+
+            }
         }
     }
 }

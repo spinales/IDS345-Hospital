@@ -13,6 +13,8 @@ namespace Modelos
         public decimal TotalAutorizado { get; set; } = 0;
         public decimal Descuento { get; set; } = 0;
         public decimal TotalBruto { get; set; }
+        public decimal TotalDescuento { get; set; }
+
         public string CodigoFactura { get; set; } = new Guid().ToString();
 
 
