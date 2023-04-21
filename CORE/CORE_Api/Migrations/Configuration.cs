@@ -776,6 +776,36 @@
                 UsuarioID = 1,
                 TipoSangreID = 1
             });
+            service.Persona.AddOrUpdate(x => x.PersonaID, new Persona()
+            {
+                PersonaID = 2,
+                Estado = true,
+                Sexo = "F",
+                Nombre = "Maria",
+                Apellido = "Mota",
+                Telefono = "0000000000",
+                NacionalidadID = 1,
+                RolPersonaID = (int)Enums.RolPersona.Administrador,
+                TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
+                Documento = "0000000000",
+                UsuarioID = 1,
+                TipoSangreID = 1
+            });
+            service.Persona.AddOrUpdate(x => x.PersonaID, new Persona()
+            {
+                PersonaID = 3,
+                Estado = true,
+                Sexo = "M",
+                Nombre = "Miguel",
+                Apellido = "Mota",
+                Telefono = "0000000000",
+                NacionalidadID = 1,
+                RolPersonaID = (int)Enums.RolPersona.Administrador,
+                TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
+                Documento = "0000000000",
+                UsuarioID = 1,
+                TipoSangreID = 1
+            });
             base.Seed(service);
         }
     }
