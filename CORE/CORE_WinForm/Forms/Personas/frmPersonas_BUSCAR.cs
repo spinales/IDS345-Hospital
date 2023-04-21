@@ -105,7 +105,7 @@ namespace CORE_WinForm.Forms.Personas
                 table.Columns.Add("TipoDocumentoID", typeof(int));
                 table.Columns.Add("NacionalidadID", typeof(int));
                 table.Columns.Add("RolPersonaID", typeof(int));
-
+                
                 foreach (var persona in personas)
                 {
                     table.Rows.Add(persona.PersonaID, persona.Estado, persona.Sexo, persona.Nombre, persona.Apellido, persona.Documento, persona.Telefono, persona.UsuarioID, persona.TipoSangreID, persona.TipoDocumentoID, persona.NacionalidadID, persona.RolPersonaID);
@@ -142,6 +142,47 @@ namespace CORE_WinForm.Forms.Personas
                 table.Rows.Add(personas.PersonaID, personas.Estado, personas.Sexo, personas.Nombre, personas.Apellido, personas.Documento, personas.Telefono, personas.UsuarioID, personas.TipoSangreID, personas.TipoDocumentoID, personas.NacionalidadID, personas.RolPersonaID);
 
                 dgvPersonas.DataSource = table;
+            }
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            frmPersonas_MOD frmPersonasM = new frmPersonas_MOD(personaSeleccionada);
+            frmPersonasM.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            frmPersonasM.KeyPreview = true;
+            frmPersonasM.Location = new System.Drawing.Point(300, 50);
+            frmPersonasM.MaximizeBox = false;
+            frmPersonasM.MinimizeBox = false;
+            frmPersonasM.MinimumSize = new System.Drawing.Size(500, 500);
+            frmPersonasM.ShowIcon = false;
+            frmPersonasM.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            frmPersonasM.ShowDialog();
+        }
+        private void dgvPersonas_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            personaSeleccionada.PersonaID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[0].Value.ToString());
+            personaSeleccionada.Nombre = dgvPersonas.Rows[e.RowIndex].Cells[1].Value.ToString();
+            personaSeleccionada.Apellido = dgvPersonas.Rows[e.RowIndex].Cells[2].Value.ToString();
+            personaSeleccionada.Sexo = Convert.ToChar(dgvPersonas.Rows[e.RowIndex].Cells[3].Value.ToString());
+            personaSeleccionada.Documento = dgvPersonas.Rows[e.RowIndex].Cells[4].Value.ToString();
+            personaSeleccionada.Telefono = dgvPersonas.Rows[e.RowIndex].Cells[5].Value.ToString();
+            personaSeleccionada.TipoSangreID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[6].Value.ToString());
+            personaSeleccionada.NacionalidadID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[7].Value.ToString());
+            personaSeleccionada.RolPersonaID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[8].Value.ToString());
+            personaSeleccionada.UsuarioID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[9].Value.ToString());
+        }
+
+        private void dgvPersonas_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvPersonas.SelectedRows.Count == 1)
+            {
+                btnMod.Enabled = true;
+                btnBorrar.Enabled = true;
+            }
+            else
+            {
+                btnMod.Enabled = false;
+                btnBorrar.Enabled = false;
             }
         }
     }

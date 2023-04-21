@@ -114,6 +114,8 @@
             this.dgvPersonas.RowHeadersWidth = 51;
             this.dgvPersonas.Size = new System.Drawing.Size(1161, 698);
             this.dgvPersonas.TabIndex = 33;
+            this.dgvPersonas.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPersonas_RowHeaderMouseClick);
+            this.dgvPersonas.SelectionChanged += new System.EventHandler(this.dgvPersonas_SelectionChanged);
             // 
             // btnCrear
             // 
@@ -135,6 +137,7 @@
             this.btnMod.TabIndex = 35;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = true;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // btnBorrar
             // 

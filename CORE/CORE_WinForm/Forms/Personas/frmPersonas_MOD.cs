@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace CORE_WinForm.Forms.Personas
 {
     public partial class frmPersonas_MOD : Form
     {
+        public Persona persona { get; set; }
         public frmPersonas_MOD()
         {
             InitializeComponent();

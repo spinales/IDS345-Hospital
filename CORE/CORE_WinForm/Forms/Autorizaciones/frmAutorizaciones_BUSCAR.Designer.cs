@@ -34,11 +34,11 @@
             this.lblAutorizacionID = new System.Windows.Forms.Label();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.lblFiltro = new System.Windows.Forms.Label();
-            this.dgvPersonas = new System.Windows.Forms.DataGridView();
+            this.dgvAutorizacion = new System.Windows.Forms.DataGridView();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutorizacion)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -62,6 +62,7 @@
             this.btnBuscar.TabIndex = 41;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtID
             // 
@@ -91,6 +92,7 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(139, 24);
             this.cbFiltro.TabIndex = 38;
+            this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
             // 
             // lblFiltro
             // 
@@ -103,15 +105,17 @@
             this.lblFiltro.TabIndex = 37;
             this.lblFiltro.Text = "Filtrar";
             // 
-            // dgvPersonas
+            // dgvAutorizacion
             // 
-            this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersonas.Location = new System.Drawing.Point(120, 160);
-            this.dgvPersonas.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvPersonas.Name = "dgvPersonas";
-            this.dgvPersonas.RowHeadersWidth = 51;
-            this.dgvPersonas.Size = new System.Drawing.Size(1161, 698);
-            this.dgvPersonas.TabIndex = 42;
+            this.dgvAutorizacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAutorizacion.Location = new System.Drawing.Point(120, 160);
+            this.dgvAutorizacion.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvAutorizacion.Name = "dgvAutorizacion";
+            this.dgvAutorizacion.RowHeadersWidth = 51;
+            this.dgvAutorizacion.Size = new System.Drawing.Size(1161, 698);
+            this.dgvAutorizacion.TabIndex = 42;
+            this.dgvAutorizacion.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAutorizacion_RowHeaderMouseClick);
+            this.dgvAutorizacion.SelectionChanged += new System.EventHandler(this.dgvAutorizacion_SelectionChanged);
             // 
             // btnBorrar
             // 
@@ -132,6 +136,7 @@
             this.btnMod.TabIndex = 44;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = true;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // btnCrear
             // 
@@ -142,6 +147,7 @@
             this.btnCrear.TabIndex = 43;
             this.btnCrear.Text = "Nuevo";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // frmAutorizaciones_BUSCAR
             // 
@@ -152,7 +158,7 @@
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnMod);
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.dgvPersonas);
+            this.Controls.Add(this.dgvAutorizacion);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblAutorizacionID);
@@ -163,7 +169,7 @@
             this.Name = "frmAutorizaciones_BUSCAR";
             this.Text = "Autorizaciones";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutorizacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,7 +183,7 @@
         private System.Windows.Forms.Label lblAutorizacionID;
         private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.Label lblFiltro;
-        private System.Windows.Forms.DataGridView dgvPersonas;
+        private System.Windows.Forms.DataGridView dgvAutorizacion;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.Button btnCrear;
