@@ -108,6 +108,8 @@
             this.dgvPerfiles.RowHeadersWidth = 51;
             this.dgvPerfiles.Size = new System.Drawing.Size(871, 567);
             this.dgvPerfiles.TabIndex = 38;
+            this.dgvPerfiles.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPerfiles_RowHeaderMouseClick);
+            this.dgvPerfiles.SelectionChanged += new System.EventHandler(this.dgvUsuarios_SelectionChanged);
             // 
             // btnBorrar
             // 
@@ -117,6 +119,7 @@
             this.btnBorrar.TabIndex = 41;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnMod
             // 
@@ -126,6 +129,7 @@
             this.btnMod.TabIndex = 40;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = true;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // btnCrear
             // 
