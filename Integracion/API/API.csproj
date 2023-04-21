@@ -163,6 +163,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AuditoriaAccion.cs" />
     <Compile Include="Services\DataService.cs" />
   </ItemGroup>
   <ItemGroup>
