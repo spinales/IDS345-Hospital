@@ -82,12 +82,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BORRAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BORRAR.Designer.cs">
-      <DependentUpon>frmAutorizaciones_BORRAR.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BUSCAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,12 +99,6 @@
     </Compile>
     <Compile Include="Forms\Autorizaciones\frmAutorizaciones_MOD.Designer.cs">
       <DependentUpon>frmAutorizaciones_MOD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Cuentas\frmCuentas_BORRAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Cuentas\frmCuentas_BORRAR.Designer.cs">
-      <DependentUpon>frmCuentas_BORRAR.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Cuentas\frmCuentas_BUSCAR.cs">
       <SubType>Form</SubType>
@@ -130,12 +118,6 @@
     <Compile Include="Forms\Cuentas\frmCuentas_MOD.Designer.cs">
       <DependentUpon>frmCuentas_MOD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Ingresos\frmIngresos_BORRAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Ingresos\frmIngresos_BORRAR.Designer.cs">
-      <DependentUpon>frmIngresos_BORRAR.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Ingresos\frmIngresos_BUSCAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,12 +135,6 @@
     </Compile>
     <Compile Include="Forms\Ingresos\frmIngresos_MOD.Designer.cs">
       <DependentUpon>frmIngresos_MOD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Perfiles\frmPerfiles_BORRAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Perfiles\frmPerfiles_BORRAR.Designer.cs">
-      <DependentUpon>frmPerfiles_BORRAR.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Perfiles\frmPerfiles_BUSCAR.cs">
       <SubType>Form</SubType>
@@ -178,12 +154,6 @@
     <Compile Include="Forms\Perfiles\frmPerfiles_MOD.Designer.cs">
       <DependentUpon>frmPerfiles_MOD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Personas\frmPersonas_BORRAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Personas\frmPersonas_BORRAR.Designer.cs">
-      <DependentUpon>frmPersonas_BORRAR.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Personas\frmPersonas_BUSCAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,12 +171,6 @@
     </Compile>
     <Compile Include="Forms\Personas\frmPersonas_MOD.Designer.cs">
       <DependentUpon>frmPersonas_MOD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Servicios\frmServicios_BORRAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Servicios\frmServicios_BORRAR.Designer.cs">
-      <DependentUpon>frmServicios_BORRAR.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Servicios\frmServicios_BUSCAR.cs">
       <SubType>Form</SubType>

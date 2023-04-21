@@ -144,6 +144,22 @@
     <Compile Include="Migrations\202304210245211_ProceduresPerfil.designer.cs">
       <DependentUpon>202304210245211_ProceduresPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304210340009_EntidadCuentas.cs" />
+    <Compile Include="Migrations\202304210340009_EntidadCuentas.designer.cs">
+      <DependentUpon>202304210340009_EntidadCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304210422335_alterPerfilProcedures.cs" />
+    <Compile Include="Migrations\202304210422335_alterPerfilProcedures.designer.cs">
+      <DependentUpon>202304210422335_alterPerfilProcedures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304210435050_proceduresPersona.cs" />
+    <Compile Include="Migrations\202304210435050_proceduresPersona.designer.cs">
+      <DependentUpon>202304210435050_proceduresPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304210505118_ProceduresIngresosAutorizacionCuenta.cs" />
+    <Compile Include="Migrations\202304210505118_ProceduresIngresosAutorizacionCuenta.designer.cs">
+      <DependentUpon>202304210505118_ProceduresIngresosAutorizacionCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
@@ -196,6 +212,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304210245211_ProceduresPerfil.resx">
       <DependentUpon>202304210245211_ProceduresPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210340009_EntidadCuentas.resx">
+      <DependentUpon>202304210340009_EntidadCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210422335_alterPerfilProcedures.resx">
+      <DependentUpon>202304210422335_alterPerfilProcedures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210435050_proceduresPersona.resx">
+      <DependentUpon>202304210435050_proceduresPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210505118_ProceduresIngresosAutorizacionCuenta.resx">
+      <DependentUpon>202304210505118_ProceduresIngresosAutorizacionCuenta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

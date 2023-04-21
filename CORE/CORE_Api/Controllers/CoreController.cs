@@ -252,6 +252,107 @@ namespace CORE_Api.Controllers
         #endregion
 
         #region PERFILES
+        [HttpPost]
+        [Route("CORE/perfil/registrar")]
+        public IHttpActionResult RegistrarPerfil ([FromBody] Perfil perfil)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_insert_perfil @Nombre ",
+                                           new SqlParameter("@Nombre", perfil.Nombre)
+                                           );
+                        transaction.Commit();
+                        log.Info("Registro de perfil exitoso");
+                        return Ok("Registro de perfil exitoso");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Registro De Usuario Fallido " + e.Message);
+                        return Ok("Registro De Usuario Fallido " + e.Message);
+                    }
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("CORE/perfilrole/registrar")]
+        public IHttpActionResult RegistrarPerfilRole([FromBody] PerfilRole perfilRole)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_insert_perfil_role @PerfilID, @RoleID, @EntidadId ",
+                                           new SqlParameter("@PerfilID", perfilRole.PerfilID),
+                                            new SqlParameter("@RoleID", perfilRole.RoleID),
+                                            new SqlParameter("@EntidadId", perfilRole.EntidadID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Registro de perfil_rol exitoso");
+                        return Ok("Registro de perfil_rol exitoso");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Registro De perfil_rol Fallido " + e.Message);
+                        return Ok("Registro De perfil_rol Fallido " + e.Message);
+                    }
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("CORE/perfil/getNombre")]
+        public async Task<IHttpActionResult> BuscarPerfilNombre(string nombre)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var perfil = await ds.Perfil
+                    .Where(u => u.Nombre == nombre)
+                    .Select(u => new
+                    {
+                        u.PerfilID,
+                        u.Nombre,
+                        u.CreatedAt,
+                        u.UpdatedAt,
+                        u.DeletedAt,
+                        u.SendedAt
+                    })
+                    .FirstOrDefaultAsync();
+
+                    log.Info("Consulta de perfil por nombre exitosa");
+                    return Ok(perfil);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de perfil por nombre exitosa "+ e.Message);
+                    return Ok("Consulta de perfil por nombre exitosa "+ e.Message);
+                }
+            }
+        }
+
         [HttpGet]
         [Route("CORE/perfil/get")]
         public async Task<IHttpActionResult> BuscarPerfiles()
@@ -354,7 +455,7 @@ namespace CORE_Api.Controllers
 
 
         [HttpGet]
-        [Route("CORE/sucursales/get")]
+        [Route("CORE/sucursal/get")]
         public async Task<IHttpActionResult> BuscarSucursales()
         {
             // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).

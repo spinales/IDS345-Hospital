@@ -107,7 +107,16 @@
                     UpdatedAt = null,
                     DeletedAt = null,
                     SendedAt = null
-                }
+                },
+                 new Entidad()
+                {
+                    EntidadId = (int)Enums.Entidad.Cuentas,
+                    Descripcion = "Cuentas",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null
+                },
             };
             service.Entidad.AddOrUpdate(x => x.EntidadId, defaultEntidad.ToArray());
 
@@ -747,7 +756,7 @@
                 UsuarioID = 1,
                 Estado = true,
                 Username = "Administrador1",
-                Password = "u1ie43ofhciecn3rk",
+                Password = "HycyZr5SsvIjLWY8H08uYJsNa3FkrGhtaHdDqX8lsOM=",
                 PerfilID = 1,
                 SucursalID = 1
             });
