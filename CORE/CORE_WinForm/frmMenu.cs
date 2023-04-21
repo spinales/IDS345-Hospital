@@ -4,6 +4,7 @@ using CORE_WinForm.Forms.Ingresos;
 using CORE_WinForm.Forms.Perfiles;
 using CORE_WinForm.Forms.Personas;
 using CORE_WinForm.Forms.Servicios;
+using Modelos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,12 @@ namespace CORE_WinForm
 {
     public partial class frmMenu : Form
     {
-        
-        public frmMenu()
+        public Usuario Usuario { get; set; }
+        public frmMenu(Usuario usuario)
         {
             InitializeComponent();
+            this.Usuario = usuario;
+            lblUsuario.Text = this.Usuario.Username.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)

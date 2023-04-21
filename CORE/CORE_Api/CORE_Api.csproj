@@ -90,6 +90,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CoreDB.mdf" />
+    <Content Include="App_Data\CoreDB_log.ldf">
+      <DependentUpon>CoreDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -132,6 +136,10 @@
     <Compile Include="Migrations\202304202123168_ActualizarSwitchUsuario.designer.cs">
       <DependentUpon>202304202123168_ActualizarSwitchUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304210146095_cambiosDespuesBorrado.cs" />
+    <Compile Include="Migrations\202304210146095_cambiosDespuesBorrado.designer.cs">
+      <DependentUpon>202304210146095_cambiosDespuesBorrado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
@@ -149,7 +157,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304202123168_ActualizarSwitchUsuario.resx">
       <DependentUpon>202304202123168_ActualizarSwitchUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210146095_cambiosDespuesBorrado.resx">
+      <DependentUpon>202304210146095_cambiosDespuesBorrado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
