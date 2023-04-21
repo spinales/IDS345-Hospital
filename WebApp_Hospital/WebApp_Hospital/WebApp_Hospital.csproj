@@ -160,7 +160,9 @@
     <Content Include="Design Resources\Icons\bar-chart.svg" />
     <Content Include="Design Resources\Icons\eye-off.svg" />
     <Content Include="Design Resources\Icons\Shopping-bag.svg" />
+    <Content Include="Design Resources\Images\All-Services.svg" />
     <Content Include="Design Resources\Images\Login_Img.png" />
+    <Content Include="Design Resources\Images\Doc.png" />
     <Content Include="Design Resources\Images\service.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -197,6 +199,8 @@
     <Content Include="Cuentas.aspx" />
     <Content Include="DetalleCuentas.aspx" />
     <Content Include="Servicios.aspx" />
+    <Content Include="Consultas.aspx" />
+    <Content Include="Pagos.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -295,6 +299,20 @@
     </Compile>
     <Compile Include="Servicios.aspx.designer.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas.aspx.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas.aspx.designer.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos.aspx.cs">
+      <DependentUpon>Pagos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagos.aspx.designer.cs">
+      <DependentUpon>Pagos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

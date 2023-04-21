@@ -14,7 +14,7 @@
     <div class="row">
 
         <div class="col-md-3 mb-3">
-            <div class="card h-100">
+            <div class="card h-100 shadow">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="Design Resources\Images\service.svg" class="img-fluid" />
 
@@ -38,8 +38,8 @@
 
     <!-- Todos los Servicios -->
     <div class="row mt-3">
-        <div class="col-md-4">
-            <div class="card mb-3 " style="max-width: 540px;">
+        <div class="col-md-5">
+            <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="Design Resources\Images\All-Services.svg" class="img-fluid rounded-start pt-3" alt="">
@@ -61,52 +61,7 @@
 
         </div>
 
-         <div class="col-md-4">
-            <div class="card mb-3 " style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="Design Resources\Images\All-Services.svg" class="img-fluid rounded-start pt-3" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <div class="all-service-header d-flex justify-content-between">
-                                <h5 class="card-title">Card title</h5>
-                                <small>Monto</small>
-                                    
-                            </div>
-                            <p class="card-text small">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-         <div class="col-md-4">
-            <div class="card mb-3 " style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="Design Resources\Images\All-Services.svg" class="img-fluid rounded-start pt-3" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <div class="all-service-header d-flex justify-content-between">
-                                <h5 class="card-title">Card title</h5>
-                                <small>Monto</small>
-                                    
-                            </div>
-                            <p class="card-text small">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        
 
     </div>
     <!-- Todos los Servicios -->

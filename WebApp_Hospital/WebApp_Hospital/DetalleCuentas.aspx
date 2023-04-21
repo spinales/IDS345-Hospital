@@ -12,19 +12,17 @@
             <div class="search-container">
                 <div class="row">
                     <div class="col-md-12 mb-2">
-                        <asp:DropDownList CssClass="mb=1" ID="ddlCuentas" runat="server"></asp:DropDownList>
+                        <h3>Elige tu cuenta</h3>
+                        <hr />
+                        <asp:DropDownList ToolTip="Elige tu Cuenta" Width="250px" Height="40px" CssClass="mb-1 border-0" ID="ddlCuentas" runat="server"></asp:DropDownList>
                     </div>
 
-                    <div class="col-md-8">
-                        <asp:TextBox CssClass="w-100 h-100" ID="txtBuscar" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="col-md-4">
-                        <asp:Button CssClass="btn btn-primary w-100 btnBuscar" ID="btnBuscar" runat="server" Text="Button" />
-                    </div>
+                    
+                    
                 </div>
             </div>
 
-            <div class="detalles-container mt-4">
+            <div class="detalles-container mt-3">
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
@@ -139,7 +137,7 @@
                                     <p class="card-text"><strong>Último movimiento:</strong></p>
 
                                 </div>
-                                <div class="col-md-5 lh-lg">
+                                <div class="col-md-5 lh-lg mt-2">
 
                                     <p class="card-text">$500.00</p>
                                     <p class="card-text">John Doe</p>
