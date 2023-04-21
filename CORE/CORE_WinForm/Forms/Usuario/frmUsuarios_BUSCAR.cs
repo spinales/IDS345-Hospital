@@ -59,9 +59,7 @@ namespace CORE_WinForm
         private async void btnCrear_Click(object sender, EventArgs e)
         {
             AbrirForms abrirForms = new AbrirForms();
-           abrirForms.AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
-         
-
+            abrirForms.AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
         }
 
         private async void LlamarApiGet()
