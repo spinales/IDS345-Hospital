@@ -78,6 +78,12 @@
     <Compile Include="frCuentaAbono.Designer.cs">
       <DependentUpon>frCuentaAbono.cs</DependentUpon>
     </Compile>
+    <Compile Include="frDetalleEfectivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frDetalleEfectivo.Designer.cs">
+      <DependentUpon>frDetalleEfectivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frCuentaAbono.resx">
       <DependentUpon>frCuentaAbono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frDetalleEfectivo.resx">
+      <DependentUpon>frDetalleEfectivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frFacturacion.resx">
       <DependentUpon>frFacturacion.cs</DependentUpon>

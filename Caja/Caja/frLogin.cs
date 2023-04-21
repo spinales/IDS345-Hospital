@@ -41,5 +41,10 @@ namespace Caja
         {
 
         }
+
+        private void frLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

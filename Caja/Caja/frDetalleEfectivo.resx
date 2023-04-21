@@ -117,23 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Seleccionarbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAASJJREFUOE+tkwlxAkEQRVdCJKwEJOAIHICD4GBxggQkICESJv/1AT3MUiSVvKou
-        en4fc2wz/YTW2iz7kq1xk31E6gOJFB0iwZJkW9krblH6QOJOVnemEY2zUY0doqxHgcXjBv42QsSy0UW2
-        d9dYIsWRwFWAHe8NEjSLqlGsN7I83WcmcfRkY+IT0rtGIL++24yQV+qPWVCMB7drhWRofZbBicXV/fFK
-        76DGS/XlwmkR+zVR3v61EbMCf7nalcXJ/f6xtWY4eeBx/ANqZLCwqJ+/DiFNYPWk0pmlZE4xT8WQ2Szp
-        92UjNFkO5DFkR0LOBPA3GBrhy+pf6RyhHgWOHjdyR4q5fn4UINYNpyGxJj1DIyabHIzN/E0qJWkNdh6L
-        BqbpG736g9xXJO5lAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="CuadreEfectivoDetallebtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAE9JREFUSEvty8ENwDAIA0A2bTbPCBmBGtd98OXXyichBZuEmf1NZl6Yg9n1VkzT
-        rtHB6ygm7KOuqfK5oa2YsI+6BuWqA0x9WIpp2pnZ90XcoeW1h+ioMX0AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>
