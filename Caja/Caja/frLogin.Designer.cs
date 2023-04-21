@@ -104,7 +104,6 @@
             this.txtUsuarioLogin.Name = "txtUsuarioLogin";
             this.txtUsuarioLogin.Size = new System.Drawing.Size(314, 32);
             this.txtUsuarioLogin.TabIndex = 4;
-            this.txtUsuarioLogin.TextChanged += new System.EventHandler(this.txtUsuarioLogin_TextChanged);
             // 
             // txtContraseñaLogin
             // 
@@ -176,7 +175,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frLogin";
             this.Text = "frmLogin";
-            this.Load += new System.EventHandler(this.frLogin_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenLogin)).EndInit();
             this.ResumeLayout(false);

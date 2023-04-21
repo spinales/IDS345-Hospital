@@ -34,7 +34,6 @@ namespace Caja
             {
                 frMenu FrMenu = new frMenu(persona);
                 FrMenu.Show();
-                this.Hide();
             }
             else
             {
@@ -49,16 +48,6 @@ namespace Caja
         private void closebtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void txtUsuarioLogin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Caja
 
         private async void Buscarbtn_Click(object sender, EventArgs e)
         {
-            bool integracionRespondio = false; 
+            bool integracionRespondio = false;
 
             if (integracionRespondio)
             {
@@ -52,7 +52,7 @@ namespace Caja
                 var personas = await ds.GetAll<Persona>(x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Documento == DocClientetxt.Text));
                 var persona = personas.FirstOrDefault();
 
-                if(persona != null)
+                if (persona != null)
                 {
                     var cuentas = await ds.GetAll<Cuenta>(x => (x.PacienteID == persona.PersonaID && x.Estado == true));
                     Cuentacb.DataSource = cuentas;
@@ -68,10 +68,36 @@ namespace Caja
 
         }
 
-        private void Cuentacb_SelectedIndexChanged(object sender, EventArgs e)
+        private async void Seleccionarbtn_Click(object sender, EventArgs e)
         {
             idcuentatextolbl.Text = Cuentacb.Text.ToString();
             montoactualtxt.Text = Cuentacb.SelectedValue.ToString();
+
+            bool integracionRespondio = false;
+
+            if (integracionRespondio)
+            {
+
+            }
+            else
+            {
+                int cuentaid = int.Parse(idcuentatextolbl.Text);
+
+                DataService ds = new DataService(); // si integracion no responde se obtiene la informacion de los servicios locales de caja
+                var transacciones = await ds.GetAll<Transaccion>(x => (x.CuentaID == cuentaid));
+
+                if (transacciones.Count() > 0)
+                {
+                    dgvCuentas.DataSource = null;
+                    dgvCuentas.DataSource = transacciones;
+
+
+
+                }
+
+            }
+
+
         }
     }
 }

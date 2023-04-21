@@ -440,7 +440,7 @@
                     UsuarioID = 3,
                     Estado = true,
                     Username = "Cajero1",
-                    Password = "u1ie43ofhciecn3rk",
+                    Password = "HycyZr5SsvIjLWY8H08uYJsNa3FkrGhtaHdDqX8lsOM=" ,
                     SucursalID = 1
                 }
             };
@@ -461,7 +461,7 @@
                     RolPersonaID = (int)Enums.RolPersona.Pacientes,
                     TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
                     Documento = "0000000002",
-                    UsuarioID = 2,
+                    UsuarioID = null,
                     TipoSangreID = 1
                 },
                 new Persona()
