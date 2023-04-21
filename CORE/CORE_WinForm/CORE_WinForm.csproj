@@ -271,11 +271,20 @@
     <EmbeddedResource Include="Forms\Autorizaciones\frmAutorizaciones_CREAR.resx">
       <DependentUpon>frmAutorizaciones_CREAR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cuentas\frmCuentas_BUSCAR.resx">
+      <DependentUpon>frmCuentas_BUSCAR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cuentas\frmCuentas_CREAR.resx">
       <DependentUpon>frmCuentas_CREAR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ingresos\frmIngresos_BUSCAR.resx">
+      <DependentUpon>frmIngresos_BUSCAR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ingresos\frmIngresos_CREAR.resx">
       <DependentUpon>frmIngresos_CREAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Perfiles\frmPerfiles_BUSCAR.resx">
+      <DependentUpon>frmPerfiles_BUSCAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Perfiles\frmPerfiles_CREAR.resx">
       <DependentUpon>frmPerfiles_CREAR.cs</DependentUpon>

@@ -87,7 +87,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(572, 115);
+            this.txtID.Location = new System.Drawing.Point(594, 115);
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(129, 22);
