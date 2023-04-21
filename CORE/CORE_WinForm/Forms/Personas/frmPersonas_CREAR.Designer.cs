@@ -48,8 +48,6 @@
             this.lblTipoDocumento = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.lblDocumento = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.cbRol = new System.Windows.Forms.ComboBox();
             this.lblRol = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -237,27 +235,10 @@
             this.lblDocumento.TabIndex = 45;
             this.lblDocumento.Text = "Documento";
             // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(209, 479);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(140, 20);
-            this.txtUsuario.TabIndex = 48;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(89, 479);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(50, 15);
-            this.lblUsuario.TabIndex = 47;
-            this.lblUsuario.Text = "Usuario";
-            // 
             // cbRol
             // 
             this.cbRol.FormattingEnabled = true;
-            this.cbRol.Location = new System.Drawing.Point(209, 528);
+            this.cbRol.Location = new System.Drawing.Point(208, 486);
             this.cbRol.Name = "cbRol";
             this.cbRol.Size = new System.Drawing.Size(140, 21);
             this.cbRol.TabIndex = 50;
@@ -266,7 +247,7 @@
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(89, 528);
+            this.lblRol.Location = new System.Drawing.Point(89, 486);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(26, 15);
             this.lblRol.TabIndex = 49;
@@ -279,8 +260,6 @@
             this.ClientSize = new System.Drawing.Size(484, 609);
             this.Controls.Add(this.cbRol);
             this.Controls.Add(this.lblRol);
-            this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.lblDocumento);
             this.Controls.Add(this.cbTipoDocumento);
@@ -302,7 +281,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnGuardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPersonas_CREAR";
@@ -335,8 +314,6 @@
         private System.Windows.Forms.Label lblTipoDocumento;
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Label lblDocumento;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox cbRol;
         private System.Windows.Forms.Label lblRol;
     }

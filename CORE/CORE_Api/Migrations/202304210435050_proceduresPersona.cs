@@ -7,14 +7,13 @@
     {
         public override void Up()
         {
-            Sql(@"CREATE PROCEDURE sp_insert_persona
+            Sql(@"CREATE OR ALTER PROCEDURE sp_insert_persona
 (
-    @Sexo CHAR(1),
+    @Sexo VARCHAR(1),
     @Nombre VARCHAR(100),
     @Apellido VARCHAR(100),
     @Documento VARCHAR(100),
     @Telefono VARCHAR(100),
-    @UsuarioID INT,
     @TipoSangreID INT,
     @TipoDocumentoID INT,
     @NacionalidadID INT,
@@ -22,19 +21,18 @@
 )
 AS
 BEGIN
-    INSERT INTO Personas (Sexo, Nombre, Apellido, Documento, Telefono, UsuarioID, TipoSangreID, TipoDocumentoID, NacionalidadID, RolPersonaID, CreatedAt)
-    VALUES (@Sexo, @Nombre, @Apellido, @Documento, @Telefono, @UsuarioID, @TipoSangreID, @TipoDocumentoID, @NacionalidadID, @RolPersonaID, getdate())
+    INSERT INTO Personas (Sexo, Nombre, Apellido, Documento, Telefono,  TipoSangreID, TipoDocumentoID, NacionalidadID, RolPersonaID, CreatedAt)
+    VALUES (@Sexo, @Nombre, @Apellido, @Documento, @Telefono,  @TipoSangreID, @TipoDocumentoID, @NacionalidadID, @RolPersonaID, getdate())
 END");
 
-            Sql(@"CREATE PROCEDURE sp_update_persona
+            Sql(@"CREATE OR ALTER PROCEDURE sp_update_persona
 (
     @PersonaID INT,
-    @Sexo CHAR(1),
+    @Sexo VARCHAR(1),
     @Nombre VARCHAR(100),
     @Apellido VARCHAR(100),
     @Documento VARCHAR(100),
     @Telefono VARCHAR(100),
-    @UsuarioID INT,
     @TipoSangreID INT,
     @TipoDocumentoID INT,
     @NacionalidadID INT,
@@ -48,7 +46,6 @@ BEGIN
         Apellido = COALESCE(@Apellido, Apellido),
         Documento = COALESCE(@Documento, Documento),
         Telefono = COALESCE(@Telefono, Telefono),
-        UsuarioID = COALESCE(@UsuarioID, UsuarioID),
         TipoSangreID = COALESCE(@TipoSangreID, TipoSangreID),
         TipoDocumentoID = COALESCE(@TipoDocumentoID, TipoDocumentoID),
         NacionalidadID = COALESCE(@NacionalidadID, NacionalidadID),

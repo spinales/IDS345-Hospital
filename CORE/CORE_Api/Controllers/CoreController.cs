@@ -554,7 +554,7 @@ namespace CORE_Api.Controllers
             }
         }
 
-
+        #region PERSONA
         [HttpGet]
         [Route("CORE/persona/get")]
         public async Task<IHttpActionResult> BuscarPersonas()
@@ -638,6 +638,45 @@ namespace CORE_Api.Controllers
         }
 
         [HttpPost]
+        [Route("CORE/persona/registrar")]
+        public IHttpActionResult RegistrarPersona([FromBody] Persona persona)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_insert_persona @Sexo ,@Nombre,@Apellido, @Documento, @Telefono, @TipoSangreID, @TipoDocumentoID, @NacionalidadID, @RolPersonaID",
+                                            new SqlParameter("@Sexo", persona.Sexo),
+                                            new SqlParameter("@Nombre", persona.Nombre),
+                                            new SqlParameter("@Apellido", persona.Apellido),
+                                            new SqlParameter("@Documento", persona.Documento),
+                                            new SqlParameter("@Telefono", persona.Telefono),
+                                            new SqlParameter("@TipoSangreID", persona.TipoSangreID),
+                                            new SqlParameter("@TipoDocumentoID", persona.TipoDocumentoID),
+                                            new SqlParameter("@NacionalidadID", persona.NacionalidadID),
+                                            new SqlParameter("@RolPersonaID", persona.RolPersonaID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Registro de persona exitoso");
+                        return Ok("Registro de persona exitoso");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Registro de persona fallido " + e.Message);
+                        return Ok("Registro de persona fallido " + e.Message);
+                    }
+                }
+            }
+        }
+
+        [HttpPost]
         [Route("CORE/persona/modificar")]
         public IHttpActionResult ModificarPersona([FromBody] Persona persona)
         {
@@ -708,6 +747,283 @@ namespace CORE_Api.Controllers
                 }
             }
         }
-    }
-    }
+        #endregion
+
+        #region INGRESOS
+        [HttpGet]
+        [Route("CORE/ingreso/get")]
+        public async Task<IHttpActionResult> BuscarIngresos()
+        {
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var ingresos = await ds.GetAll<Ingreso>(null);
+                    var ingreso = ingresos.Select(x => new Ingreso()
+                    {
+                        IngresoID = x.IngresoID,
+                        FechaInicio = x.FechaInicio,
+                        FechaFin = x.FechaFin,
+                        Alta = x.Alta,
+                        MontoIngreso = x.MontoIngreso,
+                        CuentaID = x.CuentaID,
+                        PacienteID = x.PacienteID,
+                        HabitacionID = x.HabitacionID,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        SendedAt = x.SendedAt
+                    }
+                    ).ToList();
+                    log.Info("Consulta de todos los ingresos exitosa");
+                    return Ok(ingreso);
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todos los ingresos fallida " + e.Message);
+                    return Ok("Consulta de todos los ingresos fallida " + e.Message);
+                }
+            }
+        }
+
+
+        [HttpGet]
+        [Route("CORE/ingreso/getID")]
+        public async Task<IHttpActionResult> BuscarIngreso(int id)
+        {
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var ingreso = await ds.Ingreso.Where(x => x.IngresoID == id).Select(x => new
+                    {
+                        IngresoID = x.IngresoID,
+                        FechaInicio = x.FechaInicio,
+                        FechaFin = x.FechaFin,
+                        Alta = x.Alta,
+                        MontoIngreso = x.MontoIngreso,
+                        CuentaID = x.CuentaID,
+                        PacienteID = x.PacienteID,
+                        HabitacionID = x.HabitacionID,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        SendedAt = x.SendedAt
+                    }).FirstOrDefaultAsync();
+
+                    log.Info("Consulta de usuario exitosa");
+                    return Ok(ingreso);
+                }
+                catch (Exception e)
+                {
+                    log.Error(e.Message);
+                    return Ok(e.Message);
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("CORE/ingreso/registrar")]
+        public IHttpActionResult RegistrarIngreso([FromBody] Persona persona)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_insert_ingreso @Sexo ,@Nombre,@Apellido, @Documento, @Telefono, @UsuarioID , @TipoSangreID, @TipoDocumentoID, @NacionalidadID, @RolPersonaID",
+                                            new SqlParameter("@Sexo", persona.Sexo),
+                                            new SqlParameter("@Nombre", persona.Nombre),
+                                            new SqlParameter("@Apellido", persona.Apellido),
+                                            new SqlParameter("@Documento", persona.Documento),
+                                            new SqlParameter("@Telefono", persona.Telefono),
+                                            new SqlParameter("@UsuarioID", persona.UsuarioID),
+                                            new SqlParameter("@TipoSangreID", persona.TipoSangreID),
+                                            new SqlParameter("@TipoDocumentoID", persona.TipoDocumentoID),
+                                            new SqlParameter("@NacionalidadID", persona.NacionalidadID),
+                                            new SqlParameter("@RolPersonaID", persona.RolPersonaID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Registro de persona exitoso");
+                        return Ok("Registro de persona exitoso");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Registro de persona fallido " + e.Message);
+                        return Ok("Registro de persona fallido " + e.Message);
+                    }
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("CORE/persona/modificar")]
+        public IHttpActionResult ModificarIngreso([FromBody] Persona persona)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_update_persona @PersonaID, @Sexo ,@Nombre,@Apellido, @Documento, @Telefono, @UsuarioID , @TipoSangreID, @TipoDocumentoID, @NacionalidadID, @RolPersonaID",
+                                            new SqlParameter("@PersonaID", persona.PersonaID),
+                                            new SqlParameter("@Sexo", persona.Sexo),
+                                            new SqlParameter("@Nombre", persona.Nombre),
+                                            new SqlParameter("@Apellido", persona.Apellido),
+                                            new SqlParameter("@Documento", persona.Documento),
+                                            new SqlParameter("@Telefono", persona.Telefono),
+                                            new SqlParameter("@UsuarioID", persona.UsuarioID),
+                                            new SqlParameter("@TipoSangreID", persona.TipoSangreID),
+                                            new SqlParameter("@TipoDocumentoID", persona.TipoDocumentoID),
+                                            new SqlParameter("@NacionalidadID", persona.NacionalidadID),
+                                            new SqlParameter("@RolPersonaID", persona.RolPersonaID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Modificacion de persona exitosa");
+                        return Ok("Modificacion de persona exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Modificacion de persona fallida " + e.Message);
+                        return Ok("Modificacion de persona fallida " + e.Message);
+                    }
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("CORE/persona/borrar")]
+        public IHttpActionResult BorrarIngreso([FromBody] Persona persona)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_switch_persona @PersonaID",
+                                            new SqlParameter("@PersonaID", persona.PersonaID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Eliminacion de persona exitosa");
+                        return Ok("Eliminacion de persona exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Eliminacion de persona fallida " + e.Message);
+                        return Ok("Eliminacion de persona fallida " + e.Message);
+                    }
+                }
+            }
+        }
+        #endregion
+
+        [HttpGet]
+        [Route("CORE/autorizacion/get")]
+        public async Task<IHttpActionResult> BuscarAutorizaciones()
+        {
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var autos = await ds.GetAll<Autorizaciones>(null);
+                    var auto = autos.Select(x => new Autorizaciones()
+                    {
+                        Estado = x.Estado,
+                        AutorizacionID = x.AutorizacionID,
+                        MontoAutorizado = x.MontoAutorizado,
+                        AseguradoraID = x.AseguradoraID,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        SendedAt = x.SendedAt
+                    }
+                    ).ToList();
+                    log.Info("Consulta de todas las autorizaciones exitosa");
+                    return Ok(auto);
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todas  las autorizaciones  fallida " + e.Message);
+                    return Ok("Consulta de todas las autorizaciones  fallida " + e.Message);
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("CORE/cuenta/get")]
+        public async Task<IHttpActionResult> BuscarCuentas()
+        {
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var autos = await ds.GetAll<Cuenta>(null);
+                    var auto = autos.Select(x => new Cuenta()
+                    {
+                        CuentaID = x.CuentaID,
+                        Balance = x.Balance,
+                        Estado = x.Estado,
+                        PacienteID = x.PacienteID,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt,
+                        DeletedAt = x.DeletedAt,
+                        SendedAt = x.SendedAt
+                    }
+                    ).ToList();
+                    log.Info("Consulta de todas las consultas exitosa");
+                    return Ok(auto);
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todas  las consultas  fallida " + e.Message);
+                    return Ok("Consulta de todas las consultas  fallida " + e.Message);
+                }
+            }
+        }
+
+
+        [HttpGet]
+        [Route("CORE/servicio/get")]
+        public async Task<IHttpActionResult> BuscarServicios()
+        {
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    
+                    var servicios = from s in ds.Servicios
+                                        select s;
+
+                        
+                    
+                    log.Info("Consulta de todas las autorizaciones exitosa");
+                    return Ok(servicios.ToList());
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todas  las autorizaciones  fallida " + e.Message);
+                    return Ok("Consulta de todas las autorizaciones  fallida " + e.Message);
+                }
+            }
+            }
+        }
+}
 
