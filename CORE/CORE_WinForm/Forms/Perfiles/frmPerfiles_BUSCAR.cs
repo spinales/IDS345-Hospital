@@ -139,7 +139,7 @@ namespace CORE_WinForm.Forms.Perfiles
         }
         private void btnMod_Click(object sender, EventArgs e)
         {
-            frmPerfil_MOD frmPerfilM = new frmPerfil_MOD(perfilSeleccionado);
+            frmPerfiles_MOD frmPerfilM = new frmPerfiles_MOD();
             frmPerfilM.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             frmPerfilM.KeyPreview = true;
             frmPerfilM.Location = new System.Drawing.Point(300, 50);
