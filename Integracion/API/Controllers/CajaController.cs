@@ -13,12 +13,19 @@ using Modelos;
 
 namespace API.Controllers
 {
+    [Authorize]
     public class CajaController : ApiController
     {
+        
+        private static readonly log4net.ILog Log = 
+            log4net.LogManager.GetLogger
+                (System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+        
         [HttpPost]
         [Route("CAJA/login")]
         public async Task<IHttpActionResult> LoginCajero(string usuario, string clave)
         {
+
             // Conectarse al Core y consumir el servicio para validar el usuario y la clave
             bool coreRespondio = false;
             
@@ -100,6 +107,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -150,6 +158,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -192,6 +201,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -260,6 +270,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -323,6 +334,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -405,6 +417,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
+                Log.Error("Error: " + e);
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
             }
@@ -442,6 +455,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
+                Log.Error("Error: " + e);
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al registrar la transaccion, intente mas tarde");
             }
@@ -503,6 +517,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }

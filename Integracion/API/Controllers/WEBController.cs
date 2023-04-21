@@ -6,8 +6,6 @@ using System.Data;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using API.DTOs.Inputs;
@@ -20,7 +18,7 @@ namespace API.Controllers
     {
         private static readonly log4net.ILog Log = 
             log4net.LogManager.GetLogger
-                (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+                (System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
         
         [HttpPost]
         [Route("WEB/login")]
@@ -61,6 +59,7 @@ namespace API.Controllers
                 };
                 ds.Persona.AddOrUpdate(x=>x.PersonaID, local);
                 await ds.SaveChangesAsync();
+                Log.Info("Peticion enviada al core");
                 return Ok(persona);
             }
             else
@@ -107,6 +106,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -203,6 +203,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -261,6 +262,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -316,6 +318,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -359,6 +362,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -422,6 +426,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -488,6 +493,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -571,6 +577,7 @@ namespace API.Controllers
             catch (Exception e)
             {
                 transaccion.Rollback();
+                Log.Error("Error: " + e);
                 return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
             }
             
@@ -608,6 +615,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
+                Log.Error("Error: " + e);
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al registrar la transaccion, intente mas tarde");
             }
@@ -670,6 +678,7 @@ namespace API.Controllers
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
