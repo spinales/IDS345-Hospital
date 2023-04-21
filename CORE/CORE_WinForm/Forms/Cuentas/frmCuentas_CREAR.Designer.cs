@@ -31,8 +31,8 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtBalance = new System.Windows.Forms.TextBox();
-            this.cbPaciente = new System.Windows.Forms.ComboBox();
-            this.lblPaciente = new System.Windows.Forms.Label();
+            this.cbPersona = new System.Windows.Forms.ComboBox();
+            this.lblPersona = new System.Windows.Forms.Label();
             this.lblBalance = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -69,25 +69,25 @@
             this.txtBalance.Size = new System.Drawing.Size(185, 22);
             this.txtBalance.TabIndex = 23;
             // 
-            // cbPaciente
+            // cbPersona
             // 
-            this.cbPaciente.FormattingEnabled = true;
-            this.cbPaciente.Location = new System.Drawing.Point(277, 212);
-            this.cbPaciente.Margin = new System.Windows.Forms.Padding(4);
-            this.cbPaciente.Name = "cbPaciente";
-            this.cbPaciente.Size = new System.Drawing.Size(185, 24);
-            this.cbPaciente.TabIndex = 20;
+            this.cbPersona.FormattingEnabled = true;
+            this.cbPersona.Location = new System.Drawing.Point(277, 212);
+            this.cbPersona.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPersona.Name = "cbPersona";
+            this.cbPersona.Size = new System.Drawing.Size(185, 24);
+            this.cbPersona.TabIndex = 20;
             // 
-            // lblPaciente
+            // lblPersona
             // 
-            this.lblPaciente.AutoSize = true;
-            this.lblPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaciente.Location = new System.Drawing.Point(117, 212);
-            this.lblPaciente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(65, 18);
-            this.lblPaciente.TabIndex = 17;
-            this.lblPaciente.Text = "Paciente";
+            this.lblPersona.AutoSize = true;
+            this.lblPersona.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersona.Location = new System.Drawing.Point(117, 212);
+            this.lblPersona.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPersona.Name = "lblPersona";
+            this.lblPersona.Size = new System.Drawing.Size(64, 18);
+            this.lblPersona.TabIndex = 17;
+            this.lblPersona.Text = "Persona";
             // 
             // lblBalance
             // 
@@ -121,8 +121,8 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtBalance);
-            this.Controls.Add(this.cbPaciente);
-            this.Controls.Add(this.lblPaciente);
+            this.Controls.Add(this.cbPersona);
+            this.Controls.Add(this.lblPersona);
             this.Controls.Add(this.lblBalance);
             this.Controls.Add(this.btnGuardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -141,8 +141,8 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtBalance;
-        private System.Windows.Forms.ComboBox cbPaciente;
-        private System.Windows.Forms.Label lblPaciente;
+        private System.Windows.Forms.ComboBox cbPersona;
+        private System.Windows.Forms.Label lblPersona;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Button btnGuardar;
     }
