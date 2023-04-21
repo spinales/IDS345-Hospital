@@ -22,5 +22,10 @@ namespace Caja
             frMovimientos frMovimientos = new frMovimientos();
             frMovimientos.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

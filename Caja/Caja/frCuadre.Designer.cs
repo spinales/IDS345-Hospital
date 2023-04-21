@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Seleccionarbtn = new System.Windows.Forms.Button();
             this.lblfechainicio = new System.Windows.Forms.Label();
-            this.Buscarbtn = new System.Windows.Forms.Button();
+            this.Ingresarbtn = new System.Windows.Forms.Button();
             this.DocClientetxt = new System.Windows.Forms.TextBox();
             this.iniciodialbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,6 +70,7 @@
             this.totaldiflbl = new System.Windows.Forms.Label();
             this.totalsistemalbl = new System.Windows.Forms.Label();
             this.totalcuadrelbl = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SucursalTextolbl
@@ -135,28 +136,28 @@
             this.lblfechainicio.Text = "Fecha de inicio:";
             this.lblfechainicio.UseWaitCursor = true;
             // 
-            // Buscarbtn
+            // Ingresarbtn
             // 
-            this.Buscarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
-            this.Buscarbtn.FlatAppearance.BorderSize = 0;
-            this.Buscarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Buscarbtn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.Buscarbtn.ForeColor = System.Drawing.Color.White;
-            this.Buscarbtn.Location = new System.Drawing.Point(444, 176);
-            this.Buscarbtn.Name = "Buscarbtn";
-            this.Buscarbtn.Size = new System.Drawing.Size(138, 36);
-            this.Buscarbtn.TabIndex = 27;
-            this.Buscarbtn.Text = "Guardar";
-            this.Buscarbtn.UseVisualStyleBackColor = false;
-            this.Buscarbtn.UseWaitCursor = true;
+            this.Ingresarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
+            this.Ingresarbtn.FlatAppearance.BorderSize = 0;
+            this.Ingresarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ingresarbtn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.Ingresarbtn.ForeColor = System.Drawing.Color.White;
+            this.Ingresarbtn.Location = new System.Drawing.Point(458, 180);
+            this.Ingresarbtn.Name = "Ingresarbtn";
+            this.Ingresarbtn.Size = new System.Drawing.Size(138, 36);
+            this.Ingresarbtn.TabIndex = 27;
+            this.Ingresarbtn.Text = "Ingresar";
+            this.Ingresarbtn.UseVisualStyleBackColor = false;
+            this.Ingresarbtn.UseWaitCursor = true;
             // 
             // DocClientetxt
             // 
             this.DocClientetxt.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocClientetxt.Location = new System.Drawing.Point(216, 176);
+            this.DocClientetxt.Location = new System.Drawing.Point(206, 181);
             this.DocClientetxt.Multiline = true;
             this.DocClientetxt.Name = "DocClientetxt";
-            this.DocClientetxt.Size = new System.Drawing.Size(210, 36);
+            this.DocClientetxt.Size = new System.Drawing.Size(246, 36);
             this.DocClientetxt.TabIndex = 26;
             this.DocClientetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.DocClientetxt.UseWaitCursor = true;
@@ -268,7 +269,7 @@
             this.textBox2.Location = new System.Drawing.Point(206, 332);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 36);
+            this.textBox2.Size = new System.Drawing.Size(160, 36);
             this.textBox2.TabIndex = 43;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox2.UseWaitCursor = true;
@@ -427,10 +428,10 @@
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(438, 617);
+            this.textBox13.Location = new System.Drawing.Point(414, 617);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(210, 36);
+            this.textBox13.Size = new System.Drawing.Size(234, 36);
             this.textBox13.TabIndex = 57;
             this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox13.UseWaitCursor = true;
@@ -438,10 +439,10 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(206, 617);
+            this.textBox14.Location = new System.Drawing.Point(123, 617);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(210, 36);
+            this.textBox14.Size = new System.Drawing.Size(243, 36);
             this.textBox14.TabIndex = 56;
             this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox14.UseWaitCursor = true;
@@ -545,12 +546,29 @@
             this.totalcuadrelbl.Text = "Total de cuadre:";
             this.totalcuadrelbl.UseWaitCursor = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(214)))), ((int)(((byte)(220)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(159)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(372, 332);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(44, 36);
+            this.button2.TabIndex = 69;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.UseWaitCursor = true;
+            // 
             // frCuadre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1160, 749);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.faltantesobrantelbl);
             this.Controls.Add(this.totaldiflbl);
             this.Controls.Add(this.totalsistemalbl);
@@ -586,7 +604,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Seleccionarbtn);
             this.Controls.Add(this.lblfechainicio);
-            this.Controls.Add(this.Buscarbtn);
+            this.Controls.Add(this.Ingresarbtn);
             this.Controls.Add(this.DocClientetxt);
             this.Controls.Add(this.iniciodialbl);
             this.Controls.Add(this.label2);
@@ -606,7 +624,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Seleccionarbtn;
         private System.Windows.Forms.Label lblfechainicio;
-        private System.Windows.Forms.Button Buscarbtn;
+        private System.Windows.Forms.Button Ingresarbtn;
         private System.Windows.Forms.TextBox DocClientetxt;
         private System.Windows.Forms.Label iniciodialbl;
         private System.Windows.Forms.Label label2;
@@ -642,5 +660,6 @@
         private System.Windows.Forms.Label totaldiflbl;
         private System.Windows.Forms.Label totalsistemalbl;
         private System.Windows.Forms.Label totalcuadrelbl;
+        private System.Windows.Forms.Button button2;
     }
 }
