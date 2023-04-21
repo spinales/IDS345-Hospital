@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace CORE_WinForm.Forms.Ingresos
 {
     public partial class frmIngresos_BUSCAR : Form
     {
+        public  Usuario usuario = new Usuario();
         public frmIngresos_BUSCAR()
         {
             InitializeComponent();

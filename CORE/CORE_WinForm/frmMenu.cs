@@ -45,6 +45,15 @@ namespace CORE_WinForm
             else
             {
                 var formAbrir = new T();
+                
+                if (formAbrir is frmUsuarios_BUSCAR myForm) myForm.usuario = this.Usuario;
+                else if(formAbrir is frmServicios_BUSCAR myForm1) myForm1.usuario = this.Usuario;
+                else if (formAbrir is frmPersonas_BUSCAR myForm2) myForm2.usuario = this.Usuario;
+                else if (formAbrir is frmPerfiles_BUSCAR myForm3) myForm3.usuario = this.Usuario;
+                else if (formAbrir is frmIngresos_BUSCAR myForm4) myForm4.usuario = this.Usuario;
+                else if (formAbrir is frmCuentas_BUSCAR myForm5) myForm5.usuario = this.Usuario;
+                else if (formAbrir is frmAutorizaciones_BUSCAR myForm6) myForm6.usuario = this.Usuario;
+
                 formAbrir.MdiParent = this;
                 formAbrir.Dock = DockStyle.Fill; 
                 int anchoRestante = this.ClientSize.Width - menuStrip1.Width;

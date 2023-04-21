@@ -408,7 +408,7 @@ namespace CORE_Api.Controllers
                     .FirstOrDefaultAsync();
 
                     log.Info("Consulta de perfil por PerfilID, RoleID y EntidadID exitosa");
-                    return Ok(perfil);
+                    return Ok(perfilrole);
 
                 }
                 catch (Exception e)

@@ -19,6 +19,7 @@ namespace CORE_WinForm
     public partial class frmUsuarios_BUSCAR : Form
     {
         Usuario usuarioSeleccionado = new Usuario();
+        public Usuario usuario = new Usuario();
         public frmUsuarios_BUSCAR()
         {
             InitializeComponent();
@@ -55,9 +56,20 @@ namespace CORE_WinForm
             
         }
 
-        private void btnCrear_Click(object sender, EventArgs e)
+        private async void btnCrear_Click(object sender, EventArgs e)
         {
-            frmUsuarios_CREAR frmUsuariosC = AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
+            Validacion validacion = new Validacion();
+            int perfilID = this.usuario.PerfilID ?? 0;
+            await validacion.ConfirmarPermisos(perfilID, 1, 4);
+            if (validacion.permiso == true)
+            {
+                frmUsuarios_CREAR frmUsuariosC = AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso para abrir este formulario");
+            }
+           
 
         }
 

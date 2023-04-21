@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace CORE_WinForm.Forms.Cuentas
 {
     public partial class frmCuentas_BUSCAR : Form
     {
+        public Usuario usuario = new Usuario();
         public frmCuentas_BUSCAR()
         {
             InitializeComponent();

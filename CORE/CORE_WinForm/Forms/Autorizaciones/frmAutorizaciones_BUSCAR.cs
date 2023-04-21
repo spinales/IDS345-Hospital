@@ -15,7 +15,7 @@ namespace CORE_WinForm.Forms.Autorizaciones
     public partial class frmAutorizaciones_BUSCAR : Form
     {
         Modelos.Autorizaciones autorizacionSeleccionado = new Modelos.Autorizaciones();
-        
+        public Usuario usuario = new Usuario();
         public frmAutorizaciones_BUSCAR()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace CORE_WinForm.Forms.Autorizaciones
             }
             else if (cbFiltro.SelectedIndex == 1)
             {
-                LlamarApiGetById(int.Parse(txtID.Text));
+                //LlamarApiGetById(int.Parse(txtID.Text));
             }
         }
 
@@ -90,16 +90,16 @@ namespace CORE_WinForm.Forms.Autorizaciones
 
         private void btnMod_Click(object sender, EventArgs e)
         {
-            frmAutorizaciones_MOD frmAutorizacionM = new frmAutorizaciones_MOD(autorizacionSeleccionado);
-            frmAutorizacionM.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            frmAutorizacionM.KeyPreview = true;
-            frmAutorizacionM.Location = new System.Drawing.Point(300, 50);
-            frmAutorizacionM.MaximizeBox = false;
-            frmAutorizacionM.MinimizeBox = false;
-            frmAutorizacionM.MinimumSize = new System.Drawing.Size(500, 500);
-            frmAutorizacionM.ShowIcon = false;
-            frmAutorizacionM.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            frmAutorizacionM.ShowDialog();
+            //frmAutorizaciones_MOD frmAutorizacionM = new frmAutorizaciones_MOD(autorizacionSeleccionado);
+            //frmAutorizacionM.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            //frmAutorizacionM.KeyPreview = true;
+            //frmAutorizacionM.Location = new System.Drawing.Point(300, 50);
+            //frmAutorizacionM.MaximizeBox = false;
+            //frmAutorizacionM.MinimizeBox = false;
+            //frmAutorizacionM.MinimumSize = new System.Drawing.Size(500, 500);
+            //frmAutorizacionM.ShowIcon = false;
+            //frmAutorizacionM.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            //frmAutorizacionM.ShowDialog();
         }
 
         private void dgvAutorizacion_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

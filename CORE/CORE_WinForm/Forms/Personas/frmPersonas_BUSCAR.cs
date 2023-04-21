@@ -15,6 +15,7 @@ namespace CORE_WinForm.Forms.Personas
 {
     public partial class frmPersonas_BUSCAR : Form
     {
+        public Usuario usuario = new Usuario();
         Persona personaSeleccionada = new Persona();
         public frmPersonas_BUSCAR()
         {
@@ -147,16 +148,16 @@ namespace CORE_WinForm.Forms.Personas
 
         private void btnMod_Click(object sender, EventArgs e)
         {
-            frmPersonas_MOD frmPersonasM = new frmPersonas_MOD(personaSeleccionada);
-            frmPersonasM.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            frmPersonasM.KeyPreview = true;
-            frmPersonasM.Location = new System.Drawing.Point(300, 50);
-            frmPersonasM.MaximizeBox = false;
-            frmPersonasM.MinimizeBox = false;
-            frmPersonasM.MinimumSize = new System.Drawing.Size(500, 500);
-            frmPersonasM.ShowIcon = false;
-            frmPersonasM.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            frmPersonasM.ShowDialog();
+            //frmPersonas_MOD frmPersonasM = new frmPersonas_MOD(personaSeleccionada);
+            //frmPersonasM.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            //frmPersonasM.KeyPreview = true;
+            //frmPersonasM.Location = new System.Drawing.Point(300, 50);
+            //frmPersonasM.MaximizeBox = false;
+            //frmPersonasM.MinimizeBox = false;
+            //frmPersonasM.MinimumSize = new System.Drawing.Size(500, 500);
+            //frmPersonasM.ShowIcon = false;
+            //frmPersonasM.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            //frmPersonasM.ShowDialog();
         }
         private void dgvPersonas_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {

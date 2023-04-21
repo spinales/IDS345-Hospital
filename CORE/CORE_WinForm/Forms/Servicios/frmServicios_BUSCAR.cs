@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +11,10 @@ using System.Windows.Forms;
 
 namespace CORE_WinForm.Forms.Servicios
 {
+ 
     public partial class frmServicios_BUSCAR : Form
     {
+        public Usuario usuario = new Usuario();
         public frmServicios_BUSCAR()
         {
             InitializeComponent();
