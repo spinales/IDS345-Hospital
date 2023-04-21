@@ -131,6 +131,7 @@
             this.Buscarbtn.Text = "Buscar";
             this.Buscarbtn.UseVisualStyleBackColor = false;
             this.Buscarbtn.UseWaitCursor = true;
+            this.Buscarbtn.Click += new System.EventHandler(this.Buscarbtn_Click);
             // 
             // label3
             // 
