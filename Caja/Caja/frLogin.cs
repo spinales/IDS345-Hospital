@@ -22,24 +22,31 @@ namespace Caja
 
         private async void btnInicioSesion_Click(object sender, EventArgs e)
         {
+
+            string usuario = txtUsuarioLogin.Text;
+            string contrasena = txtContraseñaLogin.Text;
+
+            // Convertir la contraseña ingresada en hash
+            string contrasenaHash = Validacion.HashPassword(contrasena);
+
             var ds = new DataService();
             var personas = await ds.GetAll<Persona>(
-                x => (x.RolPersonaID == (int)Enums.RolPersona.Cajero && x.Usuario.Username == txtUsuarioLogin.Text &&
-                x.Usuario.Password == txtContraseñaLogin.Text && x.Estado == true),
+                x => (x.RolPersonaID == (int)Enums.RolPersona.Cajero && x.Usuario.Username == usuario &&
+                x.Usuario.Password == contrasenaHash && x.Estado == true),
                 x => x.Usuario);
             var persona = personas.FirstOrDefault();
 
-            if (persona != null)   
+            if (persona != null)
             {
-                frMenu FrMenu = new frMenu();
+                frMenu FrMenu = new frMenu(persona);
                 FrMenu.Show();
             }
             else
             {
                 txtUsuarioLogin.Clear();
                 txtContraseñaLogin.Clear();
-                MessageBox.Show("El usuario ó la contraseña ingresados no son correctos", 
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El usuario ó la contraseña ingresados no son correctos",
+                    "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -47,11 +54,6 @@ namespace Caja
         private void closebtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void txtUsuarioLogin_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -35,17 +35,17 @@
             this.Seleccionarbtn = new System.Windows.Forms.Button();
             this.lblfechainicio = new System.Windows.Forms.Label();
             this.Ingresarbtn = new System.Windows.Forms.Button();
-            this.DocClientetxt = new System.Windows.Forms.TextBox();
+            this.TotalInicioDiatxt = new System.Windows.Forms.TextBox();
             this.iniciodialbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Cuadrelbl = new System.Windows.Forms.Label();
             this.nombrecajerolbl = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FechaActualtxt = new System.Windows.Forms.TextBox();
             this.efectivolbl = new System.Windows.Forms.Label();
             this.tarjetalbl = new System.Windows.Forms.Label();
             this.Cuentalbl = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TotalEfectivoCuadretxt = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -70,7 +70,9 @@
             this.totaldiflbl = new System.Windows.Forms.Label();
             this.totalsistemalbl = new System.Windows.Forms.Label();
             this.totalcuadrelbl = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CuadreEfectivoDetallebtn = new System.Windows.Forms.Button();
+            this.gbcuadre = new System.Windows.Forms.GroupBox();
+            this.gbcuadre.SuspendLayout();
             this.SuspendLayout();
             // 
             // SucursalTextolbl
@@ -150,17 +152,18 @@
             this.Ingresarbtn.Text = "Ingresar";
             this.Ingresarbtn.UseVisualStyleBackColor = false;
             this.Ingresarbtn.UseWaitCursor = true;
+            this.Ingresarbtn.Click += new System.EventHandler(this.Ingresarbtn_Click);
             // 
-            // DocClientetxt
+            // TotalInicioDiatxt
             // 
-            this.DocClientetxt.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocClientetxt.Location = new System.Drawing.Point(206, 181);
-            this.DocClientetxt.Multiline = true;
-            this.DocClientetxt.Name = "DocClientetxt";
-            this.DocClientetxt.Size = new System.Drawing.Size(246, 36);
-            this.DocClientetxt.TabIndex = 26;
-            this.DocClientetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.DocClientetxt.UseWaitCursor = true;
+            this.TotalInicioDiatxt.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalInicioDiatxt.Location = new System.Drawing.Point(206, 181);
+            this.TotalInicioDiatxt.Multiline = true;
+            this.TotalInicioDiatxt.Name = "TotalInicioDiatxt";
+            this.TotalInicioDiatxt.Size = new System.Drawing.Size(246, 36);
+            this.TotalInicioDiatxt.TabIndex = 26;
+            this.TotalInicioDiatxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TotalInicioDiatxt.UseWaitCursor = true;
             // 
             // iniciodialbl
             // 
@@ -219,22 +222,22 @@
             this.nombrecajerolbl.Text = "Cajero";
             this.nombrecajerolbl.UseWaitCursor = true;
             // 
-            // textBox1
+            // FechaActualtxt
             // 
-            this.textBox1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(805, 177);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 36);
-            this.textBox1.TabIndex = 39;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox1.UseWaitCursor = true;
+            this.FechaActualtxt.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaActualtxt.Location = new System.Drawing.Point(805, 177);
+            this.FechaActualtxt.Multiline = true;
+            this.FechaActualtxt.Name = "FechaActualtxt";
+            this.FechaActualtxt.Size = new System.Drawing.Size(210, 36);
+            this.FechaActualtxt.TabIndex = 39;
+            this.FechaActualtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.FechaActualtxt.UseWaitCursor = true;
             // 
             // efectivolbl
             // 
             this.efectivolbl.AutoSize = true;
             this.efectivolbl.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.efectivolbl.Location = new System.Drawing.Point(84, 347);
+            this.efectivolbl.Location = new System.Drawing.Point(51, 72);
             this.efectivolbl.Name = "efectivolbl";
             this.efectivolbl.Size = new System.Drawing.Size(72, 19);
             this.efectivolbl.TabIndex = 40;
@@ -245,7 +248,7 @@
             // 
             this.tarjetalbl.AutoSize = true;
             this.tarjetalbl.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tarjetalbl.Location = new System.Drawing.Point(84, 392);
+            this.tarjetalbl.Location = new System.Drawing.Point(58, 118);
             this.tarjetalbl.Name = "tarjetalbl";
             this.tarjetalbl.Size = new System.Drawing.Size(65, 19);
             this.tarjetalbl.TabIndex = 41;
@@ -256,28 +259,30 @@
             // 
             this.Cuentalbl.AutoSize = true;
             this.Cuentalbl.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cuentalbl.Location = new System.Drawing.Point(84, 440);
+            this.Cuentalbl.Location = new System.Drawing.Point(58, 175);
             this.Cuentalbl.Name = "Cuentalbl";
             this.Cuentalbl.Size = new System.Drawing.Size(65, 19);
             this.Cuentalbl.TabIndex = 42;
             this.Cuentalbl.Text = "Cuenta:";
             this.Cuentalbl.UseWaitCursor = true;
             // 
-            // textBox2
+            // TotalEfectivoCuadretxt
             // 
-            this.textBox2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(206, 332);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 36);
-            this.textBox2.TabIndex = 43;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox2.UseWaitCursor = true;
+            this.TotalEfectivoCuadretxt.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.TotalEfectivoCuadretxt.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalEfectivoCuadretxt.Location = new System.Drawing.Point(179, 72);
+            this.TotalEfectivoCuadretxt.Multiline = true;
+            this.TotalEfectivoCuadretxt.Name = "TotalEfectivoCuadretxt";
+            this.TotalEfectivoCuadretxt.Size = new System.Drawing.Size(160, 36);
+            this.TotalEfectivoCuadretxt.TabIndex = 43;
+            this.TotalEfectivoCuadretxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TotalEfectivoCuadretxt.UseWaitCursor = true;
             // 
             // textBox3
             // 
+            this.textBox3.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(206, 388);
+            this.textBox3.Location = new System.Drawing.Point(179, 128);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(210, 36);
@@ -287,8 +292,9 @@
             // 
             // textBox4
             // 
+            this.textBox4.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(206, 439);
+            this.textBox4.Location = new System.Drawing.Point(179, 179);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(210, 36);
@@ -298,8 +304,9 @@
             // 
             // textBox5
             // 
+            this.textBox5.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox5.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(438, 439);
+            this.textBox5.Location = new System.Drawing.Point(411, 179);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(210, 36);
@@ -309,8 +316,9 @@
             // 
             // textBox6
             // 
+            this.textBox6.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox6.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(438, 388);
+            this.textBox6.Location = new System.Drawing.Point(411, 128);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(210, 36);
@@ -320,8 +328,9 @@
             // 
             // textBox7
             // 
+            this.textBox7.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox7.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(438, 332);
+            this.textBox7.Location = new System.Drawing.Point(411, 72);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(210, 36);
@@ -331,8 +340,9 @@
             // 
             // textBox8
             // 
+            this.textBox8.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox8.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(672, 439);
+            this.textBox8.Location = new System.Drawing.Point(645, 179);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(210, 36);
@@ -342,8 +352,9 @@
             // 
             // textBox9
             // 
+            this.textBox9.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox9.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(672, 388);
+            this.textBox9.Location = new System.Drawing.Point(645, 128);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(210, 36);
@@ -353,8 +364,9 @@
             // 
             // textBox10
             // 
+            this.textBox10.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox10.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(672, 332);
+            this.textBox10.Location = new System.Drawing.Point(645, 72);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(210, 36);
@@ -364,8 +376,9 @@
             // 
             // textBox11
             // 
+            this.textBox11.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.textBox11.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(898, 332);
+            this.textBox11.Location = new System.Drawing.Point(871, 72);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(210, 36);
@@ -376,11 +389,12 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(898, 388);
+            this.button1.Location = new System.Drawing.Point(871, 128);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(209, 36);
             this.button1.TabIndex = 53;
@@ -392,7 +406,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
-            this.label3.Location = new System.Drawing.Point(33, 528);
+            this.label3.Location = new System.Drawing.Point(2, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1075, 13);
             this.label3.TabIndex = 54;
@@ -405,7 +419,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
-            this.label5.Location = new System.Drawing.Point(32, 577);
+            this.label5.Location = new System.Drawing.Point(2, 302);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(1075, 13);
             this.label5.TabIndex = 55;
@@ -417,7 +431,7 @@
             // textBox12
             // 
             this.textBox12.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(672, 617);
+            this.textBox12.Location = new System.Drawing.Point(638, 342);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(210, 36);
@@ -428,7 +442,7 @@
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(414, 617);
+            this.textBox13.Location = new System.Drawing.Point(380, 342);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(234, 36);
@@ -439,7 +453,7 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(123, 617);
+            this.textBox14.Location = new System.Drawing.Point(89, 342);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(243, 36);
@@ -450,7 +464,7 @@
             // textBox15
             // 
             this.textBox15.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(897, 617);
+            this.textBox15.Location = new System.Drawing.Point(863, 342);
             this.textBox15.Multiline = true;
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(210, 36);
@@ -461,8 +475,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label6.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(218, 293);
+            this.label6.Location = new System.Drawing.Point(191, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(148, 18);
             this.label6.TabIndex = 60;
@@ -472,8 +487,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label7.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(440, 293);
+            this.label7.Location = new System.Drawing.Point(413, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 18);
             this.label7.TabIndex = 61;
@@ -483,8 +499,9 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label8.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(668, 293);
+            this.label8.Location = new System.Drawing.Point(641, 33);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(169, 18);
             this.label8.TabIndex = 62;
@@ -494,8 +511,9 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(904, 293);
+            this.label9.Location = new System.Drawing.Point(877, 33);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(177, 18);
             this.label9.TabIndex = 63;
@@ -506,7 +524,7 @@
             // 
             this.faltantesobrantelbl.AutoSize = true;
             this.faltantesobrantelbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
-            this.faltantesobrantelbl.Location = new System.Drawing.Point(901, 555);
+            this.faltantesobrantelbl.Location = new System.Drawing.Point(867, 280);
             this.faltantesobrantelbl.Name = "faltantesobrantelbl";
             this.faltantesobrantelbl.Size = new System.Drawing.Size(163, 22);
             this.faltantesobrantelbl.TabIndex = 67;
@@ -517,7 +535,7 @@
             // 
             this.totaldiflbl.AutoSize = true;
             this.totaldiflbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
-            this.totaldiflbl.Location = new System.Drawing.Point(676, 555);
+            this.totaldiflbl.Location = new System.Drawing.Point(642, 280);
             this.totaldiflbl.Name = "totaldiflbl";
             this.totaldiflbl.Size = new System.Drawing.Size(143, 22);
             this.totaldiflbl.TabIndex = 66;
@@ -528,7 +546,7 @@
             // 
             this.totalsistemalbl.AutoSize = true;
             this.totalsistemalbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
-            this.totalsistemalbl.Location = new System.Drawing.Point(443, 555);
+            this.totalsistemalbl.Location = new System.Drawing.Point(409, 280);
             this.totalsistemalbl.Name = "totalsistemalbl";
             this.totalsistemalbl.Size = new System.Drawing.Size(153, 22);
             this.totalsistemalbl.TabIndex = 65;
@@ -539,28 +557,68 @@
             // 
             this.totalcuadrelbl.AutoSize = true;
             this.totalcuadrelbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
-            this.totalcuadrelbl.Location = new System.Drawing.Point(209, 555);
+            this.totalcuadrelbl.Location = new System.Drawing.Point(175, 280);
             this.totalcuadrelbl.Name = "totalcuadrelbl";
             this.totalcuadrelbl.Size = new System.Drawing.Size(139, 22);
             this.totalcuadrelbl.TabIndex = 64;
             this.totalcuadrelbl.Text = "Total de cuadre:";
             this.totalcuadrelbl.UseWaitCursor = true;
             // 
-            // button2
+            // CuadreEfectivoDetallebtn
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(214)))), ((int)(((byte)(220)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(159)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(372, 332);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 36);
-            this.button2.TabIndex = 69;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.UseWaitCursor = true;
+            this.CuadreEfectivoDetallebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(214)))), ((int)(((byte)(220)))));
+            this.CuadreEfectivoDetallebtn.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.CuadreEfectivoDetallebtn.FlatAppearance.BorderSize = 0;
+            this.CuadreEfectivoDetallebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(159)))));
+            this.CuadreEfectivoDetallebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CuadreEfectivoDetallebtn.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CuadreEfectivoDetallebtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.CuadreEfectivoDetallebtn.Image = ((System.Drawing.Image)(resources.GetObject("CuadreEfectivoDetallebtn.Image")));
+            this.CuadreEfectivoDetallebtn.Location = new System.Drawing.Point(345, 72);
+            this.CuadreEfectivoDetallebtn.Name = "CuadreEfectivoDetallebtn";
+            this.CuadreEfectivoDetallebtn.Size = new System.Drawing.Size(44, 36);
+            this.CuadreEfectivoDetallebtn.TabIndex = 69;
+            this.CuadreEfectivoDetallebtn.UseVisualStyleBackColor = false;
+            this.CuadreEfectivoDetallebtn.UseWaitCursor = true;
+            this.CuadreEfectivoDetallebtn.Click += new System.EventHandler(this.CuadreEfectivoDetallebtn_Click);
+            // 
+            // gbcuadre
+            // 
+            this.gbcuadre.Controls.Add(this.faltantesobrantelbl);
+            this.gbcuadre.Controls.Add(this.CuadreEfectivoDetallebtn);
+            this.gbcuadre.Controls.Add(this.totaldiflbl);
+            this.gbcuadre.Controls.Add(this.efectivolbl);
+            this.gbcuadre.Controls.Add(this.totalsistemalbl);
+            this.gbcuadre.Controls.Add(this.tarjetalbl);
+            this.gbcuadre.Controls.Add(this.totalcuadrelbl);
+            this.gbcuadre.Controls.Add(this.Cuentalbl);
+            this.gbcuadre.Controls.Add(this.textBox15);
+            this.gbcuadre.Controls.Add(this.textBox12);
+            this.gbcuadre.Controls.Add(this.textBox11);
+            this.gbcuadre.Controls.Add(this.textBox13);
+            this.gbcuadre.Controls.Add(this.TotalEfectivoCuadretxt);
+            this.gbcuadre.Controls.Add(this.textBox14);
+            this.gbcuadre.Controls.Add(this.label9);
+            this.gbcuadre.Controls.Add(this.label5);
+            this.gbcuadre.Controls.Add(this.textBox3);
+            this.gbcuadre.Controls.Add(this.label3);
+            this.gbcuadre.Controls.Add(this.label8);
+            this.gbcuadre.Controls.Add(this.textBox4);
+            this.gbcuadre.Controls.Add(this.label7);
+            this.gbcuadre.Controls.Add(this.textBox7);
+            this.gbcuadre.Controls.Add(this.label6);
+            this.gbcuadre.Controls.Add(this.textBox6);
+            this.gbcuadre.Controls.Add(this.textBox5);
+            this.gbcuadre.Controls.Add(this.textBox10);
+            this.gbcuadre.Controls.Add(this.textBox9);
+            this.gbcuadre.Controls.Add(this.textBox8);
+            this.gbcuadre.Controls.Add(this.button1);
+            this.gbcuadre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbcuadre.Location = new System.Drawing.Point(36, 270);
+            this.gbcuadre.Name = "gbcuadre";
+            this.gbcuadre.Size = new System.Drawing.Size(1097, 402);
+            this.gbcuadre.TabIndex = 70;
+            this.gbcuadre.TabStop = false;
             // 
             // frCuadre
             // 
@@ -568,36 +626,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1160, 749);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.faltantesobrantelbl);
-            this.Controls.Add(this.totaldiflbl);
-            this.Controls.Add(this.totalsistemalbl);
-            this.Controls.Add(this.totalcuadrelbl);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.Cuentalbl);
-            this.Controls.Add(this.tarjetalbl);
-            this.Controls.Add(this.efectivolbl);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.FechaActualtxt);
             this.Controls.Add(this.nombrecajerolbl);
             this.Controls.Add(this.SucursalTextolbl);
             this.Controls.Add(this.Sucursallbl);
@@ -605,14 +634,17 @@
             this.Controls.Add(this.Seleccionarbtn);
             this.Controls.Add(this.lblfechainicio);
             this.Controls.Add(this.Ingresarbtn);
-            this.Controls.Add(this.DocClientetxt);
+            this.Controls.Add(this.TotalInicioDiatxt);
             this.Controls.Add(this.iniciodialbl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cuadrelbl);
+            this.Controls.Add(this.gbcuadre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frCuadre";
             this.Text = "frCuadre";
+            this.gbcuadre.ResumeLayout(false);
+            this.gbcuadre.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,17 +657,15 @@
         private System.Windows.Forms.Button Seleccionarbtn;
         private System.Windows.Forms.Label lblfechainicio;
         private System.Windows.Forms.Button Ingresarbtn;
-        private System.Windows.Forms.TextBox DocClientetxt;
         private System.Windows.Forms.Label iniciodialbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Cuadrelbl;
         private System.Windows.Forms.Label nombrecajerolbl;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox FechaActualtxt;
         private System.Windows.Forms.Label efectivolbl;
         private System.Windows.Forms.Label tarjetalbl;
         private System.Windows.Forms.Label Cuentalbl;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
@@ -660,6 +690,9 @@
         private System.Windows.Forms.Label totaldiflbl;
         private System.Windows.Forms.Label totalsistemalbl;
         private System.Windows.Forms.Label totalcuadrelbl;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CuadreEfectivoDetallebtn;
+        public System.Windows.Forms.TextBox TotalInicioDiatxt;
+        public System.Windows.Forms.GroupBox gbcuadre;
+        public System.Windows.Forms.TextBox TotalEfectivoCuadretxt;
     }
 }

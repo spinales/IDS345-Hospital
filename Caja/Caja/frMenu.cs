@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace Caja
 {
     public partial class frMenu : Form
     {
-        public frMenu()
+        private Persona persona;
+
+        public frMenu(Persona persona)
         {
             InitializeComponent();
+            this.persona = persona;
         }
 
 
@@ -46,7 +50,7 @@ namespace Caja
 
         private void Facturabtn_Click(object sender, EventArgs e)
         {
-            abrirSubFormulario(new frFacturacion());
+            abrirSubFormulario(new frFacturacion(persona));
 
 
         }

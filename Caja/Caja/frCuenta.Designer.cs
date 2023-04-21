@@ -131,6 +131,7 @@
             this.Buscarbtn.Text = "Buscar";
             this.Buscarbtn.UseVisualStyleBackColor = false;
             this.Buscarbtn.UseWaitCursor = true;
+            this.Buscarbtn.Click += new System.EventHandler(this.Buscarbtn_Click);
             // 
             // label3
             // 
@@ -167,6 +168,7 @@
             this.Seleccionarbtn.Text = "Seleccionar";
             this.Seleccionarbtn.UseVisualStyleBackColor = false;
             this.Seleccionarbtn.UseWaitCursor = true;
+            this.Seleccionarbtn.Click += new System.EventHandler(this.Seleccionarbtn_Click);
             // 
             // Cuentacb
             // 
