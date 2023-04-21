@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Caja.Services;
+using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +23,33 @@ namespace Caja
         {
             frCuentaAbono frCuentaAbono = new frCuentaAbono();
             frCuentaAbono.Show();
+        }
+
+        private async void Buscarbtn_Click(object sender, EventArgs e)
+        {
+            bool integracionRespondio = false; 
+
+            if (integracionRespondio)
+            {
+
+            }
+            else
+            {
+                DataService ds = new DataService(); // si integracion no responde se obtiene la informacion de los servicios locales de caja
+                var personas = await ds.GetAll<Persona>(x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Documento == DocClientetxt.Text));
+                var persona = personas.FirstOrDefault();
+
+                if(persona != null)
+                {
+                    var cuentas = await ds.GetAll<Cuenta>(x => (x.PacienteID == persona.PersonaID && x.Estado == true));
+                    Cuentacb.DataSource = cuentas;
+                    Cuentacb.ValueMember = "CuentaID";
+                    Cuentacb.DisplayMember = "CuentaID";
+
+
+                }
+            }
+
         }
     }
 }
