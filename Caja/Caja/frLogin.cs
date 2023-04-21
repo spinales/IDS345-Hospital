@@ -29,19 +29,22 @@ namespace Caja
                 x => x.Usuario);
             var persona = personas.FirstOrDefault();
 
-            if (persona != null)   
-            {
-                frMenu FrMenu = new frMenu();
-                FrMenu.Show();
-            }
-            else
-            {
-                txtUsuarioLogin.Clear();
-                txtContraseñaLogin.Clear();
-                MessageBox.Show("El usuario ó la contraseña ingresados no son correctos", 
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
+            //if (persona != null)   
+            //{
+            //    frMenu FrMenu = new frMenu(persona);
+            //    FrMenu.Show();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    txtUsuarioLogin.Clear();
+            //    txtContraseñaLogin.Clear();
+            //    MessageBox.Show("El usuario ó la contraseña ingresados no son correctos", 
+            //        "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            frMenu FrMenu = new frMenu(persona);
+            FrMenu.Show();
+            this.Hide();
         }
 
         private void closebtn_Click(object sender, EventArgs e)

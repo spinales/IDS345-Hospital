@@ -44,7 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnFacturacionAgregarServicio = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFacturacionBuscarCliente = new System.Windows.Forms.Button();
             this.txtFacturacionCliente = new System.Windows.Forms.TextBox();
             this.lbFacturacionCliente = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -84,7 +84,7 @@
             this.lbFacturacionUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionUsuario.Location = new System.Drawing.Point(65, 110);
             this.lbFacturacionUsuario.Name = "lbFacturacionUsuario";
-            this.lbFacturacionUsuario.Size = new System.Drawing.Size(70, 19);
+            this.lbFacturacionUsuario.Size = new System.Drawing.Size(84, 24);
             this.lbFacturacionUsuario.TabIndex = 1;
             this.lbFacturacionUsuario.Text = "Usuario:";
             // 
@@ -95,7 +95,7 @@
             this.lbFacturacionNombreCajero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionNombreCajero.Location = new System.Drawing.Point(135, 110);
             this.lbFacturacionNombreCajero.Name = "lbFacturacionNombreCajero";
-            this.lbFacturacionNombreCajero.Size = new System.Drawing.Size(139, 19);
+            this.lbFacturacionNombreCajero.Size = new System.Drawing.Size(177, 24);
             this.lbFacturacionNombreCajero.TabIndex = 2;
             this.lbFacturacionNombreCajero.Text = "Nombre del Cajero";
             // 
@@ -106,7 +106,7 @@
             this.lbFacturacionNombreSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionNombreSucursal.Location = new System.Drawing.Point(403, 110);
             this.lbFacturacionNombreSucursal.Name = "lbFacturacionNombreSucursal";
-            this.lbFacturacionNombreSucursal.Size = new System.Drawing.Size(131, 19);
+            this.lbFacturacionNombreSucursal.Size = new System.Drawing.Size(164, 24);
             this.lbFacturacionNombreSucursal.TabIndex = 4;
             this.lbFacturacionNombreSucursal.Text = "Nombre Sucursal";
             // 
@@ -117,7 +117,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.label3.Location = new System.Drawing.Point(327, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 19);
+            this.label3.Size = new System.Drawing.Size(93, 24);
             this.label3.TabIndex = 3;
             this.label3.Text = "Sucursal:";
             // 
@@ -128,7 +128,7 @@
             this.lbFacturacionFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionFecha.Location = new System.Drawing.Point(726, 110);
             this.lbFacturacionFecha.Name = "lbFacturacionFecha";
-            this.lbFacturacionFecha.Size = new System.Drawing.Size(73, 19);
+            this.lbFacturacionFecha.Size = new System.Drawing.Size(93, 24);
             this.lbFacturacionFecha.TabIndex = 6;
             this.lbFacturacionFecha.Text = "getdate()";
             // 
@@ -139,7 +139,7 @@
             this.lbFacturacionAperturaCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionAperturaCaja.Location = new System.Drawing.Point(591, 110);
             this.lbFacturacionAperturaCaja.Name = "lbFacturacionAperturaCaja";
-            this.lbFacturacionAperturaCaja.Size = new System.Drawing.Size(134, 19);
+            this.lbFacturacionAperturaCaja.Size = new System.Drawing.Size(163, 24);
             this.lbFacturacionAperturaCaja.TabIndex = 5;
             this.lbFacturacionAperturaCaja.Text = "Apertura de caja:";
             // 
@@ -153,7 +153,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnFacturacionAgregarServicio);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnFacturacionBuscarCliente);
             this.panel1.Controls.Add(this.txtFacturacionCliente);
             this.panel1.Controls.Add(this.lbFacturacionCliente);
             this.panel1.Location = new System.Drawing.Point(48, 153);
@@ -167,7 +167,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
             this.label5.Location = new System.Drawing.Point(-1, 128);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1075, 13);
+            this.label5.Size = new System.Drawing.Size(1253, 16);
             this.label5.TabIndex = 14;
             this.label5.Text = "_________________________________________________________________________________" +
     "________________________________________________________________________________" +
@@ -180,7 +180,7 @@
             this.cbFacturacionMetodoPago.FormattingEnabled = true;
             this.cbFacturacionMetodoPago.Location = new System.Drawing.Point(717, 94);
             this.cbFacturacionMetodoPago.Name = "cbFacturacionMetodoPago";
-            this.cbFacturacionMetodoPago.Size = new System.Drawing.Size(203, 27);
+            this.cbFacturacionMetodoPago.Size = new System.Drawing.Size(203, 32);
             this.cbFacturacionMetodoPago.TabIndex = 10;
             // 
             // label8
@@ -189,7 +189,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1075, 13);
+            this.label8.Size = new System.Drawing.Size(1253, 16);
             this.label8.TabIndex = 13;
             this.label8.Text = "_________________________________________________________________________________" +
     "________________________________________________________________________________" +
@@ -202,8 +202,9 @@
             this.cbFacturacionServicios.FormattingEnabled = true;
             this.cbFacturacionServicios.Location = new System.Drawing.Point(717, 36);
             this.cbFacturacionServicios.Name = "cbFacturacionServicios";
-            this.cbFacturacionServicios.Size = new System.Drawing.Size(203, 27);
+            this.cbFacturacionServicios.Size = new System.Drawing.Size(203, 32);
             this.cbFacturacionServicios.TabIndex = 9;
+            this.cbFacturacionServicios.SelectedIndexChanged += new System.EventHandler(this.cbFacturacionServicios_SelectedIndexChanged);
             // 
             // btnFacturacionSeleccionarMetodoPago
             // 
@@ -226,7 +227,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.label4.Location = new System.Drawing.Point(548, 94);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 24);
+            this.label4.Size = new System.Drawing.Size(203, 30);
             this.label4.TabIndex = 6;
             this.label4.Text = "Metodo de Pago:";
             // 
@@ -251,23 +252,24 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.label2.Location = new System.Drawing.Point(614, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 24);
+            this.label2.Size = new System.Drawing.Size(125, 30);
             this.label2.TabIndex = 3;
             this.label2.Text = "Servicios:";
             // 
-            // button1
+            // btnFacturacionBuscarCliente
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Roboto", 12.2F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(310, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 32);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFacturacionBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
+            this.btnFacturacionBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnFacturacionBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacturacionBuscarCliente.Font = new System.Drawing.Font("Roboto", 12.2F, System.Drawing.FontStyle.Bold);
+            this.btnFacturacionBuscarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnFacturacionBuscarCliente.Location = new System.Drawing.Point(310, 36);
+            this.btnFacturacionBuscarCliente.Name = "btnFacturacionBuscarCliente";
+            this.btnFacturacionBuscarCliente.Size = new System.Drawing.Size(131, 32);
+            this.btnFacturacionBuscarCliente.TabIndex = 2;
+            this.btnFacturacionBuscarCliente.Text = "Buscar";
+            this.btnFacturacionBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnFacturacionBuscarCliente.Click += new System.EventHandler(this.btnFacturacionBuscarCliente_Click);
             // 
             // txtFacturacionCliente
             // 
@@ -287,7 +289,7 @@
             this.lbFacturacionCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionCliente.Location = new System.Drawing.Point(16, 39);
             this.lbFacturacionCliente.Name = "lbFacturacionCliente";
-            this.lbFacturacionCliente.Size = new System.Drawing.Size(79, 24);
+            this.lbFacturacionCliente.Size = new System.Drawing.Size(100, 30);
             this.lbFacturacionCliente.TabIndex = 0;
             this.lbFacturacionCliente.Text = "Cliente:";
             // 
@@ -316,7 +318,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(140)))), ((int)(((byte)(150)))));
             this.label6.Location = new System.Drawing.Point(28, 65);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(277, 13);
+            this.label6.Size = new System.Drawing.Size(322, 16);
             this.label6.TabIndex = 16;
             this.label6.Text = "_____________________________________________";
             this.label6.UseWaitCursor = true;
@@ -328,7 +330,7 @@
             this.lbFacturacionPrecioServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionPrecioServicio.Location = new System.Drawing.Point(36, 267);
             this.lbFacturacionPrecioServicio.Name = "lbFacturacionPrecioServicio";
-            this.lbFacturacionPrecioServicio.Size = new System.Drawing.Size(43, 15);
+            this.lbFacturacionPrecioServicio.Size = new System.Drawing.Size(53, 19);
             this.lbFacturacionPrecioServicio.TabIndex = 8;
             this.lbFacturacionPrecioServicio.Text = "Precio";
             // 
@@ -339,7 +341,7 @@
             this.lbFacturacionPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionPrecio.Location = new System.Drawing.Point(36, 249);
             this.lbFacturacionPrecio.Name = "lbFacturacionPrecio";
-            this.lbFacturacionPrecio.Size = new System.Drawing.Size(48, 15);
+            this.lbFacturacionPrecio.Size = new System.Drawing.Size(60, 19);
             this.lbFacturacionPrecio.TabIndex = 7;
             this.lbFacturacionPrecio.Text = "Precio:";
             // 
@@ -350,7 +352,7 @@
             this.lbFacturacionDescripcionServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionDescripcionServicio.Location = new System.Drawing.Point(36, 217);
             this.lbFacturacionDescripcionServicio.Name = "lbFacturacionDescripcionServicio";
-            this.lbFacturacionDescripcionServicio.Size = new System.Drawing.Size(142, 15);
+            this.lbFacturacionDescripcionServicio.Size = new System.Drawing.Size(175, 19);
             this.lbFacturacionDescripcionServicio.TabIndex = 6;
             this.lbFacturacionDescripcionServicio.Text = "Descripcion del servicio";
             // 
@@ -361,7 +363,7 @@
             this.lbFacturacionDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionDescripcion.Location = new System.Drawing.Point(36, 201);
             this.lbFacturacionDescripcion.Name = "lbFacturacionDescripcion";
-            this.lbFacturacionDescripcion.Size = new System.Drawing.Size(79, 15);
+            this.lbFacturacionDescripcion.Size = new System.Drawing.Size(98, 19);
             this.lbFacturacionDescripcion.TabIndex = 5;
             this.lbFacturacionDescripcion.Text = "Descripcion:";
             // 
@@ -370,9 +372,9 @@
             this.lbFacturacionTipoServicioSeleccionado.AutoSize = true;
             this.lbFacturacionTipoServicioSeleccionado.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.lbFacturacionTipoServicioSeleccionado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.lbFacturacionTipoServicioSeleccionado.Location = new System.Drawing.Point(31, 166);
+            this.lbFacturacionTipoServicioSeleccionado.Location = new System.Drawing.Point(36, 166);
             this.lbFacturacionTipoServicioSeleccionado.Name = "lbFacturacionTipoServicioSeleccionado";
-            this.lbFacturacionTipoServicioSeleccionado.Size = new System.Drawing.Size(175, 15);
+            this.lbFacturacionTipoServicioSeleccionado.Size = new System.Drawing.Size(217, 19);
             this.lbFacturacionTipoServicioSeleccionado.TabIndex = 4;
             this.lbFacturacionTipoServicioSeleccionado.Text = "Tipo de servicio seleccionado";
             // 
@@ -381,9 +383,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Roboto", 9.5F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.label7.Location = new System.Drawing.Point(31, 150);
+            this.label7.Location = new System.Drawing.Point(36, 147);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 15);
+            this.label7.Size = new System.Drawing.Size(130, 19);
             this.label7.TabIndex = 3;
             this.label7.Text = "Tipo de Servicio:";
             // 
@@ -392,9 +394,9 @@
             this.lbFacturacionServicioSeleccionado.AutoSize = true;
             this.lbFacturacionServicioSeleccionado.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.lbFacturacionServicioSeleccionado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.lbFacturacionServicioSeleccionado.Location = new System.Drawing.Point(35, 115);
+            this.lbFacturacionServicioSeleccionado.Location = new System.Drawing.Point(36, 115);
             this.lbFacturacionServicioSeleccionado.Name = "lbFacturacionServicioSeleccionado";
-            this.lbFacturacionServicioSeleccionado.Size = new System.Drawing.Size(132, 15);
+            this.lbFacturacionServicioSeleccionado.Size = new System.Drawing.Size(164, 19);
             this.lbFacturacionServicioSeleccionado.TabIndex = 2;
             this.lbFacturacionServicioSeleccionado.Text = "Servicio Seleccionado";
             // 
@@ -403,9 +405,9 @@
             this.lbFacturacionDetalleServicio.AutoSize = true;
             this.lbFacturacionDetalleServicio.Font = new System.Drawing.Font("Roboto", 9.5F, System.Drawing.FontStyle.Bold);
             this.lbFacturacionDetalleServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.lbFacturacionDetalleServicio.Location = new System.Drawing.Point(35, 95);
+            this.lbFacturacionDetalleServicio.Location = new System.Drawing.Point(36, 96);
             this.lbFacturacionDetalleServicio.Name = "lbFacturacionDetalleServicio";
-            this.lbFacturacionDetalleServicio.Size = new System.Drawing.Size(65, 15);
+            this.lbFacturacionDetalleServicio.Size = new System.Drawing.Size(80, 19);
             this.lbFacturacionDetalleServicio.TabIndex = 1;
             this.lbFacturacionDetalleServicio.Text = "Servicios:";
             // 
@@ -416,7 +418,7 @@
             this.lbFacturacionDetallesServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
             this.lbFacturacionDetallesServicio.Location = new System.Drawing.Point(63, 34);
             this.lbFacturacionDetallesServicio.Name = "lbFacturacionDetallesServicio";
-            this.lbFacturacionDetallesServicio.Size = new System.Drawing.Size(204, 25);
+            this.lbFacturacionDetallesServicio.Size = new System.Drawing.Size(249, 32);
             this.lbFacturacionDetallesServicio.TabIndex = 0;
             this.lbFacturacionDetallesServicio.Text = "Detalles del servicio";
             // 
@@ -508,7 +510,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnFacturacionAgregarServicio;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFacturacionBuscarCliente;
         private System.Windows.Forms.TextBox txtFacturacionCliente;
         private System.Windows.Forms.Label lbFacturacionCliente;
         private System.Windows.Forms.Panel panel2;
