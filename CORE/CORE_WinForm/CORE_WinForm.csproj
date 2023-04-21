@@ -262,11 +262,17 @@
     <EmbeddedResource Include="Forms\Personas\frmPersonas_CREAR.resx">
       <DependentUpon>frmPersonas_CREAR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Personas\frmPersonas_MOD.resx">
+      <DependentUpon>frmPersonas_MOD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Servicios\frmServicios_BUSCAR.resx">
       <DependentUpon>frmServicios_BUSCAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Servicios\frmServicios_CREAR.resx">
       <DependentUpon>frmServicios_CREAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Servicios\frmServicios_MOD.resx">
+      <DependentUpon>frmServicios_MOD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\frmUsuarios_BUSCAR.resx">
       <DependentUpon>frmUsuarios_BUSCAR.cs</DependentUpon>
