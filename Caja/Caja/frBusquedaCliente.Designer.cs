@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbClienteNombre = new System.Windows.Forms.Label();
-            this.lbClienteApellido = new System.Windows.Forms.Label();
-            this.Telefono = new System.Windows.Forms.Label();
-            this.Documento = new System.Windows.Forms.Label();
-            this.txtbClienteDocumento = new System.Windows.Forms.TextBox();
-            this.txtbClienteNombre = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtbTelefono = new System.Windows.Forms.TextBox();
             this.txtbClienteApellido = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtbClienteNombre = new System.Windows.Forms.TextBox();
+            this.txtbClienteDocumento = new System.Windows.Forms.TextBox();
+            this.Documento = new System.Windows.Forms.Label();
+            this.Telefono = new System.Windows.Forms.Label();
+            this.lbClienteApellido = new System.Windows.Forms.Label();
+            this.lbClienteNombre = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,93 +61,6 @@
             this.panel1.Size = new System.Drawing.Size(1237, 661);
             this.panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 27F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(550, 150);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 54);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cliente";
-            // 
-            // lbClienteNombre
-            // 
-            this.lbClienteNombre.AutoSize = true;
-            this.lbClienteNombre.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbClienteNombre.Location = new System.Drawing.Point(383, 356);
-            this.lbClienteNombre.Name = "lbClienteNombre";
-            this.lbClienteNombre.Size = new System.Drawing.Size(83, 23);
-            this.lbClienteNombre.TabIndex = 1;
-            this.lbClienteNombre.Text = "Nombre:";
-            // 
-            // lbClienteApellido
-            // 
-            this.lbClienteApellido.AutoSize = true;
-            this.lbClienteApellido.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbClienteApellido.Location = new System.Drawing.Point(383, 426);
-            this.lbClienteApellido.Name = "lbClienteApellido";
-            this.lbClienteApellido.Size = new System.Drawing.Size(86, 23);
-            this.lbClienteApellido.TabIndex = 2;
-            this.lbClienteApellido.Text = "Apellido:";
-            // 
-            // Telefono
-            // 
-            this.Telefono.AutoSize = true;
-            this.Telefono.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Telefono.Location = new System.Drawing.Point(383, 490);
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Size = new System.Drawing.Size(91, 23);
-            this.Telefono.TabIndex = 3;
-            this.Telefono.Text = "Telefono:";
-            // 
-            // Documento
-            // 
-            this.Documento.AutoSize = true;
-            this.Documento.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Documento.Location = new System.Drawing.Point(383, 287);
-            this.Documento.Name = "Documento";
-            this.Documento.Size = new System.Drawing.Size(113, 23);
-            this.Documento.TabIndex = 4;
-            this.Documento.Text = "Documento:";
-            // 
-            // txtbClienteDocumento
-            // 
-            this.txtbClienteDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtbClienteDocumento.Location = new System.Drawing.Point(498, 287);
-            this.txtbClienteDocumento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbClienteDocumento.Name = "txtbClienteDocumento";
-            this.txtbClienteDocumento.Size = new System.Drawing.Size(279, 30);
-            this.txtbClienteDocumento.TabIndex = 5;
-            // 
-            // txtbClienteNombre
-            // 
-            this.txtbClienteNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtbClienteNombre.Location = new System.Drawing.Point(498, 351);
-            this.txtbClienteNombre.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbClienteNombre.Name = "txtbClienteNombre";
-            this.txtbClienteNombre.Size = new System.Drawing.Size(279, 30);
-            this.txtbClienteNombre.TabIndex = 6;
-            // 
-            // txtbTelefono
-            // 
-            this.txtbTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtbTelefono.Location = new System.Drawing.Point(498, 485);
-            this.txtbTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbTelefono.Name = "txtbTelefono";
-            this.txtbTelefono.Size = new System.Drawing.Size(279, 30);
-            this.txtbTelefono.TabIndex = 8;
-            // 
-            // txtbClienteApellido
-            // 
-            this.txtbClienteApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtbClienteApellido.Location = new System.Drawing.Point(498, 421);
-            this.txtbClienteApellido.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbClienteApellido.Name = "txtbClienteApellido";
-            this.txtbClienteApellido.Size = new System.Drawing.Size(279, 30);
-            this.txtbClienteApellido.TabIndex = 7;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(75)))), ((int)(((byte)(181)))));
@@ -161,6 +74,97 @@
             this.button1.Text = "Confirmar Cliente";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtbTelefono
+            // 
+            this.txtbTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtbTelefono.Location = new System.Drawing.Point(498, 485);
+            this.txtbTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbTelefono.Name = "txtbTelefono";
+            this.txtbTelefono.ReadOnly = true;
+            this.txtbTelefono.Size = new System.Drawing.Size(279, 30);
+            this.txtbTelefono.TabIndex = 8;
+            // 
+            // txtbClienteApellido
+            // 
+            this.txtbClienteApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtbClienteApellido.Location = new System.Drawing.Point(498, 421);
+            this.txtbClienteApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbClienteApellido.Name = "txtbClienteApellido";
+            this.txtbClienteApellido.ReadOnly = true;
+            this.txtbClienteApellido.Size = new System.Drawing.Size(279, 30);
+            this.txtbClienteApellido.TabIndex = 7;
+            // 
+            // txtbClienteNombre
+            // 
+            this.txtbClienteNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtbClienteNombre.Location = new System.Drawing.Point(498, 351);
+            this.txtbClienteNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbClienteNombre.Name = "txtbClienteNombre";
+            this.txtbClienteNombre.ReadOnly = true;
+            this.txtbClienteNombre.Size = new System.Drawing.Size(279, 30);
+            this.txtbClienteNombre.TabIndex = 6;
+            // 
+            // txtbClienteDocumento
+            // 
+            this.txtbClienteDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtbClienteDocumento.Location = new System.Drawing.Point(498, 287);
+            this.txtbClienteDocumento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbClienteDocumento.Name = "txtbClienteDocumento";
+            this.txtbClienteDocumento.ReadOnly = true;
+            this.txtbClienteDocumento.Size = new System.Drawing.Size(279, 30);
+            this.txtbClienteDocumento.TabIndex = 5;
+            // 
+            // Documento
+            // 
+            this.Documento.AutoSize = true;
+            this.Documento.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Documento.Location = new System.Drawing.Point(383, 287);
+            this.Documento.Name = "Documento";
+            this.Documento.Size = new System.Drawing.Size(113, 23);
+            this.Documento.TabIndex = 4;
+            this.Documento.Text = "Documento:";
+            // 
+            // Telefono
+            // 
+            this.Telefono.AutoSize = true;
+            this.Telefono.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Telefono.Location = new System.Drawing.Point(383, 490);
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Size = new System.Drawing.Size(91, 23);
+            this.Telefono.TabIndex = 3;
+            this.Telefono.Text = "Telefono:";
+            // 
+            // lbClienteApellido
+            // 
+            this.lbClienteApellido.AutoSize = true;
+            this.lbClienteApellido.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbClienteApellido.Location = new System.Drawing.Point(383, 426);
+            this.lbClienteApellido.Name = "lbClienteApellido";
+            this.lbClienteApellido.Size = new System.Drawing.Size(86, 23);
+            this.lbClienteApellido.TabIndex = 2;
+            this.lbClienteApellido.Text = "Apellido:";
+            // 
+            // lbClienteNombre
+            // 
+            this.lbClienteNombre.AutoSize = true;
+            this.lbClienteNombre.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbClienteNombre.Location = new System.Drawing.Point(383, 356);
+            this.lbClienteNombre.Name = "lbClienteNombre";
+            this.lbClienteNombre.Size = new System.Drawing.Size(83, 23);
+            this.lbClienteNombre.TabIndex = 1;
+            this.lbClienteNombre.Text = "Nombre:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 27F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(550, 150);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 54);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cliente";
             // 
             // frBusquedaCliente
             // 
