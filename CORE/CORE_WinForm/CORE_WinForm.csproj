@@ -257,6 +257,9 @@
     <EmbeddedResource Include="Forms\Perfiles\frmPerfiles_CREAR.resx">
       <DependentUpon>frmPerfiles_CREAR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Perfiles\frmPerfiles_MOD.resx">
+      <DependentUpon>frmPerfiles_MOD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Personas\frmPersonas_BUSCAR.resx">
       <DependentUpon>frmPersonas_BUSCAR.cs</DependentUpon>
     </EmbeddedResource>

@@ -765,7 +765,7 @@
             {
                 PersonaID = 1,
                 Estado = true,
-                Sexo = 'M',
+                Sexo = "M",
                 Nombre = "Pablo",
                 Apellido = "Mota",
                 Telefono = "0000000000",

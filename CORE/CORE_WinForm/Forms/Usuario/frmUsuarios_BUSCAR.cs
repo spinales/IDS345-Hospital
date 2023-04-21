@@ -58,45 +58,10 @@ namespace CORE_WinForm
 
         private async void btnCrear_Click(object sender, EventArgs e)
         {
-            Validacion validacion = new Validacion();
-            int perfilID = this.usuario.PerfilID ?? 0;
-            await validacion.ConfirmarPermisos(perfilID, 1, 4);
-            if (validacion.permiso == true)
-            {
-                frmUsuarios_CREAR frmUsuariosC = AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
-            }
-            else
-            {
-                MessageBox.Show("No tienes permiso para abrir este formulario");
-            }
-           
+            AbrirForms abrirForms = new AbrirForms();
+           abrirForms.AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
+         
 
-        }
-
-        public T AbrirFormulario<T>(Type buscarTipo) where T : Form, new()
-        {
-            var formBuscar = Application.OpenForms.OfType<T>().FirstOrDefault();
-
-            if (formBuscar != null)
-            {
-                formBuscar.Activate();
-                formBuscar.BringToFront();
-                return formBuscar;
-            }
-            else
-            {
-                var formAbrir = new T();
-                formAbrir.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-                formAbrir.KeyPreview = true;
-                formAbrir.Location = new System.Drawing.Point(300, 50);
-                formAbrir.MaximizeBox = false;
-                formAbrir.MinimizeBox = false;
-                formAbrir.MinimumSize = new System.Drawing.Size(500, 500);
-                formAbrir.ShowIcon = false;
-                formAbrir.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-                formAbrir.ShowDialog();
-                return formAbrir;
-            }
         }
 
         private async void LlamarApiGet()
@@ -246,6 +211,24 @@ namespace CORE_WinForm
                 MessageBox.Show(responseContent);
             }
 
+        }
+
+        private async void frmUsuarios_BUSCAR_Load(object sender, EventArgs e)
+        {
+            Validacion validacionCrear = new Validacion();
+            int perfilID = this.usuario.PerfilID ?? 0;
+            await validacionCrear.ConfirmarPermisos(perfilID, 1, 4);
+            Validacion validacionVisualizar = new Validacion();
+            await validacionVisualizar.ConfirmarPermisos(perfilID, 1, 1);
+            Validacion validacionModificar = new Validacion();
+            await validacionModificar.ConfirmarPermisos(perfilID, 1, 2);
+            Validacion validacionBorrar = new Validacion();
+            await validacionBorrar.ConfirmarPermisos(perfilID, 1, 3);
+
+            if (validacionCrear.permiso == false) btnCrear.Visible = false; else btnCrear.Visible = true;
+            if (validacionVisualizar.permiso == false) btnBuscar.Visible = false; else btnBuscar.Visible = true;
+            if (validacionModificar.permiso == false) btnMod.Visible = false; else btnMod.Visible = true;
+            if (validacionBorrar.permiso == false) btnBorrar.Visible = false; else btnBorrar.Visible = true;
         }
     }
 }

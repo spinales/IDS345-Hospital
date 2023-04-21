@@ -13,7 +13,11 @@ namespace Modelos
         public int PersonaID { get; set; }
 
         public bool Estado { get; set; } = true;
-        public char Sexo { get; set; }
+        
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(1)]
+        public string Sexo { get; set; }
+
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)] 

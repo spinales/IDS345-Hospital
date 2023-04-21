@@ -160,6 +160,7 @@
             this.Name = "frmUsuarios_BUSCAR";
             this.Text = "Buscar Usuarios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmUsuarios_BUSCAR_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

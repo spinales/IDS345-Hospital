@@ -34,11 +34,11 @@
             this.lblPerfilID = new System.Windows.Forms.Label();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.lblFiltro = new System.Windows.Forms.Label();
-            this.dgvPersonas = new System.Windows.Forms.DataGridView();
+            this.dgvPerfiles = new System.Windows.Forms.DataGridView();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -54,16 +54,17 @@
             // btnBuscar
             // 
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.btnBuscar.Location = new System.Drawing.Point(818, 93);
+            this.btnBuscar.Location = new System.Drawing.Point(818, 94);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(143, 23);
             this.btnBuscar.TabIndex = 37;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(412, 93);
+            this.txtID.Location = new System.Drawing.Point(417, 94);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(98, 20);
             this.txtID.TabIndex = 36;
@@ -86,6 +87,7 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(105, 21);
             this.cbFiltro.TabIndex = 34;
+            this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
             // 
             // lblFiltro
             // 
@@ -97,14 +99,15 @@
             this.lblFiltro.TabIndex = 33;
             this.lblFiltro.Text = "Filtrar";
             // 
-            // dgvPersonas
+            // dgvPerfiles
             // 
-            this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersonas.Location = new System.Drawing.Point(90, 130);
-            this.dgvPersonas.Name = "dgvPersonas";
-            this.dgvPersonas.RowHeadersWidth = 51;
-            this.dgvPersonas.Size = new System.Drawing.Size(871, 567);
-            this.dgvPersonas.TabIndex = 38;
+            this.dgvPerfiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPerfiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPerfiles.Location = new System.Drawing.Point(90, 130);
+            this.dgvPerfiles.Name = "dgvPerfiles";
+            this.dgvPerfiles.RowHeadersWidth = 51;
+            this.dgvPerfiles.Size = new System.Drawing.Size(871, 567);
+            this.dgvPerfiles.TabIndex = 38;
             // 
             // btnBorrar
             // 
@@ -143,7 +146,7 @@
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnMod);
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.dgvPersonas);
+            this.Controls.Add(this.dgvPerfiles);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblPerfilID);
@@ -151,11 +154,12 @@
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPerfiles_BUSCAR";
             this.Text = "Buscar Perfiles";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).EndInit();
+            this.Load += new System.EventHandler(this.frmPerfiles_BUSCAR_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,7 +173,7 @@
         private System.Windows.Forms.Label lblPerfilID;
         private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.Label lblFiltro;
-        private System.Windows.Forms.DataGridView dgvPersonas;
+        private System.Windows.Forms.DataGridView dgvPerfiles;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.Button btnCrear;

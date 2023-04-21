@@ -354,6 +354,43 @@ namespace CORE_Api.Controllers
         }
 
         [HttpGet]
+        [Route("CORE/perfil/getID")]
+        public async Task<IHttpActionResult> BuscarPerfilID(int id)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var perfil = await ds.Perfil
+                    .Where(u => u.PerfilID == id)
+                    .Select(u => new
+                    {
+                        u.PerfilID,
+                        u.Nombre,
+                        u.CreatedAt,
+                        u.UpdatedAt,
+                        u.DeletedAt,
+                        u.SendedAt
+                    })
+                    .FirstOrDefaultAsync();
+
+                    log.Info("Consulta de perfil por id exitosa");
+                    return Ok(perfil);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de perfil por id fallida " + e.Message);
+                    return Ok("Consulta de perfil por id fallida " + e.Message);
+                }
+            }
+        }
+
+        [HttpGet]
         [Route("CORE/perfil/get")]
         public async Task<IHttpActionResult> BuscarPerfiles()
         {

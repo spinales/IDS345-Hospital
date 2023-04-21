@@ -38,7 +38,7 @@ namespace CORE_Api.Controllers
                         Documento = x.Documento,
                         Telefono = x.Telefono,
                         UsuarioID = x.UsuarioID,
-                        TipoSangre = x.TipoSangre,
+                        TipoSangreID = x.TipoSangreID,
                         TipoDocumentoID = x.TipoDocumentoID,
                         NacionalidadID = x.NacionalidadID,
                         RolPersonaID = x.RolPersonaID,

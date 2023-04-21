@@ -1,4 +1,5 @@
-﻿using Modelos;
+﻿using CORE_WinForm.Forms.Servicios;
+using Modelos;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -52,35 +53,22 @@ namespace CORE_WinForm.Forms.Personas
             }
         }
 
-        private void btnCrear_Click(object sender, EventArgs e)
+        private async void btnCrear_Click(object sender, EventArgs e)
         {
-            frmPersonas_CREAR frmPersonas_CREAR = AbrirFormulario<frmPersonas_CREAR>(typeof(frmPersonas_CREAR));
-        }
-        public T AbrirFormulario<T>(Type buscarTipo) where T : Form, new()
-        {
-            var formBuscar = Application.OpenForms.OfType<T>().FirstOrDefault();
-
-            if (formBuscar != null)
+            Validacion validacion = new Validacion();
+            int perfilID = this.usuario.PerfilID ?? 0;
+            await validacion.ConfirmarPermisos(perfilID, 3, 4);
+            if (validacion.permiso == true)
             {
-                formBuscar.Activate();
-                formBuscar.BringToFront();
-                return formBuscar;
+                var abrirForms = new AbrirForms();
+                frmPersonas_CREAR frmPersonasC = abrirForms.AbrirFormulario<frmPersonas_CREAR>(typeof(frmPersonas_CREAR));
             }
             else
             {
-                var formAbrir = new T();
-                formAbrir.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-                formAbrir.KeyPreview = true;
-                formAbrir.Location = new System.Drawing.Point(300, 50);
-                formAbrir.MaximizeBox = false;
-                formAbrir.MinimizeBox = false;
-                formAbrir.MinimumSize = new System.Drawing.Size(500, 500);
-                formAbrir.ShowIcon = false;
-                formAbrir.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-                formAbrir.ShowDialog();
-                return formAbrir;
+                MessageBox.Show("No tienes permiso para abrir este formulario");
             }
         }
+        
 
         private async void LlamarApiGet()
         {
@@ -90,13 +78,15 @@ namespace CORE_WinForm.Forms.Personas
 
                 var response = await httpClient.GetAsync(apiUrl);
                 var responseContent = await response.Content.ReadAsStringAsync();
-
+                MessageBox.Show("Antes de serializar");
+                MessageBox.Show(responseContent);
                 var personas = JsonConvert.DeserializeObject<List<Persona>>(responseContent);
+                MessageBox.Show("Despues de serializar");
 
                 var table = new DataTable();
                 table.Columns.Add("PersonaID", typeof(int));
                 table.Columns.Add("Estado", typeof(int));
-                table.Columns.Add("Sexo", typeof(string));
+
                 table.Columns.Add("Nombre", typeof(string));
                 table.Columns.Add("Apellido", typeof(string));
                 table.Columns.Add("Documento", typeof(string));
@@ -106,10 +96,11 @@ namespace CORE_WinForm.Forms.Personas
                 table.Columns.Add("TipoDocumentoID", typeof(int));
                 table.Columns.Add("NacionalidadID", typeof(int));
                 table.Columns.Add("RolPersonaID", typeof(int));
-                
+                //table.Columns.Add("Sexo", typeof(string));
+
                 foreach (var persona in personas)
                 {
-                    table.Rows.Add(persona.PersonaID, persona.Estado, persona.Sexo, persona.Nombre, persona.Apellido, persona.Documento, persona.Telefono, persona.UsuarioID, persona.TipoSangreID, persona.TipoDocumentoID, persona.NacionalidadID, persona.RolPersonaID);
+                    table.Rows.Add(persona.PersonaID, persona.Estado, persona.Nombre, persona.Apellido, persona.Documento, persona.Telefono, persona.UsuarioID, persona.TipoSangreID, persona.TipoDocumentoID, persona.NacionalidadID, persona.RolPersonaID);
                 }
 
                 dgvPersonas.DataSource = table;
@@ -129,7 +120,7 @@ namespace CORE_WinForm.Forms.Personas
                 var table = new DataTable();
                 table.Columns.Add("PersonaID", typeof(int));
                 table.Columns.Add("Estado", typeof(int));
-                table.Columns.Add("Sexo", typeof(string));
+                
                 table.Columns.Add("Nombre", typeof(string));
                 table.Columns.Add("Apellido", typeof(string));
                 table.Columns.Add("Documento", typeof(string));
@@ -139,8 +130,13 @@ namespace CORE_WinForm.Forms.Personas
                 table.Columns.Add("TipoDocumentoID", typeof(int));
                 table.Columns.Add("NacionalidadID", typeof(int));
                 table.Columns.Add("RolPersonaID", typeof(int));
+                //table.Columns.Add("Sexo", typeof(char));
 
-                table.Rows.Add(personas.PersonaID, personas.Estado, personas.Sexo, personas.Nombre, personas.Apellido, personas.Documento, personas.Telefono, personas.UsuarioID, personas.TipoSangreID, personas.TipoDocumentoID, personas.NacionalidadID, personas.RolPersonaID);
+                table.Rows.Add(personas.PersonaID, personas.Estado,
+                    personas.Nombre, personas.Apellido, personas.Documento,
+
+                    personas.Telefono, personas.UsuarioID, personas.TipoSangreID,
+                    personas.TipoDocumentoID, personas.NacionalidadID, personas.RolPersonaID);
 
                 dgvPersonas.DataSource = table;
             }
@@ -162,15 +158,16 @@ namespace CORE_WinForm.Forms.Personas
         private void dgvPersonas_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             personaSeleccionada.PersonaID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[0].Value.ToString());
-            personaSeleccionada.Nombre = dgvPersonas.Rows[e.RowIndex].Cells[1].Value.ToString();
-            personaSeleccionada.Apellido = dgvPersonas.Rows[e.RowIndex].Cells[2].Value.ToString();
-            personaSeleccionada.Sexo = Convert.ToChar(dgvPersonas.Rows[e.RowIndex].Cells[3].Value.ToString());
+            personaSeleccionada.Nombre = dgvPersonas.Rows[e.RowIndex].Cells[2].Value.ToString();
+            personaSeleccionada.Apellido = dgvPersonas.Rows[e.RowIndex].Cells[3].Value.ToString();
             personaSeleccionada.Documento = dgvPersonas.Rows[e.RowIndex].Cells[4].Value.ToString();
             personaSeleccionada.Telefono = dgvPersonas.Rows[e.RowIndex].Cells[5].Value.ToString();
-            personaSeleccionada.TipoSangreID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[6].Value.ToString());
-            personaSeleccionada.NacionalidadID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[7].Value.ToString());
-            personaSeleccionada.RolPersonaID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[8].Value.ToString());
-            personaSeleccionada.UsuarioID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[9].Value.ToString());
+            personaSeleccionada.UsuarioID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[6].Value.ToString());
+            personaSeleccionada.TipoSangreID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[7].Value.ToString());
+            personaSeleccionada.TipoDocumentoID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[8].Value.ToString());
+            personaSeleccionada.NacionalidadID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[9].Value.ToString());
+            personaSeleccionada.RolPersonaID = Convert.ToInt32(dgvPersonas.Rows[e.RowIndex].Cells[10].Value.ToString());
+            //personaSeleccionada.Sexo = Convert.ToChar(dgvPersonas.Rows[e.RowIndex].Cells[2].Value.ToString());
         }
 
         private void dgvPersonas_SelectionChanged(object sender, EventArgs e)
@@ -185,6 +182,32 @@ namespace CORE_WinForm.Forms.Personas
                 btnMod.Enabled = false;
                 btnBorrar.Enabled = false;
             }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void frmPersonas_BUSCAR_Load(object sender, EventArgs e)
+        {
+            Validacion validacionCrear = new Validacion();
+            int perfilID = this.usuario.PerfilID ?? 0;
+            await validacionCrear.ConfirmarPermisos(perfilID, 3, 4);
+            Validacion validacionVisualizar = new Validacion();
+            await validacionVisualizar.ConfirmarPermisos(perfilID, 3, 1);
+            Validacion validacionModificar = new Validacion();
+            await validacionModificar.ConfirmarPermisos(perfilID, 3, 2);
+            Validacion validacionBorrar = new Validacion();
+            await validacionBorrar.ConfirmarPermisos(perfilID, 3, 3);
+
+            if (validacionCrear.permiso == false) btnCrear.Visible = false;
+            if (validacionVisualizar.permiso == false) btnBuscar.Visible = false;
+            if (validacionModificar.permiso == false) btnMod.Visible = false;
+            if (validacionBorrar.permiso == false) btnBorrar.Visible = false;
+
+
+
         }
     }
 }

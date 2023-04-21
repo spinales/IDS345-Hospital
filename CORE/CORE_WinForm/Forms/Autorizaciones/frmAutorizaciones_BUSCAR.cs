@@ -121,5 +121,23 @@ namespace CORE_WinForm.Forms.Autorizaciones
                 btnBorrar.Enabled = false;
             }
         }
+
+        private async void frmAutorizaciones_BUSCAR_Load(object sender, EventArgs e)
+        {
+            Validacion validacionCrear = new Validacion();
+            int perfilID = this.usuario.PerfilID ?? 0;
+            await validacionCrear.ConfirmarPermisos(perfilID, 4, 4);
+            Validacion validacionVisualizar = new Validacion();
+            await validacionVisualizar.ConfirmarPermisos(perfilID, 4, 1);
+            Validacion validacionModificar = new Validacion();
+            await validacionModificar.ConfirmarPermisos(perfilID, 4, 2);
+            Validacion validacionBorrar = new Validacion();
+            await validacionBorrar.ConfirmarPermisos(perfilID, 4, 3);
+
+            if (validacionCrear.permiso == false) btnCrear.Visible = false;
+            if (validacionVisualizar.permiso == false) btnBuscar.Visible = false;
+            if (validacionModificar.permiso == false) btnMod.Visible = false;
+            if (validacionBorrar.permiso == false) btnBorrar.Visible = false;
+        }
     }
 }
