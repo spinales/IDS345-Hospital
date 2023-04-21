@@ -22,7 +22,7 @@ namespace Caja
 
         private async void btnInicioSesion_Click(object sender, EventArgs e)
         {
-            var ds = new DataService();
+            /*var ds = new DataService();
             var personas = await ds.GetAll<Persona>(
                 x => (x.RolPersonaID == (int)Enums.RolPersona.Cajero && x.Usuario.Username == txtUsuarioLogin.Text &&
                 x.Usuario.Password == txtContraseñaLogin.Text && x.Estado == true),
@@ -41,7 +41,9 @@ namespace Caja
                 MessageBox.Show("El usuario ó la contraseña ingresados no son correctos", 
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+            */
+            frMenu FrMenu = new frMenu();
+            FrMenu.Show();
         }
 
         private void closebtn_Click(object sender, EventArgs e)

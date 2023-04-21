@@ -17,6 +17,19 @@ namespace Caja
         public frCuenta()
         {
             InitializeComponent();
+            SetEstadoInicial();
+        }
+
+        void SetEstadoInicial()
+        {
+            DateTime fechaActual = DateTime.Now;
+
+            // Convertir la fecha a una cadena con formato
+            string fechaFormateada = fechaActual.ToString("dd/MM/yyyy");
+
+            // Asignar la cadena al TextBox
+            FechaAperturalbl.Text = fechaFormateada;
+
         }
 
         private void abonarcuentabtn_Click(object sender, EventArgs e)
@@ -43,13 +56,22 @@ namespace Caja
                 {
                     var cuentas = await ds.GetAll<Cuenta>(x => (x.PacienteID == persona.PersonaID && x.Estado == true));
                     Cuentacb.DataSource = cuentas;
-                    Cuentacb.ValueMember = "CuentaID";
+                    Cuentacb.ValueMember = "Balance";
+                    Cuentacb.SelectedIndex = 0;
                     Cuentacb.DisplayMember = "CuentaID";
+                    idpacienterelleno.Text = persona.PersonaID.ToString();
+
 
 
                 }
             }
 
+        }
+
+        private void Cuentacb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            idcuentatextolbl.Text = Cuentacb.Text.ToString();
+            montoactualtxt.Text = Cuentacb.SelectedValue.ToString();
         }
     }
 }
