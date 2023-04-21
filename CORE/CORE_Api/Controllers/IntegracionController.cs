@@ -12,6 +12,7 @@ using System.Web.Http;
 using CORE_Api.DTOs.Inputs;
 using CORE_Api.DTOs.Views;
 using log4net;
+using System.Xml.Linq;
 
 namespace CORE_Api.Controllers
 {
@@ -95,6 +96,7 @@ namespace CORE_Api.Controllers
                     CodigoTransaccion = x.CodigoTransaccion
                         
                 }).ToList();
+                log.Info("Se consultaron las transacciones del paciente " + documento);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se han solicitado los datos de las transacciones del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
@@ -125,6 +127,7 @@ namespace CORE_Api.Controllers
                     PacienteID = x.PacienteID,
                     UpdatedAt = x.UpdatedAt
                 }).ToList();
+                log.Info("Se consultaron las cuentas del paciente " + documento);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se han solicitado los datos de las cuentas del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
@@ -159,7 +162,7 @@ namespace CORE_Api.Controllers
                     Estado = x.Estado,
                     MontoIngreso = x.MontoIngreso
                 }).ToList();
-                    
+                log.Info("Se consultaron los ingresos del paciente " + documento);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se han solicitado los datos de los ingresos del paciente cuyo documento es " + documento, usertID);
 
@@ -204,6 +207,7 @@ namespace CORE_Api.Controllers
                     }
                         
                 }).ToList();
+                log.Info("Se consultaron las consultas del paciente " + documento);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se han solicitado los datos de las consultas del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
@@ -237,6 +241,7 @@ namespace CORE_Api.Controllers
                     EmpleadoID = x.EmpleadoID,
                     CodigoTransaccion = x.CodigoTransaccion
                 }).ToList();
+                log.Info("Se consultaron las transacciones de la cuenta " + cuentaID);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se ha solicitado el historial de transacciones de la cuenta " + cuentaID,
                     userID);
@@ -273,6 +278,7 @@ namespace CORE_Api.Controllers
                     Impuesto = x.Impuesto,
                     Descuento = x.Descuento
                 }).ToList();
+                log.Info("Se consultaron los servicios");
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
@@ -311,6 +317,7 @@ namespace CORE_Api.Controllers
                         Impuesto = x.Impuesto,
                         Descuento = x.Descuento
                     }).ToList();
+                log.Info("Se consultaron los 5 servicios mas socilitados");
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
@@ -390,6 +397,7 @@ namespace CORE_Api.Controllers
                 transaccion.Commit();
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se ha registrado una factura", userID);
+                log.Info("Se registro la factura");
                 return Ok();
             }
             catch (Exception e)
@@ -424,6 +432,7 @@ namespace CORE_Api.Controllers
                     TipoSangreID = x.TipoSangreID,
                     UpdatedAt = x.UpdatedAt
                 }).ToList();
+                log.Info("Se consultaron los doctores"+ userID);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se ha solicitado la lista de doctores", userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
@@ -456,6 +465,7 @@ namespace CORE_Api.Controllers
                     new SqlParameter("@Canal", "CAJA")
                 );
                 transaccion.Commit();
+                log.Info("Se registro la transaccion" + userID);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se ha registrado una transaccion", userID);
                 return Ok();
@@ -511,6 +521,7 @@ namespace CORE_Api.Controllers
                         
                     };
                 }
+                log.Info("Registro de transacciones fallido");
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se ha logeado el usuario " + usuario, persona.Usuario.UsuarioID);
                 return Ok(respuesta);
@@ -552,6 +563,7 @@ namespace CORE_Api.Controllers
                         UpdatedAt = persona.UpdatedAt,
                     };
                 }
+                log.Info("Consulta de pacientes");
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se han solicitado los datos del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta);
