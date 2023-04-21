@@ -1,4 +1,6 @@
-﻿using Modelos;
+﻿using CORE_WinForm.Forms.Ingresos;
+using Modelos;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,47 +49,15 @@ namespace CORE_WinForm.Forms.Autorizaciones
             }
             else if (cbFiltro.SelectedIndex == 1)
             {
-                //LlamarApiGetById(int.Parse(txtID.Text));
+                LlamarApiGetById(int.Parse(txtID.Text));
             }
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            frmAutorizaciones_CREAR frmAutorizaciones = AbrirFormulario<frmAutorizaciones_CREAR>(typeof(frmAutorizaciones_CREAR));
+            AbrirForms abrirForms = new AbrirForms();
+            abrirForms.AbrirFormulario<frmAutorizaciones_CREAR>(typeof(frmAutorizaciones_CREAR));
         }
-        public T AbrirFormulario<T>(Type buscarTipo) where T : Form, new()
-        {
-            var formBuscar = Application.OpenForms.OfType<T>().FirstOrDefault();
-
-            if (formBuscar != null)
-            {
-                formBuscar.Activate();
-                formBuscar.BringToFront();
-                return formBuscar;
-            }
-            else
-            {
-                var formAbrir = new T();
-                formAbrir.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-                formAbrir.KeyPreview = true;
-                formAbrir.Location = new System.Drawing.Point(300, 50);
-                formAbrir.MaximizeBox = false;
-                formAbrir.MinimizeBox = false;
-                formAbrir.MinimumSize = new System.Drawing.Size(500, 500);
-                formAbrir.ShowIcon = false;
-                formAbrir.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-                formAbrir.ShowDialog();
-                return formAbrir;
-            }
-        }
-        private async void LlamarApiGet()
-        {
-            using(var httpClient = new HttpClient())
-            {
-                var apiUrl = "https://localhost:44329/CORE/...";
-            }
-        }
-
         private void btnMod_Click(object sender, EventArgs e)
         {
             //frmAutorizaciones_MOD frmAutorizacionM = new frmAutorizaciones_MOD(autorizacionSeleccionado);
@@ -101,13 +71,21 @@ namespace CORE_WinForm.Forms.Autorizaciones
             //frmAutorizacionM.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             //frmAutorizacionM.ShowDialog();
         }
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            LlamarApiBorrar();
+        }
 
         private void dgvAutorizacion_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            autorizacionSeleccionado.MontoAutorizado = Convert.ToDecimal(dgvAutorizacion.Rows[e.RowIndex].Cells[0].Value.ToString());
-            autorizacionSeleccionado.AseguradoraID = Convert.ToInt32(dgvAutorizacion.Rows[e.RowIndex].Cells[1].Value.ToString());
+            autorizacionSeleccionado.AutorizacionID = Convert.ToInt32(dgvAutorizacion.Rows[e.RowIndex].Cells[0].Value.ToString());
+            autorizacionSeleccionado.MontoAutorizado = Convert.ToDecimal(dgvAutorizacion.Rows[e.RowIndex].Cells[1].Value.ToString());
+            autorizacionSeleccionado.AseguradoraID = Convert.ToInt32(dgvAutorizacion.Rows[e.RowIndex].Cells[2].Value.ToString());
+            autorizacionSeleccionado.CreatedAt = Convert.ToDateTime(dgvAutorizacion.Rows[e.RowIndex].Cells[3].Value.ToString());
+            autorizacionSeleccionado.UpdatedAt = Convert.ToDateTime(dgvAutorizacion.Rows[e.RowIndex].Cells[4].Value.ToString());
+            autorizacionSeleccionado.DeletedAt = Convert.ToDateTime(dgvAutorizacion.Rows[e.RowIndex].Cells[5].Value.ToString());
+            autorizacionSeleccionado.SendedAt = Convert.ToDateTime(dgvAutorizacion.Rows[e.RowIndex].Cells[6].Value.ToString());
         }
-
         private void dgvAutorizacion_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvAutorizacion.SelectedRows.Count == 1)
@@ -138,6 +116,80 @@ namespace CORE_WinForm.Forms.Autorizaciones
             if (validacionVisualizar.permiso == false) btnBuscar.Visible = false;
             if (validacionModificar.permiso == false) btnMod.Visible = false;
             if (validacionBorrar.permiso == false) btnBorrar.Visible = false;
+        }
+
+        // APIs
+        private async void LlamarApiGet()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = "https://localhost:44329/CORE/autorizacion/get";
+
+                var response = await httpClient.GetAsync(apiUrl);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var autorizaciones = JsonConvert.DeserializeObject<List<Modelos.Autorizaciones>>(responseContent);
+
+                var table = new DataTable();
+                table.Columns.Add("AutorizacionID", typeof(int));
+                table.Columns.Add("MontoAutorizado", typeof(decimal));
+                table.Columns.Add("AseguradoraID", typeof(int));
+                table.Columns.Add("CreatedAt", typeof(DateTime));
+                table.Columns.Add("UpdatedAt", typeof(DateTime));
+                table.Columns.Add("DeletedAt", typeof(DateTime));
+                table.Columns.Add("SendedAt", typeof(DateTime));
+
+                foreach (var autorizacion in autorizaciones)
+                {
+                    table.Rows.Add(autorizacion.AutorizacionID, autorizacion.MontoAutorizado, autorizacion.Aseguradora, autorizacion.CreatedAt, autorizacion.UpdatedAt, autorizacion.DeletedAt, autorizacion.SendedAt);
+                }
+
+                dgvAutorizacion.DataSource = table;
+            }
+        }
+        private async void LlamarApiGetById(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = string.Format("https://localhost:44329/CORE/autorizacion/get?id={0}", id);
+
+                var response = await httpClient.GetAsync(apiUrl);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var autorizacion = JsonConvert.DeserializeObject<Modelos.Autorizaciones>(responseContent);
+
+                var table = new DataTable();
+                table.Columns.Add("AutorizacionID", typeof(int));
+                table.Columns.Add("MontoAutorizado", typeof(decimal));
+                table.Columns.Add("AseguradoraID", typeof(int));
+                table.Columns.Add("CreatedAt", typeof(DateTime));
+                table.Columns.Add("UpdatedAt", typeof(DateTime));
+                table.Columns.Add("DeletedAt", typeof(DateTime));
+                table.Columns.Add("SendedAt", typeof(DateTime));
+
+                table.Rows.Add(autorizacion.AutorizacionID, autorizacion.MontoAutorizado, autorizacion.Aseguradora, autorizacion.CreatedAt, autorizacion.UpdatedAt, autorizacion.DeletedAt, autorizacion.SendedAt);
+
+                dgvAutorizacion.DataSource = table;
+            }
+        }
+        private async void LlamarApiBorrar()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var apiUrl = "https://localhost:44329/CORE/autorizacion/borrar";
+                var requestBody = new
+                {
+                    AutorizacionID = autorizacionSeleccionado.AutorizacionID,
+                };
+
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(apiUrl, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                MessageBox.Show(responseContent);
+            }
         }
     }
 }

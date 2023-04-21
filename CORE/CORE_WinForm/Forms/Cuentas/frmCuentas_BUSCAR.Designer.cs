@@ -34,47 +34,51 @@
             this.lblCuentaID = new System.Windows.Forms.Label();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.lblFiltro = new System.Windows.Forms.Label();
-            this.dgvPersonas = new System.Windows.Forms.DataGridView();
+            this.dgvCuentas = new System.Windows.Forms.DataGridView();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCuentas)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(83, 38);
+            this.lblTitulo.Location = new System.Drawing.Point(111, 47);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(143, 37);
+            this.lblTitulo.Size = new System.Drawing.Size(175, 46);
             this.lblTitulo.TabIndex = 29;
             this.lblTitulo.Text = "Cuentas";
             // 
             // btnBuscar
             // 
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(38)))));
-            this.btnBuscar.Location = new System.Drawing.Point(818, 93);
+            this.btnBuscar.Location = new System.Drawing.Point(1091, 114);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(143, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(191, 28);
             this.btnBuscar.TabIndex = 37;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(436, 93);
+            this.txtID.Location = new System.Drawing.Point(581, 114);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(98, 20);
+            this.txtID.Size = new System.Drawing.Size(129, 22);
             this.txtID.TabIndex = 36;
             // 
             // lblCuentaID
             // 
             this.lblCuentaID.AutoSize = true;
             this.lblCuentaID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCuentaID.Location = new System.Drawing.Point(341, 93);
+            this.lblCuentaID.Location = new System.Drawing.Point(455, 114);
+            this.lblCuentaID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCuentaID.Name = "lblCuentaID";
-            this.lblCuentaID.Size = new System.Drawing.Size(91, 15);
+            this.lblCuentaID.Size = new System.Drawing.Size(108, 18);
             this.lblCuentaID.TabIndex = 35;
             this.lblCuentaID.Text = "ID de la Cuenta";
             // 
@@ -82,67 +86,73 @@
             // 
             this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.FormattingEnabled = true;
-            this.cbFiltro.Location = new System.Drawing.Point(141, 93);
+            this.cbFiltro.Location = new System.Drawing.Point(188, 114);
+            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(105, 21);
+            this.cbFiltro.Size = new System.Drawing.Size(139, 24);
             this.cbFiltro.TabIndex = 34;
             // 
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(87, 93);
+            this.lblFiltro.Location = new System.Drawing.Point(116, 114);
+            this.lblFiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(38, 15);
+            this.lblFiltro.Size = new System.Drawing.Size(45, 18);
             this.lblFiltro.TabIndex = 33;
             this.lblFiltro.Text = "Filtrar";
             // 
-            // dgvPersonas
+            // dgvCuentas
             // 
-            this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersonas.Location = new System.Drawing.Point(90, 130);
-            this.dgvPersonas.Name = "dgvPersonas";
-            this.dgvPersonas.RowHeadersWidth = 51;
-            this.dgvPersonas.Size = new System.Drawing.Size(871, 567);
-            this.dgvPersonas.TabIndex = 38;
+            this.dgvCuentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCuentas.Location = new System.Drawing.Point(120, 160);
+            this.dgvCuentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCuentas.Name = "dgvCuentas";
+            this.dgvCuentas.RowHeadersWidth = 51;
+            this.dgvCuentas.Size = new System.Drawing.Size(1161, 698);
+            this.dgvCuentas.TabIndex = 38;
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(1005, 406);
+            this.btnBorrar.Location = new System.Drawing.Point(1340, 500);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(75, 57);
+            this.btnBorrar.Size = new System.Drawing.Size(100, 70);
             this.btnBorrar.TabIndex = 44;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
             // 
             // btnMod
             // 
-            this.btnMod.Location = new System.Drawing.Point(1005, 325);
+            this.btnMod.Location = new System.Drawing.Point(1340, 400);
+            this.btnMod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMod.Name = "btnMod";
-            this.btnMod.Size = new System.Drawing.Size(75, 57);
+            this.btnMod.Size = new System.Drawing.Size(100, 70);
             this.btnMod.TabIndex = 43;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = true;
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(1005, 244);
+            this.btnCrear.Location = new System.Drawing.Point(1340, 300);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(75, 57);
+            this.btnCrear.Size = new System.Drawing.Size(100, 70);
             this.btnCrear.TabIndex = 42;
             this.btnCrear.Text = "Nuevo";
             this.btnCrear.UseVisualStyleBackColor = true;
             // 
             // frmCuentas_BUSCAR
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 640);
+            this.ClientSize = new System.Drawing.Size(1387, 788);
             this.ControlBox = false;
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnMod);
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.dgvPersonas);
+            this.Controls.Add(this.dgvCuentas);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblCuentaID);
@@ -150,12 +160,12 @@
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCuentas_BUSCAR";
             this.Text = "Buscar Cuentas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCuentas_BUSCAR_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCuentas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,7 +179,7 @@
         private System.Windows.Forms.Label lblCuentaID;
         private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.Label lblFiltro;
-        private System.Windows.Forms.DataGridView dgvPersonas;
+        private System.Windows.Forms.DataGridView dgvCuentas;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.Button btnCrear;
