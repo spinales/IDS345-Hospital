@@ -32,6 +32,8 @@ namespace Modelos
         public virtual Cuenta Cuenta { get; set; }
         public string CodigoTransaccion { get; set; }
         public string Canal { get; set; }
+
+        public virtual Persona Empleado { get; set; }
     }
     
 }

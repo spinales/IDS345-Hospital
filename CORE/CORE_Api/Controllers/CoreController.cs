@@ -304,10 +304,6 @@ namespace CORE_Api.Controllers
                     })
                     .FirstOrDefaultAsync();
 
-                    if (usuario == null)
-                    {
-                        return NotFound();
-                    }
                     log.Info("Login exitoso");
                     return Ok(usuario);
 
