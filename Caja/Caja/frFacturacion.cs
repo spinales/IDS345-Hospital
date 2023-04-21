@@ -32,20 +32,10 @@ namespace Caja
             lbFacturacionNombreCajero.Text = persona.Nombre + " " + persona.Apellido;
             lbFacturacionNombreSucursal.Text = persona.Usuario.Sucursal.Nombre;
             lbFacturacionFecha.Text = DateTime.Now.ToShortDateString();
-            inicio();
-            DatagView();
-            factura.EmpleadoID = persona.PersonaID;
-            
+            inicio();            
         }
-        private async void DatagView() 
-        {
-            DGV.Columns.Add("Servicio", "Descripcion");
-            DGV.Columns.Add("PrecioUnitario", "PrecioUnitario");
-            DGV.Columns.Add("Cantidad", "Cantidad");
-            DGV.Columns.Add("Impuesto", "Impuesto");
-            DGV.Columns.Add("Descuento", "Descuento");
 
-        }
+        
         private async void inicio() 
         {
             var ds = new DataService();
@@ -62,6 +52,8 @@ namespace Caja
             lbFacturacionTipoServicioSeleccionado.Text = "Tipo de servicio";
             lbFacturacionDescripcionServicio.Text = "Descripcion del servicio";
             lbFacturacionPrecioServicio.Text = "Precio del servicio";
+            cbFacturacionMetodoPago.SelectedIndex = -1;
+            cbFacturacionServicios.SelectedIndex = -1;
 
         }
 
@@ -145,12 +137,12 @@ namespace Caja
                 {
                     factura.PacienteID = pacient.PersonaID;
                     factura.CuentaID = cuenta.CuentaID;
-                    factura.MetodoPagoID = cbFacturacionMetodoPago.SelectedIndex+1;
+                    factura.EmpleadoID = persona.UsuarioID;
                     
                 }
                 facturaServicios[i] = new FacturaServicios();
                 facturaServicios[i].Cantidad = 1;
-                facturaServicios[i].PrecioUnitario = Dservicio.Precio;
+                facturaServicios[i].PrecioUnitario = decimal.Parse(lbFacturacionPrecioServicio.Text);
                 facturaServicios[i].Impuesto = Dservicio.Impuesto;
                 facturaServicios[i].Descuento = Dservicio.Descuento;
                 
@@ -162,7 +154,7 @@ namespace Caja
                     DGV.DataSource = facturas;
                 }
 
-                decimal totalBruto = Dservicio.Precio * 1;
+                decimal totalBruto = decimal.Parse(lbFacturacionPrecioServicio.Text);
 
                 decimal totalImpuesto = totalBruto * 0.18m;
 
@@ -184,26 +176,38 @@ namespace Caja
 
         private void ImprimirFacturabtn_Click(object sender, EventArgs e)
         {
-    
+            Factura factura1 = new Factura();
+            {
+                factura1.TotalFinal = factura.TotalFinal;
+                factura1.Descuento = factura.Descuento;
+                factura1.TotalBruto = factura.TotalBruto;
+                factura1.CuentaID = factura.CuentaID;
+                factura1.PacienteID = factura.PacienteID;
+                factura1.EmpleadoID = factura.EmpleadoID;
+                factura1.MetodoPagoID = factura.MetodoPagoID;
+                factura1.CreatedAt = factura.CreatedAt;
+                factura1.CodigoFactura = factura.CodigoFactura;
+            }
             DataService ds = new DataService();
             var transaccion = ds.Database.BeginTransaction();
             try
             {
-                ds.Database.ExecuteSqlCommand("EXEC sp_registrar_factura @TotalFinal, @TotalDescuento, @TotalBruto, @CuentaID, @PacienteID, @EmpleadoID, @MetodoPagoID, @CreatedAt, @Estado, @CodigoFactura, @TotalAutorizado",
-                    new SqlParameter("@TotalFinal", factura.TotalFinal),
-                    new SqlParameter("@TotalDescuento", factura.Descuento),
-                    new SqlParameter("@TotalBruto", factura.TotalBruto),
-                    new SqlParameter("@CuentaID", factura.CuentaID == null ? DBNull.Value : (object)factura.CuentaID),
-                    new SqlParameter("@PacienteID", factura.PacienteID),
-                    new SqlParameter("@EmpleadoID", factura.EmpleadoID == null ? DBNull.Value : (object)factura.EmpleadoID),
-                    new SqlParameter("@MetodoPagoID", factura.MetodoPagoID),
-                    new SqlParameter("@CreatedAt", factura.CreatedAt),
-                    new SqlParameter("@Estado", 1),
-                    new SqlParameter("@CodigoFactura", factura.CodigoFactura),
-                    new SqlParameter("@TotalAutorizado", factura.TotalAutorizado)
+                ds.Database.ExecuteSqlCommand("EXEC sp_registrar_factura @TotalFinal, @TotalDescuento, @TotalBruto, @CuentaID, @PacienteID, @EmpleadoID, @MetodoPagoID, @CreatedAt, @CodigoFactura",
+                    new SqlParameter("@TotalFinal", factura1.TotalFinal),
+                    new SqlParameter("@TotalDescuento", factura1.Descuento),
+                    new SqlParameter("@TotalBruto", factura1.TotalBruto),
+                    new SqlParameter("@CuentaID", factura1.CuentaID == null ? DBNull.Value : (object)factura.CuentaID),
+                    new SqlParameter("@PacienteID", factura1.PacienteID),
+                    new SqlParameter("@EmpleadoID", factura1.EmpleadoID == null ? DBNull.Value : (object)factura.EmpleadoID),
+                    new SqlParameter("@MetodoPagoID", factura1.MetodoPagoID),
+                    new SqlParameter("@CreatedAt", factura1.CreatedAt),
+                    new SqlParameter("@CodigoFactura", factura1.CodigoFactura)
                     );
-                foreach (var servicio in facturaServicios)
+
+                for (int a = 0; a >= i; a++)
                 {
+                    var servicio = facturaServicios[a];
+                    
                     var ID = new SqlParameter("@ID", SqlDbType.Int)
                     {
                         Direction = ParameterDirection.Output
@@ -236,6 +240,7 @@ namespace Caja
                         CodigoFactura,
                         ID
                     );
+                   
                     //if (servicio.Consulta != null)
                     //    ds.Database.ExecuteSqlCommand("EXEC sp_registrar_consulta @CodigoFactura, @Descripcion, @DoctorID, @CreatedAt, @DetalleID",
                     //        new SqlParameter("@CodigoFactura", factura.CodigoFactura),
@@ -257,13 +262,18 @@ namespace Caja
             }
             catch (Exception ex) {
                 transaccion.Rollback();
-               // return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
+                // return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
+                
             }
+
+            FrReporteFactura frReporteFactura = new FrReporteFactura();
+            frReporteFactura.Show();
+
         }
 
         private void btnFacturacionSeleccionarMetodoPago_Click(object sender, EventArgs e)
         {
-
+            factura.MetodoPagoID=cbFacturacionMetodoPago.SelectedIndex + 1;
         }
     }
 }

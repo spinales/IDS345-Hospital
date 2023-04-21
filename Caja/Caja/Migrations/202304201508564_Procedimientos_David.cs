@@ -16,7 +16,7 @@
                 @EmpleadoID INT = NULL,
                 @MetodoPagoID INT,
                 @CreatedAt DATETIME,
-                @CodigoFactura NVARCHAR(255);
+                @CodigoFactura NVARCHAR(255)
             AS
             BEGIN
                 INSERT INTO Factura(TotalFinal, TotalDescuento, TotalBruto, CuentaID, PacienteID, EmpleadoID, MetodoPagoID, CreatedAt, Estado, CodigoFactura, TotalAutorizado)
