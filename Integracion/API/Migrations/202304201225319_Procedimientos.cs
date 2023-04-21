@@ -101,7 +101,17 @@
                 END
                 GO            
             ");
-            
+
+            Sql(@"CREATE PROCEDURE sp_insert_historico_acciones
+                    @Descripcion VARCHAR(100),
+                    @UsuarioID INT
+                    AS
+                    BEGIN
+                        INSERT INTO HistoricoAcciones (Descripcion, UsuarioID, CreatedAt)
+                        VALUES (@Descripcion, @UsuarioID, GETDATE())
+                    END
+                ");
+
         }
         
         public override void Down()
@@ -113,6 +123,8 @@
             Sql(@"DROP PROCEDURE sp_registrar_consulta");
             
             Sql(@"DROP PROCEDURE sp_registrar_transaccion");
+            
+            Sql(@"DROP PROCEDURE sp_insert_historico_acciones");
         }
     }
 }

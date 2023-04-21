@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,18 +13,57 @@ using Modelos;
 
 namespace API.Controllers
 {
+    [Authorize]
     public class CajaController : ApiController
     {
+        
+        private static readonly log4net.ILog Log = 
+            log4net.LogManager.GetLogger
+                (System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+        
         [HttpPost]
         [Route("CAJA/login")]
         public async Task<IHttpActionResult> LoginCajero(string usuario, string clave)
         {
+
             // Conectarse al Core y consumir el servicio para validar el usuario y la clave
             bool coreRespondio = false;
             
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var persona = new PersonaView();
+                var ds = new DataService();
+                var local = new Persona
+                {
+                    Apellido = persona.Apellido,
+                    Documento = persona.Documento,
+                    Estado = persona.Estado,
+                    NacionalidadID = persona.NacionalidadID,
+                    Nombre = persona.Nombre,
+                    PersonaID = persona.PersonaID,
+                    RolPersonaID = persona.RolPersonaID,
+                    Sexo = persona.Sexo,
+                    Telefono = persona.Telefono,
+                    TipoDocumentoID = persona.TipoDocumentoID,
+                    TipoSangreID = persona.TipoSangreID,
+                    UpdatedAt = DateTime.Now,
+                    Usuario = new Usuario()
+                    {
+                        Email = persona.Usuario.Email,
+                        Estado = persona.Usuario.Estado,
+                        Password = persona.Usuario.Password,
+                        SucursalID = persona.Usuario.SucursalID,
+                        UpdatedAt = DateTime.Now,
+                        UsuarioID = persona.Usuario.UsuarioID,
+                        Username = persona.Usuario.Username
+                    }
+                };
+                ds.Persona.AddOrUpdate(x=>x.PersonaID, local);
+                AuditoriaAccion auditoria = new AuditoriaAccion();
+                auditoria.RegistrarAccion("Se ha logeado el usuario " + usuario, persona.Usuario.UsuarioID);
+                await ds.SaveChangesAsync();
+                return Ok(persona);            
             }
             else
             { 
@@ -62,12 +103,16 @@ namespace API.Controllers
                                 UsuarioID = persona.Usuario.UsuarioID,
                                 Username = persona.Usuario.Username,
                             }
+                            
                         };
                     }
+                    AuditoriaAccion auditoria = new AuditoriaAccion();
+                    auditoria.RegistrarAccion("Se ha logeado el usuario " + usuario, persona.Usuario.UsuarioID);
                     return Ok(respuesta);
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -75,14 +120,29 @@ namespace API.Controllers
         
         [HttpGet]
         [Route("CAJA/cuentas/paciente/get")]
-        public async Task<IHttpActionResult> ObtenerCuentasPaciente(string documento)
+        public async Task<IHttpActionResult> ObtenerCuentasPaciente(string documento, int userID)
         {
             // Conectarse al CORE y obtener las cuentas del paciente
             
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var cuentas = new List<CuentaView>();
+                var ds = new DataService();
+                var local = cuentas.Select(x => new Cuenta()
+                {
+                    CuentaID = x.CuentaID,
+                    Balance = x.Balance,
+                    Estado = x.Estado,
+                    PacienteID = x.PacienteID,
+                    UpdatedAt = DateTime.Now
+                });
+                ds.Cuenta.AddOrUpdate(x=>x.CuentaID, local.ToArray());
+                AuditoriaAccion auditoria = new AuditoriaAccion();
+                auditoria.RegistrarAccion("Se han solicitado los datos de las cuentas del paciente cuyo documento es " + documento, userID);
+                await ds.SaveChangesAsync();
+                return Ok(cuentas);
             }
             else
             { 
@@ -100,11 +160,14 @@ namespace API.Controllers
                         PacienteID = x.PacienteID,
                         UpdatedAt = x.UpdatedAt
                     }).ToList();
-                    
+                    AuditoriaAccion auditoria = new AuditoriaAccion();
+                    auditoria.RegistrarAccion("Se han solicitado los datos de las cuentas del paciente cuyo documento es " + documento, userID);
                     return Ok(respuesta.Count > 0 ? respuesta : null);
+                    
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -112,13 +175,17 @@ namespace API.Controllers
         
         [HttpGet]
         [Route("CAJA/transacciones/cuenta/get")]
-        public async Task<IHttpActionResult> ObtenerTransaccionesCuenta(int CuentaID)
+        public async Task<IHttpActionResult> ObtenerTransaccionesCuenta(int cuentaID, int userID)
         {
             // Conectarse al CORE y obtener las cuentas del paciente
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var transacciones = new List<TransaccionView>();
+                AuditoriaAccion auditoria = new AuditoriaAccion(); 
+                auditoria.RegistrarAccion("Se ha solicitado el historial de transacciones de la cuenta " + cuentaID, userID);
+                return Ok(transacciones);            
             }
             else
             { 
@@ -126,7 +193,7 @@ namespace API.Controllers
                 try
                 {
                     var transacciones = await ds.GetAll<Transaccion>(
-                        x => x.Cuenta.CuentaID == CuentaID);
+                        x => x.Cuenta.CuentaID == cuentaID);
                     
                     var respuesta = transacciones.Select(x => new TransaccionView()
                     {
@@ -140,11 +207,13 @@ namespace API.Controllers
                         EmpleadoID = x.EmpleadoID,
                         CodigoTransaccion = x.CodigoTransaccion
                     }).ToList();
-                    
+                    AuditoriaAccion auditoria = new AuditoriaAccion(); 
+                    auditoria.RegistrarAccion("Se ha solicitado el historial de transacciones de la cuenta " + cuentaID, userID);
                     return Ok(respuesta.Count > 0 ? respuesta : null);
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -152,13 +221,35 @@ namespace API.Controllers
         
         [HttpGet]
         [Route("CAJA/pacientes/get")]
-        public async Task<IHttpActionResult> ObtenerPaciente(string documento)
+        public async Task<IHttpActionResult> ObtenerPaciente(string documento, int userID)
         {
             // Conectarse al CORE y obtener las cuentas del paciente
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var paciente = new PacienteView();
+                var ds = new DataService();
+                var local = new Persona
+                {
+                    Apellido = paciente.Apellido,
+                    Documento = paciente.Documento,
+                    Estado = paciente.Estado,
+                    NacionalidadID = paciente.NacionalidadID,
+                    Nombre = paciente.Nombre,
+                    PersonaID = paciente.PersonaID,
+                    RolPersonaID = paciente.RolPersonaID,
+                    Sexo = paciente.Sexo,
+                    Telefono = paciente.Telefono,
+                    TipoDocumentoID = paciente.TipoDocumentoID,
+                    TipoSangreID = paciente.TipoSangreID,
+                    UpdatedAt = DateTime.Now
+                };
+                ds.Persona.AddOrUpdate(x=>x.PersonaID, local);
+                await ds.SaveChangesAsync();
+                AuditoriaAccion auditoria = new AuditoriaAccion();
+                auditoria.RegistrarAccion("Se han solicitado los datos del paciente cuyo documento es " + documento, userID);
+                return Ok(paciente);                     
             }
             else
             { 
@@ -188,11 +279,13 @@ namespace API.Controllers
                             UpdatedAt = persona.UpdatedAt,
                         };
                     }
-
+                    AuditoriaAccion auditoria = new AuditoriaAccion();
+                    auditoria.RegistrarAccion("Se han solicitado los datos del paciente cuyo documento es " + documento, userID);
                     return Ok(respuesta);
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -207,7 +300,30 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var servicios = new List<ServiciosView>();
+                var ds = new DataService();
+                var local = servicios.Select(x => new Servicios()
+                {
+                    ServicioID = x.ServicioID,
+                    Precio = x.Precio,
+                    Descripcion = x.Descripcion,
+                    UpdatedAt = DateTime.Now,
+                    Estado = x.Estado, 
+                    TipoServicio = new TipoServicio()
+                    {
+                        Descripcion = x.TipoServicio.Descripcion,
+                        TipoServicioID = x.TipoServicio.TipoServicioID,
+                        UpdatedAt = DateTime.Now
+                    },
+                    Impuesto = x.Impuesto,
+                    Descuento = x.Descuento
+                });
+                ds.Servicios.AddOrUpdate(x=>x.ServicioID, local.ToArray());
+                await ds.SaveChangesAsync();
+                AuditoriaAccion auditoria = new AuditoriaAccion();
+                auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
+                return Ok(servicios);
             }
             else
             { 
@@ -231,10 +347,13 @@ namespace API.Controllers
                         Impuesto = x.Impuesto,
                         Descuento = x.Descuento
                     }).ToList();
+                    AuditoriaAccion auditoria = new AuditoriaAccion();
+                    auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
                     return Ok(respuesta.Count > 0 ? respuesta : null);
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
@@ -242,7 +361,7 @@ namespace API.Controllers
         
         [HttpPost]
         [Route("CAJA/facturas/registrar")]
-        public IHttpActionResult RegistrarFactura(FacturaInput factura)
+        public IHttpActionResult RegistrarFactura(FacturaInput factura, int userID)
         {
             DataService ds = new DataService();
             var transaccion = ds.Database.BeginTransaction();
@@ -307,12 +426,19 @@ namespace API.Controllers
                 }
                 
                 // Conectarse al Core y consumir el servicio para registrar la factura alla
-                
+                bool coreRespondio = false;
+                if (coreRespondio)
+                {  
+                    // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
+                }
                 transaccion.Commit();
+                AuditoriaAccion auditoria = new AuditoriaAccion();
+                auditoria.RegistrarAccion("Se ha registrado una factura", userID);
                 return Ok();
             }
             catch (Exception e)
             {
+                Log.Error("Error: " + e);
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
             }
@@ -320,7 +446,7 @@ namespace API.Controllers
         
         [HttpPost]
         [Route("CAJA/transacciones/registrar")]
-        public IHttpActionResult RegistrarTransacciones(TransaccionInput transaccionCuenta)
+        public IHttpActionResult RegistrarTransacciones(TransaccionInput transaccionCuenta, int userID)
         {
             DataService ds = new DataService();
             var transaccion = ds.Database.BeginTransaction();
@@ -339,12 +465,20 @@ namespace API.Controllers
                     new SqlParameter("@Canal", "CAJA")
                 );
 
-                // Conectarse al Core y consumir el servicio para registrar la transaccion alla
+                // Conectarse al Core y consumir el servicio para registrar la factura alla
+                bool coreRespondio = false;
+                if (coreRespondio)
+                {  
+                    // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
+                }
                 transaccion.Commit();
+                AuditoriaAccion auditoria = new AuditoriaAccion();
+                auditoria.RegistrarAccion("Se ha registrado una transaccion", userID);
                 return Ok();
             }
             catch (Exception e)
             {
+                Log.Error("Error: " + e);
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al registrar la transaccion, intente mas tarde");
             }
@@ -352,15 +486,36 @@ namespace API.Controllers
         
         [HttpGet]
         [Route("CAJA/doctores/get")]
-        public async Task<IHttpActionResult> ObtenerDoctores()
+        public async Task<IHttpActionResult> ObtenerDoctores(int userID)
         {
             // Conectarse al CORE y obtener los doctores del sistema
             
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
-            }
+                // Actualizacion dentro de la integracion
+                var doctores = new List<DoctorView>();
+                var ds = new DataService();
+                var local = doctores.Select(x=>new Persona()
+                {
+                    Apellido = x.Apellido,
+                    Documento = x.Documento,
+                    Estado = x.Estado,
+                    NacionalidadID = x.NacionalidadID,
+                    Nombre = x.Nombre,
+                    PersonaID = x.PersonaID,
+                    RolPersonaID = x.RolPersonaID,
+                    Sexo = x.Sexo,
+                    Telefono = x.Telefono,
+                    TipoDocumentoID = x.TipoDocumentoID,
+                    TipoSangreID = x.TipoSangreID,
+                    UpdatedAt = DateTime.Now
+                });
+                ds.Persona.AddOrUpdate(x=>x.PersonaID, local.ToArray());
+                await ds.SaveChangesAsync();
+                AuditoriaAccion auditoria = new AuditoriaAccion();
+                auditoria.RegistrarAccion("Se ha solicitado la lista de doctores", userID);
+                return Ok(doctores);            }
             else
             { 
                 var ds = new DataService();
@@ -383,10 +538,14 @@ namespace API.Controllers
                         TipoSangreID = x.TipoSangreID,
                         UpdatedAt = x.UpdatedAt
                     }).ToList();
+                    
+                    AuditoriaAccion auditoria = new AuditoriaAccion();
+                    auditoria.RegistrarAccion("Se ha solicitado la lista de doctores", userID);
                     return Ok(respuesta.Count > 0 ? respuesta : null);
                 }
                 catch (Exception e)
                 {
+                    Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
             }
