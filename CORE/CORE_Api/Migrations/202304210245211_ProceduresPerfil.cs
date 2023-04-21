@@ -45,9 +45,9 @@
                     WHERE PerfilID = @PerfilID;
                 END;");
 
-            Sql(@"CREATE PROCEDURE sp_insert_perfil_role
+            Sql(@"CREATE OR ALTER PROCEDURE sp_insert_perfil_role
                     @PerfilID int,
-                    @EntidadID int,
+                    @EntidadId int,
                     @RoleID int
                 AS
                 BEGIN

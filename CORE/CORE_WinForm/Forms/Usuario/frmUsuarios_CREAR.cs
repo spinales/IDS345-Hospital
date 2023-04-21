@@ -83,7 +83,7 @@ namespace CORE_WinForm
         {
             using (var httpClient = new HttpClient())
             {
-                var apiUrl = string.Format("https://localhost:44329/CORE/perfiles/get"); // replace with your API endpoint
+                var apiUrl = string.Format("https://localhost:44329/CORE/perfil/get"); // replace with your API endpoint
 
                 var response = await httpClient.GetAsync(apiUrl);
                 var responseContent = await response.Content.ReadAsStringAsync();
@@ -99,7 +99,7 @@ namespace CORE_WinForm
         {
             using (var httpClient = new HttpClient())
             {
-                var apiUrl = string.Format("https://localhost:44329/CORE/sucursales/get"); // replace with your API endpoint
+                var apiUrl = string.Format("https://localhost:44329/CORE/sucursal/get"); // replace with your API endpoint
 
                 var response = await httpClient.GetAsync(apiUrl);
                 var responseContent = await response.Content.ReadAsStringAsync();

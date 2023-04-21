@@ -41,7 +41,6 @@ namespace CORE_WinForm
                 }
                 else
                 {
-                    // parse the JSON response into a collection of Usuario objects
                     frmMenu menu = new frmMenu(usuarios);
                     menu.Show();
 
