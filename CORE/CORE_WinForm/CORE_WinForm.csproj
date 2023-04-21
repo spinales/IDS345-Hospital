@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbrirForms.cs" />
     <Compile Include="Forms\Autorizaciones\frmAutorizaciones_BUSCAR.cs">
       <SubType>Form</SubType>
     </Compile>
