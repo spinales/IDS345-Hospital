@@ -22,20 +22,20 @@
                 </div>
                 <div class="cuentas-recientes">
 
-                    <asp:Repeater ID="RepeaterCuentas" runat="server">
-                        <ItemTemplate>
+                    
                             <div class="cuenta">
 
                                 <div class="cuenta-info">
                                     <div class="profile-pic"></div>
-                                    <h5><%#Eval("PacienteID")%></h5>
-                                    <h6><%#Eval("CuentaID")%></h6>
+                                    <h5>PacienteID</h5>
+                                    <h6>CuentaID</h6>
                                     <p>Estado</p>
                                 </div>
 
                             </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                        
+
+                    
 
                 </div>
 

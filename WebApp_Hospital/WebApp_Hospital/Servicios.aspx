@@ -14,21 +14,32 @@
     <div class="row">
 
         <div class="col-md-3 mb-3">
-            <div class="card h-100 shadow">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="Design Resources\Images\service.svg" class="img-fluid" />
 
-                </div>
-                <div class="card-body">
-                    <div class="card-head d-flex justify-content-between">
-                        <h5 class="card-title">Card title</h5>
-                        <small>Monto</small>
+            <asp:Repeater ID="ServiciosRepeater" runat="server">
+                <ItemTemplate>
+                    <div class="card h-100 shadow">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="Design Resources\Images\service.svg" class="img-fluid" />
+
+                        </div>
+                        <div class="card-body">
+                            <div class="card-head d-flex justify-content-between">
+                                <h5 class="card-title"><%#Eval("Descripcion")%></h5>
+                                <small><%#Eval("Precio")%></small>
+                            </div>
+
+                            <p class="card-text small mb-2"><%#Eval("TipoServicio")%></p>
+                            <asp:Button CssClass="btn btn-primary btn-sm w-100 fw-bold" ID="btnAgregarServicio" runat="server" Text="Agregar Servicio" />
+                        </div>
                     </div>
+                </ItemTemplate>
+            </asp:Repeater>
+           
+                    
+                
 
-                    <p class="card-text small mb-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <asp:Button CssClass="btn btn-primary btn-sm w-100 fw-bold" ID="btnAgregarServicio" runat="server" Text="Agregar Servicio" />
-                </div>
-            </div>
+
+
         </div>
 
     </div>
@@ -49,11 +60,11 @@
                             <div class="all-service-header d-flex justify-content-between">
                                 <h5 class="card-title">Card title</h5>
                                 <small>Monto</small>
-                                    
+
                             </div>
                             <p class="card-text small">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            
-                            
+
+
                         </div>
                     </div>
                 </div>
@@ -61,7 +72,7 @@
 
         </div>
 
-        
+
 
     </div>
     <!-- Todos los Servicios -->
