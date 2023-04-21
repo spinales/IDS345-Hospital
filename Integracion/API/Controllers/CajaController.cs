@@ -1,6 +1,4 @@
-﻿using API.Services;
-using Modelos;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,15 +6,16 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using API.DTOs.Inputs;
 using API.DTOs.Views;
-
+using API.Services;
+using Modelos;
 
 namespace API.Controllers
 {
-    public class WEBController : ApiController
+    public class CajaController : ApiController
     {
         [HttpPost]
-        [Route("WEB/login")]
-        public async Task<IHttpActionResult> LoginPaciente(string usuario, string clave)
+        [Route("CAJA/login")]
+        public async Task<IHttpActionResult> LoginCajero(string usuario, string clave)
         {
             // Conectarse al Core y consumir el servicio para validar el usuario y la clave
             bool coreRespondio = false;
@@ -31,7 +30,7 @@ namespace API.Controllers
                 try
                 {
                     var personas = await ds.GetAll<Persona>(
-                        x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == usuario &&
+                        x => (x.RolPersonaID == (int)Enums.RolPersona.Cajero && x.Usuario.Username == usuario &&
                               x.Usuario.Password == clave && x.Estado == true), 
                               x=> x.Usuario);
                     
@@ -61,7 +60,7 @@ namespace API.Controllers
                                 SucursalID = persona.Usuario.SucursalID,
                                 UpdatedAt = persona.Usuario.UpdatedAt,
                                 UsuarioID = persona.Usuario.UsuarioID,
-                                Username = persona.Usuario.Username
+                                Username = persona.Usuario.Username,
                             }
                         };
                     }
@@ -75,50 +74,7 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        [Route("WEB/transacciones/pacientes/get")]
-        public async Task<IHttpActionResult> ObtenerTransaccionesPaciente(string documento)
-        {
-            // Conectarse al CORE y obtener las cuentas del paciente
-            
-            bool coreRespondio = false;
-            if (coreRespondio)
-            {
-                return Ok();
-            }
-            else
-            { 
-                var ds = new DataService();
-                try
-                {
-                    var transacciones = await ds.GetAll<Transaccion>(
-                        x => x.Cuenta.Persona.Documento == documento);
-                    
-                    var respuesta = transacciones.Select(x => new TransaccionView()
-                    {
-                        Monto = x.Monto,
-                        TipoTransaccion = x.TipoTransaccion,
-                        CreatedAt = x.CreatedAt,
-                        Estado = x.Estado,
-                        Descripcion = x.Descripcion,
-                        MetodoPagoID = x.MetodoPagoID,
-                        CuentaID = x.CuentaID,
-                        EmpleadoID = x.EmpleadoID,
-                        CodigoTransaccion = x.CodigoTransaccion
-                        
-                    }).ToList();
-                    
-                    return Ok(respuesta.Count > 0 ? respuesta : null);
-                }
-                catch (Exception e)
-                {
-                    return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
-                }
-            }
-        }
-        
-        
-        [HttpGet]
-        [Route("WEB/cuentas/paciente/get")]
+        [Route("CAJA/cuentas/paciente/get")]
         public async Task<IHttpActionResult> ObtenerCuentasPaciente(string documento)
         {
             // Conectarse al CORE y obtener las cuentas del paciente
@@ -155,100 +111,7 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        [Route("WEB/ingresos/paciente/get")]
-        public async Task<IHttpActionResult> ObtenerIngresosPaciente(string documento)
-        {
-            // Conectarse al CORE y obtener las cuentas del paciente
-            bool coreRespondio = false;
-            if (coreRespondio)
-            {
-                return Ok();
-            }
-            else
-            { 
-                var ds = new DataService();
-                try
-                {
-                    var ingresos = await ds.GetAll<Ingreso>(
-                        x => x.Persona.Documento == documento, x => x.Habitacion);
-                    
-                    var respuesta = ingresos.Select(x => new IngresoView()
-                    {
-                        IngresoID = x.IngresoID,
-                        HabitacionID = x.HabitacionID,
-                        PacienteID = x.PacienteID,
-                        CuentaID = x.CuentaID,
-                        FechaInicio = x.FechaInicio,
-                        FechaFin = x.FechaFin,
-                        Alta = x.Alta,
-                        Estado = x.Estado,
-                        MontoIngreso = x.MontoIngreso
-                    }).ToList();
-                    
-                    return Ok(respuesta.Count > 0 ? respuesta : null);
-                }
-                catch (Exception e)
-                {
-                    return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
-                }
-            }
-        }
-        
-        
-        
-        
-        [HttpGet]
-        [Route("WEB/consultas/paciente/get")]
-        public async Task<IHttpActionResult> ObtenerConsultasPaciente(string documento)
-        {
-            // Conectarse al CORE y obtener las cuentas del paciente
-            bool coreRespondio = false;
-            if (coreRespondio)
-            {
-                return Ok();
-            }
-            else
-            { 
-                var ds = new DataService();
-                try
-                {
-                    var consultas = await ds.GetAll<Consulta>(
-                        x => x.FacturaServicios.Factura.Paciente.Documento == documento, x => x.Doctor);
-                    
-                    var respuesta = consultas.Select(x => new ConsultaView()
-                    {
-                        CodigoFactura = x.FacturaServicios.CodigoFactura,
-                        Descripcion = x.Descripcion,
-                        UpdatedAt = x.UpdatedAt,
-                        Doctor = new DoctorView()
-                        {
-                            Apellido = x.Doctor.Apellido,
-                            Documento = x.Doctor.Documento,
-                            Estado = x.Doctor.Estado,
-                            NacionalidadID = x.Doctor.NacionalidadID,
-                            Nombre = x.Doctor.Nombre,
-                            PersonaID = x.Doctor.PersonaID,
-                            RolPersonaID = x.Doctor.RolPersonaID,
-                            Sexo = x.Doctor.Sexo,
-                            Telefono = x.Doctor.Telefono,
-                            TipoDocumentoID = x.Doctor.TipoDocumentoID,
-                            TipoSangreID = x.Doctor.TipoSangreID,
-                            UpdatedAt = x.Doctor.UpdatedAt
-                        }
-                        
-                    }).ToList();
-                    
-                    return Ok(respuesta.Count > 0 ? respuesta : null);
-                }
-                catch (Exception e)
-                {
-                    return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
-                }
-            }
-        }
-        
-        [HttpGet]
-        [Route("WEB/transacciones/cuenta/get")]
+        [Route("CAJA/transacciones/cuenta/get")]
         public async Task<IHttpActionResult> ObtenerTransaccionesCuenta(int CuentaID)
         {
             // Conectarse al CORE y obtener las cuentas del paciente
@@ -288,7 +151,55 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        [Route("WEB/servicios/get")]
+        [Route("CAJA/pacientes/get")]
+        public async Task<IHttpActionResult> ObtenerPaciente(string documento)
+        {
+            // Conectarse al CORE y obtener las cuentas del paciente
+            bool coreRespondio = false;
+            if (coreRespondio)
+            {
+                return Ok();
+            }
+            else
+            { 
+                var ds = new DataService();
+                try
+                {
+                    var personas = await ds.GetAll<Persona>(
+                        x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Documento == documento && x.Estado == true));
+                    
+                    var persona = personas.FirstOrDefault();
+                    PersonaView respuesta = null;
+                    if (persona != null)
+                    {
+                        respuesta = new PersonaView()
+                        {
+                            Apellido = persona.Apellido,
+                            Documento = persona.Documento,
+                            Estado = persona.Estado,
+                            NacionalidadID = persona.NacionalidadID,
+                            Nombre = persona.Nombre,
+                            PersonaID = persona.PersonaID,
+                            RolPersonaID = persona.RolPersonaID,
+                            Sexo = persona.Sexo,
+                            Telefono = persona.Telefono,
+                            TipoDocumentoID = persona.TipoDocumentoID,
+                            TipoSangreID = persona.TipoSangreID,
+                            UpdatedAt = persona.UpdatedAt,
+                        };
+                    }
+
+                    return Ok(respuesta);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
+                }
+            }
+        }
+        
+        [HttpGet]
+        [Route("CAJA/servicios/get")]
         public async Task<IHttpActionResult> ObtenerServicios()
         {
             // Conectarse al CORE y obtener los servicios
@@ -329,53 +240,8 @@ namespace API.Controllers
             }
         }
         
-        [HttpGet]
-        [Route("WEB/servicios/top5/get")]
-        public async Task<IHttpActionResult> ObtenerTopServicios()
-        {
-            // Conectarse al CORE y obtener los servicios
-            
-            bool coreRespondio = false;
-            if (coreRespondio)
-            {
-                return Ok();
-            }
-            else
-            { 
-                var ds = new DataService();
-                try
-                {
-                    var servicios = await ds.GetAll<Servicios>(
-                        x => x.Estado == true);
-                    var respuesta = servicios
-                        .OrderByDescending(x=>x.FacturaServicios.Count)
-                        .Take(5)
-                        .Select(x => new ServiciosView()
-                        {
-                            ServicioID = x.ServicioID,
-                            Precio = x.Precio,
-                            Descripcion = x.Descripcion,
-                            UpdatedAt = x.UpdatedAt,
-                            Estado = x.Estado, 
-                            TipoServicio = new TipoServicioView()
-                            {
-                                Descripcion = x.TipoServicio.Descripcion,
-                                TipoServicioID = x.TipoServicioID
-                            },
-                            Impuesto = x.Impuesto,
-                            Descuento = x.Descuento
-                        }).ToList();
-                    return Ok(respuesta.Count > 0 ? respuesta : null);
-                }
-                catch (Exception e)
-                {
-                    return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
-                }
-            }
-        }
-
         [HttpPost]
-        [Route("WEB/facturas/registrar")]
+        [Route("CAJA/facturas/registrar")]
         public IHttpActionResult RegistrarFactura(FacturaInput factura)
         {
             DataService ds = new DataService();
@@ -392,7 +258,7 @@ namespace API.Controllers
                     new SqlParameter("@MetodoPagoID", factura.MetodoPagoID),
                     new SqlParameter("@CreatedAt", factura.CreatedAt),
                     new SqlParameter("@CodigoFactura", factura.CodigoFactura),
-                    new SqlParameter("@Canal", "WEB")
+                    new SqlParameter("@Canal", "CAJA")
                 );
                 
                 foreach (var servicio in factura.Servicios)
@@ -450,11 +316,10 @@ namespace API.Controllers
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
             }
-            
         }
         
         [HttpPost]
-        [Route("WEB/transacciones/registrar")]
+        [Route("CAJA/transacciones/registrar")]
         public IHttpActionResult RegistrarTransacciones(TransaccionInput transaccionCuenta)
         {
             DataService ds = new DataService();
@@ -471,10 +336,10 @@ namespace API.Controllers
                     new SqlParameter("@EmpleadoID", transaccionCuenta.EmpleadoID == null ? DBNull.Value : (object) transaccionCuenta.EmpleadoID),
                     new SqlParameter("@CreatedAt", transaccionCuenta.CreatedAt),
                     new SqlParameter("@CodigoTransaccion", transaccionCuenta.CodigoTransaccion),
-                    new SqlParameter("@Canal", "WEB")
+                    new SqlParameter("@Canal", "CAJA")
                 );
 
-                    // Conectarse al Core y consumir el servicio para registrar la transaccion alla
+                // Conectarse al Core y consumir el servicio para registrar la transaccion alla
                 transaccion.Commit();
                 return Ok();
             }
@@ -486,7 +351,7 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        [Route("WEB/doctores/get")]
+        [Route("CAJA/doctores/get")]
         public async Task<IHttpActionResult> ObtenerDoctores()
         {
             // Conectarse al CORE y obtener los doctores del sistema
