@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using API.Util;
 
 namespace API
 {
@@ -13,6 +14,8 @@ namespace API
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            
+            config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
