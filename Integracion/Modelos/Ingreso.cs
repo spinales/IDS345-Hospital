@@ -10,9 +10,9 @@ namespace Modelos
         [Key]
         public int IngresoID { get; set; }
         public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
-        public bool Alta { get; set; }
-        public bool Estado { get; set; }
+        public DateTime? FechaFin { get; set; }
+        public bool Alta { get; set; } = false;
+        public bool Estado { get; set; } = true;
         public decimal MontoIngreso { get; set; }
 
         [ForeignKey("Cuenta")]

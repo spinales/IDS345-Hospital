@@ -15,6 +15,8 @@ namespace Modelos
         [StringLength(100)]
         public string Nombre { get; set; }
         
+        public bool Estado { get; set; } = true;
+        
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

@@ -11,9 +11,12 @@ namespace Modelos
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int PersonaID { get; set; }
+
+        public bool Estado { get; set; } = true;
         
-        public bool Estado { get; set; }
-        public char Sexo { get; set; }
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(1)] 
+        public string Sexo { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)] 
@@ -32,7 +35,7 @@ namespace Modelos
         public string Telefono { get; set; }
 
         [ForeignKey("Usuario")]
-        public int UsuarioID { get; set; }
+        public int? UsuarioID { get; set; }
 
         [ForeignKey("TipoSangre")]
         public int TipoSangreID { get; set; }
