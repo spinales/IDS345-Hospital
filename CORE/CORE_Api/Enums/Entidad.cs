@@ -7,6 +7,7 @@
         Personas = 3,
         Autorizaciones = 4,
         Servicios = 5,
-        Ingresos = 6
+        Ingresos = 6,
+        Cuentas = 7
     }
 }

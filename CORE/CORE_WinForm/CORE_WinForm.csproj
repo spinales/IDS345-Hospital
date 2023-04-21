@@ -250,12 +250,6 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPacientes_CREAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPacientes_CREAR.Designer.cs">
-      <DependentUpon>frmPacientes_CREAR.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Usuario\frmUsuarios_MOD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,9 +309,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPacientes_CREAR.resx">
-      <DependentUpon>frmPacientes_CREAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

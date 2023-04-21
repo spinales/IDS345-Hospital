@@ -16,6 +16,7 @@ namespace CORE_Api.Controllers
 {
     public class CoreController : ApiController
     {
+        #region USUARIO
         private readonly ILog log = LogManager.GetLogger("API Logger");
         [HttpPost]
         [Route("CORE/usuario/registrar")]
@@ -85,6 +86,49 @@ namespace CORE_Api.Controllers
                         log.Error("Modificacion de usuario fallida " + e.Message );
                         return Ok("Modificacion de usuario fallida " + e.Message);
                     }
+                }
+            }
+        }
+
+
+        [HttpGet]
+        [Route("CORE/usuario/login")]
+        public async Task<IHttpActionResult> BuscarUsuarioLogin(string username, string password)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var usuario = await ds.Usuario
+                    .Where(u => u.Username == username && u.Password == password)
+                    .Select(u => new
+                    {
+                        u.UsuarioID,
+                        u.Username,
+                        u.Password,
+                        u.Email,
+                        u.Estado,
+                        u.PerfilID,
+                        u.SucursalID,
+                        u.CreatedAt,
+                        u.UpdatedAt,
+                        u.DeletedAt,
+                        u.SendedAt
+                    })
+                    .FirstOrDefaultAsync();
+
+                    log.Info("Login exitoso");
+                    return Ok(usuario);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Login fallido " + e.Message);
+                    return Ok("Login fallido " + e.Message);
                 }
             }
         }
@@ -175,9 +219,41 @@ namespace CORE_Api.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("CORE/usuario/borrar")]
+        public IHttpActionResult BorrarUsuario([FromBody] Usuario usuario)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
 
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_switch_usuario @UsuarioID",
+                                            new SqlParameter("@UsuarioID", usuario.UsuarioID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Eliminacion de usuario exitosa");
+                        return Ok("Eliminacion de usuario exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Eliminacion de usuario fallida " + e.Message);
+                        return Ok("Eliminacion de usuario fallida " + e.Message);
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region PERFILES
         [HttpGet]
-        [Route("CORE/perfiles/get")]
+        [Route("CORE/perfil/get")]
         public async Task<IHttpActionResult> BuscarPerfiles()
         {
             // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
@@ -188,7 +264,7 @@ namespace CORE_Api.Controllers
             {
                 try
                 {
-                    var perfiles= await ds.GetAll<Perfil>(null);
+                    var perfiles = await ds.GetAll<Perfil>(null);
                     var perfil = perfiles.Select(x => new Perfil()
                     {
                         PerfilID = x.PerfilID,
@@ -207,6 +283,75 @@ namespace CORE_Api.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        [Route("CORE/rol/get")]
+        public async Task<IHttpActionResult> BuscarRoles()
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var roles = await ds.GetAll<Role>(null);
+                    var rol = roles.Select(x => new Role()
+                    {
+                        RoleID = x.RoleID,
+                        Nombre = x.Nombre
+                    }
+                ).ToList();
+
+                    log.Info("Consulta de todos los roles exitosa");
+                    return Ok(rol);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todos los roles fallida " + e.Message);
+                    return Ok("Consulta de todos los roles fallida " + e.Message);
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("CORE/entidad/get")]
+        public async Task<IHttpActionResult> BuscarEntidades()
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                try
+                {
+                    var entidades = await ds.GetAll<Entidad>(null);
+                    var entidad = entidades.Select(x => new Entidad()
+                    {
+                        EntidadId = x.EntidadId,
+                        Descripcion = x.Descripcion
+                    }
+                ).ToList();
+
+                    log.Info("Consulta de todas las entidades exitosa");
+                    return Ok(entidad);
+
+                }
+                catch (Exception e)
+                {
+                    log.Error("Consulta de todas las entidades fallida " + e.Message);
+                    return Ok("Consulta de todas las entidades fallida " + e.Message);
+                }
+            }
+        }
+
+
+
+        #endregion
+
 
         [HttpGet]
         [Route("CORE/sucursales/get")]
@@ -242,79 +387,8 @@ namespace CORE_Api.Controllers
 
 
 
-        [HttpPost]
-        [Route("CORE/usuario/borrar")]
-        public IHttpActionResult BorrarUsuario([FromBody] Usuario usuario)
-        {
-            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
-            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
-            // Guardar logs en la base de datos (Log4NetLog). Listo
+       
 
-            using (var ds = new DataService())
-            {
-                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        ds.Database.ExecuteSqlCommand("sp_switch_usuario @UsuarioID",
-                                            new SqlParameter("@UsuarioID", usuario.UsuarioID)
-                                           );
-                        transaction.Commit();
-                        log.Info("Eliminacion de usuario exitosa");
-                        return Ok("Eliminacion de usuario exitosa");
-                    }
-                    catch (Exception e)
-                    {
-                        transaction.Rollback();
-                        log.Error("Eliminacion de usuario fallida " + e.Message);
-                        return Ok("Eliminacion de usuario fallida " + e.Message);
-                    }
-                }
-            }
-        }
-
-
-        [HttpGet]
-        [Route("CORE/usuario/login")]
-        public async Task<IHttpActionResult> BuscarUsuarioLogin(string username, string password)
-        {
-            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
-            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
-            // Guardar logs en la base de datos (Log4NetLog). Listo
-
-            using (var ds = new DataService())
-            {
-                try
-                {
-                    var usuario = await ds.Usuario
-                    .Where(u => u.Username == username && u.Password == password)
-                    .Select(u => new
-                    {
-                        u.UsuarioID,
-                        u.Username,
-                        u.Password,
-                        u.Email,
-                        u.Estado,
-                        u.PerfilID,
-                        u.SucursalID,
-                        u.CreatedAt,
-                        u.UpdatedAt,
-                        u.DeletedAt,
-                        u.SendedAt
-                    })
-                    .FirstOrDefaultAsync();
-
-                    log.Info("Login exitoso");
-                    return Ok(usuario);
-
-                }
-                catch (Exception e)
-                {
-                    log.Error("Login fallido "+e.Message);
-                    return Ok("Login fallido "+ e.Message);
-                }
-            }
-        }
     }
     }
 

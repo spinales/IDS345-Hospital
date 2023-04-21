@@ -140,6 +140,10 @@
     <Compile Include="Migrations\202304210146095_cambiosDespuesBorrado.designer.cs">
       <DependentUpon>202304210146095_cambiosDespuesBorrado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304210245211_ProceduresPerfil.cs" />
+    <Compile Include="Migrations\202304210245211_ProceduresPerfil.designer.cs">
+      <DependentUpon>202304210245211_ProceduresPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
@@ -189,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304210146095_cambiosDespuesBorrado.resx">
       <DependentUpon>202304210146095_cambiosDespuesBorrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210245211_ProceduresPerfil.resx">
+      <DependentUpon>202304210245211_ProceduresPerfil.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
