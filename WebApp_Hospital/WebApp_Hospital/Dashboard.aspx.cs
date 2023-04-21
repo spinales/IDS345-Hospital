@@ -23,6 +23,8 @@ namespace WebApp_Hospital
                 Persona persona = (Persona)Session["User"];
 
                 // Utiliza los datos como sea necesario
+
+
                 
             
 

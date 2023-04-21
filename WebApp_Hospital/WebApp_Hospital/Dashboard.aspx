@@ -22,17 +22,25 @@
                 </div>
                 <div class="cuentas-recientes">
 
-                    
-                            <div class="cuenta">
+                    <asp:Repeater ID="CuentasRepeater" runat="server">
+                        <ItemTemplate>
+                            <div class="container">
+                                 <div class="cuenta">
 
-                                <div class="cuenta-info">
-                                    <div class="profile-pic"></div>
-                                    <h5>PacienteID</h5>
-                                    <h6>CuentaID</h6>
-                                    <p>Estado</p>
-                                </div>
+                                    <div class="cuenta-info">
+                                        <div class="profile-pic"></div>
+                                        <h5>PacienteID</h5>
+                                        <h6>CuentaID</h6>
+                                        <p>Estado</p>
+                                    </div>
+
+                                 </div>
 
                             </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                           
                         
 
                     
