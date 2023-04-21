@@ -318,7 +318,7 @@ namespace CORE_Api.Controllers
 
         [HttpGet]
         [Route("CORE/perfil/getNombre")]
-        public async Task<IHttpActionResult> BuscarPerfilNombre(string nombre)
+        public async Task<IHttpActionResult> BuscarPerfilNombre(string Nombre)
         {
             // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
             // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
@@ -329,7 +329,7 @@ namespace CORE_Api.Controllers
                 try
                 {
                     var perfil = await ds.Perfil
-                    .Where(u => u.Nombre == nombre)
+                    .Where(u => u.Nombre == Nombre)
                     .Select(u => new
                     {
                         u.PerfilID,
@@ -386,8 +386,8 @@ namespace CORE_Api.Controllers
         }
 
         [HttpGet]
-        [Route("CORE/rol/get")]
-        public async Task<IHttpActionResult> BuscarRoles()
+        [Route("CORE/perfilrole/getPerfilEntidadRole")]
+        public async Task<IHttpActionResult> BuscarPerfilRole(int perfil, int entidad, int role)
         {
             // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
             // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
@@ -397,62 +397,30 @@ namespace CORE_Api.Controllers
             {
                 try
                 {
-                    var roles = await ds.GetAll<Role>(null);
-                    var rol = roles.Select(x => new Role()
+                    var perfilrole = await ds.PerfilRole
+                    .Where(u => u.PerfilID == perfil && u.EntidadID == entidad &&u.RoleID == role)
+                    .Select(u => new
                     {
-                        RoleID = x.RoleID,
-                        Nombre = x.Nombre
-                    }
-                ).ToList();
+                        u.PerfilID,
+                        u.EntidadID,
+                        u.RoleID
+                    })
+                    .FirstOrDefaultAsync();
 
-                    log.Info("Consulta de todos los roles exitosa");
-                    return Ok(rol);
+                    log.Info("Consulta de perfil por PerfilID, RoleID y EntidadID exitosa");
+                    return Ok(perfil);
 
                 }
                 catch (Exception e)
                 {
-                    log.Error("Consulta de todos los roles fallida " + e.Message);
-                    return Ok("Consulta de todos los roles fallida " + e.Message);
+                    log.Error("Consulta de perfil por PerfilID, RoleID y EntidadID " + e.Message);
+                    return Ok("Consulta de perfil por PerfilID, RoleID y EntidadID " + e.Message);
                 }
             }
         }
-
-        [HttpGet]
-        [Route("CORE/entidad/get")]
-        public async Task<IHttpActionResult> BuscarEntidades()
-        {
-            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
-            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
-            // Guardar logs en la base de datos (Log4NetLog). Listo
-
-            using (var ds = new DataService())
-            {
-                try
-                {
-                    var entidades = await ds.GetAll<Entidad>(null);
-                    var entidad = entidades.Select(x => new Entidad()
-                    {
-                        EntidadId = x.EntidadId,
-                        Descripcion = x.Descripcion
-                    }
-                ).ToList();
-
-                    log.Info("Consulta de todas las entidades exitosa");
-                    return Ok(entidad);
-
-                }
-                catch (Exception e)
-                {
-                    log.Error("Consulta de todas las entidades fallida " + e.Message);
-                    return Ok("Consulta de todas las entidades fallida " + e.Message);
-                }
-            }
-        }
-
 
 
         #endregion
-
 
         [HttpGet]
         [Route("CORE/sucursal/get")]

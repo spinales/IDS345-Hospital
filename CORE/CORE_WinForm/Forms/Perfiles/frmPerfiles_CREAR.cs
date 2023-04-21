@@ -18,6 +18,7 @@ namespace CORE_WinForm.Forms.Perfiles
         public Perfil perfil { get; set; }
         public frmPerfiles_CREAR()
         {
+            this.perfil = new Perfil();
             InitializeComponent();
         }
 
@@ -26,19 +27,34 @@ namespace CORE_WinForm.Forms.Perfiles
 
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            LlamarApiRegistrarPerfil();
-            LlamarApiGetPerfilNombre(txtNombre.Text);
+            await LlamarApiRegistrarPerfil();
+            await LlamarApiGetPerfilNombre(txtNombre.Text);
             foreach (object itemChecked in chkListBoxCrear.CheckedItems)
             {
                 int itemIndex = chkListBoxCrear.Items.IndexOf($"{itemChecked}");
-                LlamarApiRegistrarPerfilRole(this.perfil.PerfilID, 1 , itemIndex + 1);
+                 await LlamarApiRegistrarPerfilRole(this.perfil.PerfilID, 4 , itemIndex + 1);
+            }
+            foreach (object itemChecked in chkListBoxVisualizar.CheckedItems)
+            {
+                int itemIndex = chkListBoxCrear.Items.IndexOf($"{itemChecked}");
+                await LlamarApiRegistrarPerfilRole(this.perfil.PerfilID, 1, itemIndex + 1);
+            }
+            foreach (object itemChecked in chkListBoxMod.CheckedItems)
+            {
+                int itemIndex = chkListBoxCrear.Items.IndexOf($"{itemChecked}");
+                await LlamarApiRegistrarPerfilRole(this.perfil.PerfilID, 2, itemIndex + 1);
+            }
+            foreach (object itemChecked in chkListBoxBorrar.CheckedItems)
+            {
+                int itemIndex = chkListBoxCrear.Items.IndexOf($"{itemChecked}");
+                await LlamarApiRegistrarPerfilRole(this.perfil.PerfilID, 3, itemIndex + 1);
             }
 
         }
 
-        private async void LlamarApiRegistrarPerfil()
+        private async Task LlamarApiRegistrarPerfil()
         {
             using (var httpClient = new HttpClient())
             {
@@ -56,11 +72,12 @@ namespace CORE_WinForm.Forms.Perfiles
 
                 // handle response content here
                 MessageBox.Show(responseContent);
+
             }
 
         }
 
-        private async void LlamarApiRegistrarPerfilRole(int perfil, int entidad, int rol)
+        private async Task LlamarApiRegistrarPerfilRole(int perfil, int entidad, int rol)
         {
             using (var httpClient = new HttpClient())
             {
@@ -84,7 +101,7 @@ namespace CORE_WinForm.Forms.Perfiles
 
         }
 
-        private async void LlamarApiGetPerfilNombre(string nombre)
+        private async Task LlamarApiGetPerfilNombre(string nombre)
         {
             using (var httpClient = new HttpClient())
             {
@@ -96,6 +113,7 @@ namespace CORE_WinForm.Forms.Perfiles
                 // parse the JSON response into a collection of Usuario objects
                 var perfiles = JsonConvert.DeserializeObject<Perfil>(responseContent);
                 this.perfil = perfiles;
+                MessageBox.Show(perfil.Nombre);
             }
         }
 
