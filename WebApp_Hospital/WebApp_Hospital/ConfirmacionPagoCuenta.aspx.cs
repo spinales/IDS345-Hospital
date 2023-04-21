@@ -13,5 +13,10 @@ namespace WebApp_Hospital
         {
 
         }
+
+        protected void btnAcepar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TransaccionProcesada.aspx");
+        }
     }
 }

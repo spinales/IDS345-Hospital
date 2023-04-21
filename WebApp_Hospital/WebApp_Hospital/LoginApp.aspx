@@ -50,7 +50,7 @@
                     <br />
                     <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="txtPassword">Contraseña:</asp:Label>
                     <br />
-                     <asp:TextBox ID="txtPassword" runat="server" CssClass="txtUserData"></asp:TextBox>        
+                     <asp:TextBox ID="txtPassword" runat="server" CssClass="txtUserData" TextMode="Password"></asp:TextBox>        
                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                   
 
                     <br />

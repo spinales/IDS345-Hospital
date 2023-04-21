@@ -20,7 +20,7 @@
                     <hr>
                     <h3 class="pb-2 pt-2">¿Estas seguro que quieres pagar <asp:Label ID="lblMonto" runat="server" Text="Label"></asp:Label> Pesos a la cuenta <asp:Label ID="lblCuenta" runat="server" Text="Label"></asp:Label>?</h3>                  
                     <div class="d-flex justify-content-between">
-                        <asp:Button ID="btnAcepar" runat="server" Text="Aceptar" Width="250px" CssClass="btn btn-primary"/>
+                        <asp:Button ID="btnAcepar" runat="server" Text="Aceptar" Width="250px" CssClass="btn btn-primary" OnClick="btnAcepar_Click"/>
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  Width="250px"/>
                     </div>
                     

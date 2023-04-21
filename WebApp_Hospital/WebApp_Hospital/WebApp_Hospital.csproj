@@ -186,6 +186,7 @@
     <Content Include="Design Resources\Icons\eye-off.svg" />
     <Content Include="Design Resources\Icons\Shopping-bag.svg" />
     <Content Include="Design Resources\Images\All-Services.svg" />
+    <Content Include="Design Resources\Images\Logo.png" />
     <Content Include="Design Resources\Images\Login_Img.png" />
     <Content Include="Design Resources\Images\Doc.png" />
     <Content Include="Design Resources\Images\pana.svg" />

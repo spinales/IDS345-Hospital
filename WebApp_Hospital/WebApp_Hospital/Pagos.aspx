@@ -103,8 +103,8 @@
                                     <p class="fw-bold">Total</p>
                                     <p class="fw-bold"><span class="fas fa-dollar-sign"></span>35.80</p>
                                 </div>
-                                <div class="btn btn-primary mt-2">Pagar<span class="fas fa-dollar-sign px-1"></span>35.80
-                                </div>
+                                <asp:Button ID="Button1" runat="server" Text="Pagar" CssClass="btn btn-primary mt-2 w-100" OnClick="Button1_Click" /><span class="fas fa-dollar-sign px-1"></span>
+                                
                             </div>
                         </div>
                     </div>

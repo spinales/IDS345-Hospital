@@ -5,7 +5,7 @@
 
 
 
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="WebApp_Hospital.WebForm1" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="WebApp_Hospital.WebForm1"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -28,10 +28,14 @@
                                  <div class="cuenta">
 
                                     <div class="cuenta-info">
-                                        <div class="profile-pic"></div>
-                                        <h5>PacienteID</h5>
-                                        <h6>CuentaID</h6>
-                                        <p>Estado</p>
+                                        
+                                        <div class="d-flex justify-content-around align-items-center flex-row-reverse">
+                                            <div class="profile-pic" style="margin-left: 0"></div>
+                                            <h5><%# Eval("Nombre")%></h5>
+                                            <h6>CU-<%#Eval("Cuenta")%></h6>
+                                            <p><%#Eval("Estado")%></p>
+                                        </div>
+                                        
                                     </div>
 
                                  </div>
@@ -98,16 +102,16 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
+                            <th scope="row">Ingreso</th>
+                            <td>09/09/2019</td>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
+                            <th scope="row">Alta</th>
+                            <td>23/09/2007</td>
                         </tr>
                         <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
+                            <th scope="row">Ingreso</th>
+                            <td>24/09/2006</td>
                         </tr>
                     </tbody>
                 </table>
@@ -126,7 +130,8 @@
                     </div>
 
                     <div class="d-grid gap-2 col-11 mx-auto">
-                        <button type="button" class="btn btn-primary">Agendar Consulta</button>
+                        <asp:Button ID="btnAgendarConsulta" class="btn btn-primary w-100" runat="server" Text="Agendar Consulta" OnClick="btnAgendarConsulta_Click" />
+                       
                     </div>
 
                 </div>

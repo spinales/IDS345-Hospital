@@ -58,7 +58,7 @@
 
                         <div class="wrapper">
                             <div class="sidebar">
-                                <h2>Logo</h2>
+                                <h2>Hospital <3</h2>
                                 <ul>
                                     <li><a href="\Dashboard.aspx" runat="server"><i class="fas fa-chart-simple"></i>Dashboard</a></li>
                                     <li><a href="\Cuentas.aspx" runat="server"><i class="fas fa-address-book icon"></i>Cuentas</a></li>
