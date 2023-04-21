@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtPerfil = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtUsuario
+            // txtPerfil
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(188, 138);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(140, 20);
-            this.txtUsuario.TabIndex = 43;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
+            this.txtPerfil.Location = new System.Drawing.Point(188, 138);
+            this.txtPerfil.Name = "txtPerfil";
+            this.txtPerfil.Size = new System.Drawing.Size(140, 20);
+            this.txtPerfil.TabIndex = 43;
+            this.txtPerfil.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // lblUsername
             // 
@@ -98,7 +98,7 @@
             this.ClientSize = new System.Drawing.Size(397, 450);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.txtPerfil);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmPerfiles_MOD";
@@ -111,7 +111,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtPerfil;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnCancelar;

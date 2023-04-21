@@ -456,6 +456,69 @@ namespace CORE_Api.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("CORE/perfil/modificar")]
+        public IHttpActionResult ModificarPerfil([FromBody] Perfil perfil)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_update_perfil @PerfilID, @Nombre",
+                                            new SqlParameter("@PerfilID", perfil.PerfilID),
+                                            new SqlParameter("@Nombre", perfil.Nombre)
+                                           );
+                        transaction.Commit();
+                        log.Info("Modificacion de perfil exitosa");
+                        return Ok("Modificacion de perfil exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Modificacion de perfil fallida " + e.Message);
+                        return Ok("Modificacion de perfil fallida " + e.Message);
+                    }
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("CORE/perfil/borrar")]
+        public IHttpActionResult BorrarPerfil([FromBody] Perfil perfil)
+        {
+            // Ejecutar insert en HISTORICO_ACCIONES (cada vez que se ejecute).
+            // Agregar transacción (ROLLBACK, COMMIT, TRY CATCH). Listo
+            // Guardar logs en la base de datos (Log4NetLog). Listo
+
+            using (var ds = new DataService())
+            {
+                using (DbContextTransaction transaction = ds.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        ds.Database.ExecuteSqlCommand("sp_switch_perfil @PerfilID",
+                                            new SqlParameter("@PerfilID", perfil.PerfilID)
+                                           );
+                        transaction.Commit();
+                        log.Info("Eliminacion de perfil exitosa");
+                        return Ok("Eliminacion de perfil exitosa");
+                    }
+                    catch (Exception e)
+                    {
+                        transaction.Rollback();
+                        log.Error("Eliminacion de perfil fallida " + e.Message);
+                        return Ok("Eliminacion de perfil fallida " + e.Message);
+                    }
+                }
+            }
+        }
+
 
         #endregion
 
