@@ -223,6 +223,75 @@
 
             service.TipoServicio.AddOrUpdate(x => x.TipoServicioID, defaultTipoServicio.ToArray());
 
+            IList<Servicios> defaultServicios = new List<Servicios>()
+            {
+                new Servicios()
+                {
+                    TipoServicioID = (int)Enums.TipoServicio.Consultas,
+                    Descripcion = "Consulta Oftealmologicas",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    Precio = 1000,
+                    Descuento = 0,
+                    Estado = true
+                },
+                new Servicios()
+                {
+                    TipoServicioID = (int)Enums.TipoServicio.Analisis,
+                    Descripcion = "Hemograma básico",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    Precio = 500,
+                    Descuento = 0,
+                    Estado = true
+                },
+                new Servicios()
+                {
+                    TipoServicioID = (int)Enums.TipoServicio.Procedimientos,
+                    Descripcion = "Extracción de muela",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    Precio = 3000,
+                    Impuesto = 0.18m,
+                    Descuento = 0,
+                    Estado = true
+                },
+                new Servicios()
+                {
+                    TipoServicioID = (int)Enums.TipoServicio.Consultas,
+                    Descripcion = "Consulta de cardiologia",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    Precio = 2000,
+                    Impuesto = 0.18m,
+                    Descuento = 0,
+                    Estado = true
+                },
+                new Servicios()
+                {
+                    TipoServicioID = (int)Enums.TipoServicio.Analisis,
+                    Descripcion = "Hemograma completo",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    Precio = 1000,
+                    Impuesto = 0.18m,
+                    Descuento = 0,
+                    Estado = true
+                },
+            };
+
+            service.Servicios.AddOrUpdate(x => x.ServicioID, defaultServicios.ToArray());
+
             IList<RolPersona> defaultRolPersona = new List<RolPersona>()
             {
                 new RolPersona()
@@ -335,6 +404,23 @@
 
             service.MetodoPago.AddOrUpdate(x => x.MetodoPagoID, defaultMetodoPago.ToArray());
 
+            IList<Cuenta> defaultCuentas = new List<Cuenta>()
+            {
+                new Cuenta()
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    ////CuentaID = 1,
+                    Estado = true,
+                    PacienteID = 2,
+                    Balance = 0
+                }
+            };
+
+            service.Cuenta.AddOrUpdate(x => x.CuentaID, defaultCuentas.ToArray());
+
             IList<Sucursal> defaultSucursales = new List<Sucursal>()
             {
                 new Sucursal()
@@ -354,7 +440,7 @@
                     UsuarioID = 3,
                     Estado = true,
                     Username = "Cajero1",
-                    Password = "u1ie43ofhciecn3rk",
+                    Password = "HycyZr5SsvIjLWY8H08uYJsNa3FkrGhtaHdDqX8lsOM=" ,
                     SucursalID = 1
                 }
             };
@@ -391,6 +477,21 @@
                     TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
                     Documento = "0000000003",
                     UsuarioID = 3,
+                    TipoSangreID = 1
+                },
+                new Persona()
+                {
+                    PersonaID = 4,
+                    Estado = true,
+                    Sexo = 'M',
+                    Nombre = "Marlon",
+                    Apellido = "Brando",
+                    Telefono = "829-546-4154",
+                    NacionalidadID = 1,
+                    RolPersonaID = (int)Enums.RolPersona.Doctor,
+                    TipoDocumentoID = (int)Enums.TipoDocumento.Cedula,
+                    Documento = "0000002403",
+                    UsuarioID = null,
                     TipoSangreID = 1
                 }
             };
