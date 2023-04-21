@@ -8,7 +8,7 @@ namespace WebApp_Hospital.DTOs.Views
 
         public bool Estado { get; set; }
         
-        public char Sexo { get; set; }
+        public string Sexo { get; set; }
         
         public string Nombre { get; set; }
 

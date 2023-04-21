@@ -454,7 +454,7 @@
                 {
                     PersonaID = 2,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Raul",
                     Apellido = "Castro",
                     Telefono = "829-546-5454",
@@ -469,7 +469,7 @@
                 {
                     PersonaID = 4,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Marlon",
                     Apellido = "Brando",
                     Telefono = "829-546-4154",

@@ -211,6 +211,7 @@
     <Content Include="Consultas.aspx" />
     <Content Include="Pagos.aspx" />
     <Content Include="ConfirmacionPagoCuenta.aspx" />
+    <Content Include="TransaccionProcesada.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -290,6 +291,10 @@
     <Compile Include="Migrations\202304210825146_ProcedimientosPT2.designer.cs">
       <DependentUpon>202304210825146_ProcedimientosPT2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304210926033_SexCharToStr.cs" />
+    <Compile Include="Migrations\202304210926033_SexCharToStr.designer.cs">
+      <DependentUpon>202304210926033_SexCharToStr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataService.cs" />
@@ -363,6 +368,13 @@
     <Compile Include="ConfirmacionPagoCuenta.aspx.designer.cs">
       <DependentUpon>ConfirmacionPagoCuenta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TransaccionProcesada.aspx.cs">
+      <DependentUpon>TransaccionProcesada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransaccionProcesada.aspx.designer.cs">
+      <DependentUpon>TransaccionProcesada.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -395,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304210825146_ProcedimientosPT2.resx">
       <DependentUpon>202304210825146_ProcedimientosPT2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210926033_SexCharToStr.resx">
+      <DependentUpon>202304210926033_SexCharToStr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
