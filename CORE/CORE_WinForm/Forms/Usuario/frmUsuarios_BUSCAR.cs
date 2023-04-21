@@ -58,6 +58,7 @@ namespace CORE_WinForm
         private void btnCrear_Click(object sender, EventArgs e)
         {
             frmUsuarios_CREAR frmUsuariosC = AbrirFormulario<frmUsuarios_CREAR>(typeof(frmUsuarios_CREAR));
+
         }
 
         public T AbrirFormulario<T>(Type buscarTipo) where T : Form, new()
