@@ -102,6 +102,20 @@
     <Compile Include="Controllers\CoreController.cs" />
     <Compile Include="Controllers\CoreController1.cs" />
     <Compile Include="Controllers\IntegracionController.cs" />
+    <Compile Include="DTOs\Inputs\ConsultaInput.cs" />
+    <Compile Include="DTOs\Inputs\FacturaInput.cs" />
+    <Compile Include="DTOs\Inputs\FacturaServiciosInput.cs" />
+    <Compile Include="DTOs\Inputs\TransaccionInput.cs" />
+    <Compile Include="DTOs\Views\ConsultaView.cs" />
+    <Compile Include="DTOs\Views\CuentaView.cs" />
+    <Compile Include="DTOs\Views\DoctorView.cs" />
+    <Compile Include="DTOs\Views\IngresoView.cs" />
+    <Compile Include="DTOs\Views\PacienteView.cs" />
+    <Compile Include="DTOs\Views\PersonaView.cs" />
+    <Compile Include="DTOs\Views\ServiciosView.cs" />
+    <Compile Include="DTOs\Views\TipoServicioView.cs" />
+    <Compile Include="DTOs\Views\TransaccionView.cs" />
+    <Compile Include="DTOs\Views\UsuarioView.cs" />
     <Compile Include="Enums\Entidad.cs" />
     <Compile Include="Enums\MetodoPago.cs" />
     <Compile Include="Enums\Role.cs" />
@@ -161,6 +175,7 @@
       <DependentUpon>202304210505118_ProceduresIngresosAutorizacionCuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Services\AuditoriaAccion.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
