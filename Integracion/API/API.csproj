@@ -209,8 +209,13 @@
     <Compile Include="Migrations\202304201840426_ActualizacionBD.Designer.cs">
       <DependentUpon>202304201840426_ActualizacionBD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304210919010_Actualizacion.cs" />
+    <Compile Include="Migrations\202304210919010_Actualizacion.Designer.cs">
+      <DependentUpon>202304210919010_Actualizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AuditoriaAccion.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Util\TokenGenerator.cs" />
     <Compile Include="Util\TokenValidationHandler.cs" />
@@ -266,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304201840426_ActualizacionBD.resx">
       <DependentUpon>202304201840426_ActualizacionBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210919010_Actualizacion.resx">
+      <DependentUpon>202304210919010_Actualizacion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
