@@ -11,12 +11,13 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using CORE_Api.DTOs.Inputs;
 using CORE_Api.DTOs.Views;
+using log4net;
 
 namespace CORE_Api.Controllers
 {
     public class IntegracionController : ApiController
     {
-        
+        private readonly ILog log = LogManager.GetLogger("API Logger");
         [HttpPost]
         [Route("CI/pacientes/login")]
         public async Task<IHttpActionResult> LoginPaciente(string usuario, string clave)
@@ -59,12 +60,14 @@ namespace CORE_Api.Controllers
                         }
                     };
                 }
+                log.Info("Se ha logueado el usuario " + persona.Usuario.Username);
                 AuditoriaAccion auditoria = new AuditoriaAccion();
                 auditoria.RegistrarAccion("Se ha logueado el usuario " + persona.Usuario.Username, persona.Usuario.UsuarioID);
                 return Ok(respuesta);
             }
             catch (Exception e)
             {
+                log.Error("Login fallido" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
@@ -98,6 +101,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de transacciones de paciente fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
@@ -128,6 +132,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de cuentas de paciente fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
@@ -162,12 +167,13 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de ingresos de paciente fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
         
-        [HttpGet]
-        [Route("WEB/consultas/paciente/get")]
+        [HttpGet] //web
+        [Route("CI/consultas/paciente/get")]
         public async Task<IHttpActionResult> ObtenerConsultasPaciente(string documento, int userID)
         {
             var ds = new DataService();
@@ -204,6 +210,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de consultas de un paciente fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
@@ -237,6 +244,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de transacciones de una cuenta fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
@@ -271,12 +279,13 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de servicios fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
         
-        [HttpGet]
-        [Route("WEB/servicios/top5/get")]
+        [HttpGet] //WEB
+        [Route("CI/servicios/top5/get")]
         public async Task<IHttpActionResult> ObtenerTopServicios(int userID)
         {
             var ds = new DataService();
@@ -308,11 +317,12 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de top 5 servicios fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
         
-        [HttpPost]
+        [HttpPost] 
         [Route("CI/factura/registrar")]
         public IHttpActionResult RegistrarFactura(FacturaInput factura, int userID)
         {
@@ -384,6 +394,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Registro de factura fallido" + e.Message);
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
             }
@@ -419,6 +430,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de doctores fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
@@ -450,6 +462,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Registro de transacciones fallido" + e.Message);
                 transaccion.Rollback();
                 return BadRequest("Hubo un error al registrar la transaccion, intente mas tarde");
             }
@@ -504,6 +517,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Login de cajero fallido" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
@@ -544,6 +558,7 @@ namespace CORE_Api.Controllers
             }
             catch (Exception e)
             {
+                log.Error("Consulta de pacientes fallida" + e.Message);
                 return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
