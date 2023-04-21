@@ -176,7 +176,7 @@
             // 
             // cbFacturacionMetodoPago
             // 
-            this.cbFacturacionMetodoPago.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFacturacionMetodoPago.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFacturacionMetodoPago.FormattingEnabled = true;
             this.cbFacturacionMetodoPago.Location = new System.Drawing.Point(717, 94);
             this.cbFacturacionMetodoPago.Name = "cbFacturacionMetodoPago";

@@ -140,6 +140,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\Validacion.cs" />
     <EmbeddedResource Include="frBusquedaCliente.resx">
       <DependentUpon>frBusquedaCliente.cs</DependentUpon>
     </EmbeddedResource>
