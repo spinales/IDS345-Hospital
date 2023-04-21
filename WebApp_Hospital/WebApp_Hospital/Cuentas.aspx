@@ -23,7 +23,7 @@
                         <p class="card-text"><strong>Paciente:</strong></p>
                         <p class="card-text"><strong>Fecha:</strong></p>
                         <p class="card-text"><strong>Último movimiento:</strong></p>
-                        <a href="#" class="card-link small"><strong>Ver Detalle</strong></a>
+                        <a href="/DetalleCuentas" class="card-link small"><strong>Ver Detalle</strong></a>
                     </div>
                     <div class="col-md-5 lh-lg">
                         
