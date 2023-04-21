@@ -25,8 +25,8 @@ namespace CORE_WinForm.Forms.Personas
             cbTipoSangre.Items.Add("Licencia de conducir");
 
 
-            NacionalidadID = cbNacionalidad.SelectedValue,
-            RolPersonaID = cbRol.SelectedValue
+            //NacionalidadID = cbNacionalidad.SelectedValue,
+            //RolPersonaID = cbRol.SelectedValue
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
