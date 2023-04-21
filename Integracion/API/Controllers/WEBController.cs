@@ -1,7 +1,9 @@
 ﻿using API.Services;
 using Modelos;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +25,37 @@ namespace API.Controllers
             
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var persona = new PersonaView();
+                var ds = new DataService();
+                var local = new Persona
+                {
+                    Apellido = persona.Apellido,
+                    Documento = persona.Documento,
+                    Estado = persona.Estado,
+                    NacionalidadID = persona.NacionalidadID,
+                    Nombre = persona.Nombre,
+                    PersonaID = persona.PersonaID,
+                    RolPersonaID = persona.RolPersonaID,
+                    Sexo = persona.Sexo,
+                    Telefono = persona.Telefono,
+                    TipoDocumentoID = persona.TipoDocumentoID,
+                    TipoSangreID = persona.TipoSangreID,
+                    UpdatedAt = DateTime.Now,
+                    Usuario = new Usuario()
+                    {
+                        Email = persona.Usuario.Email,
+                        Estado = persona.Usuario.Estado,
+                        Password = persona.Usuario.Password,
+                        SucursalID = persona.Usuario.SucursalID,
+                        UpdatedAt = DateTime.Now,
+                        UsuarioID = persona.Usuario.UsuarioID,
+                        Username = persona.Usuario.Username
+                    }
+                };
+                ds.Persona.AddOrUpdate(x=>x.PersonaID, local);
+                await ds.SaveChangesAsync();
+                return Ok(persona);
             }
             else
             { 
@@ -83,7 +115,9 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var transacciones = new List<TransaccionView>();
+                return Ok(transacciones);
             }
             else
             { 
@@ -126,7 +160,20 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var cuentas = new List<CuentaView>();
+                var ds = new DataService();
+                var local = cuentas.Select(x => new Cuenta()
+                {
+                    CuentaID = x.CuentaID,
+                    Balance = x.Balance,
+                    Estado = x.Estado,
+                    PacienteID = x.PacienteID,
+                    UpdatedAt = DateTime.Now
+                });
+                ds.Cuenta.AddOrUpdate(x=>x.CuentaID, local.ToArray());
+                await ds.SaveChangesAsync();
+                return Ok(cuentas);
             }
             else
             { 
@@ -162,7 +209,25 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var ingresos = new List<IngresoView>();
+                var ds = new DataService();
+                var local = ingresos.Select(x => new Ingreso()
+                {
+                    IngresoID = x.IngresoID,
+                    HabitacionID = x.HabitacionID,
+                    PacienteID = x.PacienteID,
+                    CuentaID = x.CuentaID,
+                    FechaInicio = x.FechaInicio,
+                    FechaFin = x.FechaFin,
+                    Alta = x.Alta,
+                    Estado = x.Estado,
+                    MontoIngreso = x.MontoIngreso,
+                    UpdatedAt = DateTime.Now
+                });
+                ds.Ingreso.AddOrUpdate(x=>x.IngresoID, local.ToArray());
+                await ds.SaveChangesAsync();
+                return Ok(ingresos);
             }
             else
             { 
@@ -205,7 +270,9 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var consultas = new List<ConsultaView>();
+                return Ok(consultas);
             }
             else
             { 
@@ -255,7 +322,10 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var transacciones = new List<TransaccionView>();
+
+                return Ok(transacciones);
             }
             else
             { 
@@ -296,7 +366,28 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var servicios = new List<ServiciosView>();
+                var ds = new DataService();
+                var local = servicios.Select(x => new Servicios()
+                {
+                    ServicioID = x.ServicioID,
+                    Precio = x.Precio,
+                    Descripcion = x.Descripcion,
+                    UpdatedAt = DateTime.Now,
+                    Estado = x.Estado, 
+                    TipoServicio = new TipoServicio()
+                    {
+                        Descripcion = x.TipoServicio.Descripcion,
+                        TipoServicioID = x.TipoServicio.TipoServicioID,
+                        UpdatedAt = DateTime.Now
+                    },
+                    Impuesto = x.Impuesto,
+                    Descuento = x.Descuento
+                });
+                ds.Servicios.AddOrUpdate(x=>x.ServicioID, local.ToArray());
+                await ds.SaveChangesAsync();
+                return Ok(servicios);
             }
             else
             { 
@@ -338,7 +429,28 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var servicios = new List<ServiciosView>();
+                var ds = new DataService();
+                var local = servicios.Select(x => new Servicios()
+                {
+                    ServicioID = x.ServicioID,
+                    Precio = x.Precio,
+                    Descripcion = x.Descripcion,
+                    UpdatedAt = DateTime.Now,
+                    Estado = x.Estado, 
+                    TipoServicio = new TipoServicio()
+                    {
+                        Descripcion = x.TipoServicio.Descripcion,
+                        TipoServicioID = x.TipoServicio.TipoServicioID,
+                        UpdatedAt = DateTime.Now
+                    },
+                    Impuesto = x.Impuesto,
+                    Descuento = x.Descuento
+                });
+                ds.Servicios.AddOrUpdate(x=>x.ServicioID, local.ToArray());
+                await ds.SaveChangesAsync();
+                return Ok(servicios);
             }
             else
             { 
@@ -441,7 +553,11 @@ namespace API.Controllers
                 }
                 
                 // Conectarse al Core y consumir el servicio para registrar la factura alla
-                
+                bool coreRespondio = false;
+                if (coreRespondio)
+                {  
+                    // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
+                }
                 transaccion.Commit();
                 return Ok();
             }
@@ -474,7 +590,12 @@ namespace API.Controllers
                     new SqlParameter("@Canal", "WEB")
                 );
 
-                    // Conectarse al Core y consumir el servicio para registrar la transaccion alla
+                // Conectarse al Core y consumir el servicio para registrar la transaccion alla
+                bool coreRespondio = false;
+                if (coreRespondio)
+                {  
+                    // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
+                }
                 transaccion.Commit();
                 return Ok();
             }
@@ -494,7 +615,27 @@ namespace API.Controllers
             bool coreRespondio = false;
             if (coreRespondio)
             {
-                return Ok();
+                // Actualizacion dentro de la integracion
+                var doctores = new List<DoctorView>();
+                var ds = new DataService();
+                var local = doctores.Select(x=>new Persona()
+                {
+                    Apellido = x.Apellido,
+                    Documento = x.Documento,
+                    Estado = x.Estado,
+                    NacionalidadID = x.NacionalidadID,
+                    Nombre = x.Nombre,
+                    PersonaID = x.PersonaID,
+                    RolPersonaID = x.RolPersonaID,
+                    Sexo = x.Sexo,
+                    Telefono = x.Telefono,
+                    TipoDocumentoID = x.TipoDocumentoID,
+                    TipoSangreID = x.TipoSangreID,
+                    UpdatedAt = DateTime.Now
+                });
+                ds.Persona.AddOrUpdate(x=>x.PersonaID, local.ToArray());
+                await ds.SaveChangesAsync();
+                return Ok(doctores);
             }
             else
             { 
