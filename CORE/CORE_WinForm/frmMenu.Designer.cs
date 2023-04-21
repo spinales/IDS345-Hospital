@@ -78,6 +78,7 @@
             this.perfilesToolStripMenuItem.Name = "perfilesToolStripMenuItem";
             this.perfilesToolStripMenuItem.Size = new System.Drawing.Size(71, 22);
             this.perfilesToolStripMenuItem.Text = "Perfiles";
+            this.perfilesToolStripMenuItem.Click += new System.EventHandler(this.perfilesToolStripMenuItem_Click);
             // 
             // pacientesToolStripMenuItem
             // 
@@ -91,24 +92,28 @@
             this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
             this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(77, 22);
             this.cuentasToolStripMenuItem.Text = "Cuentas";
+            this.cuentasToolStripMenuItem.Click += new System.EventHandler(this.cuentasToolStripMenuItem_Click);
             // 
             // ingresosToolStripMenuItem
             // 
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
             this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(79, 22);
             this.ingresosToolStripMenuItem.Text = "Ingresos";
+            this.ingresosToolStripMenuItem.Click += new System.EventHandler(this.ingresosToolStripMenuItem_Click);
             // 
             // autorizaciónToolStripMenuItem
             // 
             this.autorizaciónToolStripMenuItem.Name = "autorizaciónToolStripMenuItem";
             this.autorizaciónToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.autorizaciónToolStripMenuItem.Text = "Autorización";
+            this.autorizaciónToolStripMenuItem.Click += new System.EventHandler(this.autorizaciónToolStripMenuItem_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
             this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(83, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
+            this.serviciosToolStripMenuItem.Click += new System.EventHandler(this.serviciosToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
