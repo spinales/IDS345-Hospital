@@ -1,5 +1,8 @@
-﻿using System;
+﻿using LinqToDB;
+using Modelos;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +14,19 @@ namespace WebApp_Hospital
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            Persona persona = (Persona)Session["User"];
+
+            if (!IsPostBack)
+            {
+                
+                
+
+                }
+            
+            //RepeaterCuentas.DataSource = ;
+            //RepeaterCuentas.DataBind();
+            
 
         }
 

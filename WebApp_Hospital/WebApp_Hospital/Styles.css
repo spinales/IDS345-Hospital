@@ -23,9 +23,9 @@ body {
 /*Estilos Generales*/
 
 /*Estilos del Login*/
-.login-body {
-    overflow: hidden;
-    background-color: white;
+#login-body {
+    overflow: hidden !important;
+    background-color: white !important;
 }
 
 .login-img {
@@ -421,8 +421,8 @@ h4 {
 
 /*Detalle Movimiento*/
 body {
-    margin-top: 20px;
-    background: #87CEFA;
+    
+    
 }
 
 .card-footer-btn {

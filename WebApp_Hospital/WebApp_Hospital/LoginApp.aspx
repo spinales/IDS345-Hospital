@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginApp.aspx.cs" Inherits="WebApp_Hospital.LoginApp" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginApp.aspx.cs" Inherits="WebApp_Hospital.LoginApp" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -26,7 +26,7 @@
 </head>
 
 
-<body class="login-body">
+<body id="login-body">
     <form id="form1" runat="server">
         <div class="container-fluid p-0 m-0 d-flex flex-column">
         <div class="row">
@@ -38,31 +38,30 @@
                     <h1 class="Bienvenido-Login">Bienvenido de nuevo</h1>
                     <p class="p-login">Inicia Sesión para acceder a la aplicación</p>
 
-                    <asp:Login ID="Login1" runat="server" CssClass="w-100">
-                     <LayoutTemplate>
+                   
                
-                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Usuario</asp:Label>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                   
+                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="txtUserName">Usuario</asp:Label>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                   
 
                     <br />
                                     
-                    <asp:TextBox ID="UserName" runat="server" CssClass="txtUserData"></asp:TextBox>
+                    <asp:TextBox ID="txtUserName" runat="server" CssClass="txtUserData"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Contraseña:</asp:Label>
-                                    
-                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                   
+                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="txtPassword">Contraseña:</asp:Label>
+                    <br />
+                     <asp:TextBox ID="txtPassword" runat="server" CssClass="txtUserData"></asp:TextBox>        
+                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                   
 
                     <br />
                                     
-                    <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="txtUserData"></asp:TextBox>
+                   
                     <br />
                     <br />
 
-                    <asp:Button CssClass="btn btn-lg btn-primary btnIniciarSesion" ID="LoginButton" runat="server" CommandName="Login" Text="Iniciar Sesión" ValidationGroup="Login1"/>
+                    <asp:Button CssClass="btn btn-lg btn-primary btnIniciarSesion" ID="btnLogin" runat="server" CommandName="Login" Text="Iniciar Sesión" ValidationGroup="Login1" OnClick="LoginButton_Click"/>
 
-                 </LayoutTemplate>
-                 </asp:Login>
+               
 
                 </div>
                 
@@ -70,11 +69,13 @@
             </div>
         </div>
     </div>
-    </form>
 
-    <asp:PlaceHolder runat="server">
+        <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+    </form>
+
+    
 
 
 </body>

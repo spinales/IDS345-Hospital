@@ -12,69 +12,73 @@
     <p class="bienvenido">Bienvenido</p>
     <h3 id="nombre-usuario">Nombre de Usuario</h3>
 
-    <div class ="row">
-         <div class="col-md-7">
-        <div class="cuentas-container">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="cuentas-container">
 
-            <div class="cuentas-container-title">
-                <p class="cuentas-title">Cuentas</p>
-                <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
+                <div class="cuentas-container-title">
+                    <p class="cuentas-title">Cuentas</p>
+                    <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="cuentas-recientes">
+
+                    <asp:Repeater ID="RepeaterCuentas" runat="server">
+                        <ItemTemplate>
+                            <div class="cuenta">
+
+                                <div class="cuenta-info">
+                                    <div class="profile-pic"></div>
+                                    <h5><%#Eval("PacienteID")%></h5>
+                                    <h6><%#Eval("CuentaID")%></h6>
+                                    <p>Estado</p>
+                                </div>
+
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                </div>
+
             </div>
-            <div class="cuentas-recientes">
 
-                <div class="cuenta">
 
-                    <div class="cuenta-info">
-                        <div class="profile-pic"></div>
-                        <h5>Nombre Cuenta</h5>
-                        <h6>Nombre Persona</h6>
-                        <p>Estado</p>
+
+
+
+            <div class="transacciones-recientes">
+                <!-- Pagos recientes -->
+                <div class="pagos-recientes">
+                    <div class="pagos-recientes-title">
+                        <h4>Pagos Recientes</h4>
+                        <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="cuenta">
+                        <div class="cuenta-transaccion-container">
+                            <p class="desc-transaccion">Descripción Transacción</p>
+                            <p class="monto">Monto</p>
+                            <p class="estado-pago">Pago</p>
+                        </div>
                     </div>
 
                 </div>
-                
-            </div>
 
-        </div>
-
-
-
-
-
-        <div class="transacciones-recientes">
-            <!-- Pagos recientes -->
-            <div class="pagos-recientes">
-                <div class="pagos-recientes-title">
-                    <h4>Pagos Recientes</h4>
-                    <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
-                </div>
-                <div class="cuenta">
-                    <div class="cuenta-transaccion-container">
-                        <p class="desc-transaccion">Descripción Transacción</p>
-                        <p class="monto">Monto</p>
-                        <p class="estado-pago">Pago</p>
-                    </div> 
-                </div>
-                
-            </div>
-
-            <!-- Cargos recientes -->
-            <div class="pagos-recientes">
-                <div class="pagos-recientes-title">
-                    <h4>Cargos Recientes</h4>
-                    <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
-                </div>
-                <div class="cuenta">
-                     <div class="cuenta-transaccion-container">
-                        <p class="desc-transaccion">Descripción Transacción</p>
-                        <p class="monto">Monto</p>
-                        <p class="estado-cargo">Cargo</p>
+                <!-- Cargos recientes -->
+                <div class="pagos-recientes">
+                    <div class="pagos-recientes-title">
+                        <h4>Cargos Recientes</h4>
+                        <a href="#" class="ver-todas">Ver todas <i class="fas fa-chevron-right"></i></a>
                     </div>
+                    <div class="cuenta">
+                        <div class="cuenta-transaccion-container">
+                            <p class="desc-transaccion">Descripción Transacción</p>
+                            <p class="monto">Monto</p>
+                            <p class="estado-cargo">Cargo</p>
+                        </div>
+                    </div>
+
                 </div>
-                
             </div>
         </div>
-    </div>
 
         <div class="col-md-5">
             <div class="ingresos-container">
@@ -106,17 +110,17 @@
                 <div class="cuenta">
 
                     <div class="doctor d-flex align-content-center mb-4 mt-2">
-                         <div class="profile-pic"></div>
+                        <div class="profile-pic"></div>
                         <div class="doc-info">
                             <h4>Nombre Doctor</h4>
                             <p>Especialidad</p>
                         </div>
                     </div>
-                  
+
                     <div class="d-grid gap-2 col-11 mx-auto">
                         <button type="button" class="btn btn-primary">Agendar Consulta</button>
                     </div>
-                    
+
                 </div>
             </div>
 

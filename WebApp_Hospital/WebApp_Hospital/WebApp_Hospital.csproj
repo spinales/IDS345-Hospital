@@ -51,6 +51,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="linq2db, Version=5.1.1.0, Culture=neutral, PublicKeyToken=e41013125f9e410a, processorArchitecture=MSIL">
+      <HintPath>..\packages\linq2db.5.1.1\lib\net472\linq2db.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -62,6 +68,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -171,6 +183,8 @@
     <Content Include="Design Resources\Images\Login_Img.png" />
     <Content Include="Design Resources\Images\Doc.png" />
     <Content Include="Design Resources\Images\pana.svg" />
+    <Content Include="Design Resources\Images\Samples.svg" />
+    <Content Include="Design Resources\Images\succes.svg" />
     <Content Include="Design Resources\Images\service.svg" />
     <Content Include="Design Resources\Images\visa.svg" />
     <Content Include="favicon.ico" />
@@ -212,6 +226,7 @@
     <Content Include="Pagos.aspx" />
     <Content Include="ConfirmacionPagoCuenta.aspx" />
     <Content Include="TransaccionProcesada.aspx" />
+    <Content Include="PagoServicios.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -374,6 +389,13 @@
     </Compile>
     <Compile Include="TransaccionProcesada.aspx.designer.cs">
       <DependentUpon>TransaccionProcesada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagoServicios.aspx.cs">
+      <DependentUpon>PagoServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagoServicios.aspx.designer.cs">
+      <DependentUpon>PagoServicios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
