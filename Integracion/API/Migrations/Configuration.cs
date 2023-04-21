@@ -823,7 +823,7 @@
                     UsuarioID = 1,
                     Estado = true,
                     Username = "Administrador1",
-                    Password = "u1ie43ofhciecn3rk",
+                    Password = "HycyZr5SsvIjLWY8H08uYJsNa3FkrGhtaHdDqX8lsOM=",
                     PerfilID = 1,
                     SucursalID = 1
                 },
@@ -832,7 +832,7 @@
                     UsuarioID = 2,
                     Estado = true,
                     Username = "Paciente1",
-                    Password = "u1ie43ofhciecn3rk",
+                    Password = "HycyZr5SsvIjLWY8H08uYJsNa3FkrGhtaHdDqX8lsOM=",
                     PerfilID = null,
                     SucursalID = null
                 },
@@ -841,7 +841,7 @@
                     UsuarioID = 3,
                     Estado = true,
                     Username = "Cajero1",
-                    Password = "u1ie43ofhciecn3rk",
+                    Password = "HycyZr5SsvIjLWY8H08uYJsNa3FkrGhtaHdDqX8lsOM=",
                     PerfilID = null,
                     SucursalID = 1
                 }
