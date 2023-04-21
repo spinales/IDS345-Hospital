@@ -20,9 +20,31 @@ namespace CORE_WinForm.Forms.Personas
         public frmPersonas_CREAR()
         {
             InitializeComponent();
-            cbTipoSangre.Items.Add("Cédula");
-            cbTipoSangre.Items.Add("Pasaporte");
-            cbTipoSangre.Items.Add("Licencia de conducir");
+            cbTipoDocumento.Items.Add("Cédula");
+            cbTipoDocumento.Items.Add("Pasaporte");
+            cbTipoDocumento.Items.Add("Licencia de conducir");
+
+            cbTipoSangre.Items.Add("O+");
+            cbTipoSangre.Items.Add("O-");
+            cbTipoSangre.Items.Add("A+");
+            cbTipoSangre.Items.Add("A-");
+            cbTipoSangre.Items.Add("AB+");
+            cbTipoSangre.Items.Add("AB-");
+            cbTipoSangre.Items.Add("B+");
+            cbTipoSangre.Items.Add("B-");
+
+            cbNacionalidad.Items.Add("Dominicano");
+            cbNacionalidad.Items.Add("Estadounidense");
+            cbNacionalidad.Items.Add("Venezolano");
+            cbNacionalidad.Items.Add("Estadounidense");
+            cbNacionalidad.Items.Add("Colombiano");
+            cbNacionalidad.Items.Add("Mexicano");
+            cbNacionalidad.Items.Add("Haitiano");
+
+            cbRol.Items.Add("Cajero");
+            cbRol.Items.Add("Cliente");
+            cbRol.Items.Add("Personal administrativo");
+            cbRol.Items.Add("Doctor");
 
 
             //NacionalidadID = cbNacionalidad.SelectedValue,
@@ -47,11 +69,11 @@ namespace CORE_WinForm.Forms.Personas
                     Apellido= txtApellido,
                     Documento = txtDocumento.Text,
                     Telefono= txtTelefono.Text,
-                    UsuarioID =txtUsuario.Text,
-                    TipoSangreID=cbTipoSangre.SelectedValue,
-                    TipoDocumentoID= cbTipoDocumento.SelectedValue,
-                    NacionalidadID = cbNacionalidad.SelectedValue,
-                    RolPersonaID = cbRol.SelectedValue
+                    //UsuarioID =int.Parse(txtUsuario.Text),
+                    TipoSangreID=cbTipoSangre.SelectedIndex + 1,
+                    TipoDocumentoID= cbTipoDocumento.SelectedIndex + 1,
+                    NacionalidadID = cbNacionalidad.SelectedIndex + 1,
+                    RolPersonaID = cbRol.SelectedIndex + 1
                 }; // replace with your request parameters
 
                 var json = JsonConvert.SerializeObject(requestBody);
