@@ -119,7 +119,7 @@
                             <h2 class="card-text mb-3"><strong>CU-001</strong></h2>
                             <p class="estado-pago mb-3">Activa</p>
 
-                            <asp:Button CssClass="btn btn-primary flex-grow-1" ID="btnPagar" runat="server" Text="Pagar Cuenta" />
+                            <asp:Button CssClass="btn btn-primary flex-grow-1" ID="btnPagar" runat="server" Text="Pagar Cuenta"/>
                         </div>
 
 

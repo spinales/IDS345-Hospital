@@ -13,5 +13,10 @@ namespace WebApp_Hospital
         {
 
         }
+
+        protected void btnPagar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
