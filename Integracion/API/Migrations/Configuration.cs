@@ -855,7 +855,7 @@
                 {
                     PersonaID = 1,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Pablo",
                     Apellido = "Mota",
                     Telefono = "0000000000",
@@ -870,7 +870,7 @@
                 {
                     PersonaID = 2,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Raul",
                     Apellido = "Castro",
                     Telefono = "829-546-5454",
@@ -885,7 +885,7 @@
                 {
                     PersonaID = 3,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Paulo",
                     Apellido = "Marquez",
                     Telefono = "829-546-4154",
@@ -900,7 +900,7 @@
                 {
                     PersonaID = 4,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Marlon",
                     Apellido = "Brando",
                     Telefono = "829-546-4154",
