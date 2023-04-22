@@ -22,7 +22,12 @@ namespace Caja
 
         private async void btnInicioSesion_Click(object sender, EventArgs e)
         {
+            if (integracionrespondio)
+            {
 
+            }
+            else
+            {
             string usuario = txtUsuarioLogin.Text;
             string contrasena = txtContraseñaLogin.Text;
 
@@ -48,6 +53,9 @@ namespace Caja
                 MessageBox.Show("El usuario ó la contraseña ingresados no son correctos",
                     "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            }
+
+
 
         }
 
