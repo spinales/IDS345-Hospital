@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frMenu));
             this.PanelSideMenu = new System.Windows.Forms.Panel();
+            this.Cuentabtn = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
             this.Facturabtn = new System.Windows.Forms.Button();
             this.Cuadrebtn = new System.Windows.Forms.Button();
             this.PanelLogo = new System.Windows.Forms.Panel();
             this.panelFormHijo = new System.Windows.Forms.Panel();
-            this.Cuentabtn = new System.Windows.Forms.Button();
             this.PanelSideMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,25 @@
             this.PanelSideMenu.Name = "PanelSideMenu";
             this.PanelSideMenu.Size = new System.Drawing.Size(210, 749);
             this.PanelSideMenu.TabIndex = 0;
+            // 
+            // Cuentabtn
+            // 
+            this.Cuentabtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Cuentabtn.FlatAppearance.BorderSize = 0;
+            this.Cuentabtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.Cuentabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cuentabtn.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.Cuentabtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.Cuentabtn.Image = ((System.Drawing.Image)(resources.GetObject("Cuentabtn.Image")));
+            this.Cuentabtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Cuentabtn.Location = new System.Drawing.Point(0, 259);
+            this.Cuentabtn.Name = "Cuentabtn";
+            this.Cuentabtn.Padding = new System.Windows.Forms.Padding(40, 0, 10, 0);
+            this.Cuentabtn.Size = new System.Drawing.Size(210, 43);
+            this.Cuentabtn.TabIndex = 4;
+            this.Cuentabtn.Text = "Cuentas";
+            this.Cuentabtn.UseVisualStyleBackColor = true;
+            this.Cuentabtn.Click += new System.EventHandler(this.Cuentabtn_Click);
             // 
             // logout
             // 
@@ -127,25 +146,6 @@
             this.panelFormHijo.Size = new System.Drawing.Size(1160, 749);
             this.panelFormHijo.TabIndex = 1;
             // 
-            // Cuentabtn
-            // 
-            this.Cuentabtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Cuentabtn.FlatAppearance.BorderSize = 0;
-            this.Cuentabtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
-            this.Cuentabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cuentabtn.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold);
-            this.Cuentabtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
-            this.Cuentabtn.Image = ((System.Drawing.Image)(resources.GetObject("Cuentabtn.Image")));
-            this.Cuentabtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cuentabtn.Location = new System.Drawing.Point(0, 259);
-            this.Cuentabtn.Name = "Cuentabtn";
-            this.Cuentabtn.Padding = new System.Windows.Forms.Padding(40, 0, 10, 0);
-            this.Cuentabtn.Size = new System.Drawing.Size(210, 43);
-            this.Cuentabtn.TabIndex = 4;
-            this.Cuentabtn.Text = "Cuentas";
-            this.Cuentabtn.UseVisualStyleBackColor = true;
-            this.Cuentabtn.Click += new System.EventHandler(this.Cuentabtn_Click);
-            // 
             // frMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +156,7 @@
             this.Name = "frMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frMenu";
+            this.Load += new System.EventHandler(this.frMenu_Load);
             this.PanelSideMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 

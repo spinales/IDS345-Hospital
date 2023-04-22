@@ -24,5 +24,8 @@ namespace Modelos
         public DateTime? SendedAt { get; set; }
 
         public virtual Persona Cajero { get; set; }
+
+        public virtual ICollection<DetalleEfectivo> DetalleEfectivos { get; set; }
+
     }
 }

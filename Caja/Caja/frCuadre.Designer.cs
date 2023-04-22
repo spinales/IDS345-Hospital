@@ -61,12 +61,10 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.faltantesobrantelbl = new System.Windows.Forms.Label();
             this.totaldiflbl = new System.Windows.Forms.Label();
             this.totalsistemalbl = new System.Windows.Forms.Label();
             this.totalcuadrelbl = new System.Windows.Forms.Label();
@@ -461,17 +459,6 @@
             this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox14.UseWaitCursor = true;
             // 
-            // textBox15
-            // 
-            this.textBox15.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(863, 342);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(210, 36);
-            this.textBox15.TabIndex = 59;
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox15.UseWaitCursor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -519,17 +506,6 @@
             this.label9.TabIndex = 63;
             this.label9.Text = "NUEVO SALDO EN CAJA:";
             this.label9.UseWaitCursor = true;
-            // 
-            // faltantesobrantelbl
-            // 
-            this.faltantesobrantelbl.AutoSize = true;
-            this.faltantesobrantelbl.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Bold);
-            this.faltantesobrantelbl.Location = new System.Drawing.Point(867, 280);
-            this.faltantesobrantelbl.Name = "faltantesobrantelbl";
-            this.faltantesobrantelbl.Size = new System.Drawing.Size(163, 22);
-            this.faltantesobrantelbl.TabIndex = 67;
-            this.faltantesobrantelbl.Text = "Faltante/Sobrante:";
-            this.faltantesobrantelbl.UseWaitCursor = true;
             // 
             // totaldiflbl
             // 
@@ -584,7 +560,6 @@
             // 
             // gbcuadre
             // 
-            this.gbcuadre.Controls.Add(this.faltantesobrantelbl);
             this.gbcuadre.Controls.Add(this.CuadreEfectivoDetallebtn);
             this.gbcuadre.Controls.Add(this.totaldiflbl);
             this.gbcuadre.Controls.Add(this.efectivolbl);
@@ -592,7 +567,6 @@
             this.gbcuadre.Controls.Add(this.tarjetalbl);
             this.gbcuadre.Controls.Add(this.totalcuadrelbl);
             this.gbcuadre.Controls.Add(this.Cuentalbl);
-            this.gbcuadre.Controls.Add(this.textBox15);
             this.gbcuadre.Controls.Add(this.textBox12);
             this.gbcuadre.Controls.Add(this.textBox11);
             this.gbcuadre.Controls.Add(this.textBox13);
@@ -643,6 +617,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frCuadre";
             this.Text = "frCuadre";
+            this.Load += new System.EventHandler(this.frCuadre_Load);
             this.gbcuadre.ResumeLayout(false);
             this.gbcuadre.PerformLayout();
             this.ResumeLayout(false);
@@ -681,12 +656,10 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label faltantesobrantelbl;
         private System.Windows.Forms.Label totaldiflbl;
         private System.Windows.Forms.Label totalsistemalbl;
         private System.Windows.Forms.Label totalcuadrelbl;

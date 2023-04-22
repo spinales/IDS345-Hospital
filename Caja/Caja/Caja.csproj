@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -42,6 +43,27 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -56,6 +78,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Inputs\ConsultaInput.cs" />
+    <Compile Include="DTOs\Inputs\FacturaInput.cs" />
+    <Compile Include="DTOs\Inputs\FacturaServiciosInput.cs" />
+    <Compile Include="DTOs\Inputs\TransaccionInput.cs" />
+    <Compile Include="DTOs\Views\ConsultaView.cs" />
+    <Compile Include="DTOs\Views\CuentaView.cs" />
+    <Compile Include="DTOs\Views\DoctorView.cs" />
+    <Compile Include="DTOs\Views\IngresoView.cs" />
+    <Compile Include="DTOs\Views\PacienteView.cs" />
+    <Compile Include="DTOs\Views\PersonaView.cs" />
+    <Compile Include="DTOs\Views\ServiciosView.cs" />
+    <Compile Include="DTOs\Views\TipoServicioView.cs" />
+    <Compile Include="DTOs\Views\TransaccionView.cs" />
+    <Compile Include="DTOs\Views\UsuarioView.cs" />
     <Compile Include="Enums\MetodoPago.cs" />
     <Compile Include="Enums\RolPersona.cs" />
     <Compile Include="Enums\TipoDocumento.cs" />
@@ -114,6 +150,24 @@
     <Compile Include="frOrdenActual.Designer.cs">
       <DependentUpon>frOrdenActual.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrReporteFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrReporteFactura.Designer.cs">
+      <DependentUpon>FrReporteFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frReporteAbono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frReporteAbono.Designer.cs">
+      <DependentUpon>frReporteAbono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frReporteCuadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frReporteCuadre.Designer.cs">
+      <DependentUpon>frReporteCuadre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202304120047040_InitialCreate.cs" />
     <Compile Include="Migrations\202304120047040_InitialCreate.designer.cs">
       <DependentUpon>202304120047040_InitialCreate.cs</DependentUpon>
@@ -126,9 +180,21 @@
     <Compile Include="Migrations\202304201505548_Procedimientos_Paola.designer.cs">
       <DependentUpon>202304201505548_Procedimientos_Paola.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304201508564_Procedimientos_David.cs" />
-    <Compile Include="Migrations\202304201508564_Procedimientos_David.designer.cs">
-      <DependentUpon>202304201508564_Procedimientos_David.cs</DependentUpon>
+    <Compile Include="Migrations\202304210431294_CuadreActualizado.cs" />
+    <Compile Include="Migrations\202304210431294_CuadreActualizado.designer.cs">
+      <DependentUpon>202304210431294_CuadreActualizado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304210934110_SexoCharToString.cs" />
+    <Compile Include="Migrations\202304210934110_SexoCharToString.designer.cs">
+      <DependentUpon>202304210934110_SexoCharToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304212059096_Actualizar.cs" />
+    <Compile Include="Migrations\202304212059096_Actualizar.designer.cs">
+      <DependentUpon>202304212059096_Actualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304212059579_Procedimientos_David.cs" />
+    <Compile Include="Migrations\202304212059579_Procedimientos_David.designer.cs">
+      <DependentUpon>202304212059579_Procedimientos_David.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movimientos.cs">
@@ -168,6 +234,15 @@
     <EmbeddedResource Include="frOrdenActual.resx">
       <DependentUpon>frOrdenActual.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrReporteFactura.resx">
+      <DependentUpon>FrReporteFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frReporteAbono.resx">
+      <DependentUpon>frReporteAbono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frReporteCuadre.resx">
+      <DependentUpon>frReporteCuadre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304120047040_InitialCreate.resx">
       <DependentUpon>202304120047040_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,8 +252,17 @@
     <EmbeddedResource Include="Migrations\202304201505548_Procedimientos_Paola.resx">
       <DependentUpon>202304201505548_Procedimientos_Paola.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304201508564_Procedimientos_David.resx">
-      <DependentUpon>202304201508564_Procedimientos_David.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304210431294_CuadreActualizado.resx">
+      <DependentUpon>202304210431294_CuadreActualizado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210934110_SexoCharToString.resx">
+      <DependentUpon>202304210934110_SexoCharToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304212059096_Actualizar.resx">
+      <DependentUpon>202304212059096_Actualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304212059579_Procedimientos_David.resx">
+      <DependentUpon>202304212059579_Procedimientos_David.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos.resx">
       <DependentUpon>Movimientos.cs</DependentUpon>
@@ -192,7 +276,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReporteFactura.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Modelos.Factura.datasource" />
+    <None Include="Properties\DataSources\Modelos.FacturaServicios.datasource" />
+    <EmbeddedResource Include="ReporteCuadre.rdlc" />
+    <EmbeddedResource Include="Reporteprueba.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Modelos.Cuadre.datasource" />
+    <None Include="Properties\DataSources\Modelos.Cuenta.datasource" />
+    <None Include="Properties\DataSources\Modelos.DetalleCuadre.datasource" />
+    <None Include="Properties\DataSources\Modelos.InicioDia.datasource" />
+    <None Include="Properties\DataSources\Modelos.Persona.datasource" />
+    <None Include="Properties\DataSources\Modelos.Sucursal.datasource" />
+    <None Include="Properties\DataSources\Modelos.Transaccion.datasource" />
+    <None Include="Properties\DataSources\Modelos.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -212,7 +310,6 @@
       <Name>Modelos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -220,6 +317,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

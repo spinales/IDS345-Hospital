@@ -14,11 +14,15 @@ namespace Caja
 {
     public partial class frCuenta : Form
     {
-        public frCuenta()
+        
+        public frCuenta(int cajeroID)
         {
             InitializeComponent();
             SetEstadoInicial();
+            this.cajeroID = cajeroID;
+
         }
+        int cajeroID = 0;
 
         void SetEstadoInicial()
         {
@@ -29,22 +33,23 @@ namespace Caja
 
             // Asignar la cadena al TextBox
             FechaAperturalbl.Text = fechaFormateada;
-
         }
 
         private void abonarcuentabtn_Click(object sender, EventArgs e)
         {
-            frCuentaAbono frCuentaAbono = new frCuentaAbono();
+            frCuentaAbono frCuentaAbono = new frCuentaAbono(int.Parse(idcuentatextolbl.Text), cajeroID);
             frCuentaAbono.Show();
         }
 
         private async void Buscarbtn_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Desea buscar el paciente?", "Notificacion", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information) == DialogResult.OK);
             bool integracionRespondio = false;
 
             if (integracionRespondio)
             {
-
+                
             }
             else
             {
@@ -60,44 +65,44 @@ namespace Caja
                     Cuentacb.SelectedIndex = 0;
                     Cuentacb.DisplayMember = "CuentaID";
                     idpacienterelleno.Text = persona.PersonaID.ToString();
-
-
-
+                    MessageBox.Show(
+                        "Paciente encontrado con los siguientes datos: " + persona.Nombre + " " + persona.Apellido,
+                        "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else{   
+                    MessageBox.Show("Paciente no encontrado", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private async void Seleccionarbtn_Click(object sender, EventArgs e)
         {
-            idcuentatextolbl.Text = Cuentacb.Text.ToString();
-            montoactualtxt.Text = Cuentacb.SelectedValue.ToString();
-
-            bool integracionRespondio = false;
-
-            if (integracionRespondio)
+            if (MessageBox.Show("Desea seleccionar la cuenta?", "Notificacion", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information) == DialogResult.OK)
             {
+                idcuentatextolbl.Text = Cuentacb.Text.ToString();
+                montoactualtxt.Text = Cuentacb.SelectedValue.ToString();
 
-            }
-            else
-            {
-                int cuentaid = int.Parse(idcuentatextolbl.Text);
+                bool integracionRespondio = false;
 
-                DataService ds = new DataService(); // si integracion no responde se obtiene la informacion de los servicios locales de caja
-                var transacciones = await ds.GetAll<Transaccion>(x => (x.CuentaID == cuentaid));
-
-                if (transacciones.Count() > 0)
+                if (integracionRespondio)
                 {
-                    dgvCuentas.DataSource = null;
-                    dgvCuentas.DataSource = transacciones;
-
-
 
                 }
+                else
+                {
+                    int cuentaid = int.Parse(idcuentatextolbl.Text);
 
+                    DataService ds = new DataService(); // si integracion no responde se obtiene la informacion de los servicios locales de caja
+                    var transacciones = await ds.GetAll<Transaccion>(x => (x.CuentaID == cuentaid));
+
+                    if (transacciones.Count() > 0)
+                    {
+                        dgvCuentas.DataSource = null;
+                        dgvCuentas.DataSource = transacciones;
+                    }
+                }
             }
-
-
         }
     }
 }

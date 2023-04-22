@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caja.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,25 @@ namespace Caja
 {
     public partial class frCuadre : Form
     {
-        public frCuadre()
+        public int billeteDosMil = 0;
+        public int billeteMil = 0;
+        public int billeteQuinientos = 0;
+        public int billeteDoscientos = 0;
+        public int billeteCien = 0;
+        public int BilleteCincuenta = 0;
+        public int monedaVeinticinco = 0;
+        public int monedaDiez = 0;
+        public int monedaCinco = 0;
+        public int monedaUno = 0;
+        public int totalEfectivo = 0;
+        
+        public int PersonaID = 0;
+        public frCuadre(int PersonaID)
         {
+
             InitializeComponent();
             SetEstadoInicial();
+            this.PersonaID = PersonaID;
         }
 
         void SetEstadoInicial()
@@ -50,7 +66,22 @@ namespace Caja
         {
             frDetalleEfectivo frDetalleEfectivo = new frDetalleEfectivo(this, true);
             frDetalleEfectivo.Show();
+        }
 
+        private void frCuadre_Load(object sender, EventArgs e)
+        {
+            DataService ds = new DataService();
+            var iniciodia = ds.InicioDia.OrderByDescending(x=>x.CreatedAt).Take(1).FirstOrDefault();
+            var FechaInicioDia = iniciodia == null ? "" : iniciodia.CreatedAt.ToShortDateString();
+            if (FechaInicioDia != DateTime.Today.ToShortDateString())
+            {   
+                gbcuadre.Enabled = false;
+            }
+            else
+            {
+                gbcuadre.Enabled = true;
+                
+            }
         }
     }
 }

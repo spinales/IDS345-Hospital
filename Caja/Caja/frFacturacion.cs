@@ -6,17 +6,25 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Caja
 {
     public partial class frFacturacion : Form
     {
+        private Factura factura= new Factura();
+        public FacturaServicios[] facturaServicios = new FacturaServicios[50];
         private Persona persona;
+        int i = 0;
+
         public frFacturacion(Persona persona)
         {
             InitializeComponent();
@@ -24,29 +32,10 @@ namespace Caja
             lbFacturacionNombreCajero.Text = persona.Nombre + " " + persona.Apellido;
             lbFacturacionNombreSucursal.Text = persona.Usuario.Sucursal.Nombre;
             lbFacturacionFecha.Text = DateTime.Now.ToShortDateString();
-            inicio();
-            DatagView();
-            
+            inicio();            
         }
-        private async void DatagView() 
-        {
-            //dataGridView1.Columns.Add()
-            //dataGridView1.Columns.Add("FacturaID", "ID Factura");
-            //dataGridView1.Columns.Add("CuentaID", "ID Cuenta");
-            //dataGridView1.Columns.Add("PacienteID", "ID Paciente");
-            //dataGridView1.Columns.Add("EmpleadoID", "ID Empleado");
-            //dataGridView1.Columns.Add("MetodoPagoID", "ID Método de Pago");
-            //dataGridView1.Columns.Add("CreatedAt", "Fecha de Creación");
-            //dataGridView1.Columns.Add("UpdatedAt", "Fecha de Actualización");
-            //dataGridView1.Columns.Add("DeletedAt", "Fecha de Eliminación");
-            //dataGridView1.Columns.Add("TotalBruto", "Total Bruto");
-            //dataGridView1.Columns.Add("Descuento", "Descuento");
-            //dataGridView1.Columns.Add("TotalAutorizado", "Total Autorizado");
-            //dataGridView1.Columns.Add("TotalFinal", "Total Final");
-            //dataGridView1.Columns.Add("Estado", "Estado");
-            //dataGridView1.Columns.Add("SendedAt", "Fecha de Envío");
 
-        }
+        
         private async void inicio() 
         {
             var ds = new DataService();
@@ -63,6 +52,8 @@ namespace Caja
             lbFacturacionTipoServicioSeleccionado.Text = "Tipo de servicio";
             lbFacturacionDescripcionServicio.Text = "Descripcion del servicio";
             lbFacturacionPrecioServicio.Text = "Precio del servicio";
+            cbFacturacionMetodoPago.SelectedIndex = -1;
+            cbFacturacionServicios.SelectedIndex = -1;
 
         }
 
@@ -111,6 +102,178 @@ namespace Caja
             {
                 lbFacturacionPrecioServicio.Text = "0"; // o cualquier otro valor predeterminado
             }
+        }
+
+        private async void btnFacturacionAgregarServicio_Click(object sender, EventArgs e)
+        {
+            
+            bool integracionRespondio = false;
+
+            if (integracionRespondio)
+            {
+
+            }
+            else
+            {
+
+                // Obtener datos del paciente y del servicio seleccionado
+                var ds = new DataService();
+                var pacientes = await ds.GetAll<Persona>(
+                    x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Documento == txtFacturacionCliente.Text
+                        && x.Estado == true), x => x.Usuario);
+                var pacient = pacientes.FirstOrDefault();
+
+                var ds2 = new DataService();
+                var Dservicios = await ds2.GetAll<Servicios>(
+                    x => (x.ServicioID == (int)cbFacturacionServicios.SelectedIndex + 1)
+                    , x => x.TipoServicio);
+                var Dservicio = Dservicios.FirstOrDefault();
+
+                var cuentas = await ds.GetAll<Cuenta>(x => (x.PacienteID == 2 && x.Estado == true)
+                    );
+                var cuenta = cuentas.FirstOrDefault();
+
+                if (pacient != null)
+                {
+                    factura.PacienteID = pacient.PersonaID;
+                    factura.CuentaID = cuenta.CuentaID;
+                    factura.EmpleadoID = persona.UsuarioID;
+                    
+                }
+                facturaServicios[i] = new FacturaServicios();
+                facturaServicios[i].Cantidad = 1;
+                facturaServicios[i].PrecioUnitario = decimal.Parse(lbFacturacionPrecioServicio.Text);
+                facturaServicios[i].Impuesto = Dservicio.Impuesto;
+                facturaServicios[i].Descuento = Dservicio.Descuento;
+                
+                DataService dataService = new DataService();
+                var facturas = await dataService.GetAll<Factura>(x => (x.CuentaID == factura.CuentaID));
+                if (facturas.Count() > 0)
+                {
+                    DGV.DataSource = null;
+                    DGV.DataSource = facturas;
+                }
+
+                decimal totalBruto = decimal.Parse(lbFacturacionPrecioServicio.Text);
+
+                decimal totalImpuesto = totalBruto * 0.18m;
+
+                decimal totalDescuento = totalBruto * Dservicio.Descuento;
+                factura.Descuento = totalDescuento;
+                facturaServicios[i].TotalDescuento = totalDescuento;
+
+                decimal totalFinal = totalBruto + totalImpuesto - totalDescuento;
+                facturaServicios[i].TotalFinal = totalFinal;
+                facturaServicios[i].TotalBruto = totalBruto;
+                facturaServicios[i].Descripcion = Dservicio.Descripcion;
+                facturaServicios[i].ServicioID = Dservicio.ServicioID;
+                facturaServicios[i].CodigoFactura = factura.CodigoFactura;
+                factura.TotalBruto += totalBruto;
+                factura.TotalFinal += totalFinal;
+                i++;
+            }
+        }
+
+        private void ImprimirFacturabtn_Click(object sender, EventArgs e)
+        {
+            Factura factura1 = new Factura();
+            {
+                factura1.TotalFinal = factura.TotalFinal;
+                factura1.Descuento = factura.Descuento;
+                factura1.TotalBruto = factura.TotalBruto;
+                factura1.CuentaID = factura.CuentaID;
+                factura1.PacienteID = factura.PacienteID;
+                factura1.EmpleadoID = factura.EmpleadoID;
+                factura1.MetodoPagoID = factura.MetodoPagoID;
+                factura1.CreatedAt = factura.CreatedAt;
+                factura1.CodigoFactura = factura.CodigoFactura;
+            }
+            DataService ds = new DataService();
+            var transaccion = ds.Database.BeginTransaction();
+            try
+            {
+                ds.Database.ExecuteSqlCommand("EXEC sp_registrar_factura @TotalFinal, @TotalDescuento, @TotalBruto, @CuentaID, @PacienteID, @EmpleadoID, @MetodoPagoID, @CreatedAt, @CodigoFactura",
+                    new SqlParameter("@TotalFinal", factura1.TotalFinal),
+                    new SqlParameter("@TotalDescuento", factura1.Descuento),
+                    new SqlParameter("@TotalBruto", factura1.TotalBruto),
+                    new SqlParameter("@CuentaID", factura1.CuentaID == null ? DBNull.Value : (object)factura.CuentaID),
+                    new SqlParameter("@PacienteID", factura1.PacienteID),
+                    new SqlParameter("@EmpleadoID", factura1.EmpleadoID == null ? DBNull.Value : (object)factura.EmpleadoID),
+                    new SqlParameter("@MetodoPagoID", factura1.MetodoPagoID),
+                    new SqlParameter("@CreatedAt", factura1.CreatedAt),
+                    new SqlParameter("@CodigoFactura", factura1.CodigoFactura)
+                    );
+
+                for (int a = 0; a >= i; a++)
+                {
+                    var servicio = facturaServicios[a];
+                    
+                    var ID = new SqlParameter("@ID", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    var PrecioUnitario = new SqlParameter("@PrecioUnitario", servicio.PrecioUnitario);
+                    var Cantidad = new SqlParameter("@Cantidad", servicio.Cantidad);
+                    var Impuesto = new SqlParameter("@Impuesto", servicio.Impuesto);
+                    var Descuento = new SqlParameter("@Descuento", servicio.Descuento);
+                    var TotalImpuesto = new SqlParameter("@TotalImpuesto", servicio.TotalImpuesto);
+                    var TotalDescuento = new SqlParameter("@TotalDescuento", servicio.TotalDescuento);
+                    var TotalBruto = new SqlParameter("@TotalBruto", servicio.TotalBruto);
+                    var TotalFinal = new SqlParameter("@TotalFinal", servicio.TotalFinal);
+                    var Descripcion = new SqlParameter("@Descripcion", servicio.Descripcion);
+                    var CreatedAt = new SqlParameter("@CreatedAt", servicio.CreatedAt);
+                    var ServicioID = new SqlParameter("@ServicioID", servicio.ServicioID);
+                    var CodigoFactura = new SqlParameter("@CodigoFactura", factura.CodigoFactura);
+                    ds.Database.ExecuteSqlCommand(
+                        "EXEC sp_registrar_factura_servicio @PrecioUnitario, @Cantidad, @Impuesto, @Descuento, @TotalImpuesto, @TotalDescuento, @TotalBruto, @TotalFinal, @Descripcion, @CreatedAt, @ServicioID, @CodigoFactura, @ID OUT",
+                        PrecioUnitario,
+                        Cantidad,
+                        Impuesto,
+                        Descuento,
+                        TotalImpuesto,
+                        TotalDescuento,
+                        TotalBruto,
+                        TotalFinal,
+                        Descripcion,
+                        CreatedAt,
+                        ServicioID,
+                        CodigoFactura,
+                        ID
+                    );
+                   
+                    //if (servicio.Consulta != null)
+                    //    ds.Database.ExecuteSqlCommand("EXEC sp_registrar_consulta @CodigoFactura, @Descripcion, @DoctorID, @CreatedAt, @DetalleID",
+                    //        new SqlParameter("@CodigoFactura", factura.CodigoFactura),
+                    //        new SqlParameter("@DoctorID", servicio.Consulta.DoctorID),
+                    //        new SqlParameter("@Descripcion", servicio.Consulta.Descripcion),
+                    //        new SqlParameter("@CreatedAt", servicio.Consulta.CreatedAt),
+                    //        new SqlParameter("@DetalleID", (int)ID.Value)
+                    //    );
+
+                }
+                // Conectarse al Core y consumir el servicio para registrar la factura alla
+                bool coreRespondio = false;
+                if (coreRespondio)
+                {
+                    // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
+                }
+                transaccion.Commit();
+                //return Ok();
+            }
+            catch (Exception ex) {
+                transaccion.Rollback();
+                // return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
+                
+            }
+
+            FrReporteFactura frReporteFactura = new FrReporteFactura();
+            frReporteFactura.Show();
+
+        }
+
+        private void btnFacturacionSeleccionarMetodoPago_Click(object sender, EventArgs e)
+        {
+            factura.MetodoPagoID=cbFacturacionMetodoPago.SelectedIndex + 1;
         }
     }
 }

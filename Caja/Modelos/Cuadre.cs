@@ -37,6 +37,7 @@ namespace Modelos
 
 
         public virtual ICollection<DetalleCuadre> DetalleCuadres { get; set; }
+        public virtual ICollection<DetalleEfectivo> DetalleEfectivos { get; set; }
 
 
 

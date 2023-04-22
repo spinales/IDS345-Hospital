@@ -60,10 +60,10 @@
             this.lbFacturacionDetallesServicio = new System.Windows.Forms.Label();
             this.btnFacturacionImprimirFactura = new System.Windows.Forms.Button();
             this.ImprimirFacturabtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -219,6 +219,7 @@
             this.btnFacturacionSeleccionarMetodoPago.TabIndex = 8;
             this.btnFacturacionSeleccionarMetodoPago.Text = "Seleccionar";
             this.btnFacturacionSeleccionarMetodoPago.UseVisualStyleBackColor = false;
+            this.btnFacturacionSeleccionarMetodoPago.Click += new System.EventHandler(this.btnFacturacionSeleccionarMetodoPago_Click);
             // 
             // label4
             // 
@@ -244,6 +245,7 @@
             this.btnFacturacionAgregarServicio.TabIndex = 5;
             this.btnFacturacionAgregarServicio.Text = "Agregar";
             this.btnFacturacionAgregarServicio.UseVisualStyleBackColor = false;
+            this.btnFacturacionAgregarServicio.Click += new System.EventHandler(this.btnFacturacionAgregarServicio_Click);
             // 
             // label2
             // 
@@ -448,19 +450,20 @@
             this.ImprimirFacturabtn.Text = "Imprimir Factura";
             this.ImprimirFacturabtn.UseVisualStyleBackColor = false;
             this.ImprimirFacturabtn.UseWaitCursor = true;
+            this.ImprimirFacturabtn.Click += new System.EventHandler(this.ImprimirFacturabtn_Click);
             // 
-            // dataGridView1
+            // DGV
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(408, 333);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(717, 303);
-            this.dataGridView1.TabIndex = 0;
+            this.DGV.AllowUserToOrderColumns = true;
+            this.DGV.BackgroundColor = System.Drawing.Color.White;
+            this.DGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Location = new System.Drawing.Point(408, 333);
+            this.DGV.Name = "DGV";
+            this.DGV.RowHeadersWidth = 51;
+            this.DGV.RowTemplate.Height = 24;
+            this.DGV.Size = new System.Drawing.Size(717, 303);
+            this.DGV.TabIndex = 0;
             // 
             // frFacturacion
             // 
@@ -468,7 +471,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1160, 749);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV);
             this.Controls.Add(this.ImprimirFacturabtn);
             this.Controls.Add(this.btnFacturacionImprimirFactura);
             this.Controls.Add(this.panel2);
@@ -488,7 +491,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -528,6 +531,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV;
     }
 }

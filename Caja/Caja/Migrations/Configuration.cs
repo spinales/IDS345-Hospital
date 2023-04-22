@@ -412,14 +412,43 @@
                     UpdatedAt = null,
                     DeletedAt = null,
                     SendedAt = null,
-                    ////CuentaID = 1,
+                    CuentaID = 1,
                     Estado = true,
                     PacienteID = 2,
-                    Balance = 0
+                    Balance = 1500
                 }
             };
-
             service.Cuenta.AddOrUpdate(x => x.CuentaID, defaultCuentas.ToArray());
+            
+            IList<Transaccion> defaultTransacciones = new List<Transaccion>()
+            {
+                new Transaccion()
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    CuentaID = 1,
+                    Estado = true,
+                    Monto = 1000,
+                    Descripcion = "Cargo por internamiento",
+                    TipoTransaccion = "Cargo"
+                },
+                new Transaccion()
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = null,
+                    DeletedAt = null,
+                    SendedAt = null,
+                    CuentaID = 1,
+                    Estado = true,
+                    Monto = 500,
+                    Descripcion = "Cargo por analisis",
+                    TipoTransaccion = "Cargo"
+                }
+            };
+            service.Cuenta.AddOrUpdate(x => x.CuentaID, defaultCuentas.ToArray());
+            
 
             IList<Sucursal> defaultSucursales = new List<Sucursal>()
             {
@@ -453,7 +482,7 @@
                 {
                     PersonaID = 2,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Raul",
                     Apellido = "Castro",
                     Telefono = "829-546-5454",
@@ -468,7 +497,7 @@
                 {
                     PersonaID = 3,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Paulo",
                     Apellido = "Marquez",
                     Telefono = "829-546-4154",
@@ -483,7 +512,7 @@
                 {
                     PersonaID = 4,
                     Estado = true,
-                    Sexo = 'M',
+                    Sexo = "M",
                     Nombre = "Marlon",
                     Apellido = "Brando",
                     Telefono = "829-546-4154",

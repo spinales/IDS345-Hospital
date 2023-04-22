@@ -30,7 +30,7 @@ namespace Modelos
         public int InicioDiaID { get; set; }
 
         [ForeignKey("Cuadre")]
-        public int CuadreID { get; set; }
+        public int? CuadreID { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
