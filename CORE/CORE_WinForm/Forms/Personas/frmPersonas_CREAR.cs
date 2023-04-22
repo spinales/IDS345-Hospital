@@ -53,6 +53,8 @@ namespace CORE_WinForm.Forms.Personas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int variable = cbTipoSangre.SelectedIndex + 1;
+            MessageBox.Show(variable.ToString());
             LlamarApi();
             this.Close();
         }
