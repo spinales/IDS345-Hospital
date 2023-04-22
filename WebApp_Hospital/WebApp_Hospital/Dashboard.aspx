@@ -1,11 +1,9 @@
-﻿
-<asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="server">
+﻿<asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="server">
     <h1 class="page-title">Dashboard</h1>
 </asp:Content>
 
 
-
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="WebApp_Hospital.WebForm1"  %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="WebApp_Hospital.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -25,36 +23,29 @@
                     <asp:Repeater ID="CuentasRepeater" runat="server">
                         <ItemTemplate>
                             <div class="container">
-                                 <div class="cuenta">
+                                <div class="cuenta">
 
                                     <div class="cuenta-info">
-                                        
+
                                         <div class="d-flex justify-content-around align-items-center flex-row-reverse">
                                             <div class="profile-pic" style="margin-left: 0"></div>
-                                            <h5><%# Eval("Nombre")%></h5>
-                                            <h6>CU-<%#Eval("Cuenta")%></h6>
-                                            <p><%#Eval("Estado")%></p>
+                                            <h5><%# Eval("Nombre") %></h5>
+                                            <h6>CU-<%#Eval("Cuenta") %></h6>
+                                            <p><%#Eval("Estado") %></p>
                                         </div>
-                                        
+
                                     </div>
 
-                                 </div>
+                                </div>
 
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
 
-                           
-                        
-
-                    
 
                 </div>
 
             </div>
-
-
-
 
 
             <div class="transacciones-recientes">
@@ -96,23 +87,23 @@
             <div class="ingresos-container">
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th scope="col">Ingresos y Altas</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">Ingresos y Altas</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">Ingreso</th>
-                            <td>09/09/2019</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Alta</th>
-                            <td>23/09/2007</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Ingreso</th>
-                            <td>24/09/2006</td>
-                        </tr>
+                    <tr>
+                        <th scope="row">Ingreso</th>
+                        <td>09/09/2019</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Alta</th>
+                        <td>23/09/2007</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ingreso</th>
+                        <td>24/09/2006</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -130,8 +121,8 @@
                     </div>
 
                     <div class="d-grid gap-2 col-11 mx-auto">
-                        <asp:Button ID="btnAgendarConsulta" class="btn btn-primary w-100" runat="server" Text="Agendar Consulta" OnClick="btnAgendarConsulta_Click" />
-                       
+                        <asp:Button ID="btnAgendarConsulta" class="btn btn-primary w-100" runat="server" Text="Agendar Consulta" OnClick="btnAgendarConsulta_Click"/>
+
                     </div>
 
                 </div>
@@ -140,11 +131,6 @@
         </div>
 
     </div>
-
-
-
-
-
 
 
 </asp:Content>

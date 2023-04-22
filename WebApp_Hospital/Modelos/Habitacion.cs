@@ -7,12 +7,12 @@ namespace Modelos
 {
     public class Habitacion
     {
-        [Key]
-        public int HabitacionID { get; set; }
+        [Key] public int HabitacionID { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Codigo { get; set; }
+
         public bool Estado { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }

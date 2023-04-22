@@ -16,13 +16,11 @@ namespace WebApp_Hospital
             using (DataService ds = new DataService())
             {
                 var servicios = from s in ds.Servicios
-                                select new { Descripcion = s.Descripcion, Precio = s.Precio, TipoServicio = s.TipoServicio.Nombre };
+                    select new { Descripcion = s.Descripcion, Precio = s.Precio, TipoServicio = s.TipoServicio.Nombre };
 
                 ServiciosRepeater.DataSource = servicios.ToList();
                 ServiciosRepeater.DataBind();
             }
-
-
         }
     }
 }

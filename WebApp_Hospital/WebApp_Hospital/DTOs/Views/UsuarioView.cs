@@ -11,11 +11,11 @@ namespace WebApp_Hospital.DTOs.Views
         public string Password { get; set; }
 
         public string Email { get; set; }
-        
+
         public bool Estado { get; set; }
-        
+
         public int? SucursalID { get; set; }
-        
+
         public DateTime? UpdatedAt { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Modelos;
+using WebApp_Hospital.Migrations;
 
 namespace Caja.Services
 {
@@ -13,12 +14,14 @@ namespace Caja.Services
     {
         public DataService() : base("name=ConnectionString")
         {
-           //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataService, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataService, Configuration>());
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
         public async Task<T> GetByIdAsync<T>(params object[] keys) where T : class =>
             await Set<T>().FindAsync(keys);
 
@@ -40,12 +43,14 @@ namespace Caja.Services
             await SaveChangesAsync();
             return entity;
         }
+
         public new async Task AddRange<T>(IEnumerable<T> data) where T : class
         {
             var enumerable = data as T[] ?? data.ToArray();
             Set<T>().AddRange(enumerable);
             await SaveChangesAsync();
         }
+
         public new async Task Update<T>(T data, params object[] keys) where T : class
         {
             var entity = Set<T>().Find(keys);
@@ -53,6 +58,7 @@ namespace Caja.Services
             {
                 return;
             }
+
             this.Entry(entity).CurrentValues.SetValues(data);
             await SaveChangesAsync();
         }
@@ -62,6 +68,7 @@ namespace Caja.Services
             Set<T>().RemoveRange(entities);
             await SaveChangesAsync();
         }
+
         public async Task Delete<T>(T data) where T : class
         {
             Set<T>().Remove(data);
@@ -87,7 +94,5 @@ namespace Caja.Services
         public DbSet<TipoServicio> TipoServicio { get; set; }
         public DbSet<Transaccion> Transaccion { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        
-
     }
 }

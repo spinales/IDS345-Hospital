@@ -13,5 +13,19 @@ namespace WebApp_Hospital
 
     public partial class WebForm2
     {
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new WebApp_Hospital.SiteMaster Master
+        {
+            get
+            {
+                return ((WebApp_Hospital.SiteMaster)(base.Master));
+            }
+        }
     }
 }

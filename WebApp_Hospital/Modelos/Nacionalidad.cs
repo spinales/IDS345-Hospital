@@ -7,12 +7,12 @@ namespace Modelos
 {
     public class Nacionalidad
     {
-        [Key]
-        public int NacionalidadID { get; set; }
+        [Key] public int NacionalidadID { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Nombre { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

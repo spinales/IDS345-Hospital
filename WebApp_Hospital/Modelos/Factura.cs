@@ -4,10 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
-    public class Factura {
+    public class Factura
+    {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int FacturaID { get; set; }
+
         public bool Estado { get; set; }
         public decimal TotalFinal { get; set; }
         public decimal TotalAutorizado { get; set; } = 0;
@@ -18,17 +20,13 @@ namespace Modelos
         public decimal TotalDescuento { get; set; } = 0;
 
 
-        [ForeignKey("Cuenta")]
-        public int? CuentaID { get; set; }
-        
-        [ForeignKey("Paciente")]
-        public int PacienteID { get; set; }
+        [ForeignKey("Cuenta")] public int? CuentaID { get; set; }
 
-        [ForeignKey("Empleado")]
-        public int? EmpleadoID { get; set; }
+        [ForeignKey("Paciente")] public int PacienteID { get; set; }
 
-        [ForeignKey("MetodoPago")]
-        public int MetodoPagoID { get; set; }
+        [ForeignKey("Empleado")] public int? EmpleadoID { get; set; }
+
+        [ForeignKey("MetodoPago")] public int MetodoPagoID { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }

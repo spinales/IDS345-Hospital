@@ -6,15 +6,14 @@ namespace Modelos
 {
     public class Servicios
     {
-        [Key]
-        public int ServicioID { get; set; }
-        
-        [ForeignKey("TipoServicio")]
-        public int TipoServicioID { get; set; }
+        [Key] public int ServicioID { get; set; }
+
+        [ForeignKey("TipoServicio")] public int TipoServicioID { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Descripcion { get; set; }
+
         public decimal Precio { get; set; }
         public decimal Impuesto { get; set; }
         public decimal Descuento { get; set; } = 0;
@@ -26,6 +25,5 @@ namespace Modelos
         public DateTime? SendedAt { get; set; }
 
         public virtual TipoServicio TipoServicio { get; set; }
-
     }
 }

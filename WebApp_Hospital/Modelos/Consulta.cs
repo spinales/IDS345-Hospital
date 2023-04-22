@@ -6,15 +6,13 @@ namespace Modelos
 {
     public class Consulta
     {
-        [Key]
-        [ForeignKey("FacturaServicios")]
-        public int DetalleId { get; set; }
+        [Key] [ForeignKey("FacturaServicios")] public int DetalleId { get; set; }
 
-        [ForeignKey("Doctor")]
-        public int DoctorId { get; set; }
+        [ForeignKey("Doctor")] public int DoctorId { get; set; }
 
         [Column(TypeName = "VARCHAR")]
-        [StringLength(200)] public string Descripcion { get; set; }
+        [StringLength(200)]
+        public string Descripcion { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }

@@ -1,128 +1,124 @@
-﻿
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp_Hospital.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp_Hospital.SiteMaster" %>
 
 <!DOCTYPE html>
 
 <html lang="en">
 <head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><%: Page.Title %> - My ASP.NET Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <webopt:bundlereference runat="server" path="~/Content/css"/>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <link rel="stylesheet" href="Styles.css" />
+    <link rel="stylesheet" href="Styles.css"/>
 
-   
 
 </head>
 <body class="m-0">
-    <form runat="server">
+<form runat="server">
 
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
+    <asp:ScriptManager runat="server">
+        <Scripts>
+            <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+            <%--Framework Scripts--%>
+            <asp:ScriptReference Name="MsAjaxBundle"/>
+            <asp:ScriptReference Name="jquery"/>
+            <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js"/>
+            <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js"/>
+            <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js"/>
+            <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js"/>
+            <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js"/>
+            <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js"/>
+            <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js"/>
+            <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js"/>
+            <asp:ScriptReference Name="WebFormsBundle"/>
+            <%--Site Scripts--%>
+        </Scripts>
+    </asp:ScriptManager>
 
-            <div class="container-fluid overflow-hidden m-0 p-0">
-                <div class="row">
-                    <div class="col-md-2">
-                        <!-- Aquí va el contenido del sidebar -->
+    <div class="container-fluid overflow-hidden m-0 p-0">
+        <div class="row">
+            <div class="col-md-2">
+                <!-- Aquí va el contenido del sidebar -->
 
-                        <!-- Vertical Navbar -->
+                <!-- Vertical Navbar -->
 
-                        <div class="wrapper">
-                            <div class="sidebar">
-                                <h2>Hospital</h2>
-                                <ul>
-                                    <li><a href="\Dashboard.aspx" runat="server"><i class="fas fa-chart-simple"></i>Dashboard</a></li>
-                                    <li><a href="\Cuentas.aspx" runat="server"><i class="fas fa-address-book icon"></i>Cuentas</a></li>
-                                    <li><a href="\Servicios.aspx" runat="server"><i class="fas fa-address-card"></i>Servicios</a></li>
-                                    <li><a href="\Pagos.aspx" runat="server"><i class="fas fa-bag-shopping"></i>Pagos</a></li>
-                                    <li><a href="\Consultas.aspx" runat="server"><i class="fas fa-user-doctor"></i>Consultas</a></li>
-      
-                                </ul>                            
-                            </div>
-                        </div>
+                <div class="wrapper">
+                    <div class="sidebar">
+                        <h2>Hospital</h2>
+                        <ul>
+                            <li>
+                                <a href="\Dashboard.aspx" runat="server"><i class="fas fa-chart-simple"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="\Cuentas.aspx" runat="server"><i class="fas fa-address-book icon"></i>Cuentas</a>
+                            </li>
+                            <li>
+                                <a href="\Servicios.aspx" runat="server"><i class="fas fa-address-card"></i>Servicios</a>
+                            </li>
+                            <li>
+                                <a href="\Pagos.aspx" runat="server"><i class="fas fa-bag-shopping"></i>Pagos</a>
+                            </li>
+                            <li>
+                                <a href="\Consultas.aspx" runat="server"><i class="fas fa-user-doctor"></i>Consultas</a>
+                            </li>
 
-                        <!-- Vertical Navbar -->
-                    </div>
-
-                    <div class="col-md-10">
-
-                        <div class="header-nav">
-                            <asp:ContentPlaceHolder ID="PageTitle" runat="server">
-                                <h1 class="page-title">Main</h1>
-                            </asp:ContentPlaceHolder>
-                            
-
-
-                            <div class="profile-pic">
-                            </div>
-                            <button class="shopping-bag">
-                                <img src="Design Resources\Icons\Shopping-bag.svg" style="height: 25px; width: 25px;" alt="shopping bag" /></button>
-
-                        </div>
-                        <!-- Aquí va el contenido principal -->
-
-                        <!-- Content Placeholder BODY -->
-
-                        <div class="main-container">
-
-                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                                
-                            </asp:ContentPlaceHolder>
-
-                        </div>
-                        
-
-                        <!-- Content Placeholder BODY -->
-
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Vertical Navbar -->
             </div>
 
+            <div class="col-md-10">
+
+                <div class="header-nav">
+                    <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+                        <h1 class="page-title">Main</h1>
+                    </asp:ContentPlaceHolder>
 
 
+                    <div class="profile-pic">
+                    </div>
+                    <button class="shopping-bag">
+                        <img src="Design Resources\Icons\Shopping-bag.svg" style="height: 25px; width: 25px;" alt="shopping bag"/>
+                    </button>
+
+                </div>
+                <!-- Aquí va el contenido principal -->
+
+                <!-- Content Placeholder BODY -->
+
+                <div class="main-container">
+
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+                    </asp:ContentPlaceHolder>
+
+                </div>
 
 
+                <!-- Content Placeholder BODY -->
 
-        
+            </div>
+        </div>
+    </div>
 
 
-        
-
-    </form>
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder>
+</form>
+<asp:PlaceHolder runat="server">
+    <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+</asp:PlaceHolder>
 </body>
 </html>
-
-
-

@@ -15,7 +15,7 @@ body {
 
 /*Icons*/
 
-.Icon{
+.Icon {
     color: var(--color-iconos);
 }
 
@@ -30,7 +30,7 @@ body {
 
 .login-img {
     height: 100vh;
-    width:100%;
+    width: 100%;
 }
 
 .Login-Form {
@@ -51,19 +51,19 @@ body {
 }
 
 .txtUserData {
-    border:none;
+    border: none;
     outline: none;
     border-bottom: solid 1px #1F2026;
     width: 300px !important;
- 
-    
+
+
 }
 
 .btnIniciarSesion {
     background-color: var(--color-morado);
-    width:100% !important;
+    width: 100% !important;
     height: 50px !important;
-  
+
 }
 
 /*Estilos del Login*/
@@ -80,59 +80,58 @@ body {
 }
 
 
-
 .wrapper {
     display: flex;
     position: relative;
     justify-content: center;
 }
 
-    .wrapper .sidebar {
-        width: 240px;
-        height: 100%; /* Modify this line to set the sidebar height to 100% of its container */
-        background: white;
-        padding: 30px 0px;
-        position: fixed;
-    }
+.wrapper .sidebar {
+    width: 240px;
+    height: 100%; /* Modify this line to set the sidebar height to 100% of its container */
+    background: white;
+    padding: 30px 0px;
+    position: fixed;
+}
 
-        .wrapper .sidebar h2 {
-            color: #515151;
-            text-transform: uppercase;
-            text-align: Center;
-            margin-bottom: 30px;
-        }
+.wrapper .sidebar h2 {
+    color: #515151;
+    text-transform: uppercase;
+    text-align: Center;
+    margin-bottom: 30px;
+}
 
-        .wrapper .sidebar ul li {
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px !important;
-            margin-right: 10px !important;
-    
-        }
+.wrapper .sidebar ul li {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px !important;
+    margin-right: 10px !important;
 
-            .wrapper .sidebar ul li a {
-                color: var(--color-gris-oscuro);
-                display: block;
-                font-family: 'Roboto';
-                font-weight: 500;
-                text-decoration: none;
-               
-                
-            }
+}
 
-                .wrapper .sidebar ul li a .fas {
-                    width: 25px;
-                }
+.wrapper .sidebar ul li a {
+    color: var(--color-gris-oscuro);
+    display: block;
+    font-family: 'Roboto';
+    font-weight: 500;
+    text-decoration: none;
 
-            .wrapper .sidebar ul li:hover {
-                background-color: var(--color-morado);
-            }
 
-                .wrapper .sidebar ul li:hover a {
-                    color: #fff;
-                }
+}
 
- /*Top navbar*/
+.wrapper .sidebar ul li a .fas {
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover {
+    background-color: var(--color-morado);
+}
+
+.wrapper .sidebar ul li:hover a {
+    color: #fff;
+}
+
+/*Top navbar*/
 
 .profile-pic {
     border-radius: 100%;
@@ -144,8 +143,8 @@ body {
     align-self: center;
     position: relative;
     bottom: 1%;
-    
-    
+
+
 }
 
 .shopping-bag {
@@ -165,22 +164,22 @@ body {
     justify-content: space-between;
     padding: 1% 5% 1% 3%;
 
-    
-    
+
 }
 
 .page-title {
-    font-size:1.5rem;
+    font-size: 1.5rem;
     align-self: end;
 }
+
 /*Top navbar*/
 
 
 /*Main Content*/
 
 .main-container {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     padding: 0 5% 0 3%;
     margin-top: 1.3%;
 }
@@ -189,18 +188,20 @@ body {
     padding: 0 !important;
     margin: 0 !important;
 }
+
 .col-md-2 {
     padding: 0 !important;
     margin: 0 !important;
     height: 100vh; /* Add this line to set the column height to 100% of the viewport height */
 }
+
 /*Main Content*/
 
 
 /*Dasboard*/
 p {
     margin: 0 !important;
-    padding:0;
+    padding: 0;
 
 }
 
@@ -210,9 +211,9 @@ p {
 
 h3 {
     margin-top: 0 !important;
-    padding:0;
+    padding: 0;
     font-size: 1.3rem;
-    
+
 }
 
 h4 {
@@ -223,17 +224,18 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    
+
 }
 
 /*Pagos revientes*/
-.pagos-recientes{
+.pagos-recientes {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
-.pagos-recientes h4{
-   margin-right: 150px;
+
+.pagos-recientes h4 {
+    margin-right: 150px;
 }
 
 .cuentas-container {
@@ -246,7 +248,7 @@ h4 {
 }
 
 .ver-todas {
-    
+
     margin-left: auto;
     text-decoration: none;
     font-size: 0.8rem;
@@ -254,9 +256,10 @@ h4 {
     font-weight 500;
     font-family: 'Roboto';
 }
+
 .cuentas-title {
     margin-right: auto;
-    
+
 }
 
 .cuentas-container-title {
@@ -269,48 +272,48 @@ h4 {
     background-color: var(--color-gris-claro);
     border-radius: 10px;
     margin-top: 10px;
-    
+
 }
 
 .cuentas-recientes {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    
-   
+
+
 }
 
 .cuenta .cuenta-info {
-   padding-top:4px;
-    
+    padding-top: 4px;
+
 }
 
-    .cuenta .cuenta-info h6 {
-        font-size: 0.8rem;
-        font-weight: 300;
-        margin-bottom: 0 !important;
-    }
+.cuenta .cuenta-info h6 {
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-bottom: 0 !important;
+}
 
-    .cuenta .cuenta-info h5 {
-        font-size: 1rem;
-        margin-top: 3px;
-        
-    }
+.cuenta .cuenta-info h5 {
+    font-size: 1rem;
+    margin-top: 3px;
+
+}
 
 
-    .cuenta .cuenta-info p {
-        font-size: 0.76rem;
-        padding: 1.5px;
-        background-color: #D5EDE2;
-        color: #009651;
-        display: inline;
-        font-weight: 500;
-        border-radius: 5px;
-    }
+.cuenta .cuenta-info p {
+    font-size: 0.76rem;
+    padding: 1.5px;
+    background-color: #D5EDE2;
+    color: #009651;
+    display: inline;
+    font-weight: 500;
+    border-radius: 5px;
+}
 
-.pagos-recientes-title{
+.pagos-recientes-title {
     display: flex;
-    
+
 }
 
 .pagos-recientes .cuenta {
@@ -345,8 +348,8 @@ h4 {
     outline: none;
     font-weight: 700;
     font-family: 'Roboto';
-    
-    
+
+
 }
 
 
@@ -387,19 +390,21 @@ h4 {
     font-size: 0.9rem !important;
     font-weight: 500;
 }
+
 .monto {
     font-size: 0.85rem;
     font-weight: 300;
     color: var(--color-gris-oscuro);
 }
 
-.cuenta-transaccion-container{
+.cuenta-transaccion-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 100%;
-    
+
 }
+
 /*Dasboard*/
 
 
@@ -421,8 +426,8 @@ h4 {
 
 /*Detalle Movimiento*/
 body {
-    
-    
+
+
 }
 
 .card-footer-btn {
@@ -464,7 +469,7 @@ body {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(30,46,80,.09);
+    border: 1px solid rgba(30, 46, 80, .09);
     border-radius: 0.25rem;
     box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
 }
@@ -493,7 +498,7 @@ tbody, td, tfoot, th, thead, tr {
     padding: 1rem 1rem;
     background-color: var(--bs-table-bg);
     border-bottom-width: 1px;
-   
+
 }
 
 .px-0 {
@@ -525,10 +530,9 @@ tbody, td, tfoot, th, thead, tr {
     /*Detalle Movimiento*/
     /* Servicios*/
     /*Checkout from*/
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
-    *
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -558,32 +562,32 @@ p {
     user-select: none;
 }
 
-    .box-1 div .fs-12 {
-        font-size: 8px;
-        color: white;
-    }
+.box-1 div .fs-12 {
+    font-size: 8px;
+    color: white;
+}
 
-    .box-1 div .fs-14 {
-        font-size: 15px;
-        color: white;
-    }
+.box-1 div .fs-14 {
+    font-size: 15px;
+    color: white;
+}
 
-    .box-1 img.pic {
-        width: 20px;
-        height: 20px;
-        object-fit: cover;
-    }
+.box-1 img.pic {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
 
-    .box-1 img.mobile-pic {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
+.box-1 img.mobile-pic {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
 
-    .box-1 .name {
-        font-size: 11px;
-        font-weight: 600;
-    }
+.box-1 .name {
+    font-size: 11px;
+    font-weight: 600;
+}
 
 .dis {
     font-size: 12px;
@@ -607,12 +611,12 @@ label.box {
     border-color: #7700ff;
 }
 
-    #one:checked ~ label.first .circle,
-    #two:checked ~ label.second .circle,
-    #three:checked ~ label.third .circle {
-        border-color: #7a34ca;
-        background-color: #fff;
-    }
+#one:checked ~ label.first .circle,
+#two:checked ~ label.second .circle,
+#three:checked ~ label.third .circle {
+    border-color: #7a34ca;
+    background-color: #fff;
+}
 
 label.box .course {
     width: 100%;
@@ -638,39 +642,39 @@ input[type="radio"] {
 }
 
 
-    .box-2 .box-inner-2 input.form-control {
-        font-size: 12px;
-        font-weight: 600;
-    }
+.box-2 .box-inner-2 input.form-control {
+    font-size: 12px;
+    font-weight: 600;
+}
 
-    .box-2 .box-inner-2 .inputWithIcon {
-        position: relative;
-    }
+.box-2 .box-inner-2 .inputWithIcon {
+    position: relative;
+}
 
-        .box-2 .box-inner-2 .inputWithIcon span {
-            position: absolute;
-            left: 15px;
-            top: 8px;
-        }
+.box-2 .box-inner-2 .inputWithIcon span {
+    position: absolute;
+    left: 15px;
+    top: 8px;
+}
 
-    .box-2 .box-inner-2 .inputWithcheck {
-        position: relative;
-    }
+.box-2 .box-inner-2 .inputWithcheck {
+    position: relative;
+}
 
-        .box-2 .box-inner-2 .inputWithcheck span {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: green;
-            font-size: 12px;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            right: 15px;
-            top: 6px;
-        }
+.box-2 .box-inner-2 .inputWithcheck span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: green;
+    font-size: 12px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 15px;
+    top: 6px;
+}
 
 .form-control:focus,
 .form-select:focus {
@@ -730,14 +734,14 @@ input[type="radio"] {
     padding: 10px;
 }
 
-    .box-2 .box-inner-2 .btn.btn-primary:hover {
-        background-color: #7a34ca;
-    }
+.box-2 .box-inner-2 .btn.btn-primary:hover {
+    background-color: #7a34ca;
+}
 
-    .box-2 .box-inner-2 .btn.btn-primary .fas {
-        font-size: 13px !important;
-        color: whitesmoke;
-    }
+.box-2 .box-inner-2 .btn.btn-primary .fas {
+    font-size: 13px !important;
+    color: whitesmoke;
+}
 
 .carousel-indicators [data-bs-target] {
     width: 10px;
@@ -760,18 +764,18 @@ input[type="radio"] {
     opacity: 1;
 }
 
-    .carousel-control-prev:hover .fas.fa-arrow-left {
-        transform: translateX(-5px);
-    }
+.carousel-control-prev:hover .fas.fa-arrow-left {
+    transform: translateX(-5px);
+}
 
 .carousel-control-next {
     transform: translateX(50%);
     opacity: 1;
 }
 
-    .carousel-control-next:hover .fas.fa-arrow-right {
-        transform: translateX(5px);
-    }
+.carousel-control-next:hover .fas.fa-arrow-right {
+    transform: translateX(5px);
+}
 
 .fas.fa-arrow-left,
 .fas.fa-arrow-right {
@@ -801,7 +805,7 @@ input[type="radio"] {
     font-size: 12px;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .container {
         max-width: 700px;
         margin: 10px auto;
@@ -815,7 +819,7 @@ input[type="radio"] {
     }
 }
 
-@media (max-width:426px) {
+@media (max-width: 426px) {
 
     .box-1,
     .box-2 {

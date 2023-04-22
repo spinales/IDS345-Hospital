@@ -40,5 +40,19 @@ namespace WebApp_Hospital
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new WebApp_Hospital.SiteMaster Master
+        {
+            get
+            {
+                return ((WebApp_Hospital.SiteMaster)(base.Master));
+            }
+        }
     }
 }

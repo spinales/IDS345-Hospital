@@ -4,10 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
-    public class FacturaServicios {
+    public class FacturaServicios
+    {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int DetalleID { get; set; }
+
         public decimal PrecioUnitario { get; set; }
         public int Cantidad { get; set; } = 1;
         public decimal Impuesto { get; set; }
@@ -33,11 +35,9 @@ namespace Modelos
 
         public int? AutorizacionID { get; set; }
 
-        [ForeignKey("Servicio")]
-        public int ServicioID { get; set; }
+        [ForeignKey("Servicio")] public int ServicioID { get; set; }
 
-        [ForeignKey("Factura")]
-        public int FacturaID { get; set; }
+        [ForeignKey("Factura")] public int FacturaID { get; set; }
 
         public virtual Servicios Servicio { get; set; }
         public virtual Factura Factura { get; set; }

@@ -4,11 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
-    public class Transaccion {
-        
+    public class Transaccion
+    {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int TransaccionID { get; set; }
+
         public decimal Monto { get; set; }
         public bool Estado { get; set; } = true;
         public string Descripcion { get; set; }
@@ -17,15 +18,11 @@ namespace Modelos
         public string CodigoTransaccion { get; set; } = new Guid().ToString();
 
 
+        [ForeignKey("MetodoPago")] public int MetodoPagoID { get; set; }
 
-        [ForeignKey("MetodoPago")]
-        public int MetodoPagoID { get; set; }
-        
-        [ForeignKey("Cuenta")]
-        public int CuentaID { get; set; }
+        [ForeignKey("Cuenta")] public int CuentaID { get; set; }
 
-        [ForeignKey("Empleado")]
-        public int? EmpleadoID { get; set; }
+        [ForeignKey("Empleado")] public int? EmpleadoID { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
@@ -37,5 +34,4 @@ namespace Modelos
 
         public virtual Persona Empleado { get; set; }
     }
-    
 }

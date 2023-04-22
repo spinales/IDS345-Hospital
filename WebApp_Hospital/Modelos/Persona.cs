@@ -7,9 +7,7 @@ namespace Modelos
 {
     public class Persona
     {
-        
-        [Key]
-        public int PersonaID { get; set; }
+        [Key] public int PersonaID { get; set; }
 
         public bool Estado { get; set; } = true;
 
@@ -18,35 +16,30 @@ namespace Modelos
         public string Sexo { get; set; }
 
         [Column(TypeName = "VARCHAR")]
-        [StringLength(100)] 
+        [StringLength(100)]
         public string Nombre { get; set; }
 
         [Column(TypeName = "VARCHAR")]
-        [StringLength(100)] 
+        [StringLength(100)]
         public string Apellido { get; set; }
 
         [Column(TypeName = "VARCHAR")]
-        [StringLength(100)] 
+        [StringLength(100)]
         public string Documento { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Telefono { get; set; }
 
-        [ForeignKey("Usuario")]
-        public int? UsuarioID { get; set; }
+        [ForeignKey("Usuario")] public int? UsuarioID { get; set; }
 
-        [ForeignKey("TipoSangre")]
-        public int TipoSangreID { get; set; }
+        [ForeignKey("TipoSangre")] public int TipoSangreID { get; set; }
 
-        [ForeignKey("TipoDocumento")]
-        public int TipoDocumentoID { get; set; }
+        [ForeignKey("TipoDocumento")] public int TipoDocumentoID { get; set; }
 
-        [ForeignKey("Nacionalidad")]
-        public int NacionalidadID { get; set; }
+        [ForeignKey("Nacionalidad")] public int NacionalidadID { get; set; }
 
-        [ForeignKey("RolPersona")]
-        public int RolPersonaID { get; set; }
+        [ForeignKey("RolPersona")] public int RolPersonaID { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
@@ -63,10 +56,5 @@ namespace Modelos
         public virtual ICollection<Ingreso> Ingresos { get; set; }
 
         public virtual ICollection<Factura> Facturas { get; set; }
-
-       
-
-
-
     }
 }

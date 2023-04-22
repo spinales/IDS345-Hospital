@@ -11,7 +11,6 @@ namespace WebApp_Hospital
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnAcepar_Click(object sender, EventArgs e)

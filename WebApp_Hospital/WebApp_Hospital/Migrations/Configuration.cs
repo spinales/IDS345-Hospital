@@ -308,7 +308,8 @@
                 {
                     RolPersonaID = (int)Enums.RolPersona.Pacientes,
                     Nombre = "Cliente",
-                    Descripcion = "Este es el rol para los pacientes del hospital, que tienen acceso a la aplicacion web",
+                    Descripcion =
+                        "Este es el rol para los pacientes del hospital, que tienen acceso a la aplicacion web",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
                     DeletedAt = null,
@@ -328,7 +329,8 @@
                 {
                     RolPersonaID = (int)Enums.RolPersona.Doctor,
                     Nombre = "Doctor",
-                    Descripcion = "Este es el rol para los doctores del hospital, no tienen acceso a ninguna de las aplicaciones",
+                    Descripcion =
+                        "Este es el rol para los doctores del hospital, no tienen acceso a ninguna de las aplicaciones",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = null,
                     DeletedAt = null,
@@ -435,7 +437,6 @@
 
             IList<Usuario> defaultUsuarios = new List<Usuario>()
             {
-
                 new Usuario()
                 {
                     UsuarioID = 2,

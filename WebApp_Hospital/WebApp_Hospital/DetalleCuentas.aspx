@@ -13,12 +13,11 @@
                 <div class="row">
                     <div class="col-md-12 mb-2">
                         <h3>Elige tu cuenta</h3>
-                        <hr />
+                        <hr/>
                         <asp:DropDownList ToolTip="Elige tu Cuenta" Width="250px" Height="40px" CssClass="mb-1 border-0" ID="ddlCuentas" runat="server"></asp:DropDownList>
                     </div>
 
-                    
-                    
+
                 </div>
             </div>
 
@@ -66,20 +65,22 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="text-muted mb-2">Client</div>
-                                                <strong>John McClane
+                                                <strong>
+                                                    John McClane
                                                 </strong>
                                                 <p class="fs-sm">
                                                     989 5th Avenue, New York, 55832
-                    <br>
+                                                    <br>
                                                 </p>
                                             </div>
                                             <div class="col-md-6 text-md-end">
                                                 <div class="text-muted mb-2">Payment To</div>
-                                                <strong>Themes LLC
+                                                <strong>
+                                                    Themes LLC
                                                 </strong>
                                                 <p class="fs-sm">
                                                     9th Avenue, San Francisco 99383
-                    <br>
+                                                    <br>
                                                 </p>
                                             </div>
                                         </div>
@@ -87,16 +88,16 @@
 
                                     <table class="table border-bottom border-gray-200 mt-3">
                                         <thead>
-                                            <tr>
-                                                <th scope="col" class="fs-sm text-dark text-uppercase-bold-sm px-0">Description</th>
-                                                <th scope="col" class="fs-sm text-dark text-uppercase-bold-sm text-end px-0">Amount</th>
-                                            </tr>
+                                        <tr>
+                                            <th scope="col" class="fs-sm text-dark text-uppercase-bold-sm px-0">Description</th>
+                                            <th scope="col" class="fs-sm text-dark text-uppercase-bold-sm text-end px-0">Amount</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="px-0">Theme customization</td>
-                                                <td class="text-end px-0">$60.00</td>
-                                            </tr>
+                                        <tr>
+                                            <td class="px-0">Theme customization</td>
+                                            <td class="text-end px-0">$60.00</td>
+                                        </tr>
 
                                         </tbody>
                                     </table>
@@ -116,12 +117,13 @@
                 <div class="row">
                     <div class="col-md-5 d-flex align-items-center justify-content-center">
                         <div class="cuenta-title d-flex align-items-center flex-column">
-                            <h2 class="card-text mb-3"><strong>CU-001</strong></h2>
+                            <h2 class="card-text mb-3">
+                                <strong>CU-001</strong>
+                            </h2>
                             <p class="estado-pago mb-3">Activa</p>
 
                             <asp:Button CssClass="btn btn-primary flex-grow-1" ID="btnPagar" runat="server" Text="Pagar Cuenta" OnClick="btnPagar_Click"/>
                         </div>
-
 
 
                     </div>
@@ -131,10 +133,18 @@
 
                                 <div class="col-md-7 lh-lg">
 
-                                    <p class="card-text"><strong>Balance:</strong></p>
-                                    <p class="card-text"><strong>Paciente:</strong></p>
-                                    <p class="card-text"><strong>Fecha:</strong></p>
-                                    <p class="card-text"><strong>Último movimiento:</strong></p>
+                                    <p class="card-text">
+                                        <strong>Balance:</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Paciente:</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Fecha:</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Último movimiento:</strong>
+                                    </p>
 
                                 </div>
                                 <div class="col-md-5 lh-lg mt-2">
@@ -155,8 +165,6 @@
         </div>
 
     </div>
-
-
 
 
 </asp:Content>

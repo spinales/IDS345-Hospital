@@ -7,19 +7,17 @@ namespace Modelos
 {
     public class TipoSangre
     {
-        [Key]
-        public int TipoSangreID { get; set; }
+        [Key] public int TipoSangreID { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Nombre { get; set; }
-        
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public DateTime? SendedAt { get; set; }
 
         public virtual ICollection<Persona> Personas { get; set; }
-
     }
 }

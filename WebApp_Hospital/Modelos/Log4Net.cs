@@ -9,7 +9,7 @@ namespace Modelos
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int LogID { get; set; }
-        
+
         public DateTime Date { get; set; }
 
         [Column(TypeName = "VARCHAR")]
@@ -24,12 +24,10 @@ namespace Modelos
         [StringLength(255)]
         public string Logger { get; set; }
 
-        [Column(TypeName = "VARCHAR")]
-        public string Message { get; set; }
+        [Column(TypeName = "VARCHAR")] public string Message { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(2000)]
         public string Exception { get; set; }
-        
     }
 }

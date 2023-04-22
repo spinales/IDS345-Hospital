@@ -6,22 +6,18 @@ namespace Modelos
 {
     public class Ingreso
     {
-        [Key]
-        public int IngresoID { get; set; }
+        [Key] public int IngresoID { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }
         public bool Alta { get; set; } = false;
         public bool Estado { get; set; } = true;
         public decimal MontoIngreso { get; set; }
 
-        [ForeignKey("Cuenta")]
-        public int CuentaID { get; set; }
+        [ForeignKey("Cuenta")] public int CuentaID { get; set; }
 
-        [ForeignKey("Persona")]
-        public int PacienteID { get; set; }
+        [ForeignKey("Persona")] public int PacienteID { get; set; }
 
-        [ForeignKey("Habitacion")]
-        public int HabitacionID { get; set; }
+        [ForeignKey("Habitacion")] public int HabitacionID { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }

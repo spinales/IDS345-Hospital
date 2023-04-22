@@ -9,8 +9,7 @@ namespace WebApp_Hospital.DTOs.Views
         public string Descripcion { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
-        
-        public DoctorView Doctor{ get; set; }
+
+        public DoctorView Doctor { get; set; }
     }
-    
 }

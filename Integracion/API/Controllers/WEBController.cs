@@ -626,7 +626,7 @@ namespace API.Controllers
                     // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
                 }
                 transaccion.Commit();
-                return Ok();
+                return Ok("Transaccion completata");
             }
             catch (Exception e)
             {

@@ -7,8 +7,7 @@ namespace Modelos
 {
     public class RolPersona
     {
-        [Key]
-        public int RolPersonaID { get; set; }
+        [Key] public int RolPersonaID { get; set; }
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
@@ -17,13 +16,12 @@ namespace Modelos
         [Column(TypeName = "VARCHAR")]
         [StringLength(200)]
         public string Descripcion { get; set; }
-        
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public DateTime? SendedAt { get; set; }
 
         public virtual ICollection<Persona> Personas { get; set; }
-
     }
 }

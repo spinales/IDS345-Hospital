@@ -19,18 +19,17 @@ namespace WebApp_Hospital
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-                Persona persona = (Persona)Session["User"];
+            Persona persona = (Persona)Session["User"];
 
             // Utiliza los datos como sea necesario
 
             using (DataService ds = new DataService())
             {
                 var cuentaReciente = from c in ds.Cuenta
-                                     join p in ds.Persona on c.PacienteID equals p.PersonaID
-                                     select new {p.Nombre, c.Estado, c.CuentaID};
+                    join p in ds.Persona on c.PacienteID equals p.PersonaID
+                    select new { p.Nombre, c.Estado, c.CuentaID };
 
-             List<object> datos = new List<object>();
+                List<object> datos = new List<object>();
                 foreach (var item in cuentaReciente)
                 {
                     datos.Add(new
@@ -38,26 +37,17 @@ namespace WebApp_Hospital
                         Nombre = item.Nombre,
                         Estado = item.Estado,
                         Cuenta = item.CuentaID
-
                     });
-                        
                 }
+
                 CuentasRepeater.DataSource = datos;
                 CuentasRepeater.DataBind();
             }
-
-           
-
-
-
-
-
         }
 
         protected void btnAgendarConsulta_Click(object sender, EventArgs e)
         {
             Response.Redirect("Consultas.aspx");
-
         }
     }
 }

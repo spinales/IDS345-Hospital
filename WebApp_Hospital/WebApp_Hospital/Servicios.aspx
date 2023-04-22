@@ -12,45 +12,35 @@
 
     <!-- Servicios mas solicitados -->
 
-   <div class="container">
-      
-    <div class="row">
-        <asp:Repeater ID="ServiciosRepeater" runat="server">
-            <ItemTemplate>
-                <div class="col-md-3">
-                    <div class="card shadow" style="margin-bottom: 20px;">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="Design Resources\Images\service.svg" class="img-fluid" />
+    <div class="container">
 
-                        </div>
-                        <div class="card-body">
-                            <div class="card-head d-flex justify-content-between">
-                                <h5 class="card-title"><%#Eval("Descripcion")%></h5>
-                                <small><%#Eval("Precio")%></small>
+        <div class="row">
+            <asp:Repeater ID="ServiciosRepeater" runat="server">
+                <ItemTemplate>
+                    <div class="col-md-3">
+                        <div class="card shadow" style="margin-bottom: 20px;">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="Design Resources\Images\service.svg" class="img-fluid"/>
+
                             </div>
+                            <div class="card-body">
+                                <div class="card-head d-flex justify-content-between">
+                                    <h5 class="card-title"><%#Eval("Descripcion") %></h5>
+                                    <small><%#Eval("Precio") %></small>
+                                </div>
 
-                            <p class="card-text small mb-2"><%#Eval("TipoServicio")%></p>
-                            <asp:Button CssClass="btn btn-primary btn-sm w-100 fw-bold" ID="btnAgregarServicio" runat="server" Text="Agregar Servicio" />
+                                <p class="card-text small mb-2"><%#Eval("TipoServicio") %></p>
+                                <asp:Button CssClass="btn btn-primary btn-sm w-100 fw-bold" ID="btnAgregarServicio" runat="server" Text="Agregar Servicio"/>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
     </div>
-</div>
 
 
-
-
-
-
-
-
-
-  
     <!-- Servicios mas solicitados -->
 
-
-   
 
 </asp:Content>
