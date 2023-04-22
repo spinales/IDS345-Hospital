@@ -60,6 +60,11 @@ namespace WebApp_Hospital
                     {
                         Response.Redirect("Dashboard.aspx");
                     }
+                    else
+                    {
+                        txtUserName.Text = "";
+                        txtPassword.Text = ""
+                    }
                     
 
                 }
