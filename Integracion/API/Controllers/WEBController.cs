@@ -6,10 +6,12 @@ using System.Data;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using API.DTOs.Inputs;
 using API.DTOs.Views;
+using API.Util;
 
 
 namespace API.Controllers
@@ -24,49 +26,7 @@ namespace API.Controllers
         [Route("WEB/login")]
         public async Task<IHttpActionResult> LoginPaciente(string usuario, string clave)
         {
-            // Conectarse al Core y consumir el servicio para validar el usuario y la clave
-            bool coreRespondio = false;
-            
-            if (coreRespondio)
-            {
-                // Actualizacion dentro de la integracion
-                var persona = new PersonaView();
-                var ds = new DataService();
-                var local = new Persona
-                {
-                    Apellido = persona.Apellido,
-                    Documento = persona.Documento,
-                    Estado = persona.Estado,
-                    NacionalidadID = persona.NacionalidadID,
-                    Nombre = persona.Nombre,
-                    PersonaID = persona.PersonaID,
-                    RolPersonaID = persona.RolPersonaID,
-                    Sexo = persona.Sexo,
-                    Telefono = persona.Telefono,
-                    TipoDocumentoID = persona.TipoDocumentoID,
-                    TipoSangreID = persona.TipoSangreID,
-                    UpdatedAt = DateTime.Now,
-                    Usuario = new Usuario()
-                    {
-                        Email = persona.Usuario.Email,
-                        Estado = persona.Usuario.Estado,
-                        Password = persona.Usuario.Password,
-                        SucursalID = persona.Usuario.SucursalID,
-                        UpdatedAt = DateTime.Now,
-                        UsuarioID = persona.Usuario.UsuarioID,
-                        Username = persona.Usuario.Username
-                    }
-                };
-                ds.Persona.AddOrUpdate(x=>x.PersonaID, local);
-                await ds.SaveChangesAsync();
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se ha logueado el usuario " + persona.Usuario.Username, persona.Usuario.UsuarioID);
-                Log.Info("Peticion enviada al core");
-                return Ok(persona);
-            }
-            else
-            { 
-                var ds = new DataService();
+            var ds = new DataService();
                 try
                 {
                     var personas = await ds.GetAll<Persona>(
@@ -113,7 +73,6 @@ namespace API.Controllers
                     Log.Error("Error: " + e);
                     return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
                 }
-            }
         }
         
         [HttpGet]
@@ -161,7 +120,6 @@ namespace API.Controllers
                 }
             }
         }
-        
         
         [HttpGet]
         [Route("WEB/cuentas/paciente/get")]
@@ -280,10 +238,7 @@ namespace API.Controllers
                 }
             }
         }
-        
-        
-        
-        
+
         [HttpGet]
         [Route("WEB/consultas/paciente/get")]
         public async Task<IHttpActionResult> ObtenerConsultasPaciente(string documento)
@@ -516,7 +471,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("WEB/facturas/registrar")]
-        public IHttpActionResult RegistrarFactura(FacturaInput factura)
+        public async Task<IHttpActionResult> RegistrarFactura(FacturaInput factura)
         {
             DataService ds = new DataService();
             var transaccion = ds.Database.BeginTransaction();
@@ -580,13 +535,24 @@ namespace API.Controllers
                         );
                 }
                 
-                // Conectarse al Core y consumir el servicio para registrar la factura alla
-                bool coreRespondio = false;
-                if (coreRespondio)
-                {  
-                    // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
-                }
                 transaccion.Commit();
+                
+                var status = await Core.GetInstance().Ping();
+                if (status)
+                {
+                    var pendingToSend = await ds.GetAll<Factura>(x => x.SendedAt == null);
+                    foreach (var data in pendingToSend)
+                    {
+                        // send data
+                        var statusRequest = await Core.GetInstance().EnviarFactura(data);
+                        if (statusRequest == HttpStatusCode.OK)
+                        {
+                            data.SendedAt = DateTime.Now;
+                            await ds.Update<Factura>(data);
+                        }
+                    }
+                }
+                
                 return Ok();
             }
             catch (Exception e)
@@ -600,7 +566,7 @@ namespace API.Controllers
         
         [HttpPost]
         [Route("WEB/transacciones/registrar")]
-        public IHttpActionResult RegistrarTransacciones(TransaccionInput transaccionCuenta)
+        public async Task<IHttpActionResult> RegistrarTransacciones(TransaccionInput transaccionCuenta)
         {
             DataService ds = new DataService();
             var transaccion = ds.Database.BeginTransaction();
@@ -618,14 +584,25 @@ namespace API.Controllers
                     new SqlParameter("@CodigoTransaccion", transaccionCuenta.CodigoTransaccion),
                     new SqlParameter("@Canal", "WEB")
                 );
-
-                // Conectarse al Core y consumir el servicio para registrar la transaccion alla
-                bool coreRespondio = false;
-                if (coreRespondio)
-                {  
-                    // Crear un procedure para colocar la fecha del envio al Core en la base de datos de la integracion para esa Transaccion
-                }
+                
                 transaccion.Commit();
+                
+                var status = await Core.GetInstance().Ping();
+                if (status)
+                {
+                    var pendingToSend = await ds.GetAll<Transaccion>(x => x.SendedAt == null);
+                    foreach (var data in pendingToSend)
+                    {
+                        // send data
+                        var statusRequest = await Core.GetInstance().EnviarTransaccion(data);
+                        if (statusRequest == HttpStatusCode.OK)
+                        {
+                            data.SendedAt = DateTime.Now;
+                            await ds.Update<Transaccion>(data);
+                        }
+                    }
+                }
+                
                 return Ok("Transaccion completata");
             }
             catch (Exception e)
