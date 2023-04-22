@@ -63,7 +63,7 @@ namespace WebApp_Hospital
                     else
                     {
                         txtUserName.Text = "";
-                        txtPassword.Text = ""
+                        txtPassword.Text = "";
                     }
                     
 
