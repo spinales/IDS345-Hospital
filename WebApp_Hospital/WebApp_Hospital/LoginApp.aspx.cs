@@ -17,22 +17,33 @@ namespace WebApp_Hospital
 
         async protected void LoginButton_Click(object sender, EventArgs e)
         {
-            var ds = new DataService();
-            var personas = await ds.GetAll<Persona>(
-                x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == txtUserName.Text &&
-                      x.Usuario.Password == txtPassword.Text && x.Estado == true),
-                x => x.Usuario);
-            var persona = personas.FirstOrDefault();
+            bool integracionRespondio = false;
+
+            if (integracionRespondio)
+            {
+
+            }
+            else {
+                var ds = new DataService();
+                var personas = await ds.GetAll<Persona>(
+                    x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == txtUserName.Text &&
+                    x.Usuario.Password == txtPassword.Text && x.Estado == true),
+                    x => x.Usuario);
+                var persona = personas.FirstOrDefault();
 
             if (persona != null)
             {
+                
                 Session["user"] = persona;
                 Response.Redirect("Dashboard.aspx");
+                
             }
             else
             {
                 txtUserName.Text = "";
                 txtPassword.Text = "";
+
+  
             }
         }
     }
