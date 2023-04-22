@@ -9,11 +9,17 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace WebApp_Hospital
 {
     public partial class LoginApp : System.Web.UI.Page
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public static string HashPassword(string password)
         {
             using (var sha256 = SHA256.Create())
@@ -31,39 +37,79 @@ namespace WebApp_Hospital
         {
         }
 
-        async protected void LoginButton_Click(object sender, EventArgs e)
+       private async void login(string Usuario, string Clave)
         {
-            bool integracionRespondio = false;
-            string hashedPassword = HashPassword(txtPassword.Text);
-
-            if (integracionRespondio)
+            using (var httpClient = new HttpClient())
             {
-
-            }
-            else
-            {
-                var ds = new DataService();
-                var personas = await ds.GetAll<Persona>(
-                    x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == txtUserName.Text &&
-                    x.Usuario.Password == hashedPassword && x.Estado == true),
-                    x => x.Usuario);
-                var persona = personas.FirstOrDefault();
-
-                if (persona != null)
+                var apiUrl = "https://localhost:44383/WEB/Login";
+                var requestBody = new
                 {
+                    Username = Usuario,
+                    Password = Clave
+                };
 
-                    Session["user"] = persona;
-                    Response.Redirect("Dashboard.aspx");
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "Application/json");
+
+                var response = await httpClient.PostAsync(apiUrl, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    if(response != null)
+                    {
+                        Response.Redirect("Dashboard.aspx");
+                    }
+                    
 
                 }
+
                 else
                 {
-                    txtUserName.Text = "";
-                    txtPassword.Text = "";
+                    bool integracionRespondio = false;
+                    string hashedPassword = HashPassword(txtPassword.Text);
+
+                    if (integracionRespondio)
+                    {
+                        login(txtUserName.Text, hashedPassword);
+
+                    }
+                    else
+                    {
+                        var ds = new DataService();
+                        var personas = await ds.GetAll<Persona>(
+                            x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == txtUserName.Text &&
+                            x.Usuario.Password == hashedPassword && x.Estado == true),
+                            x => x.Usuario);
+                        var persona = personas.FirstOrDefault();
+
+                        if (persona != null)
+                        {
+
+                            Session["user"] = persona;
+                            Response.Redirect("Dashboard.aspx");
+
+                        }
+                        else
+                        {
+                            txtUserName.Text = "";
+                            txtPassword.Text = "";
 
 
+                        }
+                    }
                 }
+
             }
+
+           
+
+        }
+
+        async protected void LoginButton_Click(object sender, EventArgs e)
+        {
+            login(txtUserName.Text, txtPassword.Text);
+
         }
     }
 }
