@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Security.Policy;
@@ -15,79 +16,70 @@ using API.DTOs.Views;
 using API.Services;
 using Modelos;
 using System.Text.Json;
+using API.Util;
 
 namespace API.Controllers
 {
     [Authorize]
     public class CajaController : ApiController
     {
-        
-        private static readonly log4net.ILog Log = 
+        private static readonly log4net.ILog Log =
             log4net.LogManager.GetLogger
                 (System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-        
+
         [HttpPost]
         [Route("CAJA/login")]
         public async Task<IHttpActionResult> LoginCajero(string usuario, string clave)
         {
-            bool CoreRespondio = false;
-            if (CoreRespondio)
-            {
-                return BadRequest("Usuario o clave incorrectos");
-            }
-            else
-            { 
-                var ds = new DataService();
-                try
+            var ds = new DataService();
+
+            try {
+                var personas = await ds.GetAll<Persona>(
+                    x => (x.RolPersonaID == (int)Enums.RolPersona.Cajero && x.Usuario.Username == usuario &&
+                          x.Usuario.Password == clave && x.Estado == true),
+                    x => x.Usuario);
+
+                var persona = personas.FirstOrDefault();
+                PersonaView respuesta = null;
+                if (persona != null)
                 {
-                    var personas = await ds.GetAll<Persona>(
-                        x => (x.RolPersonaID == (int)Enums.RolPersona.Cajero && x.Usuario.Username == usuario &&
-                              x.Usuario.Password == clave && x.Estado == true), 
-                              x=> x.Usuario);
-                    
-                    var persona = personas.FirstOrDefault();
-                    PersonaView respuesta = null;
-                    if (persona != null)
+                    respuesta = new PersonaView()
                     {
-                        respuesta = new PersonaView()
+                        Apellido = persona.Apellido,
+                        Documento = persona.Documento,
+                        Estado = persona.Estado,
+                        NacionalidadID = persona.NacionalidadID,
+                        Nombre = persona.Nombre,
+                        PersonaID = persona.PersonaID,
+                        RolPersonaID = persona.RolPersonaID,
+                        Sexo = persona.Sexo,
+                        Telefono = persona.Telefono,
+                        TipoDocumentoID = persona.TipoDocumentoID,
+                        TipoSangreID = persona.TipoSangreID,
+                        UpdatedAt = persona.UpdatedAt,
+                        Usuario = new UsuarioView()
                         {
-                            Apellido = persona.Apellido,
-                            Documento = persona.Documento,
-                            Estado = persona.Estado,
-                            NacionalidadID = persona.NacionalidadID,
-                            Nombre = persona.Nombre,
-                            PersonaID = persona.PersonaID,
-                            RolPersonaID = persona.RolPersonaID,
-                            Sexo = persona.Sexo,
-                            Telefono = persona.Telefono,
-                            TipoDocumentoID = persona.TipoDocumentoID,
-                            TipoSangreID = persona.TipoSangreID,
-                            UpdatedAt = persona.UpdatedAt,
-                            Usuario = new UsuarioView()
-                            {
-                                Email = persona.Usuario.Email,
-                                Estado = persona.Usuario.Estado,
-                                Password = persona.Usuario.Password,
-                                SucursalID = persona.Usuario.SucursalID,
-                                UpdatedAt = persona.Usuario.UpdatedAt,
-                                UsuarioID = persona.Usuario.UsuarioID,
-                                Username = persona.Usuario.Username,
-                            }
-                            
-                        };
-                    }
-                    
-                    Log.Info("Se ha logeado el usuario " + usuario);
-                    return Ok(respuesta);
+                            Email = persona.Usuario.Email,
+                            Estado = persona.Usuario.Estado,
+                            Password = persona.Usuario.Password,
+                            SucursalID = persona.Usuario.SucursalID,
+                            UpdatedAt = persona.Usuario.UpdatedAt,
+                            UsuarioID = persona.Usuario.UsuarioID,
+                            Username = persona.Usuario.Username,
+                        }
+                    };
                 }
-                catch (Exception e)
-                {
-                    Log.Error("Error: " + e);
-                    return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
-                }
+
+                Log.Info("Se ha logeado el usuario " + usuario);
+                return Ok(respuesta);
+            }
+            catch (Exception e)
+            {
+                Log.Error("Error: " + e);
+                return BadRequest("No fue posible emitir una respuesta, intente mas tarde");
             }
         }
-        
+
         [HttpGet]
         [Route("CAJA/cuentas/paciente/get")]
         public async Task<IHttpActionResult> ObtenerCuentasPaciente(string documento)
@@ -98,13 +90,13 @@ namespace API.Controllers
                 return BadRequest("Usuario o clave incorrectos");
             }
             else
-            { 
+            {
                 var ds = new DataService();
                 try
                 {
                     var cuentas = await ds.GetAll<Cuenta>(
                         x => x.Persona.Documento == documento);
-                    
+
                     var respuesta = cuentas.Select(x => new CuentaView()
                     {
                         CuentaID = x.CuentaID,
@@ -113,10 +105,9 @@ namespace API.Controllers
                         PacienteID = x.PacienteID,
                         UpdatedAt = x.UpdatedAt
                     }).ToList();
-                    
+
                     Log.Info("Se han solicitado los datos de las cuentas del paciente cuyo documento es " + documento);
                     return Ok(respuesta.Count > 0 ? respuesta : null);
-                    
                 }
                 catch (Exception e)
                 {
@@ -125,7 +116,7 @@ namespace API.Controllers
                 }
             }
         }
-        
+
         [HttpGet]
         [Route("CAJA/transacciones/cuenta/get")]
         public async Task<IHttpActionResult> ObtenerTransaccionesCuenta(int cuentaID)
@@ -136,13 +127,13 @@ namespace API.Controllers
                 return BadRequest("Usuario o clave incorrectos");
             }
             else
-            { 
+            {
                 var ds = new DataService();
                 try
                 {
                     var transacciones = await ds.GetAll<Transaccion>(
                         x => x.Cuenta.CuentaID == cuentaID);
-                    
+
                     var respuesta = transacciones.Select(x => new TransaccionView()
                     {
                         Monto = x.Monto,
@@ -155,7 +146,7 @@ namespace API.Controllers
                         EmpleadoID = x.EmpleadoID,
                         CodigoTransaccion = x.CodigoTransaccion
                     }).ToList();
-                     
+
                     Log.Info("Se ha solicitado el historial de transacciones de la cuenta " + cuentaID);
                     return Ok(respuesta.Count > 0 ? respuesta : null);
                 }
@@ -166,7 +157,7 @@ namespace API.Controllers
                 }
             }
         }
-        
+
         [HttpGet]
         [Route("CAJA/pacientes/get")]
         public async Task<IHttpActionResult> ObtenerPaciente(string documento)
@@ -192,20 +183,21 @@ namespace API.Controllers
                     TipoSangreID = paciente.TipoSangreID,
                     UpdatedAt = DateTime.Now
                 };
-                ds.Persona.AddOrUpdate(x=>x.PersonaID, local);
+                ds.Persona.AddOrUpdate(x => x.PersonaID, local);
                 await ds.SaveChangesAsync();
-                
+
                 Log.Info("Se han solicitado los datos del paciente cuyo documento es " + documento);
-                return Ok(paciente);                     
+                return Ok(paciente);
             }
             else
-            { 
+            {
                 var ds = new DataService();
                 try
                 {
                     var personas = await ds.GetAll<Persona>(
-                        x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Documento == documento && x.Estado == true));
-                    
+                        x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Documento == documento &&
+                              x.Estado == true));
+
                     var persona = personas.FirstOrDefault();
                     PersonaView respuesta = null;
                     if (persona != null)
@@ -226,7 +218,7 @@ namespace API.Controllers
                             UpdatedAt = persona.UpdatedAt,
                         };
                     }
-                    
+
                     Log.Info("Se han solicitado los datos del paciente cuyo documento es " + documento);
                     return Ok(respuesta);
                 }
@@ -237,7 +229,7 @@ namespace API.Controllers
                 }
             }
         }
-        
+
         [HttpGet]
         [Route("CAJA/servicios/get")]
         public async Task<IHttpActionResult> ObtenerServicios()
@@ -254,7 +246,7 @@ namespace API.Controllers
                     Precio = x.Precio,
                     Descripcion = x.Descripcion,
                     UpdatedAt = DateTime.Now,
-                    Estado = x.Estado, 
+                    Estado = x.Estado,
                     TipoServicio = new TipoServicio()
                     {
                         Descripcion = x.TipoServicio.Descripcion,
@@ -264,26 +256,26 @@ namespace API.Controllers
                     Impuesto = x.Impuesto,
                     Descuento = x.Descuento
                 });
-                ds.Servicios.AddOrUpdate(x=>x.ServicioID, local.ToArray());
+                ds.Servicios.AddOrUpdate(x => x.ServicioID, local.ToArray());
                 await ds.SaveChangesAsync();
-                
+
                 Log.Info("Se han solicitado los datos de los servicios");
                 return Ok(servicios);
             }
             else
-            { 
+            {
                 var ds = new DataService();
                 try
                 {
                     var servicios = await ds.GetAll<Servicios>(
-                        x=> x.Estado == true, x => x.TipoServicio);
+                        x => x.Estado == true, x => x.TipoServicio);
                     var respuesta = servicios.Select(x => new ServiciosView()
                     {
                         ServicioID = x.ServicioID,
                         Precio = x.Precio,
                         Descripcion = x.Descripcion,
                         UpdatedAt = x.UpdatedAt,
-                        Estado = x.Estado, 
+                        Estado = x.Estado,
                         TipoServicio = new TipoServicioView()
                         {
                             Descripcion = x.TipoServicio.Descripcion,
@@ -292,7 +284,7 @@ namespace API.Controllers
                         Impuesto = x.Impuesto,
                         Descuento = x.Descuento
                     }).ToList();
-                    
+
                     Log.Info("Se han solicitado los datos de los servicios");
                     return Ok(respuesta.Count > 0 ? respuesta : null);
                 }
@@ -303,7 +295,7 @@ namespace API.Controllers
                 }
             }
         }
-        
+
         [HttpPost]
         [Route("CAJA/facturas/registrar")]
         public async Task<IHttpActionResult> RegistrarFactura(FacturaInput factura)
@@ -312,19 +304,21 @@ namespace API.Controllers
             var transaccion = ds.Database.BeginTransaction();
             try
             {
-                ds.Database.ExecuteSqlCommand("EXEC sp_registrar_factura @TotalFinal, @TotalDescuento, @TotalBruto, @CuentaID, @PacienteID, @EmpleadoID, @MetodoPagoID, @CreatedAt, @CodigoFactura, @Canal",
+                ds.Database.ExecuteSqlCommand(
+                    "EXEC sp_registrar_factura @TotalFinal, @TotalDescuento, @TotalBruto, @CuentaID, @PacienteID, @EmpleadoID, @MetodoPagoID, @CreatedAt, @CodigoFactura, @Canal",
                     new SqlParameter("@TotalFinal", factura.TotalFinal),
                     new SqlParameter("@TotalDescuento", factura.TotalDescuento),
                     new SqlParameter("@TotalBruto", factura.TotalBruto),
                     new SqlParameter("@CuentaID", factura.CuentaID == null ? DBNull.Value : (object)factura.CuentaID),
                     new SqlParameter("@PacienteID", factura.PacienteID),
-                    new SqlParameter("@EmpleadoID", factura.EmpleadoID == null ? DBNull.Value : (object) factura.EmpleadoID),
+                    new SqlParameter("@EmpleadoID",
+                        factura.EmpleadoID == null ? DBNull.Value : (object)factura.EmpleadoID),
                     new SqlParameter("@MetodoPagoID", factura.MetodoPagoID),
                     new SqlParameter("@CreatedAt", factura.CreatedAt),
                     new SqlParameter("@CodigoFactura", factura.CodigoFactura),
                     new SqlParameter("@Canal", "CAJA")
                 );
-                
+
                 foreach (var servicio in factura.Servicios)
                 {
                     var ID = new SqlParameter("@ID", SqlDbType.Int)
@@ -359,9 +353,10 @@ namespace API.Controllers
                         CodigoFactura,
                         ID
                     );
-                    
-                    if(servicio.Consulta != null)
-                        ds.Database.ExecuteSqlCommand("EXEC sp_registrar_consulta @CodigoFactura, @Descripcion, @DoctorID, @CreatedAt, @DetalleID",
+
+                    if (servicio.Consulta != null)
+                        ds.Database.ExecuteSqlCommand(
+                            "EXEC sp_registrar_consulta @CodigoFactura, @Descripcion, @DoctorID, @CreatedAt, @DetalleID",
                             new SqlParameter("@CodigoFactura", factura.CodigoFactura),
                             new SqlParameter("@DoctorID", servicio.Consulta.DoctorID),
                             new SqlParameter("@Descripcion", servicio.Consulta.Descripcion),
@@ -369,14 +364,25 @@ namespace API.Controllers
                             new SqlParameter("@DetalleID", (int)ID.Value)
                         );
                 }
-                
-                bool coreRespondio = false;
-                if (coreRespondio)
-                {
-                    //actualizar la fecha de envio
-                }
+
                 transaccion.Commit();
-                
+
+                var status = await Core.GetInstance().Ping();
+                if (status)
+                {
+                    var pendingToSend = await ds.GetAll<Factura>(x => x.SendedAt == null);
+                    foreach (var data in pendingToSend)
+                    {
+                        // send data
+                        var statusRequest = await Core.GetInstance().EnviarFactura(data);
+                        if (statusRequest == HttpStatusCode.OK)
+                        {
+                            data.SendedAt = DateTime.Now;
+                            await ds.Update<Factura>(data);
+                        }
+                    }
+                }
+
                 Log.Info("Se ha registrado una factura");
                 return Ok();
             }
@@ -387,12 +393,13 @@ namespace API.Controllers
                 return BadRequest("Hubo un error al resitrar la factura, intente mas tarde");
             }
         }
-        
+
         [HttpPost]
         [Route("CAJA/transacciones/registrar")]
         public async Task<IHttpActionResult> RegistrarTransacciones(TransaccionInput transaccionCuenta)
         {
             DataService ds = new DataService();
+
             var transaccion = ds.Database.BeginTransaction();
             try
             {
@@ -403,20 +410,30 @@ namespace API.Controllers
                     new SqlParameter("@TipoTransaccion", transaccionCuenta.TipoTransaccion),
                     new SqlParameter("@MetodoPagoID", transaccionCuenta.MetodoPagoID),
                     new SqlParameter("@CuentaID", transaccionCuenta.CuentaID),
-                    new SqlParameter("@EmpleadoID", transaccionCuenta.EmpleadoID == null ? DBNull.Value : (object) transaccionCuenta.EmpleadoID),
+                    new SqlParameter("@EmpleadoID",
+                        transaccionCuenta.EmpleadoID == null ? DBNull.Value : (object)transaccionCuenta.EmpleadoID),
                     new SqlParameter("@CreatedAt", transaccionCuenta.CreatedAt),
                     new SqlParameter("@CodigoTransaccion", transaccionCuenta.CodigoTransaccion),
                     new SqlParameter("@Canal", "CAJA")
                 );
-
-                bool coreRespondio = false;
-                if (coreRespondio)
-                {
-                    //actualizar la fecha de envio
-                }
-                
                 transaccion.Commit();
-                
+
+                var status = await Core.GetInstance().Ping();
+                if (status)
+                {
+                    var pendingToSend = await ds.GetAll<Transaccion>(x => x.SendedAt == null);
+                    foreach (var data in pendingToSend)
+                    {
+                        // send data
+                        var statusRequest = await Core.GetInstance().EnviarTransaccion(data);
+                        if (statusRequest == HttpStatusCode.OK)
+                        {
+                            data.SendedAt = DateTime.Now;
+                            await ds.Update<Transaccion>(data);
+                        }
+                    }
+                }
+
                 Log.Info("Se ha registrado una transaccion");
                 return Ok();
             }
@@ -427,7 +444,7 @@ namespace API.Controllers
                 return BadRequest("Hubo un error al registrar la transaccion, intente mas tarde");
             }
         }
-        
+
         [HttpGet]
         [Route("CAJA/doctores/get")]
         public async Task<IHttpActionResult> ObtenerDoctores()
@@ -438,7 +455,7 @@ namespace API.Controllers
                 // Actualizacion dentro de la integracion
                 var doctores = new List<DoctorView>();
                 var ds = new DataService();
-                var local = doctores.Select(x=>new Persona()
+                var local = doctores.Select(x => new Persona()
                 {
                     Apellido = x.Apellido,
                     Documento = x.Documento,
@@ -453,14 +470,14 @@ namespace API.Controllers
                     TipoSangreID = x.TipoSangreID,
                     UpdatedAt = DateTime.Now
                 });
-                ds.Persona.AddOrUpdate(x=>x.PersonaID, local.ToArray());
+                ds.Persona.AddOrUpdate(x => x.PersonaID, local.ToArray());
                 await ds.SaveChangesAsync();
-                
+
                 Log.Info("Se ha solicitado la lista de doctores");
-                return Ok(doctores);            
+                return Ok(doctores);
             }
             else
-            { 
+            {
                 var ds = new DataService();
                 try
                 {
@@ -481,7 +498,7 @@ namespace API.Controllers
                         TipoSangreID = x.TipoSangreID,
                         UpdatedAt = x.UpdatedAt
                     }).ToList();
-                    
+
                     Log.Info("Se ha solicitado la lista de doctores");
                     return Ok(respuesta.Count > 0 ? respuesta : null);
                 }
