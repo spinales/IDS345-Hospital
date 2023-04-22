@@ -19,6 +19,7 @@ namespace CORE_Api.Controllers
     public class IntegracionController : ApiController
     {
         private readonly ILog log = LogManager.GetLogger("API Logger");
+        
         [HttpPost]
         [Route("CI/pacientes/login")]
         public async Task<IHttpActionResult> LoginPaciente(string usuario, string clave)
@@ -62,8 +63,8 @@ namespace CORE_Api.Controllers
                     };
                 }
                 log.Info("Se ha logueado el usuario " + persona.Usuario.Username);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se ha logueado el usuario " + persona.Usuario.Username, persona.Usuario.UsuarioID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se ha logueado el usuario " + persona.Usuario.Username, persona.Usuario.UsuarioID);
                 return Ok(respuesta);
             }
             catch (Exception e)
@@ -97,8 +98,8 @@ namespace CORE_Api.Controllers
                         
                 }).ToList();
                 log.Info("Se consultaron las transacciones del paciente " + documento);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se han solicitado los datos de las transacciones del paciente cuyo documento es " + documento, userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se han solicitado los datos de las transacciones del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
             }
             catch (Exception e)
@@ -128,8 +129,8 @@ namespace CORE_Api.Controllers
                     UpdatedAt = x.UpdatedAt
                 }).ToList();
                 log.Info("Se consultaron las cuentas del paciente " + documento);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se han solicitado los datos de las cuentas del paciente cuyo documento es " + documento, userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se han solicitado los datos de las cuentas del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
                     
             }
@@ -163,8 +164,8 @@ namespace CORE_Api.Controllers
                     MontoIngreso = x.MontoIngreso
                 }).ToList();
                 log.Info("Se consultaron los ingresos del paciente " + documento);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se han solicitado los datos de los ingresos del paciente cuyo documento es " + documento, usertID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se han solicitado los datos de los ingresos del paciente cuyo documento es " + documento, usertID);
 
                 return Ok(respuesta.Count > 0 ? respuesta : null);
             }
@@ -208,8 +209,8 @@ namespace CORE_Api.Controllers
                         
                 }).ToList();
                 log.Info("Se consultaron las consultas del paciente " + documento);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se han solicitado los datos de las consultas del paciente cuyo documento es " + documento, userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se han solicitado los datos de las consultas del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
             }
             catch (Exception e)
@@ -242,9 +243,9 @@ namespace CORE_Api.Controllers
                     CodigoTransaccion = x.CodigoTransaccion
                 }).ToList();
                 log.Info("Se consultaron las transacciones de la cuenta " + cuentaID);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se ha solicitado el historial de transacciones de la cuenta " + cuentaID,
-                    userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se ha solicitado el historial de transacciones de la cuenta " + cuentaID,
+                //     userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
             }
             catch (Exception e)
@@ -279,8 +280,8 @@ namespace CORE_Api.Controllers
                     Descuento = x.Descuento
                 }).ToList();
                 log.Info("Se consultaron los servicios");
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
             }
             catch (Exception e)
@@ -318,8 +319,8 @@ namespace CORE_Api.Controllers
                         Descuento = x.Descuento
                     }).ToList();
                 log.Info("Se consultaron los 5 servicios mas socilitados");
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se han solicitado los datos de los servicios", 1);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
             }
             catch (Exception e)
@@ -331,7 +332,7 @@ namespace CORE_Api.Controllers
         
         [HttpPost] 
         [Route("CI/factura/registrar")]
-        public IHttpActionResult RegistrarFactura(FacturaInput factura, int userID)
+        public IHttpActionResult RegistrarFactura([FromBody]FacturaInput factura, int userID)
         {
             DataService ds = new DataService();
             var transaccion = ds.Database.BeginTransaction();
@@ -395,8 +396,8 @@ namespace CORE_Api.Controllers
                         );
                 }
                 transaccion.Commit();
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se ha registrado una factura", userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se ha registrado una factura", userID);
                 log.Info("Se registro la factura");
                 return Ok();
             }
@@ -433,8 +434,8 @@ namespace CORE_Api.Controllers
                     UpdatedAt = x.UpdatedAt
                 }).ToList();
                 log.Info("Se consultaron los doctores"+ userID);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se ha solicitado la lista de doctores", userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se ha solicitado la lista de doctores", userID);
                 return Ok(respuesta.Count > 0 ? respuesta : null);
             }
             catch (Exception e)
@@ -446,7 +447,7 @@ namespace CORE_Api.Controllers
         
         [HttpPost]
         [Route("CI/transacciones/registrar")]
-        public IHttpActionResult RegistrarTransacciones(TransaccionInput transaccionCuenta, int userID)
+        public IHttpActionResult RegistrarTransacciones([FromBody]TransaccionInput transaccionCuenta, int userID)
         {
             DataService ds = new DataService();
             var transaccion = ds.Database.BeginTransaction();
@@ -466,8 +467,8 @@ namespace CORE_Api.Controllers
                 );
                 transaccion.Commit();
                 log.Info("Se registro la transaccion" + userID);
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se ha registrado una transaccion", userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se ha registrado una transaccion", userID);
                 return Ok();
             }
             catch (Exception e)
@@ -482,6 +483,7 @@ namespace CORE_Api.Controllers
         [Route("CI/cajeros/login")]
         public async Task<IHttpActionResult> LoginCajero(string usuario, string clave)
         {
+            
             var ds = new DataService();
             try
             {
@@ -522,8 +524,8 @@ namespace CORE_Api.Controllers
                     };
                 }
                 log.Info("Registro de transacciones fallido");
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se ha logeado el usuario " + usuario, persona.Usuario.UsuarioID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se ha logeado el usuario " + usuario, persona.Usuario.UsuarioID);
                 return Ok(respuesta);
             }
             catch (Exception e)
@@ -564,8 +566,8 @@ namespace CORE_Api.Controllers
                     };
                 }
                 log.Info("Consulta de pacientes");
-                AuditoriaAccion auditoria = new AuditoriaAccion();
-                auditoria.RegistrarAccion("Se han solicitado los datos del paciente cuyo documento es " + documento, userID);
+                // AuditoriaAccion auditoria = new AuditoriaAccion();
+                // auditoria.RegistrarAccion("Se han solicitado los datos del paciente cuyo documento es " + documento, userID);
                 return Ok(respuesta);
             }
             catch (Exception e)
