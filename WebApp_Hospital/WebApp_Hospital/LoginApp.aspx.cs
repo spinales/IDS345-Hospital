@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Web.Http;
 using Newtonsoft.Json;
+using WebApp_Hospital.DTOs.Views;
 
 namespace WebApp_Hospital
 {
@@ -42,10 +43,12 @@ namespace WebApp_Hospital
             using (var httpClient = new HttpClient())
             {
                 var apiUrl = "https://localhost:44348/WEB/login";
+                string hashedPassword = HashPassword(txtPassword.Text);
+
                 var requestBody = new
                 {
                     Username = Usuario,
-                    Password = Clave
+                    Password = hashedPassword
                 };
 
                 var json = JsonConvert.SerializeObject(requestBody);
@@ -56,7 +59,8 @@ namespace WebApp_Hospital
 
                 if (response.IsSuccessStatusCode)
                 {
-                    if(response != null)
+                    var respuesta = JsonConvert.DeserializeObject<PersonaView>(responseContent);
+                    if(respuesta != null)
                     {
                         Response.Redirect("Dashboard.aspx");
                     }
@@ -65,49 +69,33 @@ namespace WebApp_Hospital
                         txtUserName.Text = "";
                         txtPassword.Text = "";
                     }
-                    
-
                 }
-
                 else
                 {
-                    bool integracionRespondio = false;
-                    string hashedPassword = HashPassword(txtPassword.Text);
+                    var ds = new DataService();
+                    var personas = await ds.GetAll<Persona>(
+                        x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == txtUserName.Text &&
+                              x.Usuario.Password == hashedPassword && x.Estado == true),
+                        x => x.Usuario);
+                    var persona = personas.FirstOrDefault();
 
-                    if (integracionRespondio)
+                    if (persona != null)
                     {
-                        login(txtUserName.Text, hashedPassword);
+
+                        Session["user"] = persona;
+                        Response.Redirect("Dashboard.aspx");
 
                     }
                     else
                     {
-                        var ds = new DataService();
-                        var personas = await ds.GetAll<Persona>(
-                            x => (x.RolPersonaID == (int)Enums.RolPersona.Pacientes && x.Usuario.Username == txtUserName.Text &&
-                            x.Usuario.Password == hashedPassword && x.Estado == true),
-                            x => x.Usuario);
-                        var persona = personas.FirstOrDefault();
-
-                        if (persona != null)
-                        {
-
-                            Session["user"] = persona;
-                            Response.Redirect("Dashboard.aspx");
-
-                        }
-                        else
-                        {
-                            txtUserName.Text = "";
-                            txtPassword.Text = "";
+                        txtUserName.Text = "";
+                        txtPassword.Text = "";
 
 
-                        }
                     }
                 }
 
             }
-
-           
 
         }
 
